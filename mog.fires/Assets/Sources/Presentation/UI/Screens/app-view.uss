@@ -56,28 +56,27 @@
 }
 
 .control-panel__section {
-    margin: 40px;
+    margin: var(--spacing-2xl);
     flex-direction: row;
 }
 
 .control-panel__section--left {
     align-self: flex-end;
-    margin-left: 40px;
+    margin-left: var(--spacing-2xl);
 }
 
 .control-panel__section--right {
     align-self: flex-start;
-    margin-right: 40px;
+    margin-right: var(--spacing-2xl);
 }
 
 .control-panel__button {
     width: 58px;
     height: 58px;
-    margin: 0 32px 0 0;
+    margin: 0 var(--spacing-xl) 0 0;
     border-radius: 0;
     border-width: 0;
-    border-color: #152046;
-    background-color: #152046;
+    background-color: var(--color-background-secondary);
 }
 
 .control-panel__button:active {
@@ -88,25 +87,25 @@
 
 /* Control Panel Button Modifiers */
 .control-panel__button--contrast {
-    background-color: black;
+    background-color: var(--color-background-contrast);
 }
 
 .control-panel__button--language,
 .control-panel__button--resize {
     padding: 0;
-    color: white;
+    color: var(--color-text-primary);
     -unity-text-align: middle-center;
-    -unity-font-definition: var(--font-def-geist-semibold-italic);
+    -unity-font-definition: var(--font-def-geist-extrabold);
     white-space: normal;
     overflow: hidden;
 }
 
 .control-panel__button--language {
-    font-size: 22px;
+    font-size: var(--font-size-body);
 }
 
 .control-panel__button--resize {
-    font-size: 20px;
+    font-size: var(--font-size-body);
 }
 
 /* Control Panel Button Icons */
@@ -136,18 +135,18 @@
 
 /* Contrast Mode Modifications */
 .contrast .control-panel__button {
-    border-color: #E6E4FF;
-    background-color: #FFFF00;
-    color: black;
+    border-color: var(--color-background-primary);
+    background-color: var(--color-background-contrast);
+    color: var(--color-text-secondary);
 }
 
 .contrast .control-panel__button--language,
 .contrast .control-panel__button--resize {
-    color: black;
+    color: var(--color-background-secondary);
 }
 
 .contrast .control-panel__button-icon {
-    -unity-background-image-tint-color: black;
+    -unity-background-image-tint-color: var(--color-background-secondary);
 }
 
 

@@ -2,11 +2,11 @@
 
 /* Start Screen Block */
 .start-screen {
-    background-color: white;
+    background-color: var(--color-background-primary);
 }
 
 .start-screen.contrast {
-    background-color: black;
+    background-color: var(--color-background-secondary);
 }
 
 .start-screen__content {
@@ -23,7 +23,7 @@
     left: 50px;
     top: 122px;
     font-size: 112px;
-    color: white;
+    color: var(--color-text-primary);
     -unity-text-align: upper-left;
     -unity-font-definition: var(--font-def-geist-extrabold);
     white-space: normal;
@@ -36,6 +36,6 @@
 }
 
 .contrast .start-screen__title {
-    color: black;
+    color: var(--color-background-secondary);
 }
 

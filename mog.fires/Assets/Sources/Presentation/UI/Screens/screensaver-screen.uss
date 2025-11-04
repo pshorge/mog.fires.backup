@@ -5,7 +5,7 @@
 
 /* Screensaver Block */
 .screensaver {
-    background-color: white;
+    background-color: var( --color-background-secondary);
 }
 
 .screensaver--video {
@@ -27,47 +27,47 @@
     width: 1000px;
     height: 700px;
     margin: auto;
-    color: #666666;
-    -unity-font-definition: var(--font-def-geist-semibold-italic);
+    color: var(--color-text-primary);
+    -unity-font-definition: var(--font-def-geist-extrabold);
     white-space: normal;
     overflow: visible;
 }
 
 .screensaver__title {
-    font-size: 20px;
-    margin-bottom: 45px;
+    font-size: var(--font-size-title);
+    margin-bottom: var(--spacing-3xl);
     -unity-text-align: middle-center;
 }
 
 .screensaver__text {
-    font-size: 15px;
+    font-size: var(--font-size-subtitle);
     -unity-text-align: middle-center;
 }
 
 .screensaver__line {
     width: 1px;
     height: 72px;
-    background-color: #666666;
+    background-color: var(--color-background-primary);
     border-width: 0;
-    margin-top: 15px;
-    margin-bottom: 45px;
+    margin-top: var(--spacing-m);
+    margin-bottom: var(--spacing-3xl);
 }
 
 /* Screensaver Icons */
 .screensaver__icon {
-    -unity-background-image-tint-color: #666666;
+    -unity-background-image-tint-color: var(--color-background-primary);
 }
 
 .screensaver__icon--hand {
     background-image: url("../Icons/touch-hand-icon.png");
     width: 74px;
     height: 100px;
-    margin-top: 20px;
+    margin-top: var(--spacing-l);
 }
 
 .screensaver__icon--touch-point {
     background-image: url("../Icons/touch-point-icon.png");
     width: 47px;
     height: 19px;
-    margin-left: -15px;
+    margin-left: var(--spacing-neg-m);
 }

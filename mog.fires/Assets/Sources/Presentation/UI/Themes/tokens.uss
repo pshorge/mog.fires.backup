@@ -1,9 +1,12 @@
 :root {
     /* --- Colors --- */
-    --color-background: rgb(18, 18, 19);
+    --color-background-primary: rgb(255, 255, 255);
+    --color-background-secondary: rgb(0, 0, 0);
+    --color-background-contrast: #FFFF00;
     --color-text-primary: white;
-    --color-text-secondary: rgb(211, 211, 211);
-
+    --color-text-secondary: rgb(0, 0, 0);
+    --color-text-muted: rgb(103, 103, 103);
+    --color-text-contrast: #FFFF00;
     
     /* --- Font Definitions --- */
     --font-def-geist-vf: url('/Assets/Resources/Fonts/Geist/GeistVF SDF.asset');
@@ -14,12 +17,28 @@
     /* --- Font Sizes --- */
     --font-size-title: 32px;
     --font-size-subtitle: 20px;
-    --font-size-body: 16px;
+    --font-size-body: 22px;
 
     /* --- Spacing --- */
+    --spacing-neg-xs: -4px;
+    --spacing-neg-s: -8px;
+    --spacing-neg-m: -16px;
+    --spacing-neg-l: -24px;
+    --spacing-neg-xl: -32px;
+    --spacing-neg-2xl: -40px;
+    --spacing-neg-3xl: -45px;
+    --spacing-neg-4xl: -50px;
+    --spacing-neg-5xl: -60px;
+    --spacing-neg-6xl: -70px;
+    
     --spacing-xs: 4px;
     --spacing-s: 8px;
     --spacing-m: 16px;
     --spacing-l: 24px;
     --spacing-xl: 32px;
+    --spacing-2xl: 40px;
+    --spacing-3xl: 45px;
+    --spacing-4xl: 50px;
+    --spacing-5xl: 60px;
+    --spacing-6xl: 70px;
 }
