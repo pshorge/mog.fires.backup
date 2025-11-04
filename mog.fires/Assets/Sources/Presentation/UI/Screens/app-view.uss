@@ -1,0 +1,154 @@
+/*app-views.uss*/
+
+
+/*no hover opacity on list view elements*/
+.unity-collection-view__item:hover,
+.unity-collection-view__item:checked {
+    background-color: transparent;
+    opacity: 1;
+}
+
+/* Screen Block */
+.screen {
+    position: absolute;
+    top: 0;
+    left: 0;
+    flex-grow: 1;
+    width: 100%;
+    height: 100%;
+}
+
+.screen--transition-top-down {
+    transition-property: translate;
+    transition-duration: 0.5s;
+    transition-timing-function: ease-out;
+}
+
+.screen--entering {
+    display: flex;
+    opacity: 1;
+    translate: 0 -100%;
+}
+
+.screen--visible {
+    display: flex;
+    translate: 0 0;
+}
+
+/* App Block */
+.app__screens {
+    position: absolute;
+    top: 0;
+    left: 0;
+    flex-grow: 1;
+    width: 100%;
+    height: 100%;
+}
+
+/* Control Panel Block */
+.control-panel {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100px;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.control-panel__section {
+    margin: 40px;
+    flex-direction: row;
+}
+
+.control-panel__section--left {
+    align-self: flex-end;
+    margin-left: 40px;
+}
+
+.control-panel__section--right {
+    align-self: flex-start;
+    margin-right: 40px;
+}
+
+.control-panel__button {
+    width: 58px;
+    height: 58px;
+    margin: 0 32px 0 0;
+    border-radius: 0;
+    border-width: 0;
+    border-color: #152046;
+    background-color: #152046;
+}
+
+.control-panel__button:active {
+    opacity: 0.85;
+    scale: 1.05;
+    transition: all 0.2s;
+}
+
+/* Control Panel Button Modifiers */
+.control-panel__button--contrast {
+    background-color: black;
+}
+
+.control-panel__button--language,
+.control-panel__button--resize {
+    padding: 0;
+    color: white;
+    -unity-text-align: middle-center;
+    -unity-font-definition: var(--font-def-geist-semibold-italic);
+    white-space: normal;
+    overflow: hidden;
+}
+
+.control-panel__button--language {
+    font-size: 22px;
+}
+
+.control-panel__button--resize {
+    font-size: 20px;
+}
+
+/* Control Panel Button Icons */
+.control-panel__button--home > .control-panel__button-icon {
+    margin: auto;
+    padding: 0;
+    width: 36px;
+    height: 31px;
+    background-image: url("../Icons/home-icon.png");
+}
+
+.control-panel__button--back > .control-panel__button-icon {
+    margin: auto;
+    padding: 0;
+    width: 30px;
+    height: 33px;
+    background-image: url("../Icons/back-icon.png");
+}
+
+.control-panel__button--contrast > .control-panel__button-icon {
+    margin: auto;
+    padding: 0;
+    width: 28px;
+    height: 28px;
+    background-image: url("../Icons/contrast-icon.png");
+}
+
+/* Contrast Mode Modifications */
+.contrast .control-panel__button {
+    border-color: #E6E4FF;
+    background-color: #FFFF00;
+    color: black;
+}
+
+.contrast .control-panel__button--language,
+.contrast .control-panel__button--resize {
+    color: black;
+}
+
+.contrast .control-panel__button-icon {
+    -unity-background-image-tint-color: black;
+}
+
+
+

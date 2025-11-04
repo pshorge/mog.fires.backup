@@ -1,0 +1,13 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements"  editor-extension-mode="False">
+
+    <Style src="start-screen.uss" />
+    
+    <ui:VisualElement class="start-screen__content">
+        <ui:Label class="start-screen__title">
+            <Bindings>
+                <ui:DataBinding property="text" data-source-path="Title" binding-mode="ToTarget"/>
+            </Bindings>
+        </ui:Label>
+    </ui:VisualElement>
+    
+</ui:UXML>

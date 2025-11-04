@@ -1,0 +1,36 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements"  editor-extension-mode="False">
+    
+    <Style src="../Themes/tokens.uss"/>
+    <Style src="app-view.uss"/>
+    
+    <ui:Template src="ScreensaverScreen.uxml" name="ScreensaverScreen"/>
+    <ui:Template src="StartScreen.uxml" name="StartScreen"/>
+    
+    <ui:VisualElement name="app-screens" class="app__screens">
+        <ui:Instance template="StartScreen" name="start-screen" class="screen screen--start" style="display:none"/>
+    </ui:VisualElement>
+
+    <ui:VisualElement name="control-panel" class="control-panel" picking-mode="Ignore">
+        <ui:VisualElement class="control-panel__section control-panel__section--left" picking-mode="Ignore">
+            <ui:Button name="control-panel-home-button" class="control-panel__button control-panel__button--home">
+                <ui:VisualElement class="control-panel__button-icon" />
+            </ui:Button>
+            <ui:Button name="control-panel-back-button" class="control-panel__button control-panel__button--back">
+                <ui:VisualElement class="control-panel__button-icon" />
+            </ui:Button>
+        </ui:VisualElement>
+        <ui:VisualElement class="control-panel__section control-panel__section--right" picking-mode="Ignore">
+            <ui:Button name="control-panel-language-button" class="control-panel__button control-panel__button--language" text="EN">
+                <Bindings>
+                    <ui:DataBinding property="text" data-source-path="NextLanguageLabel" binding-mode="ToTarget"/>
+                </Bindings>
+            </ui:Button>
+            <ui:Button name="control-panel-resize-button" class="control-panel__button control-panel__button--resize" text="aA"/>
+            <ui:Button name="control-panel-contrast-button" class="control-panel__button control-panel__button--contrast">
+                <ui:VisualElement class="control-panel__button-icon" />
+            </ui:Button>
+        </ui:VisualElement>
+    </ui:VisualElement>
+    
+    <ui:Instance template="ScreensaverScreen" name="screensaver" class="screensaver screen screen--screensaver" style="display:none" picking-mode="Position"/>
+</ui:UXML>

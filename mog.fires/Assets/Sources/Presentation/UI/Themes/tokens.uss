@@ -1,0 +1,25 @@
+:root {
+    /* --- Colors --- */
+    --color-background: rgb(18, 18, 19);
+    --color-text-primary: white;
+    --color-text-secondary: rgb(211, 211, 211);
+
+    
+    /* --- Font Definitions --- */
+    --font-def-geist-vf: url('/Assets/Resources/Fonts/Geist/GeistVF SDF.asset');
+    --font-def-geist-semibold-italic: url('/Assets/Resources/Fonts/Geist/Geist-SemiBoldItalic SDF.asset');
+    --font-def-geist-extrabold-italic: url('/Assets/Resources/Fonts/Geist/Geist-ExtraBoldItalic SDF.asset');
+    --font-def-geist-extrabold: url('/Assets/Resources/Fonts/Geist/Geist-ExtraBold SDF.asset');
+    
+    /* --- Font Sizes --- */
+    --font-size-title: 32px;
+    --font-size-subtitle: 20px;
+    --font-size-body: 16px;
+
+    /* --- Spacing --- */
+    --spacing-xs: 4px;
+    --spacing-s: 8px;
+    --spacing-m: 16px;
+    --spacing-l: 24px;
+    --spacing-xl: 32px;
+}
