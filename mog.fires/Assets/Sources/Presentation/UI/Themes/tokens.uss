@@ -1,12 +1,18 @@
 :root {
+
+    --color-yellow: #FFFF00;
+    
     /* --- Colors --- */
-    --color-background-primary: rgb(255, 255, 255);
-    --color-background-secondary: rgb(0, 0, 0);
-    --color-background-contrast: #FFFF00;
+    --color-background-primary: white;
+    --color-background-secondary: black;
+    --color-background-contrast: var(--color-yellow);
+    
     --color-text-primary: white;
-    --color-text-secondary: rgb(0, 0, 0);
+    --color-text-secondary: black;
     --color-text-muted: rgb(103, 103, 103);
-    --color-text-contrast: #FFFF00;
+    --color-text-contrast: var(--color-yellow);
+
+    --color-control-button-bg: transparent;
     
     /* --- Font Definitions --- */
     --font-def-geist-vf: url('/Assets/Resources/Fonts/Geist/GeistVF SDF.asset');

@@ -76,7 +76,7 @@
     margin: 0 var(--spacing-xl) 0 0;
     border-radius: 0;
     border-width: 0;
-    background-color: var(--color-background-secondary);
+    background-color: var(--color-control-button-bg);
 }
 
 .control-panel__button:active {
@@ -87,7 +87,6 @@
 
 /* Control Panel Button Modifiers */
 .control-panel__button--contrast {
-    background-color: var(--color-background-contrast);
 }
 
 .control-panel__button--language,
@@ -101,11 +100,11 @@
 }
 
 .control-panel__button--language {
-    font-size: var(--font-size-body);
+    font-size: var(--font-size-title);
 }
 
 .control-panel__button--resize {
-    font-size: var(--font-size-body);
+    font-size: var(--font-size-title);
 }
 
 /* Control Panel Button Icons */
@@ -135,8 +134,6 @@
 
 /* Contrast Mode Modifications */
 .contrast .control-panel__button {
-    border-color: var(--color-background-primary);
-    background-color: var(--color-background-contrast);
     color: var(--color-text-secondary);
 }
 
