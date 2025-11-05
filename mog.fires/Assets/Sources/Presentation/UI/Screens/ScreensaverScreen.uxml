@@ -1,23 +1,29 @@
-<ui:UXML xmlns:ui="UnityEngine.UIElements"  editor-extension-mode="False">
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:cui="Artigio.MVVMToolkit.Core.UI" editor-extension-mode="False">
 
     <Style src="screensaver-screen.uss" />
     
-    <ui:VisualElement class="screensaver__content">
-        <ui:VisualElement class="screensaver__container">
-            <ui:VisualElement class="screensaver__icon screensaver__icon--touch-point"/>
-            <ui:VisualElement class="screensaver__icon screensaver__icon--hand"/>
-            <ui:VisualElement class="screensaver__line"/>
-            <ui:Label class="screensaver__title">
-                <Bindings>
-                    <ui:DataBinding property="text" data-source-path="Title" binding-mode="ToTarget"/>
-                </Bindings>
-            </ui:Label>
-            <ui:Label class="screensaver__text">
-                <Bindings>
-                    <ui:DataBinding property="text" data-source-path="Text" binding-mode="ToTarget"/>
-                </Bindings>
-            </ui:Label>
+    <cui:MediaBackground name="screensaver" class="screensaver" autoplay="true" loop="true" mute="true" video-class="screensaver--video" video-extensions=".webm,.mp4,.mov">
+        <Bindings>
+            <ui:DataBinding property="source" data-source-path="BackgroundFilePath" binding-mode="ToTarget" />
+        </Bindings>
+
+        <ui:VisualElement class="screensaver__content">
+            <ui:VisualElement class="screensaver__container">
+                <ui:VisualElement class="screensaver__icon screensaver__icon--touch-point"/>
+                <ui:VisualElement class="screensaver__icon screensaver__icon--hand"/>
+                <ui:VisualElement class="screensaver__line"/>
+                <ui:Label class="screensaver__title">
+                    <Bindings>
+                        <ui:DataBinding property="text" data-source-path="Title" binding-mode="ToTarget"/>
+                    </Bindings>
+                </ui:Label>
+                <ui:Label class="screensaver__text">
+                    <Bindings>
+                        <ui:DataBinding property="text" data-source-path="Text" binding-mode="ToTarget"/>
+                    </Bindings>
+                </ui:Label>
+            </ui:VisualElement>
         </ui:VisualElement>
-    </ui:VisualElement>
+    </cui:MediaBackground>
 
 </ui:UXML>

@@ -34,11 +34,12 @@ namespace Sources.Features.ScreensaverScreen.ViewModel
         // UI elements
         private VisualElement _touchPointIcon;
         private VisualElement _touchIcon;
+        private MediaBackground _media;
+
 
         // Dependencies
         [Inject] private INavigationFlowController<ViewType> _navigationController;
         [Inject] private IInactivityService _inactivityService;
-        [Inject] private VideoPlayer _videoPlayer;
 
         // Implementation
         public override ViewType GetViewType() => ViewType.Screensaver;
@@ -67,14 +68,11 @@ namespace Sources.Features.ScreensaverScreen.ViewModel
             Container.dataSource = null;
         }
 
-        protected override void Start()
-        {
-            base.Start();
-            SetBackground();
-        }
+      
 
         private void SetupUIElements()
         {
+            _media = Container.Q<MediaBackground>();
             _touchIcon = Container.Q<VisualElement>(className: UI.HandIconClass);
             _touchPointIcon = Container.Q<VisualElement>(className: UI.TouchPointIconClass);
         }
@@ -83,7 +81,6 @@ namespace Sources.Features.ScreensaverScreen.ViewModel
         {
             Container.RegisterCallback<ClickEvent>(OnTouched);
             Container.RegisterCallback<TransitionEndEvent>(HandleTopDownTransitionEnd);
-            _videoPlayer.prepareCompleted += OnVideoPrepared;
             Model.propertyChanged += OnModelPropertyChanged;
         }
 
@@ -91,7 +88,6 @@ namespace Sources.Features.ScreensaverScreen.ViewModel
         {
             Container.UnregisterCallback<ClickEvent>(OnTouched);
             Container.UnregisterCallback<TransitionEndEvent>(HandleTopDownTransitionEnd);
-            _videoPlayer.prepareCompleted -= OnVideoPrepared;
             Model.propertyChanged -= OnModelPropertyChanged;
         }
 
@@ -100,42 +96,16 @@ namespace Sources.Features.ScreensaverScreen.ViewModel
             _navigationController.NavigateForward();
         }
         
-        private void OnVideoPrepared(VideoPlayer source)
-        {
-            if (Container.style.display == DisplayStyle.Flex) 
-                source.Play();
-        }
-
-        private void SetBackground()
-        {
-            var useVideo = Model.HasVideoBg;
-            Container.EnableInClassList(UI.VideoModifier, useVideo);
-            
-            if (useVideo) return;
-            
-            if (_videoPlayer.enabled)
-            {
-                _videoPlayer.Stop();
-                _videoPlayer.url = string.Empty;
-                _videoPlayer.enabled = false;
-            }
-            SetImageElement(Container, Model.BackgroundFilePath);
-        }
-        
         private void OnModelPropertyChanged(object sender, BindablePropertyChangedEventArgs e)
         {
-            if (e.propertyName == nameof(Model.BackgroundFilePath))
-            {
-                SetBackground();
-            }
+            
         }
 
         public override void Show()
         {
             base.Show();
+            _media?.Play();
             _inactivityService.StopMonitoring();
-            if (Model.HasVideoBg) 
-                PrepareAndPlayVideo();
             SetTouchIconAnimationEnabled(true);
         }
         
@@ -155,9 +125,6 @@ namespace Sources.Features.ScreensaverScreen.ViewModel
             Container.style.display = DisplayStyle.Flex;
             Container.style.opacity = 1f;
     
-            if (Model.HasVideoBg) 
-                PrepareAndPlayVideo();
-
             Container.schedule.Execute(() => {
                 Container.RemoveFromClassList(UI.ScreenEnteringClass);
                 Container.AddToClassList(UI.ScreenVisibleClass);
@@ -179,8 +146,7 @@ namespace Sources.Features.ScreensaverScreen.ViewModel
         {
             base.Hide();
             _inactivityService.StartMonitoring();
-            if (_videoPlayer.enabled) 
-                _videoPlayer.Stop();
+            _media?.Pause();
             SetTouchIconAnimationEnabled(false);
             Container.EnableInClassList(UI.ScreenVisibleClass, false);
             Container.EnableInClassList(UI.ScreenTransitionClass, false);
@@ -215,12 +181,5 @@ namespace Sources.Features.ScreensaverScreen.ViewModel
             }
         }
         
-        private void PrepareAndPlayVideo()
-        {
-            _videoPlayer.enabled = true;
-            _videoPlayer.url = Model.BackgroundFilePath;
-            _videoPlayer.Stop();
-            _videoPlayer.Prepare();
-        }
     }
 }
