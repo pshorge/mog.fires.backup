@@ -20,7 +20,6 @@ namespace Sources.Features.ScreensaverScreen.ViewModel
             public const string ScreensaverClass = "screensaver";
             public const string TouchPointIconClass = "screensaver__icon--touch-point";
             public const string HandIconClass = "screensaver__icon--hand";
-            public const string VideoModifier = "screensaver--video";
             
             // Screen transition classes
             public const string ScreenTransitionClass = "screen--transition-top-down";
@@ -72,7 +71,7 @@ namespace Sources.Features.ScreensaverScreen.ViewModel
 
         private void SetupUIElements()
         {
-            _media = Container.Q<MediaBackground>();
+            _media = Container.Q<MediaBackground>(className:UI.ScreensaverClass);
             _touchIcon = Container.Q<VisualElement>(className: UI.HandIconClass);
             _touchPointIcon = Container.Q<VisualElement>(className: UI.TouchPointIconClass);
         }
@@ -128,6 +127,7 @@ namespace Sources.Features.ScreensaverScreen.ViewModel
             Container.schedule.Execute(() => {
                 Container.RemoveFromClassList(UI.ScreenEnteringClass);
                 Container.AddToClassList(UI.ScreenVisibleClass);
+                _media?.Play();
             }).StartingIn(50); 
         }
 

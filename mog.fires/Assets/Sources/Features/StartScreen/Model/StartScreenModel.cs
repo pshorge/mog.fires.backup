@@ -26,12 +26,17 @@ namespace Sources.Features.StartScreen.Model
             private set { _title = value; Notify();}
         }
         
-        private string _backgroundImagePath;
+        private string _backgroundFilePath;
         [CreateProperty]
-        public string BackgroundImagePath
+        public string BackgroundFilePath
         {
-            get => _backgroundImagePath; 
-            private set { _backgroundImagePath = value; Notify(); }
+            get => _backgroundFilePath; 
+            private set { _backgroundFilePath = value; Notify(); }
+        }
+
+        public void TestPath(string path)
+        {
+            BackgroundFilePath   = path;
         }
         
         
@@ -47,8 +52,8 @@ namespace Sources.Features.StartScreen.Model
             Title = _localizationService.GetTranslation(ContentKeys.TitleKey);
             
             var newBgPath =  ContentPathResolver.ResolveContentPath(_localizationService.GetTranslation(ContentKeys.BgKey));
-            if (BackgroundImagePath != newBgPath)
-                BackgroundImagePath = newBgPath;
+            if (BackgroundFilePath != newBgPath)
+                BackgroundFilePath = newBgPath;
             
         }
         protected override void Dispose(bool disposing)

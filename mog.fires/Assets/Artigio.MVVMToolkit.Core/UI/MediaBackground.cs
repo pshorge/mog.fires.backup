@@ -45,8 +45,40 @@ namespace Artigio.MVVMToolkit.Core.UI
 
         [UxmlAttribute("cache-strategy")] public TextureCacheStrategy cacheStrategy { get; set; } = TextureCacheStrategy.RC;
 
-        public void Play() { if (_videoPlayer != null && _prepared) _videoPlayer.Play(); }
-        public void Pause() { if (_videoPlayer != null) _videoPlayer.Pause(); }
+        public void Play()
+        {
+            if (string.IsNullOrEmpty(_source)) return;
+
+            _isVideo = LooksLikeVideo(_source);
+
+            if (!_isVideo)
+                return;
+
+            if (_videoPlayer == null)
+            {
+                SetupVideo();
+                _pendingPlay = true; 
+                return;
+            }
+
+            if (_prepared)
+            {
+                _videoPlayer.Play();
+                _pendingPlay = false;
+            }
+            else
+            {
+                _pendingPlay = true;
+                if (!_videoPlayer.isPrepared)
+                    _videoPlayer.Prepare();
+            }
+        }
+        public void Pause()
+        {
+            _pendingPlay = false;
+            if (_videoPlayer != null)
+                _videoPlayer.Pause();
+        }
         public void Stop() { if (_videoPlayer != null) _videoPlayer.Stop(); }
 
         private string _source;
@@ -55,6 +87,7 @@ namespace Artigio.MVVMToolkit.Core.UI
         private GameObject _hostGo;
         private RenderTexture _rt;
         private bool _prepared;
+        private bool _pendingPlay;
         private CancellationTokenSource _cts;
         private string[] _videoExts = { ".webm"};
         private Vector2Int _lastRTSize;
@@ -177,9 +210,12 @@ namespace Artigio.MVVMToolkit.Core.UI
         private void OnVideoPrepared(VideoPlayer vp)
         {
             _prepared = true;
-            if (autoplay && panel != null && resolvedStyle.display != DisplayStyle.None)
+
+            bool isVisible = panel != null && resolvedStyle.display != DisplayStyle.None;
+            if ((_pendingPlay || autoplay) && isVisible)
             {
                 vp.Play();
+                _pendingPlay = false;
             }
         }
 
@@ -218,6 +254,7 @@ namespace Artigio.MVVMToolkit.Core.UI
 
         private void DisposeVideo()
         {
+
             if (_videoPlayer != null)
             {
                 _videoPlayer.prepareCompleted -= OnVideoPrepared;
