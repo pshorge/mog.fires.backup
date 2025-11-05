@@ -77,8 +77,15 @@
           "key": "start-screen-bg",
           "name": "start-screen-bg",
           "isTranslated": false,
-          "####files": "BG.jpg",
+          "#####files": "BG.jpg",
           "files": "b2b94c91-e686-486d-4ced-08de02658f68.webm"
+        },
+        {
+          "moduleType": 4,
+          "key": "start-screen-image",
+          "name": "start-screen-image",
+          "isTranslated": false,
+          "files": "test-image.png"
         },
         {
           "moduleType": 2,

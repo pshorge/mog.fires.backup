@@ -8,6 +8,11 @@
         </Bindings>
         
         <ui:VisualElement class="start-screen__content">
+            <cui:MediaBackground class="start-screen--image">
+                <Bindings>
+                    <ui:DataBinding property="source" data-source-path="ImageFilePath" binding-mode="ToTarget"/>
+                </Bindings>
+            </cui:MediaBackground>
             <ui:Label class="start-screen__title">
                 <Bindings>
                     <ui:DataBinding property="text" data-source-path="Title" binding-mode="ToTarget"/>
