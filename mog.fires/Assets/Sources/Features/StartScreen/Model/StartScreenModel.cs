@@ -15,6 +15,7 @@ namespace Sources.Features.StartScreen.Model
         private static class ContentKeys
         {
             public const string BgKey = "start-screen-bg";
+            public const string ImageKey = "start-screen-image";
             public const string TitleKey = "start-screen-title";
         }
         
@@ -33,12 +34,14 @@ namespace Sources.Features.StartScreen.Model
             get => _backgroundFilePath; 
             private set { _backgroundFilePath = value; Notify(); }
         }
-
-        public void TestPath(string path)
-        {
-            BackgroundFilePath   = path;
-        }
         
+        private string _imageFilePath;
+        [CreateProperty]
+        public string ImageFilePath
+        {
+            get => _imageFilePath; 
+            private set { _imageFilePath = value; Notify(); }
+        }
         
         public StartScreenModel(ILocalizationService localizationService)
         {
@@ -54,6 +57,10 @@ namespace Sources.Features.StartScreen.Model
             var newBgPath =  ContentPathResolver.ResolveContentPath(_localizationService.GetTranslation(ContentKeys.BgKey));
             if (BackgroundFilePath != newBgPath)
                 BackgroundFilePath = newBgPath;
+            
+            var imagePath =  ContentPathResolver.ResolveContentPath(_localizationService.GetTranslation(ContentKeys.ImageKey));
+            if (ImageFilePath != imagePath)
+                ImageFilePath = imagePath;
             
         }
         protected override void Dispose(bool disposing)

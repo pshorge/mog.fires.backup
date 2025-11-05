@@ -16,6 +16,12 @@
     flex-direction: row;
 }
 
+.start-screen--image {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
 .start-screen__title {
     position: absolute;
     width: 1580px;
