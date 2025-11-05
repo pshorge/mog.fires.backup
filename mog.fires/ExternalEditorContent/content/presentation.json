@@ -55,7 +55,7 @@
           "key": "screensaver-file",
           "name": "screensaver-file",
           "isTranslated": false,
-          "######files":"BG.jpg",
+          "######files": "BG.jpg",
           "files": "b2b94c91-e686-486d-4ced-08de02658f68.webm"
         },
         {
@@ -77,7 +77,8 @@
           "key": "start-screen-bg",
           "name": "start-screen-bg",
           "isTranslated": false,
-          "files": "BG.jpg"
+          "####files": "BG.jpg",
+          "files": "b2b94c91-e686-486d-4ced-08de02658f68.webm"
         },
         {
           "moduleType": 2,

@@ -274,5 +274,16 @@ namespace Sources.Presentation.Navigation
             }
         }
         
+        
+#if UNITY_EDITOR
+
+        private void Update()
+        {
+            if(Input.GetKeyUp(KeyCode.Alpha1))
+                NavigateTo(ViewType.Screensaver);
+        }
+
+#endif
+        
     }
 }

@@ -1,5 +1,6 @@
 using Artigio.MVVMToolkit.Core.MVVM.Base;
 using Artigio.MVVMToolkit.Core.Navigation;
+using Artigio.MVVMToolkit.Core.UI;
 using Sources.Features.StartScreen.Model;
 using Sources.Presentation.Core.Types;
 using UnityEngine;
@@ -10,10 +11,18 @@ namespace Sources.Features.StartScreen.ViewModel
 {
     public class StartScreenViewModel : BaseViewModel<ViewType, StartScreenModel>
     {
+
+        private static class UI
+        {
+            // BEM class names
+            public const string StartScreenBgName = "screen__bg";
+            
+        }
         
         // Model
         protected override StartScreenModel Model { get; set; }
         
+        private MediaBackground _media;
 
         
         // Dependencies
@@ -37,14 +46,6 @@ namespace Sources.Features.StartScreen.ViewModel
             Container.dataSource = Model;
         }
 
-        protected override void Start()
-        {
-            base.Start();
-            SetImages();
-        }
-
-        
-
         protected override void OnDisable()
         {
             base.OnDisable();
@@ -54,35 +55,34 @@ namespace Sources.Features.StartScreen.ViewModel
         
         private void SetupUIElements()
         {
+            _media = Container.Q<MediaBackground>(UI.StartScreenBgName);
         }
 
         private void RegisterEventHandlers()
         {
             Container.RegisterCallback<ClickEvent>(OnTouched);
-            Model.propertyChanged += OnModelPropertyChanged;
-        }
-
-        private void OnModelPropertyChanged(object sender, BindablePropertyChangedEventArgs e)
-        {
-            switch (e.propertyName)
-            {
-                case nameof(Model.BackgroundImagePath):
-                    SetBackgroundImage();
-                    break;
-            }
         }
 
         private void UnregisterEventHandlers()
         {
             Container.UnregisterCallback<ClickEvent>(OnTouched);
-            Model.propertyChanged -= OnModelPropertyChanged;
         }
 
-        private void OnTouched(ClickEvent evt) => _navigationController.NavigateForward();
-        private void SetBackgroundImage() => SetImageElement(Container, Model.BackgroundImagePath);
-        private void SetImages()
+        private void OnTouched(ClickEvent evt)
         {
-            SetBackgroundImage();
+            _navigationController.NavigateForward();
+        }
+
+        public override void Show()
+        {
+            base.Show();
+            _media?.Play();
+        }
+        
+        public override void Hide()
+        {
+            base.Hide();
+            _media?.Pause();
         }
     }
 }

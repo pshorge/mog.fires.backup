@@ -35,6 +35,12 @@
     translate: 0 0;
 }
 
+.media-bg
+{
+    width: 100%;
+    height: 100%;
+}
+
 /* App Block */
 .app__screens {
     position: absolute;
