@@ -4,6 +4,7 @@ using Artigio.MVVMToolkit.Core.Infrastructure.FileSystem;
 using Artigio.MVVMToolkit.Core.Services.Accessibility.HighContrast;
 using Artigio.MVVMToolkit.Core.Services.Accessibility.TextResize;
 using Artigio.MVVMToolkit.Core.Services.Localization;
+using Artigio.MVVMToolkit.Core.UI;
 using Sources.Data.Models;
 using Sources.Data.Repositories;
 using Sources.Features.ControlButtons.Model;
@@ -42,6 +43,11 @@ namespace Sources
 
             // Services
             builder.Register<TextureAssetService>(Lifetime.Singleton).AsImplementedInterfaces();
+            builder.RegisterBuildCallback(resolver =>
+            {
+                MediaBackground.Configure(resolver.Resolve<ITextureAssetService>());
+            });
+            
             builder.Register<TextResizeService>(Lifetime.Singleton).AsSelf().AsImplementedInterfaces();
             builder.Register<HighContrastService>(Lifetime.Singleton).AsSelf().AsImplementedInterfaces();
             
@@ -56,7 +62,6 @@ namespace Sources
 
             // MonoBehaviours 
             builder.RegisterComponentInHierarchy<InactivityService>().AsSelf().AsImplementedInterfaces();
-            builder.RegisterComponentInHierarchy<VideoPlayer>().AsSelf().AsImplementedInterfaces();
             
             builder.RegisterComponentInHierarchy<NavigationService>().AsSelf().AsImplementedInterfaces();
             builder.Register<ControlButtonsPresenter>(Lifetime.Singleton);

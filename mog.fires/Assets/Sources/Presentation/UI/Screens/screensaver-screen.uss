@@ -6,10 +6,12 @@
 /* Screensaver Block */
 .screensaver {
     background-color: var( --color-background-secondary);
+    width: 100%;
+    height: 100%;
 }
 
 .screensaver--video {
-    background-image: url("/Assets/Resources/ScreensaverRenderTexture.renderTexture");
+    
 }
 
 .screensaver__content {
