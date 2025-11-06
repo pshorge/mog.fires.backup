@@ -1,9 +1,9 @@
 {
   "translations": [],
   "presentationSettings": {
-    "presentationId": "a251bf1c-1bb3-47fa-a49f-221706e2f2e6",
+    "presentationId": "a954cfda-3875-47ff-921a-b6f74f11e148",
     "key": "mog-fires",
-    "name": "mog.fires",
+    "name": "mog-fires",
     "defaultLanguage": {
       "name": "Polish",
       "value": 1,
@@ -13,16 +13,60 @@
     "shouldIncludeMediaPath": false,
     "stylePath": "presentation.css",
     "resolution": {
-      "width": 1920,
-      "height": 1080
-    },
-    "hilight": {
-      "id": 1,
-      "label": "Ekran 1",
-      "description": "Sala 1"
+      "width": 3840,
+      "height": 2160
     }
   },
   "dictionaries": {
+    "moduleTypes": [
+      {
+        "id": 0,
+        "name": "Custom",
+        "keys": [
+          "mog-fires",
+          "mog-fires-globe",
+          "mog-fires-item",
+          "mog-fires-map"
+        ]
+      },
+      {
+        "id": 13,
+        "name": "Number",
+        "keys": [
+          "screensaver-timeout"
+        ]
+      },
+      {
+        "id": 4,
+        "name": "File",
+        "keys": [
+          "screensaver-file",
+          "globe-screen-bg",
+          "globe-screen-image"
+        ]
+      },
+      {
+        "id": 1,
+        "name": "Text",
+        "keys": [
+          "screensaver-screen-title",
+          "screensaver-screen-text",
+          "globe-screen-title",
+          "mog-fires-timeline-title",
+          "mog-fires-group-name",
+          "mog-fires-item-title"
+        ]
+      },
+      {
+        "id": 5,
+        "name": "List",
+        "keys": [
+          "mog-fires-list-globe",
+          "mog-fires-items",
+          "mog-fires-list-map"
+        ]
+      }
+    ],
     "languages": [
       {
         "id": 1,
@@ -33,16 +77,22 @@
         "id": 2,
         "tag": "en",
         "name": "English"
+      },
+      {
+        "id": 6,
+        "tag": "cz",
+        "name": "Czech"
       }
-    ]
+    ],
+    "enumLists": []
   },
   "styleId": null,
   "screens": [
     {
-      "moduleId": "4dec97c2-8e67-4072-bf0b-5b44bcf7c96c",
+      "moduleId": "ae066dd3-6aba-4e54-b120-e0aa3cd09c56",
       "key": "mog-fires",
       "name": "mog.fires",
-      "referenceId": "d586ac7d-70c3-4532-88bb-ee4893af1c3d",
+      "referenceId": "18f48dea-6d0b-4679-ad46-a60c93c103ac",
       "subModules": [
         {
           "moduleType": 13,
@@ -55,8 +105,7 @@
           "key": "screensaver-file",
           "name": "screensaver-file",
           "isTranslated": false,
-          "######files": "BG.jpg",
-          "files": "b2b94c91-e686-486d-4ced-08de02658f68.webm"
+          "files": "e37a155b-a7c1-4be9-766a-08de1d33b03d.webm"
         },
         {
           "moduleType": 1,
@@ -73,29 +122,532 @@
           "text": "TOUCH TO START"
         },
         {
+          "moduleType": 1,
+          "key": "globe-screen-title",
+          "name": "globe-screen-title",
+          "isTranslated": true,
+          "text": {
+            "pl": "Pożary na świecie",
+            "en": "Fires around the world",
+            "cz": "[CZ]Fires around the world"
+          }
+        },
+        {
           "moduleType": 4,
           "key": "globe-screen-bg",
           "name": "globe-screen-bg",
           "isTranslated": false,
-          "#####files": "BG.jpg",
-          "files": "b2b94c91-e686-486d-4ced-08de02658f68.webm"
+          "files": "e37a155b-a7c1-4be9-766a-08de1d33b03d.webm"
         },
         {
           "moduleType": 4,
           "key": "globe-screen-image",
           "name": "globe-screen-image",
           "isTranslated": false,
-          "files": "test-image.png"
+          "files": "e1471a91-bea6-4e23-766b-08de1d33b03d.png"
         },
         {
-          "moduleType": 2,
-          "key": "globe-screen-title",
-          "name": "globe-screen-title",
+          "moduleType": 1,
+          "key": "mog-fires-timeline-title",
+          "name": "mog-fires-timeline-title",
           "isTranslated": true,
           "text": {
-            "pl": "<p>Pożary na świecie</p>\n",
-            "en": "<p>Fires around the world</p>\n"
+            "pl": "Przedział czasowy",
+            "en": "Timeline",
+            "cz": "[CZ]Timeline"
           }
+        },
+        {
+          "moduleType": 5,
+          "key": "mog-fires-list-globe",
+          "name": "mog-fires-list-globe",
+          "selectedModule": {
+            "moduleType": 0,
+            "key": "mog-fires-globe",
+            "name": "mog.fires.globe"
+          },
+          "list": [
+            {
+              "moduleType": 0,
+              "key": "mog-fires-globe",
+              "name": "mog.fires.globe",
+              "moduleId": "f2e6a5f9-4fa5-4bbd-8036-b484f19af408",
+              "referenceId": "bdaa58a5-f035-4ba6-899c-348d8657eea1",
+              "subModules": [
+                {
+                  "moduleType": 1,
+                  "key": "mog-fires-group-name",
+                  "name": "mog-fires-group-title",
+                  "isTranslated": true,
+                  "text": {
+                    "pl": "Starożytność i Średniowiecze ",
+                    "en": null,
+                    "cz": null
+                  }
+                },
+                {
+                  "moduleType": 5,
+                  "key": "mog-fires-items",
+                  "name": "mog-fires-items",
+                  "selectedModule": {
+                    "moduleType": 0,
+                    "key": "mog-fires-item",
+                    "name": "mog.fires.item"
+                  },
+                  "list": [
+                    {
+                      "moduleType": 0,
+                      "key": "mog-fires-item",
+                      "name": "mog.fires.item",
+                      "moduleId": "f6e6f215-c47a-4f24-b0a4-a2f6a0329983",
+                      "referenceId": "01c96f4e-867a-4691-bec8-658501fc1291",
+                      "subModules": [
+                        {
+                          "moduleType": 1,
+                          "key": "mog-fires-item-title",
+                          "name": "mog-fires-item-title",
+                          "isTranslated": true,
+                          "text": {
+                            "pl": "Pożar Troi (ok. 1180 p.n.e.) - Turcja ",
+                            "en": null,
+                            "cz": null
+                          }
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "moduleType": 0,
+              "key": "mog-fires-globe",
+              "name": "mog.fires.globe",
+              "moduleId": "f2e6a5f9-4fa5-4bbd-8036-b484f19af408",
+              "referenceId": "03363dca-d3a0-4b73-91c6-da876710fb5d",
+              "subModules": [
+                {
+                  "moduleType": 1,
+                  "key": "mog-fires-group-name",
+                  "name": "mog-fires-group-title",
+                  "isTranslated": true,
+                  "text": {
+                    "pl": "XVI - XVIII wiek ",
+                    "en": null,
+                    "cz": null
+                  }
+                },
+                {
+                  "moduleType": 5,
+                  "key": "mog-fires-items",
+                  "name": "mog-fires-items",
+                  "selectedModule": {
+                    "moduleType": 0,
+                    "key": "mog-fires-item",
+                    "name": "mog.fires.item"
+                  },
+                  "list": [
+                    {
+                      "moduleType": 0,
+                      "key": "mog-fires-item",
+                      "name": "mog.fires.item",
+                      "moduleId": "f6e6f215-c47a-4f24-b0a4-a2f6a0329983",
+                      "referenceId": null,
+                      "subModules": [
+                        {
+                          "moduleType": 1,
+                          "key": "mog-fires-item-title",
+                          "name": "mog-fires-item-title",
+                          "isTranslated": true,
+                          "text": {
+                            "pl": "Pożar Cuzco (1536) - Peru ",
+                            "en": null,
+                            "cz": null
+                          }
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "moduleType": 0,
+              "key": "mog-fires-globe",
+              "name": "mog.fires.globe",
+              "moduleId": "f2e6a5f9-4fa5-4bbd-8036-b484f19af408",
+              "referenceId": "3593dc18-8f0d-4bc1-9e59-cd08b50becf2",
+              "subModules": [
+                {
+                  "moduleType": 1,
+                  "key": "mog-fires-group-name",
+                  "name": "mog-fires-group-title",
+                  "isTranslated": true,
+                  "text": {
+                    "pl": "XIX wiek ",
+                    "en": null,
+                    "cz": null
+                  }
+                },
+                {
+                  "moduleType": 5,
+                  "key": "mog-fires-items",
+                  "name": "mog-fires-items",
+                  "selectedModule": {
+                    "moduleType": 0,
+                    "key": "mog-fires-item",
+                    "name": "mog.fires.item"
+                  },
+                  "list": [
+                    {
+                      "moduleType": 0,
+                      "key": "mog-fires-item",
+                      "name": "mog.fires.item",
+                      "moduleId": "f6e6f215-c47a-4f24-b0a4-a2f6a0329983",
+                      "referenceId": null,
+                      "subModules": [
+                        {
+                          "moduleType": 1,
+                          "key": "mog-fires-item-title",
+                          "name": "mog-fires-item-title",
+                          "isTranslated": true,
+                          "text": {
+                            "pl": "Pożar Hamburga (1842) - Niemcy ",
+                            "en": null,
+                            "cz": null
+                          }
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "moduleType": 0,
+              "key": "mog-fires-globe",
+              "name": "mog.fires.globe",
+              "moduleId": "f2e6a5f9-4fa5-4bbd-8036-b484f19af408",
+              "referenceId": "a55a0027-a842-4790-8915-615fcd8d2ec3",
+              "subModules": [
+                {
+                  "moduleType": 1,
+                  "key": "mog-fires-group-name",
+                  "name": "mog-fires-group-title",
+                  "isTranslated": true,
+                  "text": {
+                    "pl": "XX wiek ",
+                    "en": null,
+                    "cz": null
+                  }
+                },
+                {
+                  "moduleType": 5,
+                  "key": "mog-fires-items",
+                  "name": "mog-fires-items",
+                  "selectedModule": {
+                    "moduleType": 0,
+                    "key": "mog-fires-item",
+                    "name": "mog.fires.item"
+                  },
+                  "list": [
+                    {
+                      "moduleType": 0,
+                      "key": "mog-fires-item",
+                      "name": "mog.fires.item",
+                      "moduleId": "f6e6f215-c47a-4f24-b0a4-a2f6a0329983",
+                      "referenceId": null,
+                      "subModules": [
+                        {
+                          "moduleType": 1,
+                          "key": "mog-fires-item-title",
+                          "name": "mog-fires-item-title",
+                          "isTranslated": true,
+                          "text": {
+                            "pl": "Pożar Valparaíso (1906) – Chile ",
+                            "en": null,
+                            "cz": null
+                          }
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "moduleType": 0,
+              "key": "mog-fires-globe",
+              "name": "mog.fires.globe",
+              "moduleId": "f2e6a5f9-4fa5-4bbd-8036-b484f19af408",
+              "referenceId": "b069527e-80ad-4916-ab52-19c3c917cd34",
+              "subModules": [
+                {
+                  "moduleType": 1,
+                  "key": "mog-fires-group-name",
+                  "name": "mog-fires-group-title",
+                  "isTranslated": true,
+                  "text": {
+                    "pl": "XXI wiek ",
+                    "en": null,
+                    "cz": null
+                  }
+                },
+                {
+                  "moduleType": 5,
+                  "key": "mog-fires-items",
+                  "name": "mog-fires-items",
+                  "selectedModule": {
+                    "moduleType": 0,
+                    "key": "mog-fires-item",
+                    "name": "mog.fires.item"
+                  },
+                  "list": [
+                    {
+                      "moduleType": 0,
+                      "key": "mog-fires-item",
+                      "name": "mog.fires.item",
+                      "moduleId": "f6e6f215-c47a-4f24-b0a4-a2f6a0329983",
+                      "referenceId": null,
+                      "subModules": [
+                        {
+                          "moduleType": 1,
+                          "key": "mog-fires-item-title",
+                          "name": "mog-fires-item-title",
+                          "isTranslated": true,
+                          "text": {
+                            "pl": "Pożary w Amazonii (2019) - Brazylia ",
+                            "en": null,
+                            "cz": null
+                          }
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "moduleType": 5,
+          "key": "mog-fires-list-map",
+          "name": "mog-fires-list-map",
+          "selectedModule": {
+            "moduleType": 0,
+            "key": "mog-fires-map",
+            "name": "mog.fires.map"
+          },
+          "list": [
+            {
+              "moduleType": 0,
+              "key": "mog-fires-map",
+              "name": "mog.fires.map",
+              "moduleId": "6a1b4e9d-aca0-48da-bde0-81f87f98dee7",
+              "referenceId": "7143a03f-d608-4369-a279-8445922feb08",
+              "subModules": [
+                {
+                  "moduleType": 1,
+                  "key": "mog-fires-group-name",
+                  "name": "mog-fires-group-title",
+                  "isTranslated": true,
+                  "text": {
+                    "pl": "Średniowiecze i nowożytność",
+                    "en": null,
+                    "cz": null
+                  }
+                },
+                {
+                  "moduleType": 5,
+                  "key": "mog-fires-items",
+                  "name": "mog-fires-items",
+                  "selectedModule": {
+                    "moduleType": 0,
+                    "key": "mog-fires-item",
+                    "name": "mog.fires.item"
+                  },
+                  "list": [
+                    {
+                      "moduleType": 0,
+                      "key": "mog-fires-item",
+                      "name": "mog.fires.item",
+                      "moduleId": "f6e6f215-c47a-4f24-b0a4-a2f6a0329983",
+                      "referenceId": "f975b3c9-25bb-4df6-9170-c664af35f995",
+                      "subModules": [
+                        {
+                          "moduleType": 1,
+                          "key": "mog-fires-item-title",
+                          "name": "mog-fires-item-title",
+                          "isTranslated": true,
+                          "text": {
+                            "pl": "1241 – pożar miast Górnego Śląska podczas najazdu mongolskiego",
+                            "en": null,
+                            "cz": null
+                          }
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "moduleType": 0,
+              "key": "mog-fires-map",
+              "name": "mog.fires.map",
+              "moduleId": "6a1b4e9d-aca0-48da-bde0-81f87f98dee7",
+              "referenceId": "b0c491b2-4ea9-467a-816b-a11e6c6d7e8e",
+              "subModules": [
+                {
+                  "moduleType": 1,
+                  "key": "mog-fires-group-name",
+                  "name": "mog-fires-group-title",
+                  "isTranslated": true,
+                  "text": {
+                    "pl": "XIX wiek",
+                    "en": null,
+                    "cz": null
+                  }
+                },
+                {
+                  "moduleType": 5,
+                  "key": "mog-fires-items",
+                  "name": "mog-fires-items",
+                  "selectedModule": {
+                    "moduleType": 0,
+                    "key": "mog-fires-item",
+                    "name": "mog.fires.item"
+                  },
+                  "list": [
+                    {
+                      "moduleType": 0,
+                      "key": "mog-fires-item",
+                      "name": "mog.fires.item",
+                      "moduleId": "f6e6f215-c47a-4f24-b0a4-a2f6a0329983",
+                      "referenceId": "17c71169-5518-4d1c-9ccf-157639d5e485",
+                      "subModules": [
+                        {
+                          "moduleType": 1,
+                          "key": "mog-fires-item-title",
+                          "name": "mog-fires-item-title",
+                          "isTranslated": true,
+                          "text": {
+                            "pl": "1807 – pożar Żor",
+                            "en": null,
+                            "cz": null
+                          }
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "moduleType": 0,
+              "key": "mog-fires-map",
+              "name": "mog.fires.map",
+              "moduleId": "6a1b4e9d-aca0-48da-bde0-81f87f98dee7",
+              "referenceId": "6aab1ab6-251f-45bc-9f8e-268062d62d6c",
+              "subModules": [
+                {
+                  "moduleType": 1,
+                  "key": "mog-fires-group-name",
+                  "name": "mog-fires-group-title",
+                  "isTranslated": true,
+                  "text": {
+                    "pl": "XX wiek",
+                    "en": null,
+                    "cz": null
+                  }
+                },
+                {
+                  "moduleType": 5,
+                  "key": "mog-fires-items",
+                  "name": "mog-fires-items",
+                  "selectedModule": {
+                    "moduleType": 0,
+                    "key": "mog-fires-item",
+                    "name": "mog.fires.item"
+                  },
+                  "list": [
+                    {
+                      "moduleType": 0,
+                      "key": "mog-fires-item",
+                      "name": "mog.fires.item",
+                      "moduleId": "f6e6f215-c47a-4f24-b0a4-a2f6a0329983",
+                      "referenceId": "06045342-8c0a-42cf-bd48-18477c333434",
+                      "subModules": [
+                        {
+                          "moduleType": 1,
+                          "key": "mog-fires-item-title",
+                          "name": "mog-fires-item-title",
+                          "isTranslated": true,
+                          "text": {
+                            "pl": "1913 – pożar Fabryki Zapałek w Częstochowie",
+                            "en": null,
+                            "cz": null
+                          }
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "moduleType": 0,
+              "key": "mog-fires-map",
+              "name": "mog.fires.map",
+              "moduleId": "6a1b4e9d-aca0-48da-bde0-81f87f98dee7",
+              "referenceId": "b6c2c3bd-cf55-445b-b386-d4c13e5ad233",
+              "subModules": [
+                {
+                  "moduleType": 1,
+                  "key": "mog-fires-group-name",
+                  "name": "mog-fires-group-title",
+                  "isTranslated": true,
+                  "text": {
+                    "pl": "XXI wiek",
+                    "en": null,
+                    "cz": null
+                  }
+                },
+                {
+                  "moduleType": 5,
+                  "key": "mog-fires-items",
+                  "name": "mog-fires-items",
+                  "selectedModule": {
+                    "moduleType": 0,
+                    "key": "mog-fires-item",
+                    "name": "mog.fires.item"
+                  },
+                  "list": [
+                    {
+                      "moduleType": 0,
+                      "key": "mog-fires-item",
+                      "name": "mog.fires.item",
+                      "moduleId": "f6e6f215-c47a-4f24-b0a4-a2f6a0329983",
+                      "referenceId": "1dc4cb66-005a-42b2-bcd3-67c5bcf6ed20",
+                      "subModules": [
+                        {
+                          "moduleType": 1,
+                          "key": "mog-fires-item-title",
+                          "name": "mog-fires-item-title",
+                          "isTranslated": true,
+                          "text": {
+                            "pl": "1992 – pożar lasów w nadleśnictwie Rudy Raciborskie",
+                            "en": null,
+                            "cz": null
+                          }
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
         }
       ]
     }

@@ -8,11 +8,10 @@ using Artigio.MVVMToolkit.Core.UI;
 using Sources.Data.Models;
 using Sources.Data.Repositories;
 using Sources.Features.ControlButtons.Model;
+using Sources.Features.GlobeScreen.Model;
 using Sources.Features.ScreensaverScreen.Model;
-using Sources.Features.StartScreen.Model;
 using Sources.Presentation.Management;
 using Sources.Presentation.Navigation;
-using UnityEngine.Video;
 using VContainer;
 using VContainer.Unity;
 
