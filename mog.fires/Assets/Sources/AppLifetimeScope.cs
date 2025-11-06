@@ -53,7 +53,7 @@ namespace Sources
             
             // IDisposable Models as singletons, 
             builder.Register<ScreensaverScreenModel>(Lifetime.Singleton).AsSelf();
-            builder.Register<StartScreenModel>(Lifetime.Singleton).AsSelf();
+            builder.Register<GlobeScreenModel>(Lifetime.Singleton).AsSelf();
             builder.Register<ControlButtonsModel>(Lifetime.Singleton).AsSelf();
            
 

@@ -9,18 +9,18 @@ using VContainer;
 
 namespace Sources.Features.StartScreen.ViewModel
 {
-    public class StartScreenViewModel : BaseViewModel<ViewType, StartScreenModel>
+    public class GlobeScreenViewModel : BaseViewModel<ViewType, GlobeScreenModel>
     {
 
         private static class UI
         {
             // BEM class names
-            public const string StartScreenBgName = "screen__bg";
+            public const string GlobeScreenBgName = "globe-screen__bg";
             
         }
         
         // Model
-        protected override StartScreenModel Model { get; set; }
+        protected override GlobeScreenModel Model { get; set; }
         
         private MediaBackground _media;
 
@@ -29,11 +29,11 @@ namespace Sources.Features.StartScreen.ViewModel
         [Inject] private INavigationFlowController<ViewType> _navigationController;
 
         // Implementation
-        public override ViewType GetViewType() => ViewType.Start;
-        protected override string ContainerName => "start-screen";
+        public override ViewType GetViewType() => ViewType.Globe;
+        protected override string ContainerName => "globe-screen";
 
         [Inject]
-        public void Initialize(StartScreenModel model)
+        public void Initialize(GlobeScreenModel model)
         {
             Model = model;
         }
@@ -55,7 +55,7 @@ namespace Sources.Features.StartScreen.ViewModel
         
         private void SetupUIElements()
         {
-            _media = Container.Q<MediaBackground>(UI.StartScreenBgName);
+            _media = Container.Q<MediaBackground>(UI.GlobeScreenBgName);
         }
 
         private void RegisterEventHandlers()

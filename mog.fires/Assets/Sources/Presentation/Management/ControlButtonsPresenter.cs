@@ -23,7 +23,7 @@ namespace Sources.Presentation.Management
                     _viewModel.EnableRightButtons(false);
                     _viewModel.EnableBackButton(false);
                     break;
-                case ViewType.Start:
+                case ViewType.Globe:
                     _viewModel.SetDefault();
                     _viewModel.EnableLeftButtons(false);
                     _viewModel.EnableRightButtons(true);

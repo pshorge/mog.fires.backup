@@ -4,6 +4,6 @@ namespace Sources.Presentation.Core.Types
     {
         None = -1,
         Screensaver = 0,
-        Start = 1,
+        Globe = 1,
     }
 }

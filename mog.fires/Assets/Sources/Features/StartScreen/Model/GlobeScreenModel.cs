@@ -6,7 +6,7 @@ using UnityEngine;
 
 namespace Sources.Features.StartScreen.Model
 {
-    public class StartScreenModel :  BindableObject, IViewModelDataSource
+    public class GlobeScreenModel :  BindableObject, IViewModelDataSource
     {
       
         
@@ -14,9 +14,9 @@ namespace Sources.Features.StartScreen.Model
 
         private static class ContentKeys
         {
-            public const string BgKey = "start-screen-bg";
-            public const string ImageKey = "start-screen-image";
-            public const string TitleKey = "start-screen-title";
+            public const string BgKey = "globe-screen-bg";
+            public const string ImageKey = "globe-screen-image";
+            public const string TitleKey = "globe-screen-title";
         }
         
         private string _title;
@@ -43,7 +43,7 @@ namespace Sources.Features.StartScreen.Model
             private set { _imageFilePath = value; Notify(); }
         }
         
-        public StartScreenModel(ILocalizationService localizationService)
+        public GlobeScreenModel(ILocalizationService localizationService)
         {
             _localizationService = localizationService;
             _localizationService.LanguageChanged += FetchModel;

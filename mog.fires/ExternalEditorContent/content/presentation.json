@@ -74,23 +74,23 @@
         },
         {
           "moduleType": 4,
-          "key": "start-screen-bg",
-          "name": "start-screen-bg",
+          "key": "globe-screen-bg",
+          "name": "globe-screen-bg",
           "isTranslated": false,
           "#####files": "BG.jpg",
           "files": "b2b94c91-e686-486d-4ced-08de02658f68.webm"
         },
         {
           "moduleType": 4,
-          "key": "start-screen-image",
-          "name": "start-screen-image",
+          "key": "globe-screen-image",
+          "name": "globe-screen-image",
           "isTranslated": false,
           "files": "test-image.png"
         },
         {
           "moduleType": 2,
-          "key": "start-screen-title",
-          "name": "start-screen-title",
+          "key": "globe-screen-title",
+          "name": "globe-screen-title",
           "isTranslated": true,
           "text": {
             "pl": "<p>Pożary na świecie</p>\n",
