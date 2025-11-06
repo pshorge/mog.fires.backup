@@ -4,7 +4,7 @@ using Artigio.MVVMToolkit.Core.Services.Localization;
 using Unity.Properties;
 using UnityEngine;
 
-namespace Sources.Features.StartScreen.Model
+namespace Sources.Features.GlobeScreen.Model
 {
     public class GlobeScreenModel :  BindableObject, IViewModelDataSource
     {

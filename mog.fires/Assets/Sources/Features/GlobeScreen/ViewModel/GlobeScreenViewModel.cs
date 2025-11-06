@@ -1,13 +1,13 @@
 using Artigio.MVVMToolkit.Core.MVVM.Base;
 using Artigio.MVVMToolkit.Core.Navigation;
 using Artigio.MVVMToolkit.Core.UI;
-using Sources.Features.StartScreen.Model;
+using Sources.Features.GlobeScreen.Model;
 using Sources.Presentation.Core.Types;
 using UnityEngine;
 using UnityEngine.UIElements;
 using VContainer;
 
-namespace Sources.Features.StartScreen.ViewModel
+namespace Sources.Features.GlobeScreen.ViewModel
 {
     public class GlobeScreenViewModel : BaseViewModel<ViewType, GlobeScreenModel>
     {

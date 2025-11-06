@@ -1,5 +1,5 @@
 ﻿using Sources.Features.ControlButtons.Model;
-using Sources.Features.StartScreen.Model;
+using Sources.Features.GlobeScreen.Model;
 using VContainer;
 
 namespace Sources.Data.Models
