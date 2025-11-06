@@ -4,10 +4,10 @@
     <Style src="app-view.uss"/>
     
     <ui:Template src="ScreensaverScreen.uxml" name="ScreensaverScreen"/>
-    <ui:Template src="StartScreen.uxml" name="StartScreen"/>
+    <ui:Template src="GlobeScreen.uxml" name="GlobeScreen"/>
     
     <ui:VisualElement name="app-screens" class="app__screens">
-        <ui:Instance template="StartScreen" name="start-screen" class="screen screen--start" style="display:none"/>
+        <ui:Instance template="GlobeScreen" name="globe-screen" class="screen screen--globe" style="display:none"/>
     </ui:VisualElement>
 
     <ui:VisualElement name="control-panel" class="control-panel" picking-mode="Ignore">

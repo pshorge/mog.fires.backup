@@ -27,7 +27,7 @@ namespace Sources.Presentation.Navigation
         private void ConfigureFlow()
         {
             // Screensaver
-            AddNode(ViewType.Screensaver, next: ViewType.Start, allowBack: false, transitionIn: TransitionType.TopDown);
+            AddNode(ViewType.Screensaver, next: ViewType.Globe, allowBack: false, transitionIn: TransitionType.TopDown);
             
             // Start
             //AddNode(ViewType.Start, next: ViewType.Menu, previous: ViewType.Screensaver, allowBack: false);

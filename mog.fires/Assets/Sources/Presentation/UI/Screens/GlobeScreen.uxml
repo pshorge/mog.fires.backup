@@ -1,19 +1,19 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:cui="Artigio.MVVMToolkit.Core.UI" editor-extension-mode="False">
 
-    <Style src="start-screen.uss" />
+    <Style src="globe-screen.uss" />
     
-    <cui:MediaBackground name="start-screen__bg" class="media-bg" autoplay="true" loop="true" mute="true"  video-extensions=".webm,.mp4,.mov">
+    <cui:MediaBackground name="globe-screen__bg" class="media-bg" autoplay="true" loop="true" mute="true"  video-extensions=".webm,.mp4,.mov">
         <Bindings>
             <ui:DataBinding property="source" data-source-path="BackgroundFilePath" binding-mode="ToTarget" />
         </Bindings>
         
-        <ui:VisualElement class="start-screen__content">
-            <cui:MediaBackground class="start-screen--image">
+        <ui:VisualElement class="globe-screen__content">
+            <cui:MediaBackground class="globe-screen--image">
                 <Bindings>
                     <ui:DataBinding property="source" data-source-path="ImageFilePath" binding-mode="ToTarget"/>
                 </Bindings>
             </cui:MediaBackground>
-            <ui:Label class="start-screen__title">
+            <ui:Label class="globe-screen__title">
                 <Bindings>
                     <ui:DataBinding property="text" data-source-path="Title" binding-mode="ToTarget"/>
                 </Bindings>

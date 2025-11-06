@@ -123,7 +123,7 @@ namespace Sources.Features.ControlButtons.ViewModel
         public void EnableLeftButtons(bool value) => _leftButtons.visible = value;
         public void EnableRightButtons(bool value) => _rightButtons.style.display = value ? DisplayStyle.Flex : 
             DisplayStyle.None;
-        private void GoHome() => _navigationController.NavigateTo(ViewType.Start);
+        private void GoHome() => _navigationController.NavigateTo(ViewType.Globe);
         private void GoBack() => _navigationController.NavigateBack();
         private void OnLanguageChanged() => _localizationService.ChangeLanguage();
         private void SwitchScale() => _textResizeService.Resize(!_textResizeService.Maximized);
