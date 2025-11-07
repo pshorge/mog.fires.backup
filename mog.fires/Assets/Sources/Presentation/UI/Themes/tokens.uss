@@ -22,8 +22,13 @@
     
     /* --- Font Sizes --- */
     --font-size-title: 32px;
+    --font-size-label: 27px;
     --font-size-subtitle: 20px;
     --font-size-body: 22px;
+
+    --font-size-timeline-title: 36px;
+    --font-size-timeline-title--xl: 46px;
+
 
     /* --- Spacing --- */
     --spacing-neg-xs: -4px;
@@ -36,7 +41,8 @@
     --spacing-neg-4xl: -50px;
     --spacing-neg-5xl: -60px;
     --spacing-neg-6xl: -70px;
-    
+
+
     --spacing-xs: 4px;
     --spacing-s: 8px;
     --spacing-m: 16px;
