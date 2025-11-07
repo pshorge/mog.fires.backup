@@ -1,0 +1,88 @@
+.timeline {
+    position: relative;
+    height: 120px;
+}
+
+.timeline__line {
+    position: absolute;
+    left: 0;
+    right: 0;
+    background-color: var(--color-background-primary);
+}
+
+.timeline__tick {
+    position: absolute;
+}
+
+.timeline__tick-stem {
+    position: absolute;
+    background-color: var(--color-background-primary);
+}
+
+.timeline__tick-icon {
+    position: absolute;
+    width: 46px;              
+    height: 61px;              
+    background-image: url("../Icons/timeline-marker.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+}
+
+.timeline__label {
+    position: absolute;
+    color: var(--color-text-primary);
+    -unity-font-definition: var(--font-def-geist-extrabold-italic);
+    font-size: var(--font-size-label);
+    white-space: nowrap;
+    opacity: 0.5;
+    text-shadow: 5px 5px 5px black;
+}
+
+
+.timeline__label--selected {
+    opacity: 1;
+}
+
+.timeline__selection {
+    position: absolute;
+    background-color: rgba(255,255,255,0.9);
+}
+
+.timeline__selection-diamond {
+    position: absolute;
+    background-color: var(--color-background-primary);
+    rotate: 45deg;
+}
+.timeline__selection-diamond--left  { /* rozmiar ustawiany z C# (leftDiamondSize) */ }
+.timeline__selection-diamond--right { /* rozmiar ustawiany z C# (rightDiamondSize) */ }
+
+.timeline--animated .timeline__selection {
+    transition-property: left, top, width, height;
+    transition-duration: 500ms, 500ms, 500ms, 500ms;
+    transition-timing-function: ease-out, ease-out, ease-out, ease-out;
+    transition-delay: 0ms, 0ms, 0ms, 0ms;
+}
+.timeline--animated .timeline__selection-diamond {
+    transition-property: left, top, width, height;
+    transition-duration: 500ms, 500ms, 500ms, 500ms;
+    transition-timing-function: ease-out, ease-out, ease-out, ease-out;
+    transition-delay: 0ms, 0ms, 0ms, 0ms;
+}
+
+.timeline--animated .timeline__selection.timeline__selection--full {
+    transition-property: left, top, width, height;
+    transition-duration: 700ms, 700ms, 700ms, 700ms;
+    transition-timing-function: ease-out, ease-out, ease-out, ease-out;
+    transition-delay: 0ms, 0ms, 0ms, 0ms;
+}
+.timeline--animated .timeline__selection.timeline__selection--full .timeline__selection-diamond {
+    transition-property: left, top, width, height;
+    transition-duration: 700ms, 700ms, 700ms, 700ms;
+    transition-timing-function: ease-out, ease-out, ease-out, ease-out;
+    transition-delay: 0ms, 0ms, 0ms, 0ms;
+}
+
+.timeline--animated .timeline__label {
+    transition: opacity 300ms ease-out;
+}

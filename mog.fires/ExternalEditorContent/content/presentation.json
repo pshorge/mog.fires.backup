@@ -32,18 +32,12 @@
       {
         "id": 13,
         "name": "Number",
-        "keys": [
-          "screensaver-timeout"
-        ]
+        "keys": ["screensaver-timeout"]
       },
       {
         "id": 4,
         "name": "File",
-        "keys": [
-          "screensaver-file",
-          "globe-screen-bg",
-          "globe-screen-image"
-        ]
+        "keys": ["screensaver-file", "globe-screen-bg", "globe-screen-image"]
       },
       {
         "id": 1,
@@ -105,7 +99,8 @@
           "key": "screensaver-file",
           "name": "screensaver-file",
           "isTranslated": false,
-          "files": "e37a155b-a7c1-4be9-766a-08de1d33b03d.webm"
+          "files": "e37a155b-a7c1-4be9-766a-08de1d33b03d.webm",
+          "#files": "BG.jpg"
         },
         {
           "moduleType": 1,
@@ -137,24 +132,47 @@
           "key": "globe-screen-bg",
           "name": "globe-screen-bg",
           "isTranslated": false,
-          "files": "e37a155b-a7c1-4be9-766a-08de1d33b03d.webm"
+          "files": "e37a155b-a7c1-4be9-766a-08de1d33b03d.webm",
+          "#files": "BG.jpg"
         },
         {
           "moduleType": 4,
           "key": "globe-screen-image",
           "name": "globe-screen-image",
           "isTranslated": false,
-          "files": "e1471a91-bea6-4e23-766b-08de1d33b03d.png"
+          "files": "test-image-2.png"
         },
         {
           "moduleType": 1,
-          "key": "mog-fires-timeline-title",
-          "name": "mog-fires-timeline-title",
+          "key": "timeline-title",
+          "name": "timeline-title",
           "isTranslated": true,
           "text": {
             "pl": "Przedział czasowy",
             "en": "Timeline",
-            "cz": "[CZ]Timeline"
+            "cz": "[CZ]"
+          }
+        },
+        {
+          "moduleType": 1,
+          "key": "timeline-all-label",
+          "name": "timeline-all-label",
+          "isTranslated": true,
+          "text": {
+            "pl": "Cały przedział czasowy",
+            "en": "[EN]",
+            "cz": "[CZ]"
+          }
+        },
+        {
+          "moduleType": 1,
+          "key": "mog-fires-timeline-all-label",
+          "name": "mog-fires-timeline-all-label",
+          "isTranslated": true,
+          "text": {
+            "pl": "Cały przedział czasowy",
+            "en": "[EN]",
+            "cz": "[CZ]"
           }
         },
         {
@@ -181,8 +199,8 @@
                   "isTranslated": true,
                   "text": {
                     "pl": "Starożytność i Średniowiecze ",
-                    "en": null,
-                    "cz": null
+                    "en": "[EN]",
+                    "cz": "[CZ]"
                   }
                 },
                 {
@@ -209,8 +227,8 @@
                           "isTranslated": true,
                           "text": {
                             "pl": "Pożar Troi (ok. 1180 p.n.e.) - Turcja ",
-                            "en": null,
-                            "cz": null
+                            "en": "[EN]",
+                            "cz": "[CZ]"
                           }
                         }
                       ]
@@ -233,8 +251,8 @@
                   "isTranslated": true,
                   "text": {
                     "pl": "XVI - XVIII wiek ",
-                    "en": null,
-                    "cz": null
+                    "en": "[EN]",
+                    "cz": "[CZ]"
                   }
                 },
                 {
@@ -261,8 +279,8 @@
                           "isTranslated": true,
                           "text": {
                             "pl": "Pożar Cuzco (1536) - Peru ",
-                            "en": null,
-                            "cz": null
+                            "en": "[EN]",
+                            "cz": "[CZ]"
                           }
                         }
                       ]
@@ -285,8 +303,8 @@
                   "isTranslated": true,
                   "text": {
                     "pl": "XIX wiek ",
-                    "en": null,
-                    "cz": null
+                    "en": "[EN]",
+                    "cz": "[CZ]"
                   }
                 },
                 {
@@ -313,8 +331,8 @@
                           "isTranslated": true,
                           "text": {
                             "pl": "Pożar Hamburga (1842) - Niemcy ",
-                            "en": null,
-                            "cz": null
+                            "en": "[EN]",
+                            "cz": "[CZ]"
                           }
                         }
                       ]
@@ -337,8 +355,8 @@
                   "isTranslated": true,
                   "text": {
                     "pl": "XX wiek ",
-                    "en": null,
-                    "cz": null
+                    "en": "[EN]",
+                    "cz": "[CZ]"
                   }
                 },
                 {
@@ -365,8 +383,8 @@
                           "isTranslated": true,
                           "text": {
                             "pl": "Pożar Valparaíso (1906) – Chile ",
-                            "en": null,
-                            "cz": null
+                            "en": "[EN]",
+                            "cz": "[CZ]"
                           }
                         }
                       ]
@@ -389,8 +407,8 @@
                   "isTranslated": true,
                   "text": {
                     "pl": "XXI wiek ",
-                    "en": null,
-                    "cz": null
+                    "en": "[EN]",
+                    "cz": "[CZ]"
                   }
                 },
                 {
@@ -417,8 +435,8 @@
                           "isTranslated": true,
                           "text": {
                             "pl": "Pożary w Amazonii (2019) - Brazylia ",
-                            "en": null,
-                            "cz": null
+                            "en": "[EN]",
+                            "cz": "[CZ]"
                           }
                         }
                       ]

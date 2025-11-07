@@ -1,5 +1,6 @@
-<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:cui="Artigio.MVVMToolkit.Core.UI" editor-extension-mode="False">
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:cui="Artigio.MVVMToolkit.Core.UI" xmlns:scui="Sources.Presentation.UI.Components" editor-extension-mode="False">
 
+    <Style src="../Components/timeline.uss" />
     <Style src="globe-screen.uss" />
     
     <cui:MediaBackground name="globe-screen__bg" class="media-bg" autoplay="true" loop="true" mute="true"  video-extensions=".webm,.mp4,.mov">
@@ -18,6 +19,19 @@
                     <ui:DataBinding property="text" data-source-path="Title" binding-mode="ToTarget"/>
                 </Bindings>
             </ui:Label>
+            <ui:Label class="globe-screen__timeline-title">
+                <Bindings>
+                    <ui:DataBinding property="text" data-source-path="TimelineTitle" binding-mode="ToTarget"/>
+                </Bindings>
+            </ui:Label>
+            <scui:Timeline class="timeline globe-screen__timeline">
+                <Bindings>
+                    <ui:DataBinding property="Items" data-source-path="TimelinePeriods" binding-mode="ToTarget" />
+                    <ui:DataBinding property="SelectedStart" data-source-path="SelectedStartIndex"  binding-mode="ToTarget" />
+                    <ui:DataBinding property="SelectedEnd"   data-source-path="SelectedEndIndex"    binding-mode="ToTarget" />
+                    <ui:DataBinding property="SelectionFull"  data-source-path="IsTimelineSelectionFull"  binding-mode="ToTarget" />
+                </Bindings>
+            </scui:Timeline>
         </ui:VisualElement>
     </cui:MediaBackground>
     
