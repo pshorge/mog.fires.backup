@@ -151,6 +151,3 @@
 .contrast .control-panel__button-icon {
     -unity-background-image-tint-color: var(--color-background-secondary);
 }
-
-
-
