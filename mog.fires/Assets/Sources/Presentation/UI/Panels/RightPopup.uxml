@@ -1,0 +1,77 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements"  editor-extension-mode="False">
+    
+    <Style src="right-popup.uss" />
+
+    <ui:VisualElement name="right_popup" class="right-popup">
+        <ui:VisualElement class="right-popup__header">
+            <ui:VisualElement class="right-popup__header__content">
+                <ui:Label class="popup__header__content__title_left">
+                    <Bindings>
+                        <ui:DataBinding property="text" data-source-path="Date" binding-mode="ToTarget"/>
+                    </Bindings>
+                </ui:Label>
+                <ui:VisualElement class="right-popup__header__content__separator"/>
+                <ui:Label class="popup__header__content__title_right">
+                    <Bindings>
+                        <ui:DataBinding property="text" data-source-path="Place" binding-mode="ToTarget"/>
+                    </Bindings>
+                </ui:Label>
+            </ui:VisualElement>
+            <ui:VisualElement class="right-popup__separator right-popup__separator--bottom"/>
+        </ui:VisualElement>
+        <ui:VisualElement class="right-popup__content">
+            <ui:Label class="right-popup__content__label">
+                <Bindings>
+                    <ui:DataBinding property="text" data-source-path="Text" binding-mode="ToTarget"/>
+                </Bindings>
+            </ui:Label>
+        </ui:VisualElement>
+        <ui:VisualElement class="right-popup__footer">
+            <ui:VisualElement class="right-popup__separator right-popup__separator--top"/>
+            <ui:VisualElement class="right-popup__footer_element right-popup__footer_element--first">
+                <Bindings>
+                    <ui:DataBinding property="style.display" data-source-path="HasStat1" binding-mode="ToTarget" />
+                </Bindings>
+                <ui:Label>
+                    <Bindings>
+                        <ui:DataBinding property="text" data-source-path="Stat1" binding-mode="ToTarget" />
+                    </Bindings>
+                </ui:Label>
+                <ui:VisualElement class="stat-icon-1"/>
+            </ui:VisualElement>
+            <ui:VisualElement class="right-popup__footer_element">
+                <Bindings>
+                    <ui:DataBinding property="style.display" data-source-path="HasStat2" binding-mode="ToTarget" />
+                </Bindings>
+                <ui:Label>
+                    <Bindings>
+                        <ui:DataBinding property="text" data-source-path="Stat2" binding-mode="ToTarget" />
+                    </Bindings>
+                </ui:Label>
+                <ui:VisualElement class="stat-icon-2"/>
+            </ui:VisualElement>
+            <ui:VisualElement class="right-popup__footer_element">
+                <Bindings>
+                    <ui:DataBinding property="style.display" data-source-path="HasStat3" binding-mode="ToTarget" />
+                </Bindings>
+                <ui:Label>
+                    <Bindings>
+                        <ui:DataBinding property="text" data-source-path="Stat3" binding-mode="ToTarget" />
+                    </Bindings>
+                </ui:Label>
+                <ui:VisualElement class="stat-icon-3"/>
+            </ui:VisualElement>
+            <ui:VisualElement class="right-popup__footer_element right-popup__footer_element--last">
+                <Bindings>
+                    <ui:DataBinding property="style.display" data-source-path="HasStat4" binding-mode="ToTarget" />
+                </Bindings>
+                <ui:Label>
+                    <Bindings>
+                        <ui:DataBinding property="text" data-source-path="Stat4" binding-mode="ToTarget" />
+                    </Bindings>
+                </ui:Label>
+                <ui:VisualElement class="stat-icon-4"/>
+            </ui:VisualElement>
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

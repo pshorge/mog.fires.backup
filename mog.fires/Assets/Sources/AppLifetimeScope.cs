@@ -9,6 +9,7 @@ using Sources.Data.Models;
 using Sources.Data.Repositories;
 using Sources.Features.ControlButtons.Model;
 using Sources.Features.GlobeScreen.Model;
+using Sources.Features.RightPopup;
 using Sources.Features.ScreensaverScreen.Model;
 using Sources.Presentation.Management;
 using Sources.Presentation.Navigation;
@@ -54,7 +55,7 @@ namespace Sources
             builder.Register<ScreensaverScreenModel>(Lifetime.Singleton).AsSelf();
             builder.Register<GlobeScreenModel>(Lifetime.Singleton).AsSelf();
             builder.Register<ControlButtonsModel>(Lifetime.Singleton).AsSelf();
-           
+            builder.Register<RightPopupModel>(Lifetime.Singleton).AsSelf();
 
             // Agregator
             builder.Register<AppContent>(Lifetime.Singleton);

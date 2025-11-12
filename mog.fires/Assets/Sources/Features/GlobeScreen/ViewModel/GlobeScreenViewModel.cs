@@ -2,6 +2,7 @@ using Artigio.MVVMToolkit.Core.MVVM.Base;
 using Artigio.MVVMToolkit.Core.Navigation;
 using Artigio.MVVMToolkit.Core.UI;
 using Sources.Features.GlobeScreen.Model;
+using Sources.Features.RightPopup;
 using Sources.Presentation.Core.Types;
 using Sources.Presentation.UI.Components;
 using UnityEngine;
@@ -17,16 +18,22 @@ namespace Sources.Features.GlobeScreen.ViewModel
         {
             // BEM class names
             public const string GlobeScreenBgName = "globe-screen__bg";
-            
+            public const string GlobeScreenRightPopupName = "right_popup";
+            public const string RightPopupVisibleClass = "right-popup--visible";
         }
         
         // Model
         protected override GlobeScreenModel Model { get; set; }
         
+        private RightPopupModel _rightPopupModel;
+        
         private MediaBackground _media;
         private Timeline _timeline;
         private const int ScrollStep = 1;
-
+        
+        private VisualElement _rightPopup;
+        private bool _popupActive;
+        
 
         
         // Dependencies
@@ -37,9 +44,10 @@ namespace Sources.Features.GlobeScreen.ViewModel
         protected override string ContainerName => "globe-screen";
 
         [Inject]
-        public void Initialize(GlobeScreenModel model)
+        public void Initialize(GlobeScreenModel model, RightPopupModel rightPopupModel)
         {
             Model = model;
+            _rightPopupModel = rightPopupModel;
         }
 
         protected override void OnEnable()
@@ -48,6 +56,7 @@ namespace Sources.Features.GlobeScreen.ViewModel
             SetupUIElements();
             RegisterEventHandlers();
             Container.dataSource = Model;
+            _rightPopup.dataSource = _rightPopupModel;
         }
 
         protected override void OnDisable()
@@ -55,12 +64,14 @@ namespace Sources.Features.GlobeScreen.ViewModel
             base.OnDisable();
             UnregisterEventHandlers();
             Container.dataSource = null; 
+            _rightPopup.dataSource = null;
         }
         
         private void SetupUIElements()
         {
             _media = Container.Q<MediaBackground>(UI.GlobeScreenBgName);
             _timeline = Container.Q<Timeline>();
+            _rightPopup = Container.Q<VisualElement>(UI.GlobeScreenRightPopupName);
         }
 
         private void RegisterEventHandlers()
@@ -80,7 +91,8 @@ namespace Sources.Features.GlobeScreen.ViewModel
 
         private void OnTouched(ClickEvent evt)
         {
-            _navigationController.NavigateForward();
+            _popupActive = !_popupActive;
+            _rightPopup.EnableInClassList(UI.RightPopupVisibleClass, _popupActive);
         }
         
         private void OnTimelineSelectionChanged(int start, int end)

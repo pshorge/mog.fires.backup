@@ -99,8 +99,7 @@
           "key": "screensaver-file",
           "name": "screensaver-file",
           "isTranslated": false,
-          "files": "e37a155b-a7c1-4be9-766a-08de1d33b03d.webm",
-          "#files": "BG.jpg"
+          "files": "e37a155b-a7c1-4be9-766a-08de1d33b03d.webm"
         },
         {
           "moduleType": 1,
@@ -132,47 +131,35 @@
           "key": "globe-screen-bg",
           "name": "globe-screen-bg",
           "isTranslated": false,
-          "files": "e37a155b-a7c1-4be9-766a-08de1d33b03d.webm",
-          "#files": "BG.jpg"
+          "files": "e37a155b-a7c1-4be9-766a-08de1d33b03d.webm"
         },
         {
           "moduleType": 4,
           "key": "globe-screen-image",
           "name": "globe-screen-image",
           "isTranslated": false,
-          "files": "test-image-2.png"
+          "files": "test-image-3.png"
         },
         {
           "moduleType": 1,
-          "key": "timeline-title",
-          "name": "timeline-title",
+          "key": "mog-fires-timeline-title",
+          "name": "mog-fires-timeline-title",
           "isTranslated": true,
           "text": {
             "pl": "Przedział czasowy",
             "en": "Timeline",
-            "cz": "[CZ]"
+            "cz": "[CZ]Timeline"
           }
         },
         {
           "moduleType": 1,
-          "key": "timeline-all-label",
-          "name": "timeline-all-label",
+          "key": "mog-fires-timeline-all",
+          "name": "mog-fires-timeline-all",
           "isTranslated": true,
           "text": {
             "pl": "Cały przedział czasowy",
-            "en": "[EN]",
-            "cz": "[CZ]"
-          }
-        },
-        {
-          "moduleType": 1,
-          "key": "mog-fires-timeline-all-label",
-          "name": "mog-fires-timeline-all-label",
-          "isTranslated": true,
-          "text": {
-            "pl": "Cały przedział czasowy",
-            "en": "[EN]",
-            "cz": "[CZ]"
+            "en": "All",
+            "cz": "[CZ]All"
           }
         },
         {
@@ -199,8 +186,8 @@
                   "isTranslated": true,
                   "text": {
                     "pl": "Starożytność i Średniowiecze ",
-                    "en": "[EN]",
-                    "cz": "[CZ]"
+                    "en": null,
+                    "cz": null
                   }
                 },
                 {
@@ -227,8 +214,8 @@
                           "isTranslated": true,
                           "text": {
                             "pl": "Pożar Troi (ok. 1180 p.n.e.) - Turcja ",
-                            "en": "[EN]",
-                            "cz": "[CZ]"
+                            "en": null,
+                            "cz": null
                           }
                         }
                       ]
@@ -251,8 +238,8 @@
                   "isTranslated": true,
                   "text": {
                     "pl": "XVI - XVIII wiek ",
-                    "en": "[EN]",
-                    "cz": "[CZ]"
+                    "en": null,
+                    "cz": null
                   }
                 },
                 {
@@ -279,8 +266,8 @@
                           "isTranslated": true,
                           "text": {
                             "pl": "Pożar Cuzco (1536) - Peru ",
-                            "en": "[EN]",
-                            "cz": "[CZ]"
+                            "en": null,
+                            "cz": null
                           }
                         }
                       ]
@@ -303,8 +290,8 @@
                   "isTranslated": true,
                   "text": {
                     "pl": "XIX wiek ",
-                    "en": "[EN]",
-                    "cz": "[CZ]"
+                    "en": null,
+                    "cz": null
                   }
                 },
                 {
@@ -331,8 +318,8 @@
                           "isTranslated": true,
                           "text": {
                             "pl": "Pożar Hamburga (1842) - Niemcy ",
-                            "en": "[EN]",
-                            "cz": "[CZ]"
+                            "en": null,
+                            "cz": null
                           }
                         }
                       ]
@@ -355,8 +342,8 @@
                   "isTranslated": true,
                   "text": {
                     "pl": "XX wiek ",
-                    "en": "[EN]",
-                    "cz": "[CZ]"
+                    "en": null,
+                    "cz": null
                   }
                 },
                 {
@@ -383,8 +370,8 @@
                           "isTranslated": true,
                           "text": {
                             "pl": "Pożar Valparaíso (1906) – Chile ",
-                            "en": "[EN]",
-                            "cz": "[CZ]"
+                            "en": null,
+                            "cz": null
                           }
                         }
                       ]
@@ -407,8 +394,8 @@
                   "isTranslated": true,
                   "text": {
                     "pl": "XXI wiek ",
-                    "en": "[EN]",
-                    "cz": "[CZ]"
+                    "en": null,
+                    "cz": null
                   }
                 },
                 {
@@ -435,8 +422,8 @@
                           "isTranslated": true,
                           "text": {
                             "pl": "Pożary w Amazonii (2019) - Brazylia ",
-                            "en": "[EN]",
-                            "cz": "[CZ]"
+                            "en": null,
+                            "cz": null
                           }
                         }
                       ]

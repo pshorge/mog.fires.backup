@@ -20,8 +20,8 @@ namespace Sources.Features.GlobeScreen.Model
             public const string ImageKey = "globe-screen-image";
             public const string TitleKey = "globe-screen-title";
             
-            public const string TimelineTitleKey = "timeline-title";
-            public const string TimelineAllKey = "timeline-all-label";
+            public const string TimelineTitleKey = "mog-fires-timeline-title";
+            public const string TimelineAllKey = "mog-fires-timeline-all";
         }
         
         private string _title;

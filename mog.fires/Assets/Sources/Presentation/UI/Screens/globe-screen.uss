@@ -75,3 +75,9 @@
     bottom: 80px;
     height: 150px;      
 }
+
+.globe-screen__right_popup
+{
+    flex-shrink: 0;
+    flex-grow: 1;
+}

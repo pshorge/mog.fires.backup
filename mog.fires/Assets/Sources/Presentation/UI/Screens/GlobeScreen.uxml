@@ -3,12 +3,16 @@
     <Style src="../Components/timeline.uss" />
     <Style src="globe-screen.uss" />
     
+    <ui:Template src="../Panels/RightPopup.uxml" name="RightPopup"/>
+
+    
     <cui:MediaBackground name="globe-screen__bg" class="media-bg" autoplay="true" loop="true" mute="true"  video-extensions=".webm,.mp4,.mov">
         <Bindings>
             <ui:DataBinding property="source" data-source-path="BackgroundFilePath" binding-mode="ToTarget" />
         </Bindings>
         
         <ui:VisualElement class="globe-screen__content">
+            <ui:Instance template="RightPopup" name="globe-screen__right_popup" class="globe-screen__right_popup"/>
             <cui:MediaBackground class="globe-screen--image">
                 <Bindings>
                     <ui:DataBinding property="source" data-source-path="ImageFilePath" binding-mode="ToTarget"/>
