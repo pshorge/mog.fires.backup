@@ -281,6 +281,8 @@ namespace Sources.Presentation.Navigation
         {
             if(Input.GetKeyUp(KeyCode.Alpha1))
                 NavigateTo(ViewType.Screensaver);
+            if(Input.GetKeyUp(KeyCode.Return) ||  Input.GetKeyUp(KeyCode.Space) ||  Input.GetKeyUp(KeyCode.Alpha2))
+                NavigateForward();
         }
 
 #endif

@@ -16,6 +16,14 @@
     flex-direction: row;
 }
 
+.globe-earth
+{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-image: url("project://database/Assets/Models/Earth.renderTexture");
+}
+
 .globe-screen--image {
     position: absolute;
     width: 100%;

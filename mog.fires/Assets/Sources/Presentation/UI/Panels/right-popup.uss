@@ -53,6 +53,8 @@
     font-size: var(--font-size-title);
     -unity-font-definition: var(--font-def-geist-extrabold);
 }
+
+
 .right-popup__separator {
     position: absolute;
     bottom: 0;

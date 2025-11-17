@@ -70,7 +70,7 @@ namespace Artigio.MVVMToolkit.Core.Application.Services
 
         private void Update()
         {
-            if (Input.anyKeyDown) 
+            if (Input.anyKeyDown || Input.mouseScrollDelta.magnitude > 0) 
                 ResetTimer();
         }
     }

@@ -131,9 +131,10 @@ namespace Sources.Features.RightPopup
         public void FetchModel()
         {
             Date = "1180 <size=80%>p.n.e."; //_localizationService.GetTranslation(GlobeScreenModel.ContentKeys.TitleKey);
+            //Place = "Rosja\n<size=50%>Rostów nad Donem"; 
             Place = "Grecja\n<size=80%>Saloniki"; //_localizationService.GetTranslation(GlobeScreenModel.ContentKeys.TitleKey);
             var text1 =
-                "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis.";
+                "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do <size=60%><i>eiusmod tempor incididunt ut labore et dolore magna aliqua. </i></size>Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis.";
             var text2 =
                 "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis.";
             Text = $"{text1}\n\n<size=90%>{text2}";
