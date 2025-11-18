@@ -1,12 +1,12 @@
-﻿using Sources.Features.ControlButtons.Model;
-using Sources.Features.GlobeScreen.Model;
+﻿using Sources.Features.ControlButtons.Presenter;
+using Sources.Features.GlobeScreen.Presenter;
 using VContainer;
 
 namespace Sources.Data.Models
 {
     public sealed class AppContent
     {
-        [Inject] public ControlButtonsModel ControlButtonsModel { get; init; }
-        [Inject] public GlobeScreenModel GlobeScreenModel { get; init; }
+        [Inject] public ControlPanelPresenter ControlPanelPresenter { get; init; }
+        [Inject] public GlobePresenter GlobePresenter { get; init; }
     }
 }

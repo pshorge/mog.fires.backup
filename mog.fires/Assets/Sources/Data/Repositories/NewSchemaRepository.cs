@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
 using System.Linq;
-using Artigio.MVVMToolkit.Core.Content.NewSchema;
-using Artigio.MVVMToolkit.Core.Services.Localization;
+using Psh.MVPToolkit.Core.Content.NewSchema;
+using Psh.MVPToolkit.Core.Services.Localization;
 using Sources.Data.Models;
 using UnityEngine;
 

@@ -190,10 +190,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c634f686b72a40debe1f674461b4ab85, type: 3}
   m_Name: 
   m_EditorClassIdentifier: wisla_interaktywne_sniezynki::Sources.Presentation.Navigation.NavigationService
-  viewModelComponents:
+  viewComponents:
   - {fileID: 1807831824}
   - {fileID: 1682491908}
-  controlButtons: {fileID: 334645591}
+  controlPanel: {fileID: 334645591}
 --- !u!1 &193929684
 GameObject:
   m_ObjectHideFlags: 0
@@ -320,7 +320,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 334645588}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c43577fd06bd47ac8af2e423c4b3635a, type: 3}
+  m_Script: {fileID: 11500000, guid: 9ea5c786c6b949bcb44f9c88ddca637f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _uiDocument: {fileID: 0}
@@ -333,7 +333,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 334645588}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7cbed513bf1946028382272b2c54b35e, type: 3}
+  m_Script: {fileID: 11500000, guid: 4bef4d62bd4b4019bc30b339c0321097, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &334645593
@@ -345,7 +345,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 334645588}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 25bf7bbfd0124f809ae260c5863fd7e0, type: 3}
+  m_Script: {fileID: 11500000, guid: f2ca40ab82ab4c749da74a8e32aab0eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: wisla_interaktywne_sniezynki::Artigio.MVVMToolkit.Core.MVVM.Base.Decorators.Resizable
 --- !u!1 &1126370473
@@ -504,7 +504,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1682491904}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1824f7c66376d61418eee408b6e2232d, type: 3}
+  m_Script: {fileID: 11500000, guid: 6eedb26bd9c94cc8af3a8bda14b19b1f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _uiDocument: {fileID: 0}
@@ -517,7 +517,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1682491904}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7cbed513bf1946028382272b2c54b35e, type: 3}
+  m_Script: {fileID: 11500000, guid: 4bef4d62bd4b4019bc30b339c0321097, type: 3}
   m_Name: 
   m_EditorClassIdentifier: wisla_interaktywne_sniezynki::Artigio.MVVMToolkit.Core.MVVM.Base.Decorators.Contrastable
 --- !u!114 &1682491910
@@ -529,7 +529,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1682491904}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 25bf7bbfd0124f809ae260c5863fd7e0, type: 3}
+  m_Script: {fileID: 11500000, guid: f2ca40ab82ab4c749da74a8e32aab0eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: wisla_interaktywne_sniezynki::Artigio.MVVMToolkit.Core.MVVM.Base.Decorators.Resizable
 --- !u!1001 &1749949736
@@ -666,7 +666,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1807831819}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ca6bacea5fb04d798e95613c05129a8f, type: 3}
+  m_Script: {fileID: 11500000, guid: ce676120e8484e1fb2138f63a53b8267, type: 3}
   m_Name: 
   m_EditorClassIdentifier: wisla_interaktywne_sniezynki::Sources.Features.ScreensaverScreen.ViewModel.ScreensaverScreenViewModel
   _uiDocument: {fileID: 0}

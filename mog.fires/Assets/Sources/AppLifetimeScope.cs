@@ -1,20 +1,20 @@
-﻿using Artigio.MVVMToolkit.Core.Application.Services;
-using Artigio.MVVMToolkit.Core.Infrastructure.Caching;
-using Artigio.MVVMToolkit.Core.Infrastructure.FileSystem;
-using Artigio.MVVMToolkit.Core.Services.Accessibility.HighContrast;
-using Artigio.MVVMToolkit.Core.Services.Accessibility.TextResize;
-using Artigio.MVVMToolkit.Core.Services.Localization;
-using Artigio.MVVMToolkit.Core.UI;
+﻿using Psh.MVPToolkit.Core.Application.Services;
+using Psh.MVPToolkit.Core.Infrastructure.Caching;
+using Psh.MVPToolkit.Core.Infrastructure.FileSystem;
+using Psh.MVPToolkit.Core.Services.Accessibility.HighContrast;
+using Psh.MVPToolkit.Core.Services.Accessibility.TextResize;
+using Psh.MVPToolkit.Core.Services.Localization;
 using Sources.Data.Models;
 using Sources.Data.Repositories;
-using Sources.Features.ControlButtons.Model;
-using Sources.Features.GlobeScreen.Model;
-using Sources.Features.RightPopup;
-using Sources.Features.ScreensaverScreen.Model;
+using Sources.Features.ControlButtons.Presenter;
+using Sources.Features.GlobeScreen.Presenter;
+using Sources.Features.RightPopup.Presenter;
+using Sources.Features.ScreensaverScreen.Presenter;
 using Sources.Presentation.Management;
 using Sources.Presentation.Navigation;
 using VContainer;
 using VContainer.Unity;
+using MediaBackground = Psh.MVPToolkit.Core.UI.MediaBackground;
 
 namespace Sources
 {
@@ -51,20 +51,20 @@ namespace Sources
             builder.Register<TextResizeService>(Lifetime.Singleton).AsSelf().AsImplementedInterfaces();
             builder.Register<HighContrastService>(Lifetime.Singleton).AsSelf().AsImplementedInterfaces();
             
-            // IDisposable Models as singletons, 
-            builder.Register<ScreensaverScreenModel>(Lifetime.Singleton).AsSelf();
-            builder.Register<GlobeScreenModel>(Lifetime.Singleton).AsSelf();
-            builder.Register<ControlButtonsModel>(Lifetime.Singleton).AsSelf();
-            builder.Register<RightPopupModel>(Lifetime.Singleton).AsSelf();
+            // MVP Presenters as singletons
+            builder.Register<ScreensaverPresenter>(Lifetime.Singleton).AsSelf();
+            builder.Register<GlobePresenter>(Lifetime.Singleton).AsSelf();
+            builder.Register<ControlPanelPresenter>(Lifetime.Singleton).AsSelf();
+            builder.Register<RightPopupPresenter>(Lifetime.Singleton).AsSelf();
 
             // Agregator
             builder.Register<AppContent>(Lifetime.Singleton);
 
             // MonoBehaviours 
             builder.RegisterComponentInHierarchy<InactivityService>().AsSelf().AsImplementedInterfaces();
-            
             builder.RegisterComponentInHierarchy<NavigationService>().AsSelf().AsImplementedInterfaces();
-            builder.Register<ControlButtonsPresenter>(Lifetime.Singleton);
+            // Control Panel Manager
+            builder.Register<ControlPanelManager>(Lifetime.Singleton);
             
         }
     }
