@@ -8,7 +8,7 @@ namespace Sources.Infrastructure
 
         [Header("Control Toggles")]
         [SerializeField] private bool isRotationEnabled = false;
-        [SerializeField] private int toggleMouseButton = 0; // 0 = lewy
+        [SerializeField] private int toggleMouseButton = 1; // 0 = lewy
 
         [Header("Orbit Controls (Yaw & Pitch)")]
         [SerializeField] private float yawSensitivity = 0.15f;
