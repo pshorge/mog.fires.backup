@@ -5,6 +5,7 @@ using Sources.Features.GlobeScreen.Presenter;
 using Sources.Features.RightPopup.Presenter;
 using Sources.Presentation.Core.Types;
 using Sources.Presentation.UI.Components;
+using UnityEngine;
 using UnityEngine.UIElements;
 using VContainer;
 
@@ -57,6 +58,7 @@ namespace Sources.Features.GlobeScreen.View
             RegisterEventHandlers();
             Container.dataSource = Presenter;
             _rightPopup.dataSource = _rightPopupPresenter;
+
         }
 
         protected override void OnDisable()

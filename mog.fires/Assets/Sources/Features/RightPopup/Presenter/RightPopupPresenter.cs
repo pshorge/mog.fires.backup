@@ -133,7 +133,7 @@ namespace Sources.Features.RightPopup.Presenter
                 Text = GetSampleText(),
                 Stat1 = "900",
                 Stat2 = "500",
-                Stat3 = "120",
+                Stat3 = null,//"120",
                 Stat4 = "400"
             };
         }

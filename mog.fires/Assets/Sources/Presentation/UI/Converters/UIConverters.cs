@@ -1,3 +1,4 @@
+using UnityEngine;
 using UnityEngine.Scripting;
 using UnityEngine.UIElements;
 #if UNITY_EDITOR
@@ -14,24 +15,24 @@ namespace Sources.Presentation.UI.Converters
 #if UNITY_EDITOR
         [InitializeOnLoadMethod]
 #else
-    [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.SubsystemRegistration)]
+    [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.AfterAssembliesLoaded)]
 #endif
         private static void RegisterConverters()
         {
             if (_registered) return;
             _registered = true;
 
-            // bool -> StyleEnum<DisplayStyle> (true => Flex, false => None)
+            // bool -> StyleEnum<DisplayStyle>
+            // true => StyleKeyword.Null (return to USS), false => DisplayStyle.None 
             ConverterGroups.RegisterGlobalConverter(
-                (ref bool value) => value ? DisplayStyle.Flex : DisplayStyle.None
+                (ref bool value) => (StyleEnum<DisplayStyle>)(value ? StyleKeyword.Null : DisplayStyle.None)
             );
 
-            // bool? -> StyleEnum<DisplayStyle>
-            // null => StyleKeyword.Null (return control to USS), true => Flex, false => None
+            // bool? -> StyleEnum<DisplayStyle> 
             ConverterGroups.RegisterGlobalConverter(
                 (ref bool? value) =>
                     value.HasValue
-                        ? (StyleEnum<DisplayStyle>)(value.Value ? DisplayStyle.Flex : DisplayStyle.None)
+                        ? (StyleEnum<DisplayStyle>)(value.Value ? StyleKeyword.Null : DisplayStyle.None)
                         : (StyleEnum<DisplayStyle>)StyleKeyword.Null
             );
         }
