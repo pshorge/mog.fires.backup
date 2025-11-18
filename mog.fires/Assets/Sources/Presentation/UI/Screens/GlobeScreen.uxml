@@ -1,4 +1,4 @@
-<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:cui="Artigio.MVVMToolkit.Core.UI" xmlns:scui="Sources.Presentation.UI.Components" editor-extension-mode="False">
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:cui="Psh.MVPToolkit.Core.UI" xmlns:scui="Sources.Presentation.UI.Components" editor-extension-mode="False">
 
     <Style src="../Components/timeline.uss" />
     <Style src="globe-screen.uss" />

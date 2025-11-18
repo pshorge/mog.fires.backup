@@ -1,5 +1,5 @@
 using Cysharp.Threading.Tasks;
-using Artigio.MVVMToolkit.Core.MVVM.Base;
+using Psh.MVPToolkit.Core.MVP.Contracts;
 using Sources.Presentation.Core.Types;
 
 namespace Sources.Presentation.Navigation
@@ -31,6 +31,6 @@ namespace Sources.Presentation.Navigation
     
     public interface IViewTransitionExecutor
     {
-        UniTask ExecuteTransitionAsync(IViewModel<ViewType> from, IViewModel<ViewType> to, ViewTransition transition);
+        UniTask ExecuteTransitionAsync(IView<ViewType> from, IView<ViewType> to, ViewTransition transition);
     }
 }

@@ -1,4 +1,4 @@
-using Artigio.MVVMToolkit.Core.Navigation;
+using Psh.MVPToolkit.Core.Navigation;
 using Sources.Presentation.Core.Types;
 
 namespace Sources.Presentation.Navigation
