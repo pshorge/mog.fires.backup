@@ -29,6 +29,7 @@
     --font-size-timeline-title: 36px;
     --font-size-timeline-title--xl: 46px;
     --font-size-popup-title: 75px;
+    --font-size-popup-subtitle: 55px;
 
     /* --- Spacing --- */
     --spacing-neg-xs: -4px;
