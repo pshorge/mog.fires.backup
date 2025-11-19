@@ -98,6 +98,7 @@
 }
 .popup__header__content__title_right {
     position: relative;
+    flex-direction: column;
     flex-shrink: 0;
     flex-grow: 1;
     -unity-text-align: upper-right;
@@ -105,7 +106,22 @@
     margin: 0;
     min-width: 340px;
     height: 180px;
+    justify-content: space-around;
 }
+
+.popup__header__content__place {
+    font-size: var(--font-size-popup-title);
+    -unity-font-definition: var(--font-def-geist-extrabold);
+    -unity-text-align: upper-right;
+    margin-bottom: 5px;
+}
+
+.popup__header__content__region {
+    font-size: var(--font-size-popup-subtitle);  
+    -unity-font-definition: var(--font-def-geist-extrabold);
+    -unity-text-align: upper-right;
+}
+
 
 .right-popup__footer_element
 {
