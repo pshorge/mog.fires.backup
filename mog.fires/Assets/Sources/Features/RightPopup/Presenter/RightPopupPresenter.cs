@@ -137,12 +137,12 @@ namespace Sources.Features.RightPopup.Presenter
             _data = new RightPopupData
             {
                 Date = "1180 <size=80%>p.n.e.",
-                Place = "Grecja",//"Grecja\n<size=80%>Saloniki",
+                Place = "Grecja",
                 Region = "Saloniki",
                 Text = GetSampleText(),
                 Stat1 = "900",
                 Stat2 = "500",
-                Stat3 = null,//"120",
+                Stat3 = null,
                 Stat4 = "400",
                 Latitude = -40,    
                 Longitude = 0
