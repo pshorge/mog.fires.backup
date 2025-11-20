@@ -121,39 +121,20 @@ namespace Sources.Features.RightPopup.Presenter
 
         public void Initialize()
         {
-            FetchData();
+            _data = new RightPopupData();
             UpdateBindableProperties();
         }
 
         public void RefreshData()
         {
-            FetchData();
             UpdateBindableProperties();
         }
 
-        private void FetchData()
+        public void SetData(RightPopupData data)
         {
-            // TODO: Replace with actual localization keys
-            _data = new RightPopupData
-            {
-                Date = "1180 <size=80%>p.n.e.",
-                Place = "Grecja",
-                Region = "Saloniki",
-                Text = GetSampleText(),
-                Stat1 = "900",
-                Stat2 = "500",
-                Stat3 = null,
-                Stat4 = "400",
-                Latitude = -40,    
-                Longitude = 0
-            };
-        }
-
-        private string GetSampleText()
-        {
-            var text1 = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do <size=60%><i>eiusmod tempor incididunt ut labore et dolore magna aliqua. </i></size>Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis.";
-            var text2 = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis.";
-            return $"{text1}\n\n<size=90%>{text2}";
+            if (data is null) return;
+            _data = data;
+            UpdateBindableProperties();
         }
 
         private void UpdateBindableProperties()

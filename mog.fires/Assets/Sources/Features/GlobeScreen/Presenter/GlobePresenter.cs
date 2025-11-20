@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using Psh.MVPToolkit.Core.Infrastructure.FileSystem;
 using Psh.MVPToolkit.Core.MVP.Base;
@@ -18,6 +19,8 @@ namespace Sources.Features.GlobeScreen.Presenter
     {
         private readonly ILocalizationService _localizationService;
         private GlobeData _data;
+        private List<GlobePointData> _allPoints = new();
+
 
         private static class ContentKeys
         {
@@ -26,6 +29,10 @@ namespace Sources.Features.GlobeScreen.Presenter
             public const string TitleKey = "globe-screen-title";
             public const string TimelineTitleKey = "mog-fires-timeline-title";
             public const string TimelineAllKey = "mog-fires-timeline-all";
+            
+            public const string ListKey = "mog-fires-list-globe";
+            public const string GroupItemsKey = "mog-fires-group-items";
+            public const string GroupNameKey = "mog-fires-group-name";
         }
 
         // Bindable properties
@@ -80,6 +87,7 @@ namespace Sources.Features.GlobeScreen.Presenter
                 _selectedStartIndex = value; 
                 Notify(); 
                 UpdateSelectionFullFlag();
+                FilterVisiblePoints();
             }
         }
 
@@ -103,6 +111,14 @@ namespace Sources.Features.GlobeScreen.Presenter
         {
             get => _isTimelineSelectionFull;
             private set { if (_isTimelineSelectionFull == value) return; _isTimelineSelectionFull = value; Notify(); }
+        }
+        
+        private List<GlobePointData> _visiblePoints = new();
+        [CreateProperty]
+        public List<GlobePointData> VisiblePoints
+        {
+            get => _visiblePoints;
+            private set { _visiblePoints = value; Notify(); }
         }
 
         public GlobePresenter(ILocalizationService localizationService)
@@ -138,8 +154,11 @@ namespace Sources.Features.GlobeScreen.Presenter
                 SelectedStartIndex = _selectedStartIndex,
                 SelectedEndIndex = _selectedEndIndex
             };
+            
+            _allPoints = FetchAllGlobePoints();
 
             InitOrClampSelection();
+            FilterVisiblePoints();
         }
 
         private void UpdateBindableProperties()
@@ -171,6 +190,83 @@ namespace Sources.Features.GlobeScreen.Presenter
             }
 
             yield return _localizationService.GetTranslation(ContentKeys.TimelineAllKey);
+        }
+        
+        private List<GlobePointData> FetchAllGlobePoints()
+        {
+            var points = new List<GlobePointData>();
+            int groupIndex = 0;
+
+            
+            while (true)
+            {
+                ++groupIndex;
+                // checks if group exists (by name)
+                var groupNameKey = $"{ContentKeys.ListKey}-{groupIndex}-{ContentKeys.GroupNameKey}";
+                if (!_localizationService.TryGetTranslation(groupNameKey, out _)) 
+                    break;
+                
+                int itemIndex = 0;
+                while (true)
+                {
+                    ++itemIndex;
+                    // key: mog-fires-list-globe-{group}-{items}-{item}-date
+                    var itemPrefix = $"{ContentKeys.ListKey}-{groupIndex}-{ContentKeys.GroupItemsKey}-{itemIndex}";
+                    
+                    // check if exists (by place)
+                    var placeKey = $"{itemPrefix}-mog-fires-item-place";
+                    if (!_localizationService.TryGetTranslation(placeKey, out var placeVal)) 
+                        break;
+
+                    
+                    var point = new GlobePointData
+                    {
+                        Id = itemPrefix,
+                        GroupIndex = groupIndex - 1,
+                        Place = placeVal,
+                        Date = _localizationService.GetTranslation($"{itemPrefix}-mog-fires-item-date"),
+                        Region = _localizationService.GetTranslation($"{itemPrefix}-mog-fires-item-region"),
+                        Text = _localizationService.GetTranslation($"{itemPrefix}-mog-fires-item-text"),
+                        
+                        Stat1 = _localizationService.GetTranslation($"{itemPrefix}-mog-fires-item-stat-1"),
+                        Stat2 = _localizationService.GetTranslation($"{itemPrefix}-mog-fires-item-stat-2"),
+                        Stat3 = _localizationService.GetTranslation($"{itemPrefix}-mog-fires-item-stat-3"),
+                        Stat4 = _localizationService.GetTranslation($"{itemPrefix}-mog-fires-item-stat-4"),
+                        // parsing Lat/Lon (float invariant)
+                        // if (_localizationService.TryGetTranslation($"{itemPrefix}-lat", out var latStr))
+                        //     if (float.TryParse(latStr, NumberStyles.Float, CultureInfo.InvariantCulture, out var lat))
+                        //         point.Latitude = lat;
+                        //
+                        // if (_localizationService.TryGetTranslation($"{itemPrefix}-lon", out var lonStr))
+                        //     if (float.TryParse(lonStr, NumberStyles.Float, CultureInfo.InvariantCulture, out var lon))
+                        //         point.Longitude = lon;
+                        Latitude = UnityEngine.Random.Range(-90f, 90f),
+                        Longitude = UnityEngine.Random.Range(-180f, 180f)
+                    };
+
+                    // TODO: add lat,long to json  in artigio model
+                    Debug.LogWarning("ADDING RANDOM POINTS!!");
+                    points.Add(point);
+                }
+            }
+            return points;
+        }
+        
+        private void FilterVisiblePoints()
+        {
+            if (_allPoints == null || TimelinePeriods == null || TimelinePeriods.Count == 0)
+            {
+                VisiblePoints = new List<GlobePointData>();
+                return;
+            }
+
+            // "All"
+            bool isLastElement = _selectedStartIndex >= TimelinePeriods.Count - 1;
+
+            if (isLastElement)
+                VisiblePoints = new List<GlobePointData>(_allPoints);
+            else
+                VisiblePoints = _allPoints.Where(p => p.GroupIndex == _selectedStartIndex).ToList();
         }
 
         private void InitOrClampSelection()
