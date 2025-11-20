@@ -231,8 +231,7 @@ namespace Psh.MVPToolkit.Core.Content.NewSchema
         {
             if (bag.ContainsKey(key))
             {
-                // opcjonalnie: ostrzegaj o kolizji
-                // UnityEngine.Debug.LogWarning($"[Localization] Duplicate key: {key} — overwritten");
+                 UnityEngine.Debug.LogWarning($"[Localization] Duplicate key: {key} — overwritten");
             }
             bag[key] = map;
         }

@@ -181,7 +181,7 @@
               "key": "mog-fires-globe",
               "name": "mog.fires.globe",
               "moduleId": "f2e6a5f9-4fa5-4bbd-8036-b484f19af408",
-              "referenceId": "bdaa58a5-f035-4ba6-899c-348d8657eea1",
+              "referenceId": "b6bc3162-3e55-48bd-9fc0-19c7ebed1a9f",
               "subModules": [
                 {
                   "moduleType": 1,
@@ -209,17 +209,94 @@
                       "key": "mog-fires-item",
                       "name": "mog.fires.item",
                       "moduleId": "f6e6f215-c47a-4f24-b0a4-a2f6a0329983",
-                      "referenceId": "01c96f4e-867a-4691-bec8-658501fc1291",
+                      "referenceId": "7160c03c-a437-48bc-a753-3cb2b4e3c0e5",
                       "subModules": [
                         {
-                          "moduleType": 1,
-                          "key": "mog-fires-item-title",
-                          "name": "mog-fires-item-title",
+                          "moduleType": 2,
+                          "key": "mog-fires-item-date",
+                          "name": "mog-fires-item-date",
                           "isTranslated": true,
                           "text": {
-                            "pl": "Pożar Troi (ok. 1180 p.n.e.) - Turcja ",
-                            "en": null,
-                            "cz": null
+                            "pl": "<p>1180 &lt;size=80%&gt;p.n.e.</p>\n",
+                            "en": "<p>1180 &lt;size=80%&gt;BC</p>\n",
+                            "cz": "<p>1180 &lt;size=80%&gt;BC</p>\n"
+                          }
+                        },
+                        {
+                          "moduleType": 1,
+                          "key": "mog-fires-item-place",
+                          "name": "mog-fires-item-place",
+                          "isTranslated": true,
+                          "text": {
+                            "pl": "Saloniki",
+                            "en": "Thessaloniki",
+                            "cz": "Thessaloniki"
+                          }
+                        },
+                        {
+                          "moduleType": 1,
+                          "key": "mog-fires-item-region",
+                          "name": "mog-fires-item-region",
+                          "isTranslated": true,
+                          "text": {
+                            "pl": "Grecja",
+                            "en": "Greece",
+                            "cz": "Greece"
+                          }
+                        },
+                        {
+                          "moduleType": 2,
+                          "key": "mog-fires-item-text",
+                          "name": "mog-fires-item-text",
+                          "isTranslated": true,
+                          "text": {
+                            "pl": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do <size=60%><i>eiusmod tempor incididunt ut labore et dolore magna aliqua. </i>Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis. </size=60%></p>\n\n<p>&nbsp;</p>\n\n<p><size=60%><size=90%>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis</size=90%></size=60%></p>\n",
+                            "en": "<p>&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do &lt;size=60%&gt;&lt;i&gt;eiusmod tempor incididunt ut labore et dolore magna aliqua. &lt;/i&gt;Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis. &lt;/size=60%&gt;&lt;/p&gt;</p>\n\n<p>&lt;p&gt;&amp;nbsp;&lt;/p&gt;</p>\n\n<p>&lt;p&gt;&lt;size=60%&gt;&lt;size=90%&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis&lt;/size=90%&gt;&lt;/size=60%&gt;&lt;/p&gt;<br />\n&nbsp;</p>\n",
+                            "cz": "<p>&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do &lt;size=60%&gt;&lt;i&gt;eiusmod tempor incididunt ut labore et dolore magna aliqua. &lt;/i&gt;Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis. &lt;/size=60%&gt;&lt;/p&gt;</p>\n\n<p>&lt;p&gt;&amp;nbsp;&lt;/p&gt;</p>\n\n<p>&lt;p&gt;&lt;size=60%&gt;&lt;size=90%&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis&lt;/size=90%&gt;&lt;/size=60%&gt;&lt;/p&gt;<br />\n&nbsp;</p>\n"
+                          }
+                        },
+                        {
+                          "moduleType": 1,
+                          "key": "mog-fires-item-stat1",
+                          "name": "mog-fires-item-stat1",
+                          "isTranslated": true,
+                          "text": {
+                            "pl": "900",
+                            "en": "900",
+                            "cz": "900"
+                          }
+                        },
+                        {
+                          "moduleType": 1,
+                          "key": "mog-fires-item-stat2",
+                          "name": "mog-fires-item-stat2",
+                          "isTranslated": true,
+                          "text": {
+                            "pl": "500",
+                            "en": "500",
+                            "cz": "500"
+                          }
+                        },
+                        {
+                          "moduleType": 1,
+                          "key": "mog-fires-item-stat3",
+                          "name": "mog-fires-item-stat3",
+                          "isTranslated": true,
+                          "text": {
+                            "pl": "120",
+                            "en": "120",
+                            "cz": "120"
+                          }
+                        },
+                        {
+                          "moduleType": 1,
+                          "key": "mog-fires-item-stat4",
+                          "name": "mog-fires-item-stat4",
+                          "isTranslated": true,
+                          "text": {
+                            "pl": "400",
+                            "en": "400",
+                            "cz": "400"
                           }
                         }
                       ]
@@ -233,7 +310,7 @@
               "key": "mog-fires-globe",
               "name": "mog.fires.globe",
               "moduleId": "f2e6a5f9-4fa5-4bbd-8036-b484f19af408",
-              "referenceId": "03363dca-d3a0-4b73-91c6-da876710fb5d",
+              "referenceId": "869e7e33-0e76-47dd-b7ad-1b71065bf338",
               "subModules": [
                 {
                   "moduleType": 1,
@@ -261,15 +338,88 @@
                       "key": "mog-fires-item",
                       "name": "mog.fires.item",
                       "moduleId": "f6e6f215-c47a-4f24-b0a4-a2f6a0329983",
-                      "referenceId": null,
+                      "referenceId": "c3f62c7d-8e1c-4aa1-8ec8-2924a74f9a9d",
                       "subModules": [
                         {
-                          "moduleType": 1,
-                          "key": "mog-fires-item-title",
-                          "name": "mog-fires-item-title",
+                          "moduleType": 2,
+                          "key": "mog-fires-item-date",
+                          "name": "mog-fires-item-date",
                           "isTranslated": true,
                           "text": {
-                            "pl": "Pożar Cuzco (1536) - Peru ",
+                            "pl": null,
+                            "en": null,
+                            "cz": null
+                          }
+                        },
+                        {
+                          "moduleType": 1,
+                          "key": "mog-fires-item-place",
+                          "name": "mog-fires-item-place",
+                          "isTranslated": true,
+                          "text": {
+                            "pl": null,
+                            "en": null,
+                            "cz": null
+                          }
+                        },
+                        {
+                          "moduleType": 1,
+                          "key": "mog-fires-item-region",
+                          "name": "mog-fires-item-region",
+                          "isTranslated": true,
+                          "text": {
+                            "pl": null,
+                            "en": null,
+                            "cz": null
+                          }
+                        },
+                        {
+                          "moduleType": 2,
+                          "key": "mog-fires-item-text",
+                          "name": "mog-fires-item-text",
+                          "isTranslated": true,
+                          "text": {
+                            "pl": null,
+                            "en": null,
+                            "cz": null
+                          }
+                        },
+                        {
+                          "moduleType": 1,
+                          "key": "mog-fires-item-stat1",
+                          "name": "mog-fires-item-stat1",
+                          "isTranslated": true,
+                          "text": null
+                        },
+                        {
+                          "moduleType": 1,
+                          "key": "mog-fires-item-stat2",
+                          "name": "mog-fires-item-stat2",
+                          "isTranslated": true,
+                          "text": {
+                            "pl": null,
+                            "en": null,
+                            "cz": null
+                          }
+                        },
+                        {
+                          "moduleType": 1,
+                          "key": "mog-fires-item-stat3",
+                          "name": "mog-fires-item-stat3",
+                          "isTranslated": true,
+                          "text": {
+                            "pl": null,
+                            "en": null,
+                            "cz": null
+                          }
+                        },
+                        {
+                          "moduleType": 1,
+                          "key": "mog-fires-item-stat4",
+                          "name": "mog-fires-item-stat4",
+                          "isTranslated": true,
+                          "text": {
+                            "pl": null,
                             "en": null,
                             "cz": null
                           }
@@ -285,7 +435,7 @@
               "key": "mog-fires-globe",
               "name": "mog.fires.globe",
               "moduleId": "f2e6a5f9-4fa5-4bbd-8036-b484f19af408",
-              "referenceId": "3593dc18-8f0d-4bc1-9e59-cd08b50becf2",
+              "referenceId": "8058453d-140f-495e-9c8c-0ad3b90759ad",
               "subModules": [
                 {
                   "moduleType": 1,
@@ -316,12 +466,85 @@
                       "referenceId": null,
                       "subModules": [
                         {
-                          "moduleType": 1,
-                          "key": "mog-fires-item-title",
-                          "name": "mog-fires-item-title",
+                          "moduleType": 2,
+                          "key": "mog-fires-item-date",
+                          "name": "mog-fires-item-date",
                           "isTranslated": true,
                           "text": {
-                            "pl": "Pożar Hamburga (1842) - Niemcy ",
+                            "pl": null,
+                            "en": null,
+                            "cz": null
+                          }
+                        },
+                        {
+                          "moduleType": 1,
+                          "key": "mog-fires-item-place",
+                          "name": "mog-fires-item-place",
+                          "isTranslated": true,
+                          "text": {
+                            "pl": null,
+                            "en": null,
+                            "cz": null
+                          }
+                        },
+                        {
+                          "moduleType": 1,
+                          "key": "mog-fires-item-region",
+                          "name": "mog-fires-item-region",
+                          "isTranslated": true,
+                          "text": {
+                            "pl": null,
+                            "en": null,
+                            "cz": null
+                          }
+                        },
+                        {
+                          "moduleType": 2,
+                          "key": "mog-fires-item-text",
+                          "name": "mog-fires-item-text",
+                          "isTranslated": true,
+                          "text": {
+                            "pl": null,
+                            "en": null,
+                            "cz": null
+                          }
+                        },
+                        {
+                          "moduleType": 1,
+                          "key": "mog-fires-item-stat1",
+                          "name": "mog-fires-item-stat1",
+                          "isTranslated": true,
+                          "text": null
+                        },
+                        {
+                          "moduleType": 1,
+                          "key": "mog-fires-item-stat2",
+                          "name": "mog-fires-item-stat2",
+                          "isTranslated": true,
+                          "text": {
+                            "pl": null,
+                            "en": null,
+                            "cz": null
+                          }
+                        },
+                        {
+                          "moduleType": 1,
+                          "key": "mog-fires-item-stat3",
+                          "name": "mog-fires-item-stat3",
+                          "isTranslated": true,
+                          "text": {
+                            "pl": null,
+                            "en": null,
+                            "cz": null
+                          }
+                        },
+                        {
+                          "moduleType": 1,
+                          "key": "mog-fires-item-stat4",
+                          "name": "mog-fires-item-stat4",
+                          "isTranslated": true,
+                          "text": {
+                            "pl": null,
                             "en": null,
                             "cz": null
                           }
@@ -337,7 +560,7 @@
               "key": "mog-fires-globe",
               "name": "mog.fires.globe",
               "moduleId": "f2e6a5f9-4fa5-4bbd-8036-b484f19af408",
-              "referenceId": "a55a0027-a842-4790-8915-615fcd8d2ec3",
+              "referenceId": "304a6132-4966-421b-84d0-81b4c2324576",
               "subModules": [
                 {
                   "moduleType": 1,
@@ -368,12 +591,85 @@
                       "referenceId": null,
                       "subModules": [
                         {
-                          "moduleType": 1,
-                          "key": "mog-fires-item-title",
-                          "name": "mog-fires-item-title",
+                          "moduleType": 2,
+                          "key": "mog-fires-item-date",
+                          "name": "mog-fires-item-date",
                           "isTranslated": true,
                           "text": {
-                            "pl": "Pożar Valparaíso (1906) – Chile ",
+                            "pl": null,
+                            "en": null,
+                            "cz": null
+                          }
+                        },
+                        {
+                          "moduleType": 1,
+                          "key": "mog-fires-item-place",
+                          "name": "mog-fires-item-place",
+                          "isTranslated": true,
+                          "text": {
+                            "pl": null,
+                            "en": null,
+                            "cz": null
+                          }
+                        },
+                        {
+                          "moduleType": 1,
+                          "key": "mog-fires-item-region",
+                          "name": "mog-fires-item-region",
+                          "isTranslated": true,
+                          "text": {
+                            "pl": null,
+                            "en": null,
+                            "cz": null
+                          }
+                        },
+                        {
+                          "moduleType": 2,
+                          "key": "mog-fires-item-text",
+                          "name": "mog-fires-item-text",
+                          "isTranslated": true,
+                          "text": {
+                            "pl": null,
+                            "en": null,
+                            "cz": null
+                          }
+                        },
+                        {
+                          "moduleType": 1,
+                          "key": "mog-fires-item-stat1",
+                          "name": "mog-fires-item-stat1",
+                          "isTranslated": true,
+                          "text": null
+                        },
+                        {
+                          "moduleType": 1,
+                          "key": "mog-fires-item-stat2",
+                          "name": "mog-fires-item-stat2",
+                          "isTranslated": true,
+                          "text": {
+                            "pl": null,
+                            "en": null,
+                            "cz": null
+                          }
+                        },
+                        {
+                          "moduleType": 1,
+                          "key": "mog-fires-item-stat3",
+                          "name": "mog-fires-item-stat3",
+                          "isTranslated": true,
+                          "text": {
+                            "pl": null,
+                            "en": null,
+                            "cz": null
+                          }
+                        },
+                        {
+                          "moduleType": 1,
+                          "key": "mog-fires-item-stat4",
+                          "name": "mog-fires-item-stat4",
+                          "isTranslated": true,
+                          "text": {
+                            "pl": null,
                             "en": null,
                             "cz": null
                           }
@@ -389,7 +685,7 @@
               "key": "mog-fires-globe",
               "name": "mog.fires.globe",
               "moduleId": "f2e6a5f9-4fa5-4bbd-8036-b484f19af408",
-              "referenceId": "b069527e-80ad-4916-ab52-19c3c917cd34",
+              "referenceId": "63669f81-f30a-4eb8-b191-d0e87575b81f",
               "subModules": [
                 {
                   "moduleType": 1,
@@ -420,12 +716,85 @@
                       "referenceId": null,
                       "subModules": [
                         {
-                          "moduleType": 1,
-                          "key": "mog-fires-item-title",
-                          "name": "mog-fires-item-title",
+                          "moduleType": 2,
+                          "key": "mog-fires-item-date",
+                          "name": "mog-fires-item-date",
                           "isTranslated": true,
                           "text": {
-                            "pl": "Pożary w Amazonii (2019) - Brazylia ",
+                            "pl": null,
+                            "en": null,
+                            "cz": null
+                          }
+                        },
+                        {
+                          "moduleType": 1,
+                          "key": "mog-fires-item-place",
+                          "name": "mog-fires-item-place",
+                          "isTranslated": true,
+                          "text": {
+                            "pl": null,
+                            "en": null,
+                            "cz": null
+                          }
+                        },
+                        {
+                          "moduleType": 1,
+                          "key": "mog-fires-item-region",
+                          "name": "mog-fires-item-region",
+                          "isTranslated": true,
+                          "text": {
+                            "pl": null,
+                            "en": null,
+                            "cz": null
+                          }
+                        },
+                        {
+                          "moduleType": 2,
+                          "key": "mog-fires-item-text",
+                          "name": "mog-fires-item-text",
+                          "isTranslated": true,
+                          "text": {
+                            "pl": null,
+                            "en": null,
+                            "cz": null
+                          }
+                        },
+                        {
+                          "moduleType": 1,
+                          "key": "mog-fires-item-stat1",
+                          "name": "mog-fires-item-stat1",
+                          "isTranslated": true,
+                          "text": null
+                        },
+                        {
+                          "moduleType": 1,
+                          "key": "mog-fires-item-stat2",
+                          "name": "mog-fires-item-stat2",
+                          "isTranslated": true,
+                          "text": {
+                            "pl": null,
+                            "en": null,
+                            "cz": null
+                          }
+                        },
+                        {
+                          "moduleType": 1,
+                          "key": "mog-fires-item-stat3",
+                          "name": "mog-fires-item-stat3",
+                          "isTranslated": true,
+                          "text": {
+                            "pl": null,
+                            "en": null,
+                            "cz": null
+                          }
+                        },
+                        {
+                          "moduleType": 1,
+                          "key": "mog-fires-item-stat4",
+                          "name": "mog-fires-item-stat4",
+                          "isTranslated": true,
+                          "text": {
+                            "pl": null,
                             "en": null,
                             "cz": null
                           }
@@ -453,7 +822,7 @@
               "key": "mog-fires-map",
               "name": "mog.fires.map",
               "moduleId": "6a1b4e9d-aca0-48da-bde0-81f87f98dee7",
-              "referenceId": "7143a03f-d608-4369-a279-8445922feb08",
+              "referenceId": null,
               "subModules": [
                 {
                   "moduleType": 1,
@@ -481,15 +850,88 @@
                       "key": "mog-fires-item",
                       "name": "mog.fires.item",
                       "moduleId": "f6e6f215-c47a-4f24-b0a4-a2f6a0329983",
-                      "referenceId": "f975b3c9-25bb-4df6-9170-c664af35f995",
+                      "referenceId": null,
                       "subModules": [
                         {
-                          "moduleType": 1,
-                          "key": "mog-fires-item-title",
-                          "name": "mog-fires-item-title",
+                          "moduleType": 2,
+                          "key": "mog-fires-item-date",
+                          "name": "mog-fires-item-date",
                           "isTranslated": true,
                           "text": {
-                            "pl": "1241 – pożar miast Górnego Śląska podczas najazdu mongolskiego",
+                            "pl": null,
+                            "en": null,
+                            "cz": null
+                          }
+                        },
+                        {
+                          "moduleType": 1,
+                          "key": "mog-fires-item-place",
+                          "name": "mog-fires-item-place",
+                          "isTranslated": true,
+                          "text": {
+                            "pl": null,
+                            "en": null,
+                            "cz": null
+                          }
+                        },
+                        {
+                          "moduleType": 1,
+                          "key": "mog-fires-item-region",
+                          "name": "mog-fires-item-region",
+                          "isTranslated": true,
+                          "text": {
+                            "pl": null,
+                            "en": null,
+                            "cz": null
+                          }
+                        },
+                        {
+                          "moduleType": 2,
+                          "key": "mog-fires-item-text",
+                          "name": "mog-fires-item-text",
+                          "isTranslated": true,
+                          "text": {
+                            "pl": null,
+                            "en": null,
+                            "cz": null
+                          }
+                        },
+                        {
+                          "moduleType": 1,
+                          "key": "mog-fires-item-stat1",
+                          "name": "mog-fires-item-stat1",
+                          "isTranslated": true,
+                          "text": null
+                        },
+                        {
+                          "moduleType": 1,
+                          "key": "mog-fires-item-stat2",
+                          "name": "mog-fires-item-stat2",
+                          "isTranslated": true,
+                          "text": {
+                            "pl": null,
+                            "en": null,
+                            "cz": null
+                          }
+                        },
+                        {
+                          "moduleType": 1,
+                          "key": "mog-fires-item-stat3",
+                          "name": "mog-fires-item-stat3",
+                          "isTranslated": true,
+                          "text": {
+                            "pl": null,
+                            "en": null,
+                            "cz": null
+                          }
+                        },
+                        {
+                          "moduleType": 1,
+                          "key": "mog-fires-item-stat4",
+                          "name": "mog-fires-item-stat4",
+                          "isTranslated": true,
+                          "text": {
+                            "pl": null,
                             "en": null,
                             "cz": null
                           }
@@ -505,7 +947,7 @@
               "key": "mog-fires-map",
               "name": "mog.fires.map",
               "moduleId": "6a1b4e9d-aca0-48da-bde0-81f87f98dee7",
-              "referenceId": "b0c491b2-4ea9-467a-816b-a11e6c6d7e8e",
+              "referenceId": null,
               "subModules": [
                 {
                   "moduleType": 1,
@@ -533,15 +975,88 @@
                       "key": "mog-fires-item",
                       "name": "mog.fires.item",
                       "moduleId": "f6e6f215-c47a-4f24-b0a4-a2f6a0329983",
-                      "referenceId": "17c71169-5518-4d1c-9ccf-157639d5e485",
+                      "referenceId": null,
                       "subModules": [
                         {
-                          "moduleType": 1,
-                          "key": "mog-fires-item-title",
-                          "name": "mog-fires-item-title",
+                          "moduleType": 2,
+                          "key": "mog-fires-item-date",
+                          "name": "mog-fires-item-date",
                           "isTranslated": true,
                           "text": {
-                            "pl": "1807 – pożar Żor",
+                            "pl": null,
+                            "en": null,
+                            "cz": null
+                          }
+                        },
+                        {
+                          "moduleType": 1,
+                          "key": "mog-fires-item-place",
+                          "name": "mog-fires-item-place",
+                          "isTranslated": true,
+                          "text": {
+                            "pl": null,
+                            "en": null,
+                            "cz": null
+                          }
+                        },
+                        {
+                          "moduleType": 1,
+                          "key": "mog-fires-item-region",
+                          "name": "mog-fires-item-region",
+                          "isTranslated": true,
+                          "text": {
+                            "pl": null,
+                            "en": null,
+                            "cz": null
+                          }
+                        },
+                        {
+                          "moduleType": 2,
+                          "key": "mog-fires-item-text",
+                          "name": "mog-fires-item-text",
+                          "isTranslated": true,
+                          "text": {
+                            "pl": null,
+                            "en": null,
+                            "cz": null
+                          }
+                        },
+                        {
+                          "moduleType": 1,
+                          "key": "mog-fires-item-stat1",
+                          "name": "mog-fires-item-stat1",
+                          "isTranslated": true,
+                          "text": null
+                        },
+                        {
+                          "moduleType": 1,
+                          "key": "mog-fires-item-stat2",
+                          "name": "mog-fires-item-stat2",
+                          "isTranslated": true,
+                          "text": {
+                            "pl": null,
+                            "en": null,
+                            "cz": null
+                          }
+                        },
+                        {
+                          "moduleType": 1,
+                          "key": "mog-fires-item-stat3",
+                          "name": "mog-fires-item-stat3",
+                          "isTranslated": true,
+                          "text": {
+                            "pl": null,
+                            "en": null,
+                            "cz": null
+                          }
+                        },
+                        {
+                          "moduleType": 1,
+                          "key": "mog-fires-item-stat4",
+                          "name": "mog-fires-item-stat4",
+                          "isTranslated": true,
+                          "text": {
+                            "pl": null,
                             "en": null,
                             "cz": null
                           }
@@ -557,7 +1072,7 @@
               "key": "mog-fires-map",
               "name": "mog.fires.map",
               "moduleId": "6a1b4e9d-aca0-48da-bde0-81f87f98dee7",
-              "referenceId": "6aab1ab6-251f-45bc-9f8e-268062d62d6c",
+              "referenceId": null,
               "subModules": [
                 {
                   "moduleType": 1,
@@ -585,15 +1100,88 @@
                       "key": "mog-fires-item",
                       "name": "mog.fires.item",
                       "moduleId": "f6e6f215-c47a-4f24-b0a4-a2f6a0329983",
-                      "referenceId": "06045342-8c0a-42cf-bd48-18477c333434",
+                      "referenceId": null,
                       "subModules": [
                         {
-                          "moduleType": 1,
-                          "key": "mog-fires-item-title",
-                          "name": "mog-fires-item-title",
+                          "moduleType": 2,
+                          "key": "mog-fires-item-date",
+                          "name": "mog-fires-item-date",
                           "isTranslated": true,
                           "text": {
-                            "pl": "1913 – pożar Fabryki Zapałek w Częstochowie",
+                            "pl": null,
+                            "en": null,
+                            "cz": null
+                          }
+                        },
+                        {
+                          "moduleType": 1,
+                          "key": "mog-fires-item-place",
+                          "name": "mog-fires-item-place",
+                          "isTranslated": true,
+                          "text": {
+                            "pl": null,
+                            "en": null,
+                            "cz": null
+                          }
+                        },
+                        {
+                          "moduleType": 1,
+                          "key": "mog-fires-item-region",
+                          "name": "mog-fires-item-region",
+                          "isTranslated": true,
+                          "text": {
+                            "pl": null,
+                            "en": null,
+                            "cz": null
+                          }
+                        },
+                        {
+                          "moduleType": 2,
+                          "key": "mog-fires-item-text",
+                          "name": "mog-fires-item-text",
+                          "isTranslated": true,
+                          "text": {
+                            "pl": null,
+                            "en": null,
+                            "cz": null
+                          }
+                        },
+                        {
+                          "moduleType": 1,
+                          "key": "mog-fires-item-stat1",
+                          "name": "mog-fires-item-stat1",
+                          "isTranslated": true,
+                          "text": null
+                        },
+                        {
+                          "moduleType": 1,
+                          "key": "mog-fires-item-stat2",
+                          "name": "mog-fires-item-stat2",
+                          "isTranslated": true,
+                          "text": {
+                            "pl": null,
+                            "en": null,
+                            "cz": null
+                          }
+                        },
+                        {
+                          "moduleType": 1,
+                          "key": "mog-fires-item-stat3",
+                          "name": "mog-fires-item-stat3",
+                          "isTranslated": true,
+                          "text": {
+                            "pl": null,
+                            "en": null,
+                            "cz": null
+                          }
+                        },
+                        {
+                          "moduleType": 1,
+                          "key": "mog-fires-item-stat4",
+                          "name": "mog-fires-item-stat4",
+                          "isTranslated": true,
+                          "text": {
+                            "pl": null,
                             "en": null,
                             "cz": null
                           }
@@ -609,7 +1197,7 @@
               "key": "mog-fires-map",
               "name": "mog.fires.map",
               "moduleId": "6a1b4e9d-aca0-48da-bde0-81f87f98dee7",
-              "referenceId": "b6c2c3bd-cf55-445b-b386-d4c13e5ad233",
+              "referenceId": null,
               "subModules": [
                 {
                   "moduleType": 1,
@@ -637,15 +1225,88 @@
                       "key": "mog-fires-item",
                       "name": "mog.fires.item",
                       "moduleId": "f6e6f215-c47a-4f24-b0a4-a2f6a0329983",
-                      "referenceId": "1dc4cb66-005a-42b2-bcd3-67c5bcf6ed20",
+                      "referenceId": null,
                       "subModules": [
                         {
-                          "moduleType": 1,
-                          "key": "mog-fires-item-title",
-                          "name": "mog-fires-item-title",
+                          "moduleType": 2,
+                          "key": "mog-fires-item-date",
+                          "name": "mog-fires-item-date",
                           "isTranslated": true,
                           "text": {
-                            "pl": "1992 – pożar lasów w nadleśnictwie Rudy Raciborskie",
+                            "pl": null,
+                            "en": null,
+                            "cz": null
+                          }
+                        },
+                        {
+                          "moduleType": 1,
+                          "key": "mog-fires-item-place",
+                          "name": "mog-fires-item-place",
+                          "isTranslated": true,
+                          "text": {
+                            "pl": null,
+                            "en": null,
+                            "cz": null
+                          }
+                        },
+                        {
+                          "moduleType": 1,
+                          "key": "mog-fires-item-region",
+                          "name": "mog-fires-item-region",
+                          "isTranslated": true,
+                          "text": {
+                            "pl": null,
+                            "en": null,
+                            "cz": null
+                          }
+                        },
+                        {
+                          "moduleType": 2,
+                          "key": "mog-fires-item-text",
+                          "name": "mog-fires-item-text",
+                          "isTranslated": true,
+                          "text": {
+                            "pl": null,
+                            "en": null,
+                            "cz": null
+                          }
+                        },
+                        {
+                          "moduleType": 1,
+                          "key": "mog-fires-item-stat1",
+                          "name": "mog-fires-item-stat1",
+                          "isTranslated": true,
+                          "text": null
+                        },
+                        {
+                          "moduleType": 1,
+                          "key": "mog-fires-item-stat2",
+                          "name": "mog-fires-item-stat2",
+                          "isTranslated": true,
+                          "text": {
+                            "pl": null,
+                            "en": null,
+                            "cz": null
+                          }
+                        },
+                        {
+                          "moduleType": 1,
+                          "key": "mog-fires-item-stat3",
+                          "name": "mog-fires-item-stat3",
+                          "isTranslated": true,
+                          "text": {
+                            "pl": null,
+                            "en": null,
+                            "cz": null
+                          }
+                        },
+                        {
+                          "moduleType": 1,
+                          "key": "mog-fires-item-stat4",
+                          "name": "mog-fires-item-stat4",
+                          "isTranslated": true,
+                          "text": {
+                            "pl": null,
                             "en": null,
                             "cz": null
                           }
