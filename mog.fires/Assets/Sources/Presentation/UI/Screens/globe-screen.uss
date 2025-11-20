@@ -89,3 +89,20 @@
     flex-shrink: 0;
     flex-grow: 1;
 }
+
+.globe-marker {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    background-color: #FF0000; 
+    border-width: 2px;
+    border-color: white;
+    rotate: 45deg; 
+
+    /* center pivot (for left, top props) */
+    translate: -50% -50%;
+
+    opacity: 0.8;
+    transition-property: opacity, scale;
+    transition-duration: 0.2s;
+}
