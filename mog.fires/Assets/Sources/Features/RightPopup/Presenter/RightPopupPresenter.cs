@@ -148,6 +148,7 @@ namespace Sources.Features.RightPopup.Presenter
             Stat3 = _data.Stat3;
             Stat4 = _data.Stat4;
         }
+        
 
         private void OnLanguageChanged() => RefreshData();
 

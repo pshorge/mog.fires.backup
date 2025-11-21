@@ -27,7 +27,10 @@ namespace Sources.Infrastructure
         private float yawVelocity = 0f;
         private float pitchVelocity = 0f;
         private Camera cam;
-
+        
+        public Camera Camera => cam;
+        
+        
         void Start()
         {
             if (cameraPivot == null)
