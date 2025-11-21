@@ -218,21 +218,22 @@ namespace Sources.Features.GlobeScreen.Presenter
                     // i.e. mog-fires-list-globe-1-mog-fires-items-1
                     var itemPrefix = $"{ContentKeys.ListKey}-{groupIndex}-{ContentKeys.GroupItemsKey}-{itemIndex}";
                     
-                    // Check if item exists (using 'place' property as check)
-                    var placeKey = $"{itemPrefix}-mog-fires-item-place";
+                    // Check if item exists (using 'pos' property as check)
+                    if (!_localizationService.TryGetTranslation($"{itemPrefix}-mog-fires-item-pos", out var posStr))
+                        break;
+
+                    if (!TryParseCoordinates(posStr, out var lat, out var lon))
+                    {
+                        Debug.LogWarning($"Could not parse coordinates for item pos: {posStr}");
+                        break;
+                    }
                     
-                    if (!_localizationService.TryGetTranslation(placeKey, out var place))
-                        break; // Break inner loop (items), proceed to next group
-
-
-
-                    var tpoint = TestPointAtOrRandom(groupIndex-1);
                     
                     var point = new GlobePointData
                     {
                         Id = itemPrefix,
                         GroupIndex = groupIndex - 1, // 0-based for timeline logic
-                        Place = place,
+                        Place = _localizationService.GetTranslation($"{itemPrefix}-mog-fires-item-place"),
                         Date = _localizationService.GetTranslation($"{itemPrefix}-mog-fires-item-date"),
                         Region = _localizationService.GetTranslation($"{itemPrefix}-mog-fires-item-region"),
                         Text = _localizationService.GetTranslation($"{itemPrefix}-mog-fires-item-text"),
@@ -242,40 +243,55 @@ namespace Sources.Features.GlobeScreen.Presenter
                         Stat3 = _localizationService.GetTranslation($"{itemPrefix}-mog-fires-item-stat3"),
                         Stat4 = _localizationService.GetTranslation($"{itemPrefix}-mog-fires-item-stat4"),
                         
-                        
-                        // Random Lat/Lon for now
-                        Latitude = tpoint.lat,
-                        Longitude = tpoint.lon
+                        Latitude = lat,
+                        Longitude = lon
                     };
 
                     points.Add(point);
                 }
             }
             
-            ApplyTestNames(points);
-            
             Debug.Log($"[GlobePresenter] Fetched total points: {points.Count}");
             return points;
         }
 
         // Null Island, Krakow, Los Angeles, Tokyo, Melbourne 
-        private (float lan, float lon)[] test_points = { (0f, 0f), (50.06f, 19.94f), (34.04f, -118.25f), (35.67f, 139.77f), (-37.81f, 144.96f) };
-        (float lat, float lon) TestPointAtOrRandom(int index)
+        // private (float lan, float lon)[] test_points = { (0f, 0f), (50.06f, 19.94f), (34.04f, -118.25f), (35.67f, 139.77f), (-37.81f, 144.96f) };
+        // (float lat, float lon) TestPointAtOrRandom(int index)
+        // {
+        //     return index < test_points.Length  ? test_points[index] : (Random.Range(-90, 90f), Random.Range(-180f, 180f));;
+        // }
+        //
+        // private void ApplyTestNames(List<GlobePointData> points)
+        // {
+        //     var test_places = new []{"Null Island", "Kraków", "Los Angeles", "Tokyo", "Melbourne" };
+        //
+        //     for (var index = 0; index < Mathf.Min(test_places.Length,points.Count); index++)
+        //     {
+        //         var point = points[index];
+        //         var place = test_places[index];
+        //         point.Place = place;
+        //     }
+        //     Debug.LogWarning("Test places applied!!!");
+        // }
+        
+        private static bool TryParseCoordinates(string rawData, out float lat, out float lon)
         {
-            return index < test_points.Length  ? test_points[index] : (Random.Range(-90, 90f), Random.Range(-180f, 180f));;
-        }
+            lat = 0f;
+            lon = 0f;
 
-        private void ApplyTestNames(List<GlobePointData> points)
-        {
-            var test_places = new []{"Null Island", "Kraków", "Los Angeles", "Tokyo", "Melbourne" };
+            if (string.IsNullOrWhiteSpace(rawData)) 
+                return false;
 
-            for (var index = 0; index < Mathf.Min(test_places.Length,points.Count); index++)
-            {
-                var point = points[index];
-                var place = test_places[index];
-                point.Place = place;
-            }
-            Debug.LogWarning("Test places applied!!!");
+            var parts = rawData.Split(',');
+
+            if (parts.Length != 2) 
+                return false;
+            
+            var latSuccess = float.TryParse(parts[0].Trim(), NumberStyles.Float, CultureInfo.InvariantCulture, out lat);
+            var lonSuccess = float.TryParse(parts[1].Trim(), NumberStyles.Float, CultureInfo.InvariantCulture, out lon);
+
+            return latSuccess && lonSuccess;
         }
         
 

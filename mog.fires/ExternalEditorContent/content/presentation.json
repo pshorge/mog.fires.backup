@@ -212,6 +212,24 @@
                       "referenceId": "7160c03c-a437-48bc-a753-3cb2b4e3c0e5",
                       "subModules": [
                         {
+                          "moduleType": 1,
+                          "key": "mog-fires-item-place",
+                          "name": "mog-fires-item-place",
+                          "isTranslated": true,
+                          "text": {
+                            "pl": "Troja",
+                            "en": "",
+                            "cz": ""
+                          }
+                        },
+                        {
+                          "moduleType": 1,
+                          "key": "mog-fires-item-pos",
+                          "name": "mog-fires-item-pos",
+                          "isTranslated": false,
+                          "text": "39.957777599427, 26.239688382253533"
+                        },
+                        {
                           "moduleType": 2,
                           "key": "mog-fires-item-date",
                           "name": "mog-fires-item-date",
@@ -224,24 +242,13 @@
                         },
                         {
                           "moduleType": 1,
-                          "key": "mog-fires-item-place",
-                          "name": "mog-fires-item-place",
-                          "isTranslated": true,
-                          "text": {
-                            "pl": "Saloniki",
-                            "en": "Thessaloniki",
-                            "cz": "Thessaloniki"
-                          }
-                        },
-                        {
-                          "moduleType": 1,
                           "key": "mog-fires-item-region",
                           "name": "mog-fires-item-region",
                           "isTranslated": true,
                           "text": {
-                            "pl": "Grecja",
-                            "en": "Greece",
-                            "cz": "Greece"
+                            "pl": "Turcja",
+                            "en": "",
+                            "cz": ""
                           }
                         },
                         {
@@ -250,9 +257,9 @@
                           "name": "mog-fires-item-text",
                           "isTranslated": true,
                           "text": {
-                            "pl": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do <size=60%><i>eiusmod tempor incididunt ut labore et dolore magna aliqua. </i>Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis. </size=60%></p>\n\n<p>&nbsp;</p>\n\n<p><size=60%><size=90%>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis</size=90%></size=60%></p>\n",
-                            "en": "<p>&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do &lt;size=60%&gt;&lt;i&gt;eiusmod tempor incididunt ut labore et dolore magna aliqua. &lt;/i&gt;Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis. &lt;/size=60%&gt;&lt;/p&gt;</p>\n\n<p>&lt;p&gt;&amp;nbsp;&lt;/p&gt;</p>\n\n<p>&lt;p&gt;&lt;size=60%&gt;&lt;size=90%&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis&lt;/size=90%&gt;&lt;/size=60%&gt;&lt;/p&gt;<br />\n&nbsp;</p>\n",
-                            "cz": "<p>&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do &lt;size=60%&gt;&lt;i&gt;eiusmod tempor incididunt ut labore et dolore magna aliqua. &lt;/i&gt;Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis. &lt;/size=60%&gt;&lt;/p&gt;</p>\n\n<p>&lt;p&gt;&amp;nbsp;&lt;/p&gt;</p>\n\n<p>&lt;p&gt;&lt;size=60%&gt;&lt;size=90%&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis&lt;/size=90%&gt;&lt;/size=60%&gt;&lt;/p&gt;<br />\n&nbsp;</p>\n"
+                            "pl": "<p>Jest związany z legendarnym zakończeniem wojny trojańskiej, kt&oacute;ra według mit&oacute;w trwała dziesięć lat. Według opowieści starożytnych Grek&oacute;w, po podstępnym wprowadzeniu do miasta drewnianego konia (konia trojańskiego) przez Grek&oacute;w, Trojanie pozwolili wnieść go za mury. W nocy wojownicy ukryci w koniu wyszli, otworzyli bramy miasta dla armii greckiej, kt&oacute;ra dokonała rzezi mieszkańc&oacute;w i podpaliła miasto<size=60%><size=90%></size=90%></size=60%></p>\n",
+                            "en": "<p><br />\n&nbsp;</p>\n",
+                            "cz": "<p><br />\n&nbsp;</p>\n"
                           }
                         },
                         {
@@ -300,6 +307,318 @@
                           }
                         }
                       ]
+                    },
+                    {
+                      "moduleType": 0,
+                      "key": "mog-fires-item",
+                      "name": "mog.fires.item",
+                      "moduleId": "f6e6f215-c47a-4f24-b0a4-a2f6a0329983",
+                      "referenceId": "4fb34a2a-fd5b-4593-a39c-60bbed7e31c1",
+                      "subModules": [
+                        {
+                          "moduleType": 1,
+                          "key": "mog-fires-item-place",
+                          "name": "mog-fires-item-place",
+                          "isTranslated": true,
+                          "text": {
+                            "pl": "Biblioteka Aleksandryjska",
+                            "en": null,
+                            "cz": null
+                          }
+                        },
+                        {
+                          "moduleType": 1,
+                          "key": "mog-fires-item-pos",
+                          "name": "mog-fires-item-pos",
+                          "isTranslated": false,
+                          "text": "31.208952821385036, 29.909158373647266"
+                        },
+                        {
+                          "moduleType": 2,
+                          "key": "mog-fires-item-date",
+                          "name": "mog-fires-item-date",
+                          "isTranslated": true,
+                          "text": {
+                            "pl": "<p>48 &lt;size=80%&gt;p.n.e</p>\n",
+                            "en": null,
+                            "cz": null
+                          }
+                        },
+                        {
+                          "moduleType": 1,
+                          "key": "mog-fires-item-region",
+                          "name": "mog-fires-item-region",
+                          "isTranslated": true,
+                          "text": {
+                            "pl": "Egipt",
+                            "en": null,
+                            "cz": null
+                          }
+                        },
+                        {
+                          "moduleType": 2,
+                          "key": "mog-fires-item-text",
+                          "name": "mog-fires-item-text",
+                          "isTranslated": true,
+                          "text": {
+                            "pl": "<p>Według źr&oacute;deł antycznych, podczas oblężenia Aleksandrii Cezar nakazał podpalenie egipskich statk&oacute;w cumujących w porcie, by uniemożliwić flocie przeciwnika korzystanie z portu. Ogień rozprzestrzenił się na pobliskie magazyny i prawdopodobnie zniszczył część zbior&oacute;w Biblioteki Aleksandryjskiej, choć dokładne rozmiary szk&oacute;d są sporne. R&oacute;żne źr&oacute;dła podają od 40 000 do kilkuset tysięcy zwoj&oacute;w utraconych w tym pożarze. Po tych wydarzeniach Marek Antoniusz rzekomo sprowadził do Aleksandrii część zbior&oacute;w Biblioteki Pergamońskiej jako rekompensatę.&nbsp;</p>\n",
+                            "en": null,
+                            "cz": null
+                          }
+                        },
+                        {
+                          "moduleType": 1,
+                          "key": "mog-fires-item-stat1",
+                          "name": "mog-fires-item-stat1",
+                          "isTranslated": true,
+                          "text": {
+                            "pl": null,
+                            "en": null,
+                            "cz": null
+                          }
+                        },
+                        {
+                          "moduleType": 1,
+                          "key": "mog-fires-item-stat2",
+                          "name": "mog-fires-item-stat2",
+                          "isTranslated": true,
+                          "text": {
+                            "pl": null,
+                            "en": null,
+                            "cz": null
+                          }
+                        },
+                        {
+                          "moduleType": 1,
+                          "key": "mog-fires-item-stat3",
+                          "name": "mog-fires-item-stat3",
+                          "isTranslated": true,
+                          "text": {
+                            "pl": null,
+                            "en": null,
+                            "cz": null
+                          }
+                        },
+                        {
+                          "moduleType": 1,
+                          "key": "mog-fires-item-stat4",
+                          "name": "mog-fires-item-stat4",
+                          "isTranslated": true,
+                          "text": {
+                            "pl": null,
+                            "en": null,
+                            "cz": null
+                          }
+                        }
+                      ]
+                    },
+                    {
+                      "moduleType": 0,
+                      "key": "mog-fires-item",
+                      "name": "mog.fires.item",
+                      "moduleId": "f6e6f215-c47a-4f24-b0a4-a2f6a0329983",
+                      "referenceId": "1ac5bd01-db6f-46af-8397-ea1423dcb3df",
+                      "subModules": [
+                        {
+                          "moduleType": 1,
+                          "key": "mog-fires-item-place",
+                          "name": "mog-fires-item-place",
+                          "isTranslated": true,
+                          "text": {
+                            "pl": "Rzym",
+                            "en": null,
+                            "cz": null
+                          }
+                        },
+                        {
+                          "moduleType": 1,
+                          "key": "mog-fires-item-pos",
+                          "name": "mog-fires-item-pos",
+                          "isTranslated": false,
+                          "text": "41.89204825084261, 12.486439445391042"
+                        },
+                        {
+                          "moduleType": 2,
+                          "key": "mog-fires-item-date",
+                          "name": "mog-fires-item-date",
+                          "isTranslated": true,
+                          "text": {
+                            "pl": "<p>64 &lt;size=80%&gt;n.e.</p>\n",
+                            "en": null,
+                            "cz": null
+                          }
+                        },
+                        {
+                          "moduleType": 1,
+                          "key": "mog-fires-item-region",
+                          "name": "mog-fires-item-region",
+                          "isTranslated": true,
+                          "text": {
+                            "pl": "Włochy",
+                            "en": null,
+                            "cz": null
+                          }
+                        },
+                        {
+                          "moduleType": 2,
+                          "key": "mog-fires-item-text",
+                          "name": "mog-fires-item-text",
+                          "isTranslated": true,
+                          "text": {
+                            "pl": "<p>Wielki Pożar Rzymu wybuchł 18 lub 19 lipca 64 roku n.e. i trwał około sześciu dni, zniszczył 10 z 14 dzielnic miasta: pochłaniając 3 z nich całkowicie, a 7 innych poważnie uszkadzając. Pożar rozpoczął się w okolicy Cyrku Wielkiego, gdzie znajdowały się sklepy pełne łatwopalnych materiał&oacute;w, a silny wiatr szybko rozprzestrzenił ogień. Wąskie, drewniane zabudowania i brak skutecznej straży przeciwpożarowej sprawiły, że walka z żywiołem była bardzo trudna. Straty były ogromne &ndash; tysiące ludzi straciło domy, a wiele zabytk&oacute;w i dzieł sztuki zostało zniszczonych. W społeczeństwie pojawiły się pogłoski, że cesarz Neron celowo wywołał pożar, by przebudować miasto według swojego projektu, choć historycy oceniają to jako mało prawdopodobne.</p>\n",
+                            "en": null,
+                            "cz": null
+                          }
+                        },
+                        {
+                          "moduleType": 1,
+                          "key": "mog-fires-item-stat1",
+                          "name": "mog-fires-item-stat1",
+                          "isTranslated": true,
+                          "text": {
+                            "pl": "100",
+                            "en": null,
+                            "cz": null
+                          }
+                        },
+                        {
+                          "moduleType": 1,
+                          "key": "mog-fires-item-stat2",
+                          "name": "mog-fires-item-stat2",
+                          "isTranslated": true,
+                          "text": {
+                            "pl": "200",
+                            "en": null,
+                            "cz": null
+                          }
+                        },
+                        {
+                          "moduleType": 1,
+                          "key": "mog-fires-item-stat3",
+                          "name": "mog-fires-item-stat3",
+                          "isTranslated": true,
+                          "text": {
+                            "pl": "300",
+                            "en": null,
+                            "cz": null
+                          }
+                        },
+                        {
+                          "moduleType": 1,
+                          "key": "mog-fires-item-stat4",
+                          "name": "mog-fires-item-stat4",
+                          "isTranslated": true,
+                          "text": {
+                            "pl": "400",
+                            "en": null,
+                            "cz": null
+                          }
+                        }
+                      ]
+                    },
+                    {
+                      "moduleType": 0,
+                      "key": "mog-fires-item",
+                      "name": "mog.fires.item",
+                      "moduleId": "f6e6f215-c47a-4f24-b0a4-a2f6a0329983",
+                      "referenceId": "25ce9afe-2f79-4db3-8e55-2acde6287a0b",
+                      "subModules": [
+                        {
+                          "moduleType": 1,
+                          "key": "mog-fires-item-place",
+                          "name": "mog-fires-item-place",
+                          "isTranslated": true,
+                          "text": {
+                            "pl": "Medyna",
+                            "en": null,
+                            "cz": null
+                          }
+                        },
+                        {
+                          "moduleType": 1,
+                          "key": "mog-fires-item-pos",
+                          "name": "mog-fires-item-pos",
+                          "isTranslated": false,
+                          "text": "24.46852553699126, 39.602348324029066"
+                        },
+                        {
+                          "moduleType": 2,
+                          "key": "mog-fires-item-date",
+                          "name": "mog-fires-item-date",
+                          "isTranslated": true,
+                          "text": {
+                            "pl": "<p>654 &lt;size=80%&gt;n.e.</p>\n",
+                            "en": null,
+                            "cz": null
+                          }
+                        },
+                        {
+                          "moduleType": 1,
+                          "key": "mog-fires-item-region",
+                          "name": "mog-fires-item-region",
+                          "isTranslated": true,
+                          "text": {
+                            "pl": "Arabia Saudyjska",
+                            "en": null,
+                            "cz": null
+                          }
+                        },
+                        {
+                          "moduleType": 2,
+                          "key": "mog-fires-item-text",
+                          "name": "mog-fires-item-text",
+                          "isTranslated": true,
+                          "text": {
+                            "pl": "<p>W 654 roku n.e. Medyna (obecnie w Arabii Saudyjskiej) doświadczyła katastrofalnego zdarzenia związanego z trzęsieniem ziemi oraz pożarem, kt&oacute;re spowodowały znaczne zniszczenia. W sz&oacute;stym miesiącu kalendarza muzułmańskiego (Jumada al-Akhira) miała miejsce erupcja wulkaniczna niedaleko miasta, kt&oacute;ra trwała około 52 dni i zagrażała okolicom Medyny. W czasie tego okresu pożary nawiedzały miasto, a historyczne źr&oacute;dła relacjonują wielki smutek pielgrzym&oacute;w i mieszkańc&oacute;w, kt&oacute;rzy modlili się przy grobowcu Proroka Mahometa, obawiając się dalszych zniszczeń.</p>\n",
+                            "en": null,
+                            "cz": null
+                          }
+                        },
+                        {
+                          "moduleType": 1,
+                          "key": "mog-fires-item-stat1",
+                          "name": "mog-fires-item-stat1",
+                          "isTranslated": true,
+                          "text": {
+                            "pl": "200",
+                            "en": null,
+                            "cz": null
+                          }
+                        },
+                        {
+                          "moduleType": 1,
+                          "key": "mog-fires-item-stat2",
+                          "name": "mog-fires-item-stat2",
+                          "isTranslated": true,
+                          "text": {
+                            "pl": "600",
+                            "en": null,
+                            "cz": null
+                          }
+                        },
+                        {
+                          "moduleType": 1,
+                          "key": "mog-fires-item-stat3",
+                          "name": "mog-fires-item-stat3",
+                          "isTranslated": true,
+                          "text": {
+                            "pl": "400",
+                            "en": null,
+                            "cz": null
+                          }
+                        },
+                        {
+                          "moduleType": 1,
+                          "key": "mog-fires-item-stat4",
+                          "name": "mog-fires-item-stat4",
+                          "isTranslated": true,
+                          "text": {
+                            "pl": "9",
+                            "en": null,
+                            "cz": null
+                          }
+                        }
+                      ]
                     }
                   ]
                 }
@@ -341,25 +660,32 @@
                       "referenceId": "c3f62c7d-8e1c-4aa1-8ec8-2924a74f9a9d",
                       "subModules": [
                         {
-                          "moduleType": 2,
-                          "key": "mog-fires-item-date",
-                          "name": "mog-fires-item-date",
+                          "moduleType": 1,
+                          "key": "mog-fires-item-place",
+                          "name": "mog-fires-item-place",
                           "isTranslated": true,
                           "text": {
-                            "pl": null,
+                            "pl": "Cuzco",
                             "en": null,
                             "cz": null
                           }
                         },
                         {
                           "moduleType": 1,
-                          "key": "mog-fires-item-place",
-                          "name": "mog-fires-item-place",
+                          "key": "mog-fires-item-pos",
+                          "name": "mog-fires-item-pos",
+                          "isTranslated": false,
+                          "text": "-13.532137748018398, -71.96807554407371"
+                        },
+                        {
+                          "moduleType": 2,
+                          "key": "mog-fires-item-date",
+                          "name": "mog-fires-item-date",
                           "isTranslated": true,
                           "text": {
-                            "pl": "Saloniki",
-                            "en": "Thessaloniki",
-                            "cz": "Thessaloniki"
+                            "pl": "<p>1536</p>\n",
+                            "en": null,
+                            "cz": null
                           }
                         },
                         {
@@ -368,7 +694,7 @@
                           "name": "mog-fires-item-region",
                           "isTranslated": true,
                           "text": {
-                            "pl": null,
+                            "pl": "Peru",
                             "en": null,
                             "cz": null
                           }
@@ -379,7 +705,7 @@
                           "name": "mog-fires-item-text",
                           "isTranslated": true,
                           "text": {
-                            "pl": null,
+                            "pl": "<p>Pożar miał miejsce podczas oblężenia miasta przez siły Ink&oacute;w dowodzone przez Manco Inkę, kt&oacute;re pr&oacute;bowały odbić miasto spod kontroli hiszpańskich konkwistador&oacute;w. Konflikt trwał około dziesięciu miesięcy, podczas kt&oacute;rych w centrum miasta wybuchły liczne pożary, znacznie niszcząc infrastrukturę. Hiszpanie, choć byli w mniejszości, skutecznie bronili miejskie umocnienia i ostatecznie oblężenie zakończyło się wycofaniem się Ink&oacute;w. Po zniszczeniach Hiszpanie odbudowali miasto, wykorzystując resztki inkaskiej architektury jako fundamenty pod swoje budowle, co symbolizowało narzucenie dominacji kolonialnej. Pożar ten był jednym z ważnych moment&oacute;w w historii podboju Peru, pokazującym brutalność i przekształcenie kulturowe regionu w okresie hiszpańskiej kolonizacji.</p>\n",
                             "en": null,
                             "cz": null
                           }
@@ -389,7 +715,11 @@
                           "key": "mog-fires-item-stat1",
                           "name": "mog-fires-item-stat1",
                           "isTranslated": true,
-                          "text": null
+                          "text": {
+                            "pl": "12",
+                            "en": null,
+                            "cz": null
+                          }
                         },
                         {
                           "moduleType": 1,
@@ -397,7 +727,7 @@
                           "name": "mog-fires-item-stat2",
                           "isTranslated": true,
                           "text": {
-                            "pl": null,
+                            "pl": "124",
                             "en": null,
                             "cz": null
                           }
@@ -408,7 +738,111 @@
                           "name": "mog-fires-item-stat3",
                           "isTranslated": true,
                           "text": {
-                            "pl": null,
+                            "pl": "600",
+                            "en": null,
+                            "cz": null
+                          }
+                        },
+                        {
+                          "moduleType": 1,
+                          "key": "mog-fires-item-stat4",
+                          "name": "mog-fires-item-stat4",
+                          "isTranslated": true,
+                          "text": {
+                            "pl": "10",
+                            "en": null,
+                            "cz": null
+                          }
+                        }
+                      ]
+                    },
+                    {
+                      "moduleType": 0,
+                      "key": "mog-fires-item",
+                      "name": "mog.fires.item",
+                      "moduleId": "f6e6f215-c47a-4f24-b0a4-a2f6a0329983",
+                      "referenceId": "2de448f0-5d53-44d6-a6b4-525baf0b6f40",
+                      "subModules": [
+                        {
+                          "moduleType": 1,
+                          "key": "mog-fires-item-place",
+                          "name": "mog-fires-item-place",
+                          "isTranslated": true,
+                          "text": {
+                            "pl": "Praga",
+                            "en": null,
+                            "cz": null
+                          }
+                        },
+                        {
+                          "moduleType": 1,
+                          "key": "mog-fires-item-pos",
+                          "name": "mog-fires-item-pos",
+                          "isTranslated": false,
+                          "text": "50.087406683272086, 14.421231609060213"
+                        },
+                        {
+                          "moduleType": 2,
+                          "key": "mog-fires-item-date",
+                          "name": "mog-fires-item-date",
+                          "isTranslated": true,
+                          "text": {
+                            "pl": "<p>1541</p>\n",
+                            "en": null,
+                            "cz": null
+                          }
+                        },
+                        {
+                          "moduleType": 1,
+                          "key": "mog-fires-item-region",
+                          "name": "mog-fires-item-region",
+                          "isTranslated": true,
+                          "text": {
+                            "pl": "Czechy",
+                            "en": null,
+                            "cz": null
+                          }
+                        },
+                        {
+                          "moduleType": 2,
+                          "key": "mog-fires-item-text",
+                          "name": "mog-fires-item-text",
+                          "isTranslated": true,
+                          "text": {
+                            "pl": "<p>Był jednym z największych katastrofalnych wydarzeń w historii miasta, kt&oacute;re zniszczyło prawobrzeżną część Pragi, obejmując m.in. Hradczany, Zamek Praski i Małą Stranę. Ogień zniszczył wiele drewnianych budynk&oacute;w, w tym nieukończoną katedrę św. Wita oraz kr&oacute;lewski pałac, co wymusiło długotrwałą odbudowę w stylu renesansowym pod nadzorem architekta Bonifacego Wohlmuta. Po pożarze Praga doświadczyła znaczących zmian urbanistycznych i architektonicznych, a odbudowa zamku i okolic przyczyniła się do rozkwitu miasta w kolejnych dekadach. Pożar z 1541 roku jest ważnym momentem przejściowym, kt&oacute;ry symbolizuje wejście Pragi w epokę renesansu i modernizacji.&nbsp;</p>\n",
+                            "en": null,
+                            "cz": null
+                          }
+                        },
+                        {
+                          "moduleType": 1,
+                          "key": "mog-fires-item-stat1",
+                          "name": "mog-fires-item-stat1",
+                          "isTranslated": true,
+                          "text": {
+                            "pl": "200",
+                            "en": null,
+                            "cz": null
+                          }
+                        },
+                        {
+                          "moduleType": 1,
+                          "key": "mog-fires-item-stat2",
+                          "name": "mog-fires-item-stat2",
+                          "isTranslated": true,
+                          "text": {
+                            "pl": "10",
+                            "en": null,
+                            "cz": null
+                          }
+                        },
+                        {
+                          "moduleType": 1,
+                          "key": "mog-fires-item-stat3",
+                          "name": "mog-fires-item-stat3",
+                          "isTranslated": true,
+                          "text": {
+                            "pl": "",
                             "en": null,
                             "cz": null
                           }
@@ -420,6 +854,110 @@
                           "isTranslated": true,
                           "text": {
                             "pl": null,
+                            "en": null,
+                            "cz": null
+                          }
+                        }
+                      ]
+                    },
+                    {
+                      "moduleType": 0,
+                      "key": "mog-fires-item",
+                      "name": "mog.fires.item",
+                      "moduleId": "f6e6f215-c47a-4f24-b0a4-a2f6a0329983",
+                      "referenceId": "ffb790da-991b-4721-a9c5-3887c56fed0e",
+                      "subModules": [
+                        {
+                          "moduleType": 1,
+                          "key": "mog-fires-item-place",
+                          "name": "mog-fires-item-place",
+                          "isTranslated": true,
+                          "text": {
+                            "pl": "Edo",
+                            "en": null,
+                            "cz": null
+                          }
+                        },
+                        {
+                          "moduleType": 1,
+                          "key": "mog-fires-item-pos",
+                          "name": "mog-fires-item-pos",
+                          "isTranslated": false,
+                          "text": "35.68859263799018, 139.7544356445247"
+                        },
+                        {
+                          "moduleType": 2,
+                          "key": "mog-fires-item-date",
+                          "name": "mog-fires-item-date",
+                          "isTranslated": true,
+                          "text": {
+                            "pl": "<p>1601</p>\n",
+                            "en": null,
+                            "cz": null
+                          }
+                        },
+                        {
+                          "moduleType": 1,
+                          "key": "mog-fires-item-region",
+                          "name": "mog-fires-item-region",
+                          "isTranslated": true,
+                          "text": {
+                            "pl": "Japonia",
+                            "en": null,
+                            "cz": null
+                          }
+                        },
+                        {
+                          "moduleType": 2,
+                          "key": "mog-fires-item-text",
+                          "name": "mog-fires-item-text",
+                          "isTranslated": true,
+                          "text": {
+                            "pl": "<p>Pierwszy z wielkich pożar&oacute;w przyszłego Tokio; miał miejsce w kr&oacute;tkim czasie po bitwie pod Sekigaharą i był jednym z wielu pożar&oacute;w, kt&oacute;re nawiedzały miasto Edo (dzisiejsze Tokio) w czasach Tokugawa. Miasto było w dużej mierze zbudowane z drewna i papieru, co sprzyjało szybkiemu rozprzestrzenianiu się ognia. Pożary w Edo, w tym ten z 1601 roku, były często katastrofalne, niszcząc znaczne części miasta, w tym wiele dom&oacute;w i ważnych budynk&oacute;w. Edo, będące w&oacute;wczas stolicą siogunatu Tokugawa, posiadało jeszcze stosunkowo młodą straż pożarną, kt&oacute;ra nie była w stanie skutecznie powstrzymać takich pożar&oacute;w. Pożar z 1601 roku przyczynił się do dalszych reform w zakresie profilaktyki przeciwpożarowej i odbudowy miasta.&nbsp;</p>\n",
+                            "en": null,
+                            "cz": null
+                          }
+                        },
+                        {
+                          "moduleType": 1,
+                          "key": "mog-fires-item-stat1",
+                          "name": "mog-fires-item-stat1",
+                          "isTranslated": true,
+                          "text": {
+                            "pl": "1000",
+                            "en": null,
+                            "cz": null
+                          }
+                        },
+                        {
+                          "moduleType": 1,
+                          "key": "mog-fires-item-stat2",
+                          "name": "mog-fires-item-stat2",
+                          "isTranslated": true,
+                          "text": {
+                            "pl": "300",
+                            "en": null,
+                            "cz": null
+                          }
+                        },
+                        {
+                          "moduleType": 1,
+                          "key": "mog-fires-item-stat3",
+                          "name": "mog-fires-item-stat3",
+                          "isTranslated": true,
+                          "text": {
+                            "pl": "200",
+                            "en": null,
+                            "cz": null
+                          }
+                        },
+                        {
+                          "moduleType": 1,
+                          "key": "mog-fires-item-stat4",
+                          "name": "mog-fires-item-stat4",
+                          "isTranslated": true,
+                          "text": {
+                            "pl": "600",
                             "en": null,
                             "cz": null
                           }
@@ -463,28 +1001,35 @@
                       "key": "mog-fires-item",
                       "name": "mog.fires.item",
                       "moduleId": "f6e6f215-c47a-4f24-b0a4-a2f6a0329983",
-                      "referenceId": null,
+                      "referenceId": "ff529f2a-9c1c-4414-9ae7-68122796c7d9",
                       "subModules": [
-                        {
-                          "moduleType": 2,
-                          "key": "mog-fires-item-date",
-                          "name": "mog-fires-item-date",
-                          "isTranslated": true,
-                          "text": {
-                            "pl": null,
-                            "en": null,
-                            "cz": null
-                          }
-                        },
                         {
                           "moduleType": 1,
                           "key": "mog-fires-item-place",
                           "name": "mog-fires-item-place",
                           "isTranslated": true,
                           "text": {
-                            "pl": "Saloniki",
-                            "en": "Thessaloniki",
-                            "cz": "Thessaloniki"
+                            "pl": "Chicago",
+                            "en": null,
+                            "cz": null
+                          }
+                        },
+                        {
+                          "moduleType": 1,
+                          "key": "mog-fires-item-pos",
+                          "name": "mog-fires-item-pos",
+                          "isTranslated": false,
+                          "text": "41.880643512392865, -87.64949119956594"
+                        },
+                        {
+                          "moduleType": 2,
+                          "key": "mog-fires-item-date",
+                          "name": "mog-fires-item-date",
+                          "isTranslated": true,
+                          "text": {
+                            "pl": "<p>1871</p>\n",
+                            "en": null,
+                            "cz": null
                           }
                         },
                         {
@@ -493,7 +1038,7 @@
                           "name": "mog-fires-item-region",
                           "isTranslated": true,
                           "text": {
-                            "pl": null,
+                            "pl": "USA",
                             "en": null,
                             "cz": null
                           }
@@ -504,7 +1049,7 @@
                           "name": "mog-fires-item-text",
                           "isTranslated": true,
                           "text": {
-                            "pl": null,
+                            "pl": "<p>Legendarny pożar, miał miejsce od 8 do 10 października 1871 roku, był jedną z największych katastrof w historii miasta. Pożar rozpoczął się wieczorem 8 października w szopie na tyłach posesji przy 137 DeKoven Street, w dzielnicy zamieszkałej gł&oacute;wnie przez imigrant&oacute;w. Popularna legenda m&oacute;wi, że zapr&oacute;szyła go krowa właścicielki szopy, Catherine O&rsquo;Leary, jednak ta historia została uznana za zmyśloną przez dziennikarza. Wysuszona na skutek długotrwałej suszy drewniana zabudowa Chicago, w połączeniu z silnym wiatrem, sprawiła, że ogień szybko się rozprzestrzenił, obejmując około 10,4 km&sup2; miasta. Zniszczeniu uległo około 17 000 budynk&oacute;w, a około 100 000 mieszkańc&oacute;w zostało bez dachu nad głową. Pożar pochłonął około 300 ofiar śmiertelnych oraz znaczące zasoby materialne i kulturowe, w tym bibliotekę z milionami książek. Katastrofa ta była punktem przełomowym w historii miasta, po kt&oacute;rej nastąpiła intensywna odbudowa i rozw&oacute;j Chicago jako jednego z najważniejszych ośrodk&oacute;w miejskich w USA.; &nbsp;<br />\nwydarzył się tego samego dnia co Pożar Peshtigo w stanie Wisconsin - 8 października 1871 roku</p>\n",
                             "en": null,
                             "cz": null
                           }
@@ -514,7 +1059,11 @@
                           "key": "mog-fires-item-stat1",
                           "name": "mog-fires-item-stat1",
                           "isTranslated": true,
-                          "text": null
+                          "text": {
+                            "pl": "100",
+                            "en": null,
+                            "cz": null
+                          }
                         },
                         {
                           "moduleType": 1,
@@ -522,7 +1071,7 @@
                           "name": "mog-fires-item-stat2",
                           "isTranslated": true,
                           "text": {
-                            "pl": null,
+                            "pl": "800",
                             "en": null,
                             "cz": null
                           }
@@ -533,7 +1082,7 @@
                           "name": "mog-fires-item-stat3",
                           "isTranslated": true,
                           "text": {
-                            "pl": null,
+                            "pl": "400",
                             "en": null,
                             "cz": null
                           }
@@ -544,7 +1093,7 @@
                           "name": "mog-fires-item-stat4",
                           "isTranslated": true,
                           "text": {
-                            "pl": null,
+                            "pl": "3000",
                             "en": null,
                             "cz": null
                           }
@@ -588,28 +1137,35 @@
                       "key": "mog-fires-item",
                       "name": "mog.fires.item",
                       "moduleId": "f6e6f215-c47a-4f24-b0a4-a2f6a0329983",
-                      "referenceId": null,
+                      "referenceId": "dc1844cc-a3df-46a1-b463-34045cfc1926",
                       "subModules": [
-                        {
-                          "moduleType": 2,
-                          "key": "mog-fires-item-date",
-                          "name": "mog-fires-item-date",
-                          "isTranslated": true,
-                          "text": {
-                            "pl": null,
-                            "en": null,
-                            "cz": null
-                          }
-                        },
                         {
                           "moduleType": 1,
                           "key": "mog-fires-item-place",
                           "name": "mog-fires-item-place",
                           "isTranslated": true,
                           "text": {
-                            "pl": "Saloniki",
-                            "en": "Thessaloniki",
-                            "cz": "Thessaloniki"
+                            "pl": "Valparaíso",
+                            "en": null,
+                            "cz": null
+                          }
+                        },
+                        {
+                          "moduleType": 1,
+                          "key": "mog-fires-item-pos",
+                          "name": "mog-fires-item-pos",
+                          "isTranslated": false,
+                          "text": "-33.04732803521174, -71.61276429603235"
+                        },
+                        {
+                          "moduleType": 2,
+                          "key": "mog-fires-item-date",
+                          "name": "mog-fires-item-date",
+                          "isTranslated": true,
+                          "text": {
+                            "pl": "<p>1906</p>\n",
+                            "en": null,
+                            "cz": null
                           }
                         },
                         {
@@ -618,7 +1174,7 @@
                           "name": "mog-fires-item-region",
                           "isTranslated": true,
                           "text": {
-                            "pl": null,
+                            "pl": "Chile",
                             "en": null,
                             "cz": null
                           }
@@ -629,7 +1185,7 @@
                           "name": "mog-fires-item-text",
                           "isTranslated": true,
                           "text": {
-                            "pl": null,
+                            "pl": "<p>Wielki pożar po trzęsieniu ziemi wybuchł 12 kwietnia i był jednym z najtragiczniejszych w historii miasta. Rozpoczął się w okolicy Camino La P&oacute;lvora i szybko rozprzestrzenił, niszcząc wiele budynk&oacute;w i przynosząc katastrofalne skutki. Władze regionu ogłosiły stan wyjątkowy, co pozwoliło armii chilijskiej przejąć kontrolę nad miastem w celu zapewnienia bezpieczeństwa i utrzymania porządku publicznego. Ogień strawił dużą część p&oacute;łnocnych i centralnych dzielnic miasta, wyrządzając znaczne straty materialne i pozostawiając wiele rodzin bez dachu nad głową. Gaszenie utrudniały przerwy w dostawie prądu oraz warunki terenowe Valpara&iacute;so, położonego na wzg&oacute;rzach. Pożar jest uważany za najgorszy w historii miasta, zostawiając setki os&oacute;b bez środk&oacute;w do życia i rujnując bogactwo dzielnic.&nbsp;<br />\n&nbsp;</p>\n",
                             "en": null,
                             "cz": null
                           }
@@ -639,7 +1195,11 @@
                           "key": "mog-fires-item-stat1",
                           "name": "mog-fires-item-stat1",
                           "isTranslated": true,
-                          "text": null
+                          "text": {
+                            "pl": "100",
+                            "en": null,
+                            "cz": null
+                          }
                         },
                         {
                           "moduleType": 1,
@@ -647,7 +1207,7 @@
                           "name": "mog-fires-item-stat2",
                           "isTranslated": true,
                           "text": {
-                            "pl": null,
+                            "pl": "200",
                             "en": null,
                             "cz": null
                           }
@@ -658,7 +1218,7 @@
                           "name": "mog-fires-item-stat3",
                           "isTranslated": true,
                           "text": {
-                            "pl": null,
+                            "pl": "400",
                             "en": null,
                             "cz": null
                           }
@@ -669,7 +1229,7 @@
                           "name": "mog-fires-item-stat4",
                           "isTranslated": true,
                           "text": {
-                            "pl": null,
+                            "pl": "700",
                             "en": null,
                             "cz": null
                           }
@@ -713,28 +1273,35 @@
                       "key": "mog-fires-item",
                       "name": "mog.fires.item",
                       "moduleId": "f6e6f215-c47a-4f24-b0a4-a2f6a0329983",
-                      "referenceId": null,
+                      "referenceId": "e772f5de-7da9-463d-898f-bfced86c8d6e",
                       "subModules": [
-                        {
-                          "moduleType": 2,
-                          "key": "mog-fires-item-date",
-                          "name": "mog-fires-item-date",
-                          "isTranslated": true,
-                          "text": {
-                            "pl": null,
-                            "en": null,
-                            "cz": null
-                          }
-                        },
                         {
                           "moduleType": 1,
                           "key": "mog-fires-item-place",
                           "name": "mog-fires-item-place",
                           "isTranslated": true,
                           "text": {
-                            "pl": "Saloniki",
-                            "en": "Thessaloniki",
-                            "cz": "Thessaloniki"
+                            "pl": "katedra Notre-Dame",
+                            "en": null,
+                            "cz": null
+                          }
+                        },
+                        {
+                          "moduleType": 1,
+                          "key": "mog-fires-item-pos",
+                          "name": "mog-fires-item-pos",
+                          "isTranslated": false,
+                          "text": "48.853072746061464, 2.349930933634538"
+                        },
+                        {
+                          "moduleType": 2,
+                          "key": "mog-fires-item-date",
+                          "name": "mog-fires-item-date",
+                          "isTranslated": true,
+                          "text": {
+                            "pl": "<p>2019</p>\n",
+                            "en": null,
+                            "cz": null
                           }
                         },
                         {
@@ -743,7 +1310,7 @@
                           "name": "mog-fires-item-region",
                           "isTranslated": true,
                           "text": {
-                            "pl": null,
+                            "pl": "Francja",
                             "en": null,
                             "cz": null
                           }
@@ -754,7 +1321,7 @@
                           "name": "mog-fires-item-text",
                           "isTranslated": true,
                           "text": {
-                            "pl": null,
+                            "pl": "<p>Wybuchł 15 kwietnia 2019 roku i szybko objął dach oraz sygnaturkę świątyni. Ogień rozprzestrzenił się na wieżę i spowodował zawalenie się iglicy, będącej charakterystycznym elementem katedry. Mimo dużych zniszczeń dach oraz g&oacute;rne partie mur&oacute;w, kamienne sklepienie powstrzymało rozprzestrzenianie się ognia do wnętrza, co pozwoliło zachować fasadę, wieże i wiele cennych dzieł sztuki oraz relikwii. Straż pożarna walczyła z ogniem niemal całą noc, angażując około 400 strażak&oacute;w. W pożarze lekko ucierpiało kilku ratownik&oacute;w, ale nie zginęła żadna osoba. Dokładna przyczyna pożaru nie została jednoznacznie ustalona, jednak śledztwo wykluczyło podpalenie i terrorystyczny akt, wskazując na prawdopodobne zwarcie instalacji elektrycznej lub niezgaszony papieros. Pożar wywołał szeroką falę wsparcia finansowego na odbudowę, kt&oacute;ra trwa do dziś, a katedra planowana jest do ponownego otwarcia pod koniec 2024 roku. Pożar Notre-Dame był jednym z najważniejszych wydarzeń kulturalnych i architektonicznych ostatnich lat, uwidaczniając znaczenie ochrony dziedzictwa światowego.&nbsp;</p>\n",
                             "en": null,
                             "cz": null
                           }
@@ -764,7 +1331,11 @@
                           "key": "mog-fires-item-stat1",
                           "name": "mog-fires-item-stat1",
                           "isTranslated": true,
-                          "text": null
+                          "text": {
+                            "pl": null,
+                            "en": null,
+                            "cz": null
+                          }
                         },
                         {
                           "moduleType": 1,
@@ -853,9 +1424,9 @@
                       "referenceId": null,
                       "subModules": [
                         {
-                          "moduleType": 2,
-                          "key": "mog-fires-item-date",
-                          "name": "mog-fires-item-date",
+                          "moduleType": 1,
+                          "key": "mog-fires-item-place",
+                          "name": "mog-fires-item-place",
                           "isTranslated": true,
                           "text": {
                             "pl": null,
@@ -865,13 +1436,20 @@
                         },
                         {
                           "moduleType": 1,
-                          "key": "mog-fires-item-place",
-                          "name": "mog-fires-item-place",
+                          "key": "mog-fires-item-pos",
+                          "name": "mog-fires-item-pos",
+                          "isTranslated": false,
+                          "text": null
+                        },
+                        {
+                          "moduleType": 2,
+                          "key": "mog-fires-item-date",
+                          "name": "mog-fires-item-date",
                           "isTranslated": true,
                           "text": {
-                            "pl": "Saloniki",
-                            "en": "Thessaloniki",
-                            "cz": "Thessaloniki"
+                            "pl": null,
+                            "en": null,
+                            "cz": null
                           }
                         },
                         {
@@ -901,7 +1479,11 @@
                           "key": "mog-fires-item-stat1",
                           "name": "mog-fires-item-stat1",
                           "isTranslated": true,
-                          "text": null
+                          "text": {
+                            "pl": null,
+                            "en": null,
+                            "cz": null
+                          }
                         },
                         {
                           "moduleType": 1,
@@ -978,9 +1560,9 @@
                       "referenceId": null,
                       "subModules": [
                         {
-                          "moduleType": 2,
-                          "key": "mog-fires-item-date",
-                          "name": "mog-fires-item-date",
+                          "moduleType": 1,
+                          "key": "mog-fires-item-place",
+                          "name": "mog-fires-item-place",
                           "isTranslated": true,
                           "text": {
                             "pl": null,
@@ -990,13 +1572,20 @@
                         },
                         {
                           "moduleType": 1,
-                          "key": "mog-fires-item-place",
-                          "name": "mog-fires-item-place",
+                          "key": "mog-fires-item-pos",
+                          "name": "mog-fires-item-pos",
+                          "isTranslated": false,
+                          "text": null
+                        },
+                        {
+                          "moduleType": 2,
+                          "key": "mog-fires-item-date",
+                          "name": "mog-fires-item-date",
                           "isTranslated": true,
                           "text": {
-                            "pl": "Saloniki",
-                            "en": "Thessaloniki",
-                            "cz": "Thessaloniki"
+                            "pl": null,
+                            "en": null,
+                            "cz": null
                           }
                         },
                         {
@@ -1026,7 +1615,11 @@
                           "key": "mog-fires-item-stat1",
                           "name": "mog-fires-item-stat1",
                           "isTranslated": true,
-                          "text": null
+                          "text": {
+                            "pl": null,
+                            "en": null,
+                            "cz": null
+                          }
                         },
                         {
                           "moduleType": 1,
@@ -1103,9 +1696,9 @@
                       "referenceId": null,
                       "subModules": [
                         {
-                          "moduleType": 2,
-                          "key": "mog-fires-item-date",
-                          "name": "mog-fires-item-date",
+                          "moduleType": 1,
+                          "key": "mog-fires-item-place",
+                          "name": "mog-fires-item-place",
                           "isTranslated": true,
                           "text": {
                             "pl": null,
@@ -1115,13 +1708,20 @@
                         },
                         {
                           "moduleType": 1,
-                          "key": "mog-fires-item-place",
-                          "name": "mog-fires-item-place",
+                          "key": "mog-fires-item-pos",
+                          "name": "mog-fires-item-pos",
+                          "isTranslated": false,
+                          "text": null
+                        },
+                        {
+                          "moduleType": 2,
+                          "key": "mog-fires-item-date",
+                          "name": "mog-fires-item-date",
                           "isTranslated": true,
                           "text": {
-                            "pl": "Saloniki",
-                            "en": "Thessaloniki",
-                            "cz": "Thessaloniki"
+                            "pl": null,
+                            "en": null,
+                            "cz": null
                           }
                         },
                         {
@@ -1151,7 +1751,11 @@
                           "key": "mog-fires-item-stat1",
                           "name": "mog-fires-item-stat1",
                           "isTranslated": true,
-                          "text": null
+                          "text": {
+                            "pl": null,
+                            "en": null,
+                            "cz": null
+                          }
                         },
                         {
                           "moduleType": 1,
@@ -1228,9 +1832,9 @@
                       "referenceId": null,
                       "subModules": [
                         {
-                          "moduleType": 2,
-                          "key": "mog-fires-item-date",
-                          "name": "mog-fires-item-date",
+                          "moduleType": 1,
+                          "key": "mog-fires-item-place",
+                          "name": "mog-fires-item-place",
                           "isTranslated": true,
                           "text": {
                             "pl": null,
@@ -1240,13 +1844,20 @@
                         },
                         {
                           "moduleType": 1,
-                          "key": "mog-fires-item-place",
-                          "name": "mog-fires-item-place",
+                          "key": "mog-fires-item-pos",
+                          "name": "mog-fires-item-pos",
+                          "isTranslated": false,
+                          "text": null
+                        },
+                        {
+                          "moduleType": 2,
+                          "key": "mog-fires-item-date",
+                          "name": "mog-fires-item-date",
                           "isTranslated": true,
                           "text": {
-                            "pl": "Saloniki",
-                            "en": "Thessaloniki",
-                            "cz": "Thessaloniki"
+                            "pl": null,
+                            "en": null,
+                            "cz": null
                           }
                         },
                         {
@@ -1276,7 +1887,11 @@
                           "key": "mog-fires-item-stat1",
                           "name": "mog-fires-item-stat1",
                           "isTranslated": true,
-                          "text": null
+                          "text": {
+                            "pl": null,
+                            "en": null,
+                            "cz": null
+                          }
                         },
                         {
                           "moduleType": 1,
