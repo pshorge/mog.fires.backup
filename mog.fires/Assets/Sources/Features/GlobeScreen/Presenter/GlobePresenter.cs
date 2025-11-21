@@ -256,8 +256,8 @@ namespace Sources.Features.GlobeScreen.Presenter
             return points;
         }
 
-
-        private (float lan, float lon)[] test_points = { (0f, 0f), (90f, 0f), (-30f, 120f), (50f, 20f), (41f, 17f) };
+        // Null Island, Krakow, Los Angeles, Tokyo, Melbourne 
+        private (float lan, float lon)[] test_points = { (0f, 0f), (50.06f, 19.94f), (34.04f, -118.25f), (35.67f, 139.77f), (-37.81f, 144.96f) };
         (float lat, float lon) TestPointAtOrRandom(int index)
         {
             return index < test_points.Length  ? test_points[index] : (Random.Range(-90, 90f), Random.Range(-180f, 180f));;
