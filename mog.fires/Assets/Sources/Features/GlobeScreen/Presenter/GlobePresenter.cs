@@ -31,7 +31,7 @@ namespace Sources.Features.GlobeScreen.Presenter
             public const string TimelineAllKey = "mog-fires-timeline-all";
             
             public const string ListKey = "mog-fires-list-globe";
-            public const string GroupItemsKey = "mog-fires-group-items";
+            public const string GroupItemsKey = "mog-fires-items";
             public const string GroupNameKey = "mog-fires-group-name";
         }
 
@@ -184,11 +184,10 @@ namespace Sources.Features.GlobeScreen.Presenter
             while (true)
             {
                 ++index;
-                var name = _localizationService.GetTranslation($"{prefix}-{index}-{namePostfix}");
-                if (name is null) break;
+                if (! _localizationService.TryGetTranslation($"{prefix}-{index}-{namePostfix}", out var name))
+                    break;
                 yield return name;
             }
-
             yield return _localizationService.GetTranslation(ContentKeys.TimelineAllKey);
         }
         
@@ -197,60 +196,74 @@ namespace Sources.Features.GlobeScreen.Presenter
             var points = new List<GlobePointData>();
             int groupIndex = 0;
 
-            
+            // Loop through Groups
             while (true)
             {
                 ++groupIndex;
-                // checks if group exists (by name)
+                // Key: mog-fires-list-globe-{groupIndex}-mog-fires-group-name
+                // i.e. mog-fires-list-globe-1-mog-fires-group-name
                 var groupNameKey = $"{ContentKeys.ListKey}-{groupIndex}-{ContentKeys.GroupNameKey}";
+                
+                // Check if group exists
                 if (!_localizationService.TryGetTranslation(groupNameKey, out _)) 
                     break;
                 
                 int itemIndex = 0;
+                // Loop through Items within Group
                 while (true)
                 {
                     ++itemIndex;
-                    // key: mog-fires-list-globe-{group}-{items}-{item}-date
+                    
+                    // Key: mog-fires-list-globe-{groupIndex}-mog-fires-items-{itemIndex}
+                    // i.e. mog-fires-list-globe-1-mog-fires-items-1
                     var itemPrefix = $"{ContentKeys.ListKey}-{groupIndex}-{ContentKeys.GroupItemsKey}-{itemIndex}";
                     
-                    // check if exists (by place)
+                    // Check if item exists (using 'place' property as check)
                     var placeKey = $"{itemPrefix}-mog-fires-item-place";
-                    if (!_localizationService.TryGetTranslation(placeKey, out var placeVal)) 
-                        break;
+                    
+                    if (!_localizationService.TryGetTranslation(placeKey, out var place))
+                        break; // Break inner loop (items), proceed to next group
 
+
+
+                    var tpoint = TestPointAtOrRandom(groupIndex-1);
                     
                     var point = new GlobePointData
                     {
                         Id = itemPrefix,
-                        GroupIndex = groupIndex - 1,
-                        Place = placeVal,
+                        GroupIndex = groupIndex - 1, // 0-based for timeline logic
+                        Place = place,
                         Date = _localizationService.GetTranslation($"{itemPrefix}-mog-fires-item-date"),
                         Region = _localizationService.GetTranslation($"{itemPrefix}-mog-fires-item-region"),
                         Text = _localizationService.GetTranslation($"{itemPrefix}-mog-fires-item-text"),
                         
-                        Stat1 = _localizationService.GetTranslation($"{itemPrefix}-mog-fires-item-stat-1"),
-                        Stat2 = _localizationService.GetTranslation($"{itemPrefix}-mog-fires-item-stat-2"),
-                        Stat3 = _localizationService.GetTranslation($"{itemPrefix}-mog-fires-item-stat-3"),
-                        Stat4 = _localizationService.GetTranslation($"{itemPrefix}-mog-fires-item-stat-4"),
-                        // parsing Lat/Lon (float invariant)
-                        // if (_localizationService.TryGetTranslation($"{itemPrefix}-lat", out var latStr))
-                        //     if (float.TryParse(latStr, NumberStyles.Float, CultureInfo.InvariantCulture, out var lat))
-                        //         point.Latitude = lat;
-                        //
-                        // if (_localizationService.TryGetTranslation($"{itemPrefix}-lon", out var lonStr))
-                        //     if (float.TryParse(lonStr, NumberStyles.Float, CultureInfo.InvariantCulture, out var lon))
-                        //         point.Longitude = lon;
-                        Latitude = UnityEngine.Random.Range(-90f, 90f),
-                        Longitude = UnityEngine.Random.Range(-180f, 180f)
+                        Stat1 = _localizationService.GetTranslation($"{itemPrefix}-mog-fires-item-stat1"),
+                        Stat2 = _localizationService.GetTranslation($"{itemPrefix}-mog-fires-item-stat2"),
+                        Stat3 = _localizationService.GetTranslation($"{itemPrefix}-mog-fires-item-stat3"),
+                        Stat4 = _localizationService.GetTranslation($"{itemPrefix}-mog-fires-item-stat4"),
+                        
+                        
+                        // Random Lat/Lon for now
+                        Latitude = tpoint.lat,
+                        Longitude = tpoint.lon
                     };
 
-                    // TODO: add lat,long to json  in artigio model
-                    Debug.LogWarning("ADDING RANDOM POINTS!!");
                     points.Add(point);
                 }
             }
+            
+            Debug.Log($"[GlobePresenter] Fetched total points: {points.Count}");
             return points;
         }
+
+
+        private (float lan, float lon)[] test_points = { (0f, 0f), (90f, 0f), (-30f, 120f), (50f, 20f), (41f, 17f) };
+        (float lat, float lon) TestPointAtOrRandom(int index)
+        {
+            return index < test_points.Length  ? test_points[index] : (Random.Range(-90, 90f), Random.Range(-180f, 180f));;
+        }
+       
+
         
         private void FilterVisiblePoints()
         {

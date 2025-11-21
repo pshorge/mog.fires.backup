@@ -14,6 +14,7 @@
         <ui:VisualElement class="globe-screen__content">
             <ui:Instance template="RightPopup" name="globe-screen__right_popup" class="globe-screen__right_popup"/>
             <ui:VisualElement class="globe-earth" picking-mode="Ignore"/>
+            <ui:VisualElement class="globe-screen__markers"/>
             <cui:MediaBackground class="globe-screen--image">
                 <Bindings>
                     <ui:DataBinding property="source" data-source-path="ImageFilePath" binding-mode="ToTarget"/>

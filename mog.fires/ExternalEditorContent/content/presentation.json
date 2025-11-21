@@ -142,7 +142,7 @@
           "key": "globe-screen-image",
           "name": "globe-screen-image",
           "isTranslated": false,
-          "files": "test-image-4.png"
+          "files": "test-image-5.png"
         },
         {
           "moduleType": 1,
@@ -357,9 +357,9 @@
                           "name": "mog-fires-item-place",
                           "isTranslated": true,
                           "text": {
-                            "pl": null,
-                            "en": null,
-                            "cz": null
+                            "pl": "Saloniki",
+                            "en": "Thessaloniki",
+                            "cz": "Thessaloniki"
                           }
                         },
                         {
@@ -482,9 +482,9 @@
                           "name": "mog-fires-item-place",
                           "isTranslated": true,
                           "text": {
-                            "pl": null,
-                            "en": null,
-                            "cz": null
+                            "pl": "Saloniki",
+                            "en": "Thessaloniki",
+                            "cz": "Thessaloniki"
                           }
                         },
                         {
@@ -607,9 +607,9 @@
                           "name": "mog-fires-item-place",
                           "isTranslated": true,
                           "text": {
-                            "pl": null,
-                            "en": null,
-                            "cz": null
+                            "pl": "Saloniki",
+                            "en": "Thessaloniki",
+                            "cz": "Thessaloniki"
                           }
                         },
                         {
@@ -732,9 +732,9 @@
                           "name": "mog-fires-item-place",
                           "isTranslated": true,
                           "text": {
-                            "pl": null,
-                            "en": null,
-                            "cz": null
+                            "pl": "Saloniki",
+                            "en": "Thessaloniki",
+                            "cz": "Thessaloniki"
                           }
                         },
                         {
@@ -869,9 +869,9 @@
                           "name": "mog-fires-item-place",
                           "isTranslated": true,
                           "text": {
-                            "pl": null,
-                            "en": null,
-                            "cz": null
+                            "pl": "Saloniki",
+                            "en": "Thessaloniki",
+                            "cz": "Thessaloniki"
                           }
                         },
                         {
@@ -994,9 +994,9 @@
                           "name": "mog-fires-item-place",
                           "isTranslated": true,
                           "text": {
-                            "pl": null,
-                            "en": null,
-                            "cz": null
+                            "pl": "Saloniki",
+                            "en": "Thessaloniki",
+                            "cz": "Thessaloniki"
                           }
                         },
                         {
@@ -1119,9 +1119,9 @@
                           "name": "mog-fires-item-place",
                           "isTranslated": true,
                           "text": {
-                            "pl": null,
-                            "en": null,
-                            "cz": null
+                            "pl": "Saloniki",
+                            "en": "Thessaloniki",
+                            "cz": "Thessaloniki"
                           }
                         },
                         {
@@ -1244,9 +1244,9 @@
                           "name": "mog-fires-item-place",
                           "isTranslated": true,
                           "text": {
-                            "pl": null,
-                            "en": null,
-                            "cz": null
+                            "pl": "Saloniki",
+                            "en": "Thessaloniki",
+                            "cz": "Thessaloniki"
                           }
                         },
                         {
