@@ -10,6 +10,7 @@ using Sources.Features.ControlButtons.Presenter;
 using Sources.Features.GlobeScreen.Presenter;
 using Sources.Features.RightPopup.Presenter;
 using Sources.Features.ScreensaverScreen.Presenter;
+using Sources.Infrastructure;
 using Sources.Presentation.Management;
 using Sources.Presentation.Navigation;
 using VContainer;
@@ -63,6 +64,9 @@ namespace Sources
             // MonoBehaviours 
             builder.RegisterComponentInHierarchy<InactivityService>().AsSelf().AsImplementedInterfaces();
             builder.RegisterComponentInHierarchy<NavigationService>().AsSelf().AsImplementedInterfaces();
+            builder.RegisterComponentInHierarchy<EarthController>();
+
+            
             // Control Panel Manager
             builder.Register<ControlPanelManager>(Lifetime.Singleton);
             
