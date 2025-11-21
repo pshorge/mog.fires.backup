@@ -255,26 +255,6 @@ namespace Sources.Features.GlobeScreen.Presenter
             return points;
         }
 
-        // Null Island, Krakow, Los Angeles, Tokyo, Melbourne 
-        // private (float lan, float lon)[] test_points = { (0f, 0f), (50.06f, 19.94f), (34.04f, -118.25f), (35.67f, 139.77f), (-37.81f, 144.96f) };
-        // (float lat, float lon) TestPointAtOrRandom(int index)
-        // {
-        //     return index < test_points.Length  ? test_points[index] : (Random.Range(-90, 90f), Random.Range(-180f, 180f));;
-        // }
-        //
-        // private void ApplyTestNames(List<GlobePointData> points)
-        // {
-        //     var test_places = new []{"Null Island", "Kraków", "Los Angeles", "Tokyo", "Melbourne" };
-        //
-        //     for (var index = 0; index < Mathf.Min(test_places.Length,points.Count); index++)
-        //     {
-        //         var point = points[index];
-        //         var place = test_places[index];
-        //         point.Place = place;
-        //     }
-        //     Debug.LogWarning("Test places applied!!!");
-        // }
-        
         private static bool TryParseCoordinates(string rawData, out float lat, out float lon)
         {
             lat = 0f;
