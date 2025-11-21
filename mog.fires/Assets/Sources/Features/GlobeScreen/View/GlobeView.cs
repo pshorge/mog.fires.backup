@@ -54,6 +54,11 @@ namespace Sources.Features.GlobeScreen.View
         public override ViewType GetViewType() => ViewType.Globe;
         protected override string ContainerName => "globe-screen";
         
+        
+        [Header("Globe Calibration")]
+        [SerializeField] private float lonOffset = -100f; // Initial calibration value ( texture offset problem probably)
+        [SerializeField] private float latOffset;
+        [SerializeField] private bool invertLon; 
 
         protected override void OnEnable()
         {
@@ -121,8 +126,7 @@ namespace Sources.Features.GlobeScreen.View
                 _markersContainer.Add(marker);
                 _activeMarkers.Add(marker);
             }
-            
-            // Wykonaj update pozycji natychmiast, żeby nie mrugały w (0,0)
+            // update asap to prevent blinking
             UpdateMarkersPosition();
         }
 
@@ -151,46 +155,33 @@ namespace Sources.Features.GlobeScreen.View
         {
             if (_activeMarkers.Count == 0 || _earthController == null || _earthController.Camera == null) return;
             
-            // Pobieramy transformację Ziemi (zakładamy, że EarthController jest na obiekcie, który się kręci 
-            // LUB ma referencję do pivota - w Twoim kodzie EarthController obraca `cameraPivot`, a Ziemia stoi w miejscu?
-            // SPRAWDŹMY EarthController.cs z Chunk 2:
-            // EarthController obraca `cameraPivot`. Kamera patrzy na pivota. Ziemia (model) prawdopodobnie jest w (0,0,0).
-            // Jeśli kamera krąży wokół Ziemi, to Ziemia jest statyczna w WorldSpace (chyba że się kręci sama).
-            // Zakładam scenariusz: Ziemia jest w (0,0,0), Kamera orbituje.
-            
-            // UWAGA: Jeśli w Twoim projekcie Ziemia się kręci, użyj transformacji Ziemi. 
-            // Jeśli Kamera orbituje, używamy statycznej pozycji (0,0,0) i rotacji Identity dla punktów bazowych.
-            
-            // Ale: Lat/Lon definiuje punkt względem SFERY. Więc jeśli sfera jest w (0,0,0) i nie ma rotacji własnej,
-            // to LocalToWorldMatrix to po prostu translacja/skala.
-            
-            // Przyjmijmy, że Ziemia jest w _earthController.transform.position (jeśli to pivot) lub w (0,0,0).
+            // Determine Earth transformation.
+            // EarthController logic: The Camera pivots around a point, while the Earth model likely stays static at (0,0,0).
             Vector3 earthCenter = Vector3.zero; 
-            Quaternion earthRotation = Quaternion.identity; // Jeśli model ziemi się nie kręci, tylko kamera
+            Quaternion earthRotation = Quaternion.identity; // If the Earth model doesn't rotate, only the camera orbits
             
-            // Jeśli jednak model Ziemi jest dzieckiem cameraPivot i się obraca razem z nim -> to by było dziwne.
-            // Z kodu EarthController wynika: cameraPivot się obraca (yaw/pitch), kamera jest dzieckiem i patrzy na pivota.
-            // Czyli Ziemia stoi w miejscu, a my kręcimy kamerą. OK.
+            // If the Earth model itself rotates/moves, use its transform. 
+            // Assuming here: Earth is static at world origin.
             
             foreach (var marker in _activeMarkers)
             {
-                // 1. Oblicz pozycję lokalną na sferze (Vector3)
+                // 1. Calculate local position on the sphere (Vector3)
                 Vector3 localPos = LatLonToVector3(marker.Data.Latitude, marker.Data.Longitude, EarthRadius);
                 
-                // 2. Oblicz pozycję w świecie (Ziemia w 0,0,0, bez rotacji własnej)
-                // Jeśli Ziemia ma offset lub skalę, trzeba tu uwzględnić matrix.
+                // 2. Calculate world position (Earth at 0,0,0, no self-rotation)
+                // If Earth has offset/scale/rotation, apply matrix here.
                 Vector3 worldPos = earthCenter + (earthRotation * localPos);
             
-                // 3. Rzutowanie na ekran
+                //  3. Project to screen
                 Vector3 screenPos = _earthController.Camera.WorldToScreenPoint(worldPos);
             
-                // 4. Sprawdzenie czy punkt jest przed kamerą (Z > 0) i czy nie jest zasłonięty przez Ziemię
+                // 4. Check if point is in front of camera (Z > 0) and not occluded by Earth
                 bool isVisible = screenPos.z > 0 && !IsOccluded(worldPos, _earthController.Camera.transform.position, earthCenter, EarthRadius);
             
                 if (isVisible)
                 {
-                    // 5. Konwersja Screen -> Panel (UIToolkit)
-                    // Uwaga: ScreenPos.y w Unity jest od dołu, w UI Toolkit od góry
+                    // 5. Conversion Screen -> Panel (UIToolkit)
+                    // Note: Unity ScreenPos.y is bottom-up, UI Toolkit is top-down
                     screenPos.y = Screen.height - screenPos.y;
                     
                     Vector2 panelPos = RuntimePanelUtils.ScreenToPanel(Container.panel, new Vector2(screenPos.x, screenPos.y));
@@ -208,39 +199,39 @@ namespace Sources.Features.GlobeScreen.View
         
         private bool IsOccluded(Vector3 point, Vector3 cameraPos, Vector3 sphereCenter, float radius)
         {
-            // Prosty test Occlusion dla sfery:
-            // Sprawdzamy, czy wektor normalny w punkcie jest zwrócony w stronę kamery.
-            // Normalna na sferze w (0,0,0) to po prostu znormalizowana pozycja punktu.
+            // Simple Occlusion test for a sphere:
+            // Check if normal vector at the point faces the camera.
+            // Normal on a sphere at (0,0,0) is just the normalized position.
             
             Vector3 normal = (point - sphereCenter).normalized;
             Vector3 viewDir = (cameraPos - point).normalized;
             
-            // Dot product > 0 oznacza, że "widzimy" ściankę (kąt < 90 stopni)
-            // Dodajemy mały bias (np. -0.1f), żeby markery na krawędzi nie znikały zbyt wcześnie
+            // Dot product > 0 means we "see" the face (angle < 90 degrees)
+            // Add small bias (e.g. -0.05f) so markers on the edge don't disappear too early
             return Vector3.Dot(normal, viewDir) < -0.05f; 
         }
         
+       
+        
         private Vector3 LatLonToVector3(float lat, float lon, float radius)
         {
-            // Konwersja Lat/Lon na Vector3 w Unity (Y-up)
-            // Lat: -90 (S) do 90 (N) -> Pitch (X axis)
-            // Lon: -180 (W) do 180 (E) -> Yaw (Y axis)
+           
+            // invert E <-> W
+            float fixedLon = invertLon ? -lon : lon;
+            fixedLon += lonOffset;
+    
+            float fixedLat = lat + latOffset;
+
+            float latRad = fixedLat * Mathf.Deg2Rad;
+            float lonRad = fixedLon * Mathf.Deg2Rad; 
             
-            // Wzory zależą od mapowania UV tekstury Ziemi.
-            // Standardowo:
-            // x = r * cos(lat) * cos(lon)
-            // y = r * sin(lat)
-            // z = r * cos(lat) * sin(lon)
-            
-            float latRad = lat * Mathf.Deg2Rad;
-            float lonRad = -lon * Mathf.Deg2Rad; // Minus często potrzebny w Unity dla Lon
-        
             float x = radius * Mathf.Cos(latRad) * Mathf.Cos(lonRad);
             float y = radius * Mathf.Sin(latRad);
             float z = radius * Mathf.Cos(latRad) * Mathf.Sin(lonRad);
-        
+
             return new Vector3(x, y, z);
         }
+        
         
         private void OnTimelineSelectionChanged(int start, int end)
         {
