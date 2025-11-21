@@ -425,9 +425,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _uiDocument: {fileID: 0}
-  _lonOffset: -100
-  _latOffset: 0
-  _invertLon: 0
+  lonOffset: -100
+  latOffset: 0
+  invertLon: 0
 --- !u!114 &1682491909
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -733,22 +733,6 @@ PrefabInstance:
     - target: {fileID: 8250359568039118739, guid: e6c7afc95316674d58d19a8431539419, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8279203903607581562, guid: e6c7afc95316674d58d19a8431539419, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 8279203903607581562, guid: e6c7afc95316674d58d19a8431539419, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 8279203903607581562, guid: e6c7afc95316674d58d19a8431539419, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 8279203903607581562, guid: e6c7afc95316674d58d19a8431539419, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0.5
       objectReference: {fileID: 0}
     - target: {fileID: 8279203903607581562, guid: e6c7afc95316674d58d19a8431539419, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x

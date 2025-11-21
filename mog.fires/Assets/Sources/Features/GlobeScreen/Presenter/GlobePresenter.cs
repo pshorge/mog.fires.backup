@@ -252,6 +252,8 @@ namespace Sources.Features.GlobeScreen.Presenter
                 }
             }
             
+            ApplyTestNames(points);
+            
             Debug.Log($"[GlobePresenter] Fetched total points: {points.Count}");
             return points;
         }
@@ -262,7 +264,20 @@ namespace Sources.Features.GlobeScreen.Presenter
         {
             return index < test_points.Length  ? test_points[index] : (Random.Range(-90, 90f), Random.Range(-180f, 180f));;
         }
-       
+
+        private void ApplyTestNames(List<GlobePointData> points)
+        {
+            var test_places = new []{"Null Island", "Kraków", "Los Angeles", "Tokyo", "Melbourne" };
+
+            for (var index = 0; index < Mathf.Min(test_places.Length,points.Count); index++)
+            {
+                var point = points[index];
+                var place = test_places[index];
+                point.Place = place;
+            }
+            Debug.LogWarning("Test places applied!!!");
+        }
+        
 
         
         private void FilterVisiblePoints()
