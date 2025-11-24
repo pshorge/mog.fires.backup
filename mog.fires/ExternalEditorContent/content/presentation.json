@@ -267,7 +267,7 @@
                           "key": "mog-fires-item-media",
                           "name": "mog-fires-item-media",
                           "isTranslated": false,
-                          "files": "test-img.jpg",
+                          "files": "test-img.jpg"
                         },
                         {
                           "moduleType": 1,
