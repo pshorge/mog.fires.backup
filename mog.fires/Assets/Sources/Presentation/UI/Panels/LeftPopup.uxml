@@ -1,0 +1,17 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:cui="Psh.MVPToolkit.Core.UI" editor-extension-mode="False">
+    
+    <Style src="left-popup.uss" />
+
+    <ui:VisualElement name="left_popup" class="left-popup">
+        <Bindings>
+            <ui:DataBinding property="style.display" data-source-path="HasMediaPath" binding-mode="ToTarget" />
+        </Bindings>
+        <ui:VisualElement class="left-popup__content">
+            <cui:MediaBackground name="left_popup__media" class="left-popup--media" autoplay="true" loop="true" mute="true" video-class="left-popup--video" video-extensions=".webm,.mp4,.mov">
+                <Bindings>
+                    <ui:DataBinding property="source" data-source-path="MediaPath" binding-mode="ToTarget" />
+                </Bindings>
+            </cui:MediaBackground>
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

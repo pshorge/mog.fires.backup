@@ -264,6 +264,13 @@
                         },
                         {
                           "moduleType": 1,
+                          "key": "mog-fires-item-media",
+                          "name": "mog-fires-item-media",
+                          "isTranslated": false,
+                          "files": "test-img.jpg",
+                        },
+                        {
+                          "moduleType": 1,
                           "key": "mog-fires-item-stat1",
                           "name": "mog-fires-item-stat1",
                           "isTranslated": true,

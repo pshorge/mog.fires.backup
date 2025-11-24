@@ -2,8 +2,8 @@
 .right-popup
 {
     position: absolute;
-    top:400px;
-    right:150px;
+    top:470px;
+    right:130px;
     width: 1322px;
     height: 1341px;
     scale: 0;

@@ -8,7 +8,7 @@ using Sources.Data.Models;
 using Sources.Data.Repositories;
 using Sources.Features.ControlButtons.Presenter;
 using Sources.Features.GlobeScreen.Presenter;
-using Sources.Features.RightPopup.Presenter;
+using Sources.Features.Popup.Presenter;
 using Sources.Features.ScreensaverScreen.Presenter;
 using Sources.Infrastructure;
 using Sources.Presentation.Management;
@@ -56,7 +56,7 @@ namespace Sources
             builder.Register<ScreensaverPresenter>(Lifetime.Singleton).AsSelf();
             builder.Register<GlobePresenter>(Lifetime.Singleton).AsSelf();
             builder.Register<ControlPanelPresenter>(Lifetime.Singleton).AsSelf();
-            builder.Register<RightPopupPresenter>(Lifetime.Singleton).AsSelf();
+            builder.Register<PopupPresenter>(Lifetime.Singleton).AsSelf();
 
             // Agregator
             builder.Register<AppContent>(Lifetime.Singleton);
