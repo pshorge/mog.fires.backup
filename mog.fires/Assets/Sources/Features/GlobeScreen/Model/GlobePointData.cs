@@ -1,4 +1,4 @@
-using Sources.Features.RightPopup.Model;
+using Sources.Features.Popup.Model;
 
 namespace Sources.Features.GlobeScreen.Model
 {
@@ -14,20 +14,21 @@ namespace Sources.Features.GlobeScreen.Model
         public string Place { get; set; }
         public string Region { get; set; }
         public string Text { get; set; }
-        
+        public string MediaPath { get; set; }
         public string Stat1 { get; set; }
         public string Stat2 { get; set; }
         public string Stat3 { get; set; }
         public string Stat4 { get; set; }
 
-        public RightPopupData ToPopupData()
+        public PopupData ToPopupData()
         {
-            return new RightPopupData
+            return new PopupData
             {
                 Date = Date,
                 Place = Place,
                 Region = Region,
                 Text = Text,
+                MediaPath = MediaPath,
                 Stat1 = Stat1,
                 Stat2 = Stat2,
                 Stat3 = Stat3,
@@ -36,5 +37,6 @@ namespace Sources.Features.GlobeScreen.Model
                 Longitude = Longitude
             };
         }
+        
     }
 }

@@ -1,0 +1,36 @@
+
+.left-popup
+{
+    position: absolute;
+    top:470px;
+    left:25px;
+    width: 1307px;
+    height: 1341px;
+    scale: 0;
+    background-image: url("../Images/left-popup.png");
+    display: none;
+    padding: 120px 0 250px 240px;
+    flex-direction: column;
+}
+
+.left-popup--visible {
+    display: flex;
+    scale: 1;
+    transform-origin: 100% 50%;
+    transition-property:  scale;
+    transition-duration: 380ms;
+    transition-timing-function: ease-out;
+    transition-delay: 300ms;
+}
+
+.left-popup__content {
+    width: 100%;
+    height: 100%;
+    background-color: cornflowerblue;
+}
+
+.left-popup--media
+{
+    flex-grow: 1;
+    flex-shrink: 0;
+}

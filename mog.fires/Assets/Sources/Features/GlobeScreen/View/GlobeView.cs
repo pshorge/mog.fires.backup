@@ -4,15 +4,13 @@ using Psh.MVPToolkit.Core.Navigation;
 using Psh.MVPToolkit.Core.UI;
 using Sources.Features.GlobeScreen.Model;
 using Sources.Features.GlobeScreen.Presenter;
-using Sources.Features.RightPopup.Model;
-using Sources.Features.RightPopup.Presenter;
+using Sources.Features.Popup.Presenter;
 using Sources.Infrastructure;
 using Sources.Presentation.Core.Types;
 using Sources.Presentation.UI.Components;
 using UnityEngine;
 using UnityEngine.UIElements;
 using VContainer;
-using VContainer.Unity;
 
 namespace Sources.Features.GlobeScreen.View
 {
@@ -25,7 +23,9 @@ namespace Sources.Features.GlobeScreen.View
         private static class UI
         {
             public const string GlobeScreenBgName = "globe-screen__bg";
+            public const string GlobeScreenLeftPopupName = "left_popup";
             public const string GlobeScreenRightPopupName = "right_popup";
+            public const string LeftPopupVisibleClass = "left-popup--visible";
             public const string RightPopupVisibleClass = "right-popup--visible";
             public const string GlobeScreenMarkersClass = "globe-screen__markers";
         }
@@ -34,6 +34,7 @@ namespace Sources.Features.GlobeScreen.View
         private VisualElement _markersContainer;
         private MediaBackground _media;
         private Timeline _timeline;
+        private VisualElement _leftPopup;
         private VisualElement _rightPopup;
         private bool _popupActive;
         
@@ -46,7 +47,7 @@ namespace Sources.Features.GlobeScreen.View
         
         // Dependencies
         [Inject] protected override GlobePresenter Presenter { get; set; }
-        [Inject] private RightPopupPresenter _rightPopupPresenter;
+        [Inject] private PopupPresenter _popupPresenter;
         [Inject] private INavigationFlowController<ViewType> _navigationController;
         [Inject] private EarthController _earthController;
 
@@ -66,7 +67,8 @@ namespace Sources.Features.GlobeScreen.View
             SetupUIElements();
             RegisterEventHandlers();
             Container.dataSource = Presenter;
-            _rightPopup.dataSource = _rightPopupPresenter;
+            _leftPopup.dataSource = _popupPresenter;
+            _rightPopup.dataSource = _popupPresenter;
             RebuildMarkers(); 
 
         }
@@ -76,6 +78,7 @@ namespace Sources.Features.GlobeScreen.View
             base.OnDisable();
             UnregisterEventHandlers();
             Container.dataSource = null;
+            _leftPopup.dataSource = null;
             _rightPopup.dataSource = null;
             ClearMarkers();
         }
@@ -84,6 +87,7 @@ namespace Sources.Features.GlobeScreen.View
         {
             _media = Container.Q<MediaBackground>(UI.GlobeScreenBgName);
             _timeline = Container.Q<Timeline>();
+            _leftPopup = Container.Q<VisualElement>(UI.GlobeScreenLeftPopupName);
             _rightPopup = Container.Q<VisualElement>(UI.GlobeScreenRightPopupName);
             _markersContainer = Container.Q<VisualElement>(className: UI.GlobeScreenMarkersClass);
         }
@@ -144,11 +148,12 @@ namespace Sources.Features.GlobeScreen.View
         {
             //inject data to popup if popup is inactive
             if(!_popupActive)
-                _rightPopupPresenter.SetData(data.ToPopupData());
+                _popupPresenter.SetData(data.ToPopupData());
             
             _popupActive = !_popupActive;
-            _rightPopup.EnableInClassList(UI.RightPopupVisibleClass, _popupActive);
             
+            _leftPopup.EnableInClassList(UI.LeftPopupVisibleClass, _popupActive);
+            _rightPopup.EnableInClassList(UI.RightPopupVisibleClass, _popupActive);
         }
 
         private void UpdateMarkersPosition()

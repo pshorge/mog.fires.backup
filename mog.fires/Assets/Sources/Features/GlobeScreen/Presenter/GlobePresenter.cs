@@ -237,7 +237,8 @@ namespace Sources.Features.GlobeScreen.Presenter
                         Date = _localizationService.GetTranslation($"{itemPrefix}-mog-fires-item-date"),
                         Region = _localizationService.GetTranslation($"{itemPrefix}-mog-fires-item-region"),
                         Text = _localizationService.GetTranslation($"{itemPrefix}-mog-fires-item-text"),
-                        
+                        MediaPath = ContentPathResolver.ResolveContentPath(
+                            _localizationService.GetTranslation($"{itemPrefix}-mog-fires-item-media")),
                         Stat1 = _localizationService.GetTranslation($"{itemPrefix}-mog-fires-item-stat1"),
                         Stat2 = _localizationService.GetTranslation($"{itemPrefix}-mog-fires-item-stat2"),
                         Stat3 = _localizationService.GetTranslation($"{itemPrefix}-mog-fires-item-stat3"),
@@ -246,7 +247,6 @@ namespace Sources.Features.GlobeScreen.Presenter
                         Latitude = lat,
                         Longitude = lon
                     };
-
                     points.Add(point);
                 }
             }

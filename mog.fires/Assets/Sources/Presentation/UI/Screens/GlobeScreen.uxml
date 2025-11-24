@@ -3,6 +3,7 @@
     <Style src="../Components/timeline.uss" />
     <Style src="globe-screen.uss" />
     
+    <ui:Template src="../Panels/LeftPopup.uxml" name="LeftPopup"/>
     <ui:Template src="../Panels/RightPopup.uxml" name="RightPopup"/>
 
     
@@ -12,6 +13,8 @@
         </Bindings>
         
         <ui:VisualElement class="globe-screen__content">
+            
+            <ui:Instance template="LeftPopup" name="globe-screen__left_popup" class="globe-screen__left_popup"/>
             <ui:Instance template="RightPopup" name="globe-screen__right_popup" class="globe-screen__right_popup"/>
             <ui:VisualElement class="globe-earth" picking-mode="Ignore"/>
             <ui:VisualElement class="globe-screen__markers"/>
