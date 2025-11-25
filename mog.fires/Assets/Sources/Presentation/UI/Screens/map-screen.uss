@@ -1,0 +1,10 @@
+/* map-screen.uss*/
+
+/* Map Screen Block */
+.map-screen {
+    background-color: var(--color-background-primary);
+}
+
+.map-screen.contrast {
+    background-color: var(--color-background-secondary);
+}

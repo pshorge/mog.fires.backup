@@ -184,10 +184,12 @@ namespace Sources.Features.ScreensaverScreen.View
             base.Update();
             if (!IsVisible) return;
 
-            bool inputDetected = Input.anyKeyDown || 
-                                 Mathf.Abs(Input.mouseScrollDelta.y) > 0.1f ||
-                                 Mathf.Abs(Input.GetAxis("Mouse X")) > 0.5f ||
-                                 Mathf.Abs(Input.GetAxis("Mouse Y")) > 0.5f;
+            bool inputDetected = Input.anyKeyDown ||
+                                 Mathf.Abs(Input.mouseScrollDelta.y) > 0.1f;
+                                 // ||
+                                 // Mathf.Abs(Input.GetAxis("Mouse X")) > 0.5f ||
+                                 // Mathf.Abs(Input.GetAxis("Mouse Y")) > 0.5f;
+                                 
 
             if (inputDetected)
             {

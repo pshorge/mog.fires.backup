@@ -5,5 +5,6 @@ namespace Sources.Presentation.Core.Types
         None = -1,
         Screensaver = 0,
         Globe = 1,
+        Map = 2
     }
 }

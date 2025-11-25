@@ -32,6 +32,12 @@ namespace Sources.Presentation.Management
                     _controlPanelView.EnableRightButtons(true);
                     _controlPanelView.EnableBackButton(false);
                     break;
+                case ViewType.Map:
+                    _controlPanelView.SetDefault();
+                    _controlPanelView.EnableLeftButtons(false);
+                    _controlPanelView.EnableRightButtons(true);
+                    _controlPanelView.EnableBackButton(false);
+                    break;
                 default:
                     throw new NotSupportedException($"ViewType {viewType} is not supported");
             }

@@ -1,0 +1,12 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:cui="Psh.MVPToolkit.Core.UI" xmlns:scui="Sources.Presentation.UI.Components" editor-extension-mode="False">
+
+    <Style src="map-screen.uss" />
+    
+    <cui:MediaBackground name="map-screen__bg" class="media-bg" autoplay="true" loop="true" mute="true"  video-extensions=".webm,.mp4,.mov">
+        <Bindings>
+            <ui:DataBinding property="source" data-source-path="BackgroundFilePath" binding-mode="ToTarget" />
+        </Bindings>
+    </cui:MediaBackground>
+    
+    
+</ui:UXML>

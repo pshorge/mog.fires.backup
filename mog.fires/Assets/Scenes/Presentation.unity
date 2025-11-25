@@ -152,6 +152,7 @@ Transform:
   m_Children:
   - {fileID: 1807831823}
   - {fileID: 1682491905}
+  - {fileID: 1509619324}
   - {fileID: 334645589}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -193,6 +194,7 @@ MonoBehaviour:
   viewComponents:
   - {fileID: 1807831824}
   - {fileID: 1682491908}
+  - {fileID: 1509619321}
   controlPanel: {fileID: 334645591}
 --- !u!1 &334645588
 GameObject:
@@ -333,6 +335,77 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1509619320
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1509619324}
+  - component: {fileID: 1509619321}
+  - component: {fileID: 1509619323}
+  - component: {fileID: 1509619322}
+  m_Layer: 0
+  m_Name: MapScreen
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1509619321
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1509619320}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cafcfe208cee4925b9d794556fe9f741, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: mog_fires::Sources.Features.MapScreen.View.MapView
+  _uiDocument: {fileID: 0}
+--- !u!114 &1509619322
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1509619320}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4bef4d62bd4b4019bc30b339c0321097, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: wisla_interaktywne_sniezynki::Artigio.MVVMToolkit.Core.MVVM.Base.Decorators.Contrastable
+--- !u!114 &1509619323
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1509619320}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2ca40ab82ab4c749da74a8e32aab0eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: wisla_interaktywne_sniezynki::Artigio.MVVMToolkit.Core.MVVM.Base.Decorators.Resizable
+--- !u!4 &1509619324
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1509619320}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 180965420}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1547496325
 GameObject:
   m_ObjectHideFlags: 0
@@ -462,7 +535,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 431870224345857634, guid: d98be26936232d6408cb360c687b5aae, type: 3}
       propertyPath: autoInjectGameObjects.Array.size
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 431870224345857634, guid: d98be26936232d6408cb360c687b5aae, type: 3}
       propertyPath: 'autoInjectGameObjects.Array.data[0]'
@@ -475,11 +548,11 @@ PrefabInstance:
     - target: {fileID: 431870224345857634, guid: d98be26936232d6408cb360c687b5aae, type: 3}
       propertyPath: 'autoInjectGameObjects.Array.data[2]'
       value: 
-      objectReference: {fileID: 334645588}
+      objectReference: {fileID: 1509619320}
     - target: {fileID: 431870224345857634, guid: d98be26936232d6408cb360c687b5aae, type: 3}
       propertyPath: 'autoInjectGameObjects.Array.data[3]'
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 334645588}
     - target: {fileID: 431870224345857634, guid: d98be26936232d6408cb360c687b5aae, type: 3}
       propertyPath: 'autoInjectGameObjects.Array.data[4]'
       value: 
