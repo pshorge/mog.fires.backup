@@ -36,6 +36,9 @@ namespace Sources.Presentation.Navigation
 
         private void Awake()
         {
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
+            
             InitializeViews();
             _context = new NavigationContext<ViewType>();
             _configuration = new NavigationConfiguration();
@@ -263,15 +266,22 @@ namespace Sources.Presentation.Navigation
                     await UniTask.Delay((int)(transition.Duration * 1000));
             }
         }
-
-#if UNITY_EDITOR
+        
         private void Update()
         {
+            if (Application.isFocused && Cursor.lockState != CursorLockMode.Locked)
+            {
+                Cursor.lockState = CursorLockMode.Locked;
+                Cursor.visible = false;
+            }
+
+#if UNITY_EDITOR
+            // Dev helpers w edytorze
             if(Input.GetKeyUp(KeyCode.Alpha1))
                 NavigateTo(ViewType.Screensaver);
             if(Input.GetKeyUp(KeyCode.Return) || Input.GetKeyUp(KeyCode.Space) || Input.GetKeyUp(KeyCode.Alpha2))
                 NavigateForward();
-        }
 #endif
+        }
     }
 }
