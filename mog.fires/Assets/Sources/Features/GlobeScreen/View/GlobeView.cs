@@ -44,6 +44,9 @@ namespace Sources.Features.GlobeScreen.View
         private readonly List<GlobeMarkerElement> _activeMarkers = new();
         private const float EarthRadius = 4f;
         
+        [Header("Interaction")]
+        [SerializeField] private float selectionThresholdPixels = 150f; 
+        private GlobeMarkerElement _currentCandidate; 
         
         // Dependencies
         [Inject] protected override GlobePresenter Presenter { get; set; }
@@ -60,7 +63,7 @@ namespace Sources.Features.GlobeScreen.View
         [SerializeField] private float lonOffset = -100f; // Initial calibration value ( texture offset problem probably)
         [SerializeField] private float latOffset;
         [SerializeField] private bool invertLon; 
-
+        
         protected override void OnEnable()
         {
             base.OnEnable();
@@ -123,8 +126,6 @@ namespace Sources.Features.GlobeScreen.View
             foreach (var pointData in Presenter.VisiblePoints)
             {
                 var marker = new GlobeMarkerElement(pointData);
-                marker.OnMarkerClicked += OnMarkerClicked;
-                
                 _markersContainer.Add(marker);
                 _activeMarkers.Add(marker);
             }
@@ -136,23 +137,82 @@ namespace Sources.Features.GlobeScreen.View
         {
             foreach (var marker in _activeMarkers)
             {
-                marker.OnMarkerClicked -= OnMarkerClicked;
+                marker.Dispose();
                 marker.RemoveFromHierarchy();
             }
             _activeMarkers.Clear();
         }
-
-        private void OnMarkerClicked(GlobePointData data)
+        
+        
+        private void TogglePopup(bool show, GlobePointData data = null)
         {
-            //inject data to popup if popup is inactive
-            if(!_popupActive)
+            if (show && data != null)
+            {
                 _popupPresenter.SetData(data.ToPopupData());
-            
-            _popupActive = !_popupActive;
+                _popupActive = true;
+                _earthController?.SetInputActive(false);
+            }
+            else
+            {
+                _popupActive = false;
+                if(IsVisible)
+                    _earthController?.SetInputActive(true);
+            }
             
             _leftPopup.EnableInClassList(UI.LeftPopupVisibleClass, _popupActive);
             _rightPopup.EnableInClassList(UI.RightPopupVisibleClass, _popupActive);
         }
+        
+        private void UpdateCandidateSelection()
+        {
+            
+            if (_popupActive)
+            {
+                return;
+            }
+            
+            if (_activeMarkers.Count == 0 || _earthController == null) return;
+
+            Vector2 screenCenter = new Vector2(Screen.width / 2f, Screen.height / 2f);
+            float closestDist = float.MaxValue;
+            GlobeMarkerElement closestMarker = null;
+
+            Vector3 earthCenter = Vector3.zero;
+
+            foreach (var marker in _activeMarkers)
+            {
+                Vector3 localPos = LatLonToVector3(marker.Data.Latitude, marker.Data.Longitude, EarthRadius);
+                Vector3 worldPos = earthCenter + localPos; 
+                
+                if (IsOccluded(worldPos, _earthController.Camera.transform.position, earthCenter, EarthRadius))
+                    continue;
+                
+                Vector3 screenPos3D = _earthController.Camera.WorldToScreenPoint(worldPos);
+                if (screenPos3D.z <= 0) continue;
+
+                Vector2 markerScreenPos = new Vector2(screenPos3D.x, screenPos3D.y);
+                float dist = Vector2.Distance(markerScreenPos, screenCenter);
+
+                if (dist < closestDist)
+                {
+                    closestDist = dist;
+                    closestMarker = marker;
+                }
+            }
+
+            if (closestDist > selectionThresholdPixels)
+            {
+                closestMarker = null;
+            }
+
+            if (_currentCandidate != closestMarker)
+            {
+                _currentCandidate?.SetHighlight(false);
+                _currentCandidate = closestMarker;
+                _currentCandidate?.SetHighlight(true);
+            }
+        }
+        
 
         private void UpdateMarkersPosition()
         {
@@ -270,9 +330,11 @@ namespace Sources.Features.GlobeScreen.View
         {
             base.Update();
             
-            if (!IsVisible) return;
             UpdateMarkersPosition();
+            UpdateCandidateSelection(); 
+            
             HandleGlobalInput();
+            HandleInteractionInput(); 
             
             if (Input.GetMouseButtonDown(2)) 
                 _navigationController.NavigateTo(ViewType.Map);
@@ -286,6 +348,24 @@ namespace Sources.Features.GlobeScreen.View
             
             int dir = scrollDelta < 0 ? 1 : -1;
             _timeline?.Nudge(dir * ScrollStep);
+        }
+        
+        private void HandleInteractionInput()
+        {
+            if (Input.GetMouseButtonDown(0)) 
+            {
+                if (_popupActive)
+                {
+                    TogglePopup(false);
+                }
+                else
+                {
+                    if (_currentCandidate != null)
+                    {
+                        TogglePopup(true, _currentCandidate.Data);
+                    }
+                }
+            }
         }
     }
 }

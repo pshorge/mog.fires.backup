@@ -119,4 +119,12 @@
     opacity: 0.8;
     transition-property: opacity, scale;
     transition-duration: 0.2s;
+    transition-timing-function: ease-out-back;
+}
+
+.globe-marker--highlight {
+    opacity: 1;
+    scale: 1.8; 
+    border-width: 1px; 
+    border-color: var(--color-background-primary);
 }

@@ -6,30 +6,29 @@ namespace Sources.Presentation.UI.Components
 {
     public class GlobeMarkerElement : VisualElement
     {
-        private const string UssClassName = "globe-marker";
+        private const string ClassName = "globe-marker";
+        private const string HighlightClassName = "globe-marker--highlight";
         
         public GlobePointData Data { get; private set; }
 
-        public event Action<GlobePointData> OnMarkerClicked;
 
         public GlobeMarkerElement(GlobePointData data)
         {
             Data = data;
-            AddToClassList(UssClassName);
+            AddToClassList(ClassName);
             pickingMode = PickingMode.Position;
-            RegisterCallback<ClickEvent>(OnClicked);
         }
 
-        private void OnClicked(ClickEvent evt)
+        public void SetHighlight(bool state)
         {
-            OnMarkerClicked?.Invoke(Data);
-            evt.StopPropagation(); 
+            EnableInClassList(HighlightClassName, state);
+            if(state)
+                BringToFront();
         }
+        
 
         public void Dispose()
         {
-            UnregisterCallback<ClickEvent>(OnClicked);
-            OnMarkerClicked = null;
             Data = null;
         }
     }
