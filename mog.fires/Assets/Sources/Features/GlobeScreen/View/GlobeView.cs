@@ -94,14 +94,12 @@ namespace Sources.Features.GlobeScreen.View
 
         private void RegisterEventHandlers()
         {
-            Container.RegisterCallback<WheelEvent>(OnGlobalWheel, TrickleDown.TrickleDown);
             _timeline.SelectionChanged += OnTimelineSelectionChanged;
             Presenter.propertyChanged += OnPresenterPropertyChanged;
         }
 
         private void UnregisterEventHandlers()
         {
-            Container.UnregisterCallback<WheelEvent>(OnGlobalWheel, TrickleDown.TrickleDown);
             _timeline.SelectionChanged -= OnTimelineSelectionChanged;
             Presenter.propertyChanged -= OnPresenterPropertyChanged;
         }
@@ -246,14 +244,6 @@ namespace Sources.Features.GlobeScreen.View
                 Presenter.SelectedEndIndex = end;
         }
         
-        private void OnGlobalWheel(WheelEvent evt)
-        {
-            if (!IsVisible) return;
-
-            int dir = evt.delta.y < 0 ? 1 : -1;
-            _timeline?.Nudge(dir * ScrollStep);
-            evt.StopPropagation();
-        }
         
         public void OnDialTick(int deltaTicks)
         {
@@ -265,20 +255,34 @@ namespace Sources.Features.GlobeScreen.View
         {
             base.Show();
             _media?.Play();
+            _earthController?.SetInputActive(true);
         }
         
         public override void Hide()
         {
             base.Hide();
             _media?.Pause();
+            _earthController?.SetInputActive(false);
+
         }
 
         protected override void Update()
         {
             base.Update();
-            if(IsVisible)
-                UpdateMarkersPosition();
-                
+            
+            if (!IsVisible) return;
+            UpdateMarkersPosition();
+            HandleGlobalInput();
+
+        }
+        
+        private void HandleGlobalInput()
+        {
+            var scrollDelta = Input.mouseScrollDelta.y;
+            if (Mathf.Abs(scrollDelta) < 0.1f) return;
+            
+            int dir = scrollDelta < 0 ? 1 : -1;
+            _timeline?.Nudge(dir * ScrollStep);
         }
     }
 }

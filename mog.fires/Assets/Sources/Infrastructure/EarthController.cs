@@ -6,15 +6,11 @@ namespace Sources.Infrastructure
      {
         [SerializeField] private Transform cameraPivot;
 
-        [Header("Control Toggles")]
-        [SerializeField] private bool isRotationEnabled = false;
-        [SerializeField] private int toggleMouseButton = 1; // 0 = lewy
-
         [Header("Orbit Controls (Yaw & Pitch)")]
-        [SerializeField] private float yawSensitivity = 0.15f;
-        [SerializeField] private float pitchSensitivity = 0.15f;
+        [SerializeField] private float yawSensitivity = 0.12f;
+        [SerializeField] private float pitchSensitivity = 0.1f;
         [Range(0.0f, 0.99f)]
-        [SerializeField] private float damping = 0.92f;
+        [SerializeField] private float damping = 0.97f;
 
         [Header("Directions & Limits")]
         [SerializeField] private bool invertYaw = false;
@@ -30,6 +26,8 @@ namespace Sources.Infrastructure
         
         public Camera Camera => cam;
         
+        private bool _inputActive = false;
+
         
         void Start()
         {
@@ -48,29 +46,38 @@ namespace Sources.Infrastructure
             Vector3 initialAngles = cameraPivot.eulerAngles;
             currentYaw = initialAngles.y;
             currentPitch = initialAngles.x;
-
-            UpdateCursorState();
         }
+        
+        public void SetInputActive(bool active)
+        {
+            _inputActive = active;
+            if (active) return;
+            yawVelocity = 0f;
+            pitchVelocity = 0f;
+        }
+        
 
         void Update()
         {
-            HandleInputToggle();
             
-            if (isRotationEnabled)
+            if (!_inputActive)
             {
-                float mouseX = Input.GetAxis("Mouse X");
-                float mouseY = Input.GetAxis("Mouse Y");
-
-                int yawDirection = invertYaw ? -1 : 1;
-                int pitchDirection = invertPitch ? -1 : 1;
-
-                yawVelocity += mouseX * yawSensitivity * yawDirection;
-                pitchVelocity += mouseY * pitchSensitivity * pitchDirection;
+                ApplyInertiaAndRotation();
+                return;
             }
+            
+            float mouseX = Input.GetAxis("Mouse X");
+            float mouseY = Input.GetAxis("Mouse Y");
+
+            int yawDirection = invertYaw ? -1 : 1;
+            int pitchDirection = invertPitch ? -1 : 1;
+
+            yawVelocity += mouseX * yawSensitivity * yawDirection;
+            pitchVelocity += mouseY * pitchSensitivity * pitchDirection;
             
             ApplyInertiaAndRotation();
         }
-
+       
         void LateUpdate()
         {
             if (cam != null && cameraPivot != null)
@@ -79,21 +86,7 @@ namespace Sources.Infrastructure
             }
         }
 
-        private void HandleInputToggle()
-        {
-            if (Input.GetMouseButtonDown(toggleMouseButton))
-            {
-                isRotationEnabled = !isRotationEnabled;
-                UpdateCursorState();
-            }
-        }
-
-        private void UpdateCursorState()
-        {
-            Cursor.lockState = isRotationEnabled ? CursorLockMode.Locked : CursorLockMode.None;
-            Cursor.visible = !isRotationEnabled;
-        }
-
+        
         private void ApplyInertiaAndRotation()
         {
             yawVelocity *= damping;

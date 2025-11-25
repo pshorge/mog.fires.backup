@@ -5,6 +5,7 @@ using Psh.MVPToolkit.Core.Navigation;
 using Psh.MVPToolkit.Core.UI;
 using Sources.Features.ScreensaverScreen.Presenter;
 using Sources.Presentation.Core.Types;
+using UnityEngine;
 using UnityEngine.UIElements;
 using VContainer;
 
@@ -75,21 +76,14 @@ namespace Sources.Features.ScreensaverScreen.View
 
         private void RegisterEventHandlers()
         {
-            Container.RegisterCallback<ClickEvent>(OnTouched);
             Container.RegisterCallback<TransitionEndEvent>(HandleTopDownTransitionEnd);
             Presenter.propertyChanged += OnPresenterPropertyChanged;
         }
 
         private void UnregisterEventHandlers()
         {
-            Container.UnregisterCallback<ClickEvent>(OnTouched);
             Container.UnregisterCallback<TransitionEndEvent>(HandleTopDownTransitionEnd);
             Presenter.propertyChanged -= OnPresenterPropertyChanged;
-        }
-
-        private void OnTouched(ClickEvent evt)
-        {
-            _navigationController.NavigateForward();
         }
         
         private void OnPresenterPropertyChanged(object sender, BindablePropertyChangedEventArgs e)
@@ -175,6 +169,29 @@ namespace Sources.Features.ScreensaverScreen.View
                 _touchIcon.style.bottom = StyleKeyword.Initial;
                 _touchIcon.style.opacity = 1f;
                 _touchPointIcon.style.opacity = 1f;
+            }
+        }
+        
+        private void DismissScreensaver()
+        {
+            //to invoke only once
+            if (!IsVisible) return;
+            _navigationController.NavigateForward();
+        }
+
+        protected override void Update()
+        {
+            base.Update();
+            if (!IsVisible) return;
+
+            bool inputDetected = Input.anyKeyDown || 
+                                 Mathf.Abs(Input.mouseScrollDelta.y) > 0.1f ||
+                                 Mathf.Abs(Input.GetAxis("Mouse X")) > 0.5f ||
+                                 Mathf.Abs(Input.GetAxis("Mouse Y")) > 0.5f;
+
+            if (inputDetected)
+            {
+                DismissScreensaver();
             }
         }
     }

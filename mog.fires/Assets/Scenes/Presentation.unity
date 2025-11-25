@@ -694,6 +694,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Globe
       objectReference: {fileID: 0}
+    - target: {fileID: 4191934476157962242, guid: e6c7afc95316674d58d19a8431539419, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8250359568039118739, guid: e6c7afc95316674d58d19a8431539419, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
