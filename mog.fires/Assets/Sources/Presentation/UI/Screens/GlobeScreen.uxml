@@ -18,9 +18,9 @@
             <ui:Instance template="RightPopup" name="globe-screen__right_popup" class="globe-screen__right_popup"/>
             <ui:VisualElement class="globe-earth" picking-mode="Ignore"/>
             <ui:VisualElement class="globe-screen__markers"/>
-            <cui:MediaBackground class="globe-screen--image">
+            <cui:MediaBackground class="globe-screen--crosshair">
                 <Bindings>
-                    <ui:DataBinding property="source" data-source-path="ImageFilePath" binding-mode="ToTarget"/>
+                    <ui:DataBinding property="source" data-source-path="CrosshairFilePath" binding-mode="ToTarget"/>
                 </Bindings>
             </cui:MediaBackground>
             <ui:Label class="globe-screen__title">
