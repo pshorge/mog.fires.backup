@@ -8,6 +8,7 @@ using Sources.Data.Models;
 using Sources.Data.Repositories;
 using Sources.Features.ControlButtons.Presenter;
 using Sources.Features.GlobeScreen.Presenter;
+using Sources.Features.MapScreen.Presenter;
 using Sources.Features.Popup.Presenter;
 using Sources.Features.ScreensaverScreen.Presenter;
 using Sources.Infrastructure;
@@ -55,6 +56,7 @@ namespace Sources
             // MVP Presenters as singletons
             builder.Register<ScreensaverPresenter>(Lifetime.Singleton).AsSelf();
             builder.Register<GlobePresenter>(Lifetime.Singleton).AsSelf();
+            builder.Register<MapPresenter>(Lifetime.Singleton).AsSelf();
             builder.Register<ControlPanelPresenter>(Lifetime.Singleton).AsSelf();
             builder.Register<PopupPresenter>(Lifetime.Singleton).AsSelf();
 

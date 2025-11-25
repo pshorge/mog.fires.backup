@@ -37,6 +37,5 @@ namespace Sources.Features.GlobeScreen.Model
                 Longitude = Longitude
             };
         }
-        
     }
 }

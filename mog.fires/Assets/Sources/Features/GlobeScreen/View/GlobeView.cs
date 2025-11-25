@@ -273,6 +273,9 @@ namespace Sources.Features.GlobeScreen.View
             if (!IsVisible) return;
             UpdateMarkersPosition();
             HandleGlobalInput();
+            
+            if (Input.GetMouseButtonDown(2)) 
+                _navigationController.NavigateTo(ViewType.Map);
 
         }
         

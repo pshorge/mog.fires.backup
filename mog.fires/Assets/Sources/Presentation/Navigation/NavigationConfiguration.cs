@@ -29,11 +29,11 @@ namespace Sources.Presentation.Navigation
             // Screensaver
             AddNode(ViewType.Screensaver, next: ViewType.Globe, allowBack: false, transitionIn: TransitionType.TopDown);
             
-            // Start
-            //AddNode(ViewType.Start, next: ViewType.Menu, previous: ViewType.Screensaver, allowBack: false);
+            // Globe
+            AddNode(ViewType.Globe, next: ViewType.Map, previous: ViewType.Screensaver, allowBack: true);
             
-           
-            
+            // Map
+            AddNode(ViewType.Map, previous: ViewType.Globe, allowBack: true);
             
         }
         
