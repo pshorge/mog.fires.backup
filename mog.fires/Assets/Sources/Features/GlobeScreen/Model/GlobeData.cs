@@ -9,7 +9,7 @@ namespace Sources.Features.GlobeScreen.Model
     {
         public string Title { get; set; }
         public string BackgroundFilePath { get; set; }
-        public string ImageFilePath { get; set; }
+        public string CrosshairFilePath { get; set; }
         public string TimelineTitle { get; set; }
         public List<string> TimelinePeriods { get; set; } = new();
         public int SelectedStartIndex { get; set; } = -1;

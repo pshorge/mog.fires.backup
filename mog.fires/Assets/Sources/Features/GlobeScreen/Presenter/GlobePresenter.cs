@@ -25,7 +25,7 @@ namespace Sources.Features.GlobeScreen.Presenter
         private static class ContentKeys
         {
             public const string BgKey = "globe-screen-bg";
-            public const string ImageKey = "globe-screen-image";
+            public const string CrosshairKey = "globe-screen-crosshair";
             public const string TitleKey = "globe-screen-title";
             public const string TimelineTitleKey = "mog-fires-timeline-title";
             public const string TimelineAllKey = "mog-fires-timeline-all";
@@ -52,12 +52,12 @@ namespace Sources.Features.GlobeScreen.Presenter
             private set { _backgroundFilePath = value; Notify(); }
         }
 
-        private string _imageFilePath;
+        private string _crosshairFilePath;
         [CreateProperty]
-        public string ImageFilePath
+        public string CrosshairFilePath
         {
-            get => _imageFilePath;
-            private set { _imageFilePath = value; Notify(); }
+            get => _crosshairFilePath;
+            private set { _crosshairFilePath = value; Notify(); }
         }
 
         private string _timelineTitle;
@@ -148,8 +148,8 @@ namespace Sources.Features.GlobeScreen.Presenter
                 TimelineTitle = _localizationService.GetTranslation(ContentKeys.TimelineTitleKey),
                 BackgroundFilePath = ContentPathResolver.ResolveContentPath(
                     _localizationService.GetTranslation(ContentKeys.BgKey)),
-                ImageFilePath = ContentPathResolver.ResolveContentPath(
-                    _localizationService.GetTranslation(ContentKeys.ImageKey)),
+                CrosshairFilePath = ContentPathResolver.ResolveContentPath(
+                    _localizationService.GetTranslation(ContentKeys.CrosshairKey)),
                 TimelinePeriods = FetchGlobeTimelineNames().ToList(),
                 SelectedStartIndex = _selectedStartIndex,
                 SelectedEndIndex = _selectedEndIndex
@@ -166,7 +166,7 @@ namespace Sources.Features.GlobeScreen.Presenter
             Title = _data.Title;
             TimelineTitle = _data.TimelineTitle;
             BackgroundFilePath = _data.BackgroundFilePath;
-            ImageFilePath = _data.ImageFilePath;
+            CrosshairFilePath = _data.CrosshairFilePath;
             TimelinePeriods = _data.TimelinePeriods;
             
             if (_data.SelectedStartIndex != _selectedStartIndex)

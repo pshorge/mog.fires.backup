@@ -139,10 +139,10 @@
         },
         {
           "moduleType": 4,
-          "key": "globe-screen-image",
-          "name": "globe-screen-image",
+          "key": "globe-screen-crosshair",
+          "name": "globe-screen-crosshair",
           "isTranslated": false,
-          "files": "test-image-5.png"
+          "files": "crosshair.png"
         },
         {
           "moduleType": 1,
