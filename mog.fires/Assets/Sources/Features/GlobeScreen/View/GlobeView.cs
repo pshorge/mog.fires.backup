@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using Psh.MVPToolkit.Core.MVP.Base;
@@ -50,6 +51,7 @@ namespace Sources.Features.GlobeScreen.View
         [Header("Interaction")]
         [SerializeField] private float selectionThresholdPixels = 150f; 
         private GlobeMarkerElement _currentCandidate; 
+        private InteractionState _state = InteractionState.Roaming;
         
         // Dependencies
         [Inject] protected override GlobePresenter Presenter { get; set; }
@@ -119,8 +121,6 @@ namespace Sources.Features.GlobeScreen.View
             }
         }
 
-        
-        
         private void RebuildMarkers()
         {
             ClearMarkers();
@@ -147,34 +147,44 @@ namespace Sources.Features.GlobeScreen.View
             _activeMarkers.Clear();
         }
         
+        private void SetState(InteractionState newState)
+        {
+            _state = newState;
+            Debug.Log($"[GlobeView] State changed to: {newState}");
+
+            switch (newState)
+            {
+                case InteractionState.Roaming:
+                    if(IsVisible) _earthController?.SetInputActive(true);
+                    _disambiguationMenu.Hide();
+                    TogglePopup(false); 
+                    break;
+
+                case InteractionState.Disambiguation:
+                    _earthController?.SetInputActive(false);
+                    TogglePopup(false);
+                    // _disambiguationMenu.Show(...) 
+                    break;
+
+                case InteractionState.Details:
+                    _earthController?.SetInputActive(false);
+                    _disambiguationMenu.Hide();
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException(nameof(newState), newState, null);
+            }
+        }
         
         private void TogglePopup(bool show, GlobePointData data = null)
         {
-            if (show && data != null)
-            {
-                _popupPresenter.SetData(data.ToPopupData());
-                _popupActive = true;
-                _earthController?.SetInputActive(false);
-            }
-            else
-            {
-                _popupActive = false;
-                if(IsVisible)
-                    _earthController?.SetInputActive(true);
-            }
-            
-            _leftPopup.EnableInClassList(UI.LeftPopupVisibleClass, _popupActive);
-            _rightPopup.EnableInClassList(UI.RightPopupVisibleClass, _popupActive);
+            var enablePopup = show && data is not null;
+            if (enablePopup) _popupPresenter.SetData(data.ToPopupData());
+            _leftPopup.EnableInClassList(UI.LeftPopupVisibleClass, enablePopup);
+            _rightPopup.EnableInClassList(UI.RightPopupVisibleClass, enablePopup);
         }
         
         private void UpdateCandidateSelection()
         {
-            
-            if (_popupActive)
-            {
-                return;
-            }
-            
             if (_activeMarkers.Count == 0 || _earthController == null) return;
 
             Vector2 screenCenter = new Vector2(Screen.width / 2f, Screen.height / 2f);
@@ -217,7 +227,6 @@ namespace Sources.Features.GlobeScreen.View
             }
         }
         
-
         private void UpdateMarkersPosition()
         {
             if (_activeMarkers.Count == 0 || _earthController == null || _earthController.Camera == null) return;
@@ -278,8 +287,6 @@ namespace Sources.Features.GlobeScreen.View
             return Vector3.Dot(normal, viewDir) < -0.05f; 
         }
         
-       
-        
         private Vector3 LatLonToVector3(float lat, float lon, float radius)
         {
            
@@ -299,7 +306,6 @@ namespace Sources.Features.GlobeScreen.View
             return new Vector3(x, y, z);
         }
         
-        
         private void OnTimelineSelectionChanged(int start, int end)
         {
             if (Presenter.SelectedStartIndex != start) 
@@ -308,10 +314,9 @@ namespace Sources.Features.GlobeScreen.View
                 Presenter.SelectedEndIndex = end;
         }
         
-        
         public void OnDialTick(int deltaTicks)
         {
-            if (!IsVisible) return;
+            if (!IsVisible || _state != InteractionState.Roaming) return;
             _timeline?.Nudge(deltaTicks);
         }
 
@@ -319,7 +324,7 @@ namespace Sources.Features.GlobeScreen.View
         {
             base.Show();
             _media?.Play();
-            _earthController?.SetInputActive(true);
+            SetState(InteractionState.Roaming);
         }
         
         public override void Hide()
@@ -327,7 +332,8 @@ namespace Sources.Features.GlobeScreen.View
             base.Hide();
             _media?.Pause();
             _earthController?.SetInputActive(false);
-
+            _disambiguationMenu.Hide();
+            TogglePopup(false);
         }
 
         protected override void Update()
@@ -335,17 +341,30 @@ namespace Sources.Features.GlobeScreen.View
             base.Update();
             
             UpdateMarkersPosition();
-            UpdateCandidateSelection(); 
             
-            HandleGlobalInput();
-            HandleInteractionInput(); 
+            switch (_state)
+            {
+                case InteractionState.Roaming:
+                    UpdateCandidateSelection();
+                    HandleTimelineInput(); 
+                    HandleRoamingInput();
+                    break;
+                    
+                case InteractionState.Disambiguation:
+                    // HandleDisambiguationInput();
+                    break;
+                    
+                case InteractionState.Details:
+                    HandleDetailsInput();
+                    break;
+            }
             
             if (Input.GetMouseButtonDown(2)) 
                 _navigationController.NavigateTo(ViewType.Map);
 
         }
         
-        private void HandleGlobalInput()
+        private void HandleTimelineInput()
         {
             var scrollDelta = Input.mouseScrollDelta.y;
             if (Mathf.Abs(scrollDelta) < 0.1f) return;
@@ -354,22 +373,17 @@ namespace Sources.Features.GlobeScreen.View
             _timeline?.Nudge(dir * ScrollStep);
         }
         
-        private void HandleInteractionInput()
+        private void HandleRoamingInput()
         {
-            if (Input.GetMouseButtonDown(0)) 
-            {
-                if (_popupActive)
-                {
-                    TogglePopup(false);
-                }
-                else
-                {
-                    if (_currentCandidate != null)
-                    {
-                        TogglePopup(true, _currentCandidate.Data);
-                    }
-                }
-            }
+            if (!Input.GetMouseButtonDown(0) || _currentCandidate == null) return;
+            SetState(InteractionState.Details);
+            TogglePopup(true, _currentCandidate.Data);
+        }
+
+        private void HandleDetailsInput()
+        {
+            if (!Input.GetMouseButtonDown(0) && !Input.GetMouseButtonDown(1)) return;
+            SetState(InteractionState.Roaming);
         }
     }
 }
