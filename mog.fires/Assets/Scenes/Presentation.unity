@@ -498,6 +498,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _uiDocument: {fileID: 0}
+  selectionThresholdPixels: 100
+  menuScrollThreshold: 2
   lonOffset: -100
   latOffset: 0
   invertLon: 0

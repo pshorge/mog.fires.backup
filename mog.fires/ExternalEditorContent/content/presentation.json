@@ -424,6 +424,110 @@
                       "key": "mog-fires-item",
                       "name": "mog.fires.item",
                       "moduleId": "f6e6f215-c47a-4f24-b0a4-a2f6a0329983",
+                      "referenceId": "4fb34a2a-fd5b-4593-a39c-60bbed7e31c1",
+                      "subModules": [
+                        {
+                          "moduleType": 1,
+                          "key": "mog-fires-item-place",
+                          "name": "mog-fires-item-place",
+                          "isTranslated": true,
+                          "text": {
+                            "pl": "Biblioteka Aleksandryjska 2",
+                            "en": null,
+                            "cz": null
+                          }
+                        },
+                        {
+                          "moduleType": 1,
+                          "key": "mog-fires-item-pos",
+                          "name": "mog-fires-item-pos",
+                          "isTranslated": false,
+                          "text": "31.208952821385036, 29.909158373647266"
+                        },
+                        {
+                          "moduleType": 2,
+                          "key": "mog-fires-item-date",
+                          "name": "mog-fires-item-date",
+                          "isTranslated": true,
+                          "text": {
+                            "pl": "<p>48 &lt;size=80%&gt;p.n.e</p>\n",
+                            "en": null,
+                            "cz": null
+                          }
+                        },
+                        {
+                          "moduleType": 1,
+                          "key": "mog-fires-item-region",
+                          "name": "mog-fires-item-region",
+                          "isTranslated": true,
+                          "text": {
+                            "pl": "Egipt",
+                            "en": null,
+                            "cz": null
+                          }
+                        },
+                        {
+                          "moduleType": 2,
+                          "key": "mog-fires-item-text",
+                          "name": "mog-fires-item-text",
+                          "isTranslated": true,
+                          "text": {
+                            "pl": "<p>Według źr&oacute;deł antycznych, podczas oblężenia Aleksandrii Cezar nakazał podpalenie egipskich statk&oacute;w cumujących w porcie, by uniemożliwić flocie przeciwnika korzystanie z portu. Ogień rozprzestrzenił się na pobliskie magazyny i prawdopodobnie zniszczył część zbior&oacute;w Biblioteki Aleksandryjskiej, choć dokładne rozmiary szk&oacute;d są sporne. R&oacute;żne źr&oacute;dła podają od 40 000 do kilkuset tysięcy zwoj&oacute;w utraconych w tym pożarze. Po tych wydarzeniach Marek Antoniusz rzekomo sprowadził do Aleksandrii część zbior&oacute;w Biblioteki Pergamońskiej jako rekompensatę.&nbsp;</p>\n",
+                            "en": null,
+                            "cz": null
+                          }
+                        },
+                        {
+                          "moduleType": 1,
+                          "key": "mog-fires-item-stat1",
+                          "name": "mog-fires-item-stat1",
+                          "isTranslated": true,
+                          "text": {
+                            "pl": null,
+                            "en": null,
+                            "cz": null
+                          }
+                        },
+                        {
+                          "moduleType": 1,
+                          "key": "mog-fires-item-stat2",
+                          "name": "mog-fires-item-stat2",
+                          "isTranslated": true,
+                          "text": {
+                            "pl": null,
+                            "en": null,
+                            "cz": null
+                          }
+                        },
+                        {
+                          "moduleType": 1,
+                          "key": "mog-fires-item-stat3",
+                          "name": "mog-fires-item-stat3",
+                          "isTranslated": true,
+                          "text": {
+                            "pl": null,
+                            "en": null,
+                            "cz": null
+                          }
+                        },
+                        {
+                          "moduleType": 1,
+                          "key": "mog-fires-item-stat4",
+                          "name": "mog-fires-item-stat4",
+                          "isTranslated": true,
+                          "text": {
+                            "pl": null,
+                            "en": null,
+                            "cz": null
+                          }
+                        }
+                      ]
+                    },
+                    {
+                      "moduleType": 0,
+                      "key": "mog-fires-item",
+                      "name": "mog.fires.item",
+                      "moduleId": "f6e6f215-c47a-4f24-b0a4-a2f6a0329983",
                       "referenceId": "1ac5bd01-db6f-46af-8397-ea1423dcb3df",
                       "subModules": [
                         {
