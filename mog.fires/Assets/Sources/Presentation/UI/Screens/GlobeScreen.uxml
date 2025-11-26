@@ -1,6 +1,7 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:cui="Psh.MVPToolkit.Core.UI" xmlns:scui="Sources.Presentation.UI.Components" editor-extension-mode="False">
 
     <Style src="../Components/timeline.uss" />
+    <Style src="../Components/disambiguation-menu.uss"/>
     <Style src="globe-screen.uss" />
     
     <ui:Template src="../Panels/LeftPopup.uxml" name="LeftPopup"/>
@@ -23,6 +24,7 @@
                     <ui:DataBinding property="source" data-source-path="CrosshairFilePath" binding-mode="ToTarget"/>
                 </Bindings>
             </cui:MediaBackground>
+            <scui:DisambiguationMenu name="globe-screen__disambiguation_menu" />
             <ui:Label class="globe-screen__title">
                 <Bindings>
                     <ui:DataBinding property="text" data-source-path="Title" binding-mode="ToTarget"/>

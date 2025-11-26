@@ -1391,7 +1391,7 @@
           "name": "map-screen-bg",
           "isTranslated": false,
           "#files": "e37a155b-a7c1-4be9-766a-08de1d33b03d.webm",
-          "files": "map-mode-test.jpg",
+          "files": "map-mode-test.jpg"
         },
         {
           "moduleType": 5,
@@ -1948,7 +1948,7 @@
               ]
             }
           ]
-        },
+        }
       ]
     }
   ],

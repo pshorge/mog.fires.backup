@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using Psh.MVPToolkit.Core.MVP.Base;
 using Psh.MVPToolkit.Core.Navigation;
 using Psh.MVPToolkit.Core.UI;
@@ -28,6 +29,7 @@ namespace Sources.Features.GlobeScreen.View
             public const string LeftPopupVisibleClass = "left-popup--visible";
             public const string RightPopupVisibleClass = "right-popup--visible";
             public const string GlobeScreenMarkersClass = "globe-screen__markers";
+            public const string GlobeScreenDisambiguationMenuName = "globe-screen__disambiguation_menu";
         }
         
         // UI Elements
@@ -37,6 +39,7 @@ namespace Sources.Features.GlobeScreen.View
         private VisualElement _leftPopup;
         private VisualElement _rightPopup;
         private bool _popupActive;
+        private DisambiguationMenu _disambiguationMenu;
         
         private const int ScrollStep = 1;
 
@@ -92,6 +95,7 @@ namespace Sources.Features.GlobeScreen.View
             _timeline = Container.Q<Timeline>();
             _leftPopup = Container.Q<VisualElement>(UI.GlobeScreenLeftPopupName);
             _rightPopup = Container.Q<VisualElement>(UI.GlobeScreenRightPopupName);
+            _disambiguationMenu = Container.Q<DisambiguationMenu>(UI.GlobeScreenDisambiguationMenuName);
             _markersContainer = Container.Q<VisualElement>(className: UI.GlobeScreenMarkersClass);
         }
 
