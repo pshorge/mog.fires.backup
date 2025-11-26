@@ -49,8 +49,10 @@ namespace Sources.Features.GlobeScreen.View
         private const float EarthRadius = 4f;
         
         [Header("Interaction")]
-        [SerializeField] private float selectionThresholdPixels = 150f; 
-        private GlobeMarkerElement _currentCandidate; 
+        [SerializeField] private float selectionThresholdPixels = 100;
+        [SerializeField] private float menuScrollThreshold = 2f;
+        private float _menuScrollAccumulator = 0f;
+        private List<GlobeMarkerElement> _currentCandidates = new();
         private InteractionState _state = InteractionState.Roaming;
         
         // Dependencies
@@ -158,12 +160,13 @@ namespace Sources.Features.GlobeScreen.View
                     if(IsVisible) _earthController?.SetInputActive(true);
                     _disambiguationMenu.Hide();
                     TogglePopup(false); 
+                    ClearMenuHighlights();
                     break;
 
                 case InteractionState.Disambiguation:
                     _earthController?.SetInputActive(false);
                     TogglePopup(false);
-                    // _disambiguationMenu.Show(...) 
+                    _disambiguationMenu.Show(_currentCandidates.Select(m => m.Data).ToList());
                     break;
 
                 case InteractionState.Details:
@@ -187,44 +190,59 @@ namespace Sources.Features.GlobeScreen.View
         {
             if (_activeMarkers.Count == 0 || _earthController == null) return;
 
-            Vector2 screenCenter = new Vector2(Screen.width / 2f, Screen.height / 2f);
-            float closestDist = float.MaxValue;
-            GlobeMarkerElement closestMarker = null;
-
+            Vector2 screenCenter = new (Screen.width / 2f, Screen.height / 2f);
             Vector3 earthCenter = Vector3.zero;
+            //float closestDist = float.MaxValue;
+            var newCandidates = new List<GlobeMarkerElement>();
 
             foreach (var marker in _activeMarkers)
             {
-                Vector3 localPos = LatLonToVector3(marker.Data.Latitude, marker.Data.Longitude, EarthRadius);
-                Vector3 worldPos = earthCenter + localPos; 
+                var localPos = LatLonToVector3(marker.Data.Latitude, marker.Data.Longitude, EarthRadius);
+                var worldPos = earthCenter + localPos; 
                 
                 if (IsOccluded(worldPos, _earthController.Camera.transform.position, earthCenter, EarthRadius))
                     continue;
                 
-                Vector3 screenPos3D = _earthController.Camera.WorldToScreenPoint(worldPos);
+                var screenPos3D = _earthController.Camera.WorldToScreenPoint(worldPos);
                 if (screenPos3D.z <= 0) continue;
 
-                Vector2 markerScreenPos = new Vector2(screenPos3D.x, screenPos3D.y);
-                float dist = Vector2.Distance(markerScreenPos, screenCenter);
-
-                if (dist < closestDist)
-                {
-                    closestDist = dist;
-                    closestMarker = marker;
-                }
+                var markerScreenPos = new Vector2(screenPos3D.x, screenPos3D.y);
+                var dist = Vector2.Distance(markerScreenPos, screenCenter);
+                if (dist <= selectionThresholdPixels) 
+                    newCandidates.Add(marker);
             }
-
-            if (closestDist > selectionThresholdPixels)
+            
+            // Sort candidates (center's closest)
+            newCandidates.Sort((a, b) => 
             {
-                closestMarker = null;
+                var wa = earthCenter + LatLonToVector3(a.Data.Latitude, a.Data.Longitude, EarthRadius);
+                var wb = earthCenter + LatLonToVector3(b.Data.Latitude, b.Data.Longitude, EarthRadius);
+                var sa = _earthController.Camera.WorldToScreenPoint(wa);
+                var sb = _earthController.Camera.WorldToScreenPoint(wb);
+                return Vector2.Distance(sa, screenCenter).CompareTo(Vector2.Distance(sb, screenCenter));
+            });
+            
+            bool changed = _currentCandidates.Count != newCandidates.Count;
+            if (!changed && _currentCandidates.Count > 0 && newCandidates.Count > 0)
+            {
+                changed = _currentCandidates[0] != newCandidates[0];
             }
 
-            if (_currentCandidate != closestMarker)
+            if (changed)
             {
-                _currentCandidate?.SetHighlight(false);
-                _currentCandidate = closestMarker;
-                _currentCandidate?.SetHighlight(true);
+                ClearMenuHighlights();
+                _currentCandidates = newCandidates;
+                
+                foreach (var c in _currentCandidates)
+                    c.SetHighlight(true);
             }
+        }
+        
+        private void ClearMenuHighlights()
+        {
+            foreach (var c in _currentCandidates) 
+                c.SetHighlight(false);
+            _currentCandidates.Clear();
         }
         
         private void UpdateMarkersPosition()
@@ -351,7 +369,7 @@ namespace Sources.Features.GlobeScreen.View
                     break;
                     
                 case InteractionState.Disambiguation:
-                    // HandleDisambiguationInput();
+                    HandleDisambiguationInput();
                     break;
                     
                 case InteractionState.Details:
@@ -375,9 +393,55 @@ namespace Sources.Features.GlobeScreen.View
         
         private void HandleRoamingInput()
         {
-            if (!Input.GetMouseButtonDown(0) || _currentCandidate == null) return;
-            SetState(InteractionState.Details);
-            TogglePopup(true, _currentCandidate.Data);
+            if (!Input.GetMouseButtonDown(0)) return;
+            var count = _currentCandidates.Count;
+            switch (count)
+            {
+                case 0:
+                    return;
+                case 1:
+                    SetState(InteractionState.Details);
+                    TogglePopup(true, _currentCandidates[0].Data);
+                    break;
+                default:
+                    SetState(InteractionState.Disambiguation);
+                    break;
+            }
+        }
+        
+        private void HandleDisambiguationInput()
+        {
+            
+            var y = Input.GetAxis("Mouse Y");
+            _menuScrollAccumulator += y;
+
+            if (Mathf.Abs(_menuScrollAccumulator) > menuScrollThreshold)
+            {
+                // Move up (Y > 0) -> Prev element
+                // Move down (Y < 0) -> Next element
+                var dir = _menuScrollAccumulator > 0 ? -1 : 1;
+                if (dir < 0) _disambiguationMenu.SelectPrevious();
+                else _disambiguationMenu.SelectNext();
+                
+                _menuScrollAccumulator = 0f; 
+            }
+
+            // Accept
+            if (Input.GetMouseButtonDown(0))
+            {
+                var selected = _disambiguationMenu.GetSelectedItem();
+                if (selected is not null)
+                {
+                    SetState(InteractionState.Details);
+                    TogglePopup(true, selected);
+                }
+            }
+            
+            //  Cancel
+            if (Input.GetMouseButtonDown(1))
+            {
+                SetState(InteractionState.Roaming);
+            }
         }
 
         private void HandleDetailsInput()
