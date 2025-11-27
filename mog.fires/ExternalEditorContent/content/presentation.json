@@ -99,9 +99,8 @@
           "key": "screensaver-file",
           "name": "screensaver-file",
           "isTranslated": false,
-          "#files": "e37a155b-a7c1-4be9-766a-08de1d33b03d.webm",
           "files": "bg_video.webm",
-          "##files": "BG3.jpg"
+          "##files": "BG4.jpg"
         },
         {
           "moduleType": 1,
@@ -133,9 +132,8 @@
           "key": "globe-screen-bg",
           "name": "globe-screen-bg",
           "isTranslated": false,
-          "#files": "e37a155b-a7c1-4be9-766a-08de1d33b03d.webm",
-          "####files": "BG3.jpg",
-          "files": "bg_video.webm"
+          "files": "BG4.jpg",
+          "#files": "bg_video.webm"
         },
         {
           "moduleType": 4,
