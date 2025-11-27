@@ -33,52 +33,5 @@
                 </Bindings>
             </ui:Label>
         </ui:VisualElement>
-        <ui:VisualElement class="right-popup__footer">
-            <ui:VisualElement class="right-popup__separator right-popup__separator--top"/>
-            <ui:VisualElement class="right-popup__footer_element right-popup__footer_element--first">
-                <Bindings>
-                    <ui:DataBinding property="style.display" data-source-path="HasStat1" binding-mode="ToTarget" />
-                </Bindings>
-                <ui:Label>
-                    <Bindings>
-                        <ui:DataBinding property="text" data-source-path="Stat1" binding-mode="ToTarget" />
-                    </Bindings>
-                </ui:Label>
-                <ui:VisualElement class="stat-icon-1"/>
-            </ui:VisualElement>
-            <ui:VisualElement class="right-popup__footer_element">
-                <Bindings>
-                    <ui:DataBinding property="style.display" data-source-path="HasStat2" binding-mode="ToTarget" />
-                </Bindings>
-                <ui:Label>
-                    <Bindings>
-                        <ui:DataBinding property="text" data-source-path="Stat2" binding-mode="ToTarget" />
-                    </Bindings>
-                </ui:Label>
-                <ui:VisualElement class="stat-icon-2"/>
-            </ui:VisualElement>
-            <ui:VisualElement class="right-popup__footer_element">
-                <Bindings>
-                    <ui:DataBinding property="style.display" data-source-path="HasStat3" binding-mode="ToTarget" />
-                </Bindings>
-                <ui:Label>
-                    <Bindings>
-                        <ui:DataBinding property="text" data-source-path="Stat3" binding-mode="ToTarget" />
-                    </Bindings>
-                </ui:Label>
-                <ui:VisualElement class="stat-icon-3"/>
-            </ui:VisualElement>
-            <ui:VisualElement class="right-popup__footer_element right-popup__footer_element--last">
-                <Bindings>
-                    <ui:DataBinding property="style.display" data-source-path="HasStat4" binding-mode="ToTarget" />
-                </Bindings>
-                <ui:Label>
-                    <Bindings>
-                        <ui:DataBinding property="text" data-source-path="Stat4" binding-mode="ToTarget" />
-                    </Bindings>
-                </ui:Label>
-                <ui:VisualElement class="stat-icon-4"/>
-            </ui:VisualElement>
-        </ui:VisualElement>
     </ui:VisualElement>
 </ui:UXML>

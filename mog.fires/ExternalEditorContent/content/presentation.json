@@ -268,50 +268,6 @@
                           "name": "mog-fires-item-media",
                           "isTranslated": false,
                           "files": "test-img.jpg"
-                        },
-                        {
-                          "moduleType": 1,
-                          "key": "mog-fires-item-stat1",
-                          "name": "mog-fires-item-stat1",
-                          "isTranslated": true,
-                          "text": {
-                            "pl": "900",
-                            "en": "900",
-                            "cz": "900"
-                          }
-                        },
-                        {
-                          "moduleType": 1,
-                          "key": "mog-fires-item-stat2",
-                          "name": "mog-fires-item-stat2",
-                          "isTranslated": true,
-                          "text": {
-                            "pl": "500",
-                            "en": "500",
-                            "cz": "500"
-                          }
-                        },
-                        {
-                          "moduleType": 1,
-                          "key": "mog-fires-item-stat3",
-                          "name": "mog-fires-item-stat3",
-                          "isTranslated": true,
-                          "text": {
-                            "pl": "120",
-                            "en": "120",
-                            "cz": "120"
-                          }
-                        },
-                        {
-                          "moduleType": 1,
-                          "key": "mog-fires-item-stat4",
-                          "name": "mog-fires-item-stat4",
-                          "isTranslated": true,
-                          "text": {
-                            "pl": "400",
-                            "en": "400",
-                            "cz": "400"
-                          }
                         }
                       ]
                     },
@@ -369,50 +325,6 @@
                           "isTranslated": true,
                           "text": {
                             "pl": "<p>Według źr&oacute;deł antycznych, podczas oblężenia Aleksandrii Cezar nakazał podpalenie egipskich statk&oacute;w cumujących w porcie, by uniemożliwić flocie przeciwnika korzystanie z portu. Ogień rozprzestrzenił się na pobliskie magazyny i prawdopodobnie zniszczył część zbior&oacute;w Biblioteki Aleksandryjskiej, choć dokładne rozmiary szk&oacute;d są sporne. R&oacute;żne źr&oacute;dła podają od 40 000 do kilkuset tysięcy zwoj&oacute;w utraconych w tym pożarze. Po tych wydarzeniach Marek Antoniusz rzekomo sprowadził do Aleksandrii część zbior&oacute;w Biblioteki Pergamońskiej jako rekompensatę.&nbsp;</p>\n",
-                            "en": null,
-                            "cz": null
-                          }
-                        },
-                        {
-                          "moduleType": 1,
-                          "key": "mog-fires-item-stat1",
-                          "name": "mog-fires-item-stat1",
-                          "isTranslated": true,
-                          "text": {
-                            "pl": null,
-                            "en": null,
-                            "cz": null
-                          }
-                        },
-                        {
-                          "moduleType": 1,
-                          "key": "mog-fires-item-stat2",
-                          "name": "mog-fires-item-stat2",
-                          "isTranslated": true,
-                          "text": {
-                            "pl": null,
-                            "en": null,
-                            "cz": null
-                          }
-                        },
-                        {
-                          "moduleType": 1,
-                          "key": "mog-fires-item-stat3",
-                          "name": "mog-fires-item-stat3",
-                          "isTranslated": true,
-                          "text": {
-                            "pl": null,
-                            "en": null,
-                            "cz": null
-                          }
-                        },
-                        {
-                          "moduleType": 1,
-                          "key": "mog-fires-item-stat4",
-                          "name": "mog-fires-item-stat4",
-                          "isTranslated": true,
-                          "text": {
-                            "pl": null,
                             "en": null,
                             "cz": null
                           }
@@ -476,50 +388,6 @@
                             "en": null,
                             "cz": null
                           }
-                        },
-                        {
-                          "moduleType": 1,
-                          "key": "mog-fires-item-stat1",
-                          "name": "mog-fires-item-stat1",
-                          "isTranslated": true,
-                          "text": {
-                            "pl": null,
-                            "en": null,
-                            "cz": null
-                          }
-                        },
-                        {
-                          "moduleType": 1,
-                          "key": "mog-fires-item-stat2",
-                          "name": "mog-fires-item-stat2",
-                          "isTranslated": true,
-                          "text": {
-                            "pl": null,
-                            "en": null,
-                            "cz": null
-                          }
-                        },
-                        {
-                          "moduleType": 1,
-                          "key": "mog-fires-item-stat3",
-                          "name": "mog-fires-item-stat3",
-                          "isTranslated": true,
-                          "text": {
-                            "pl": null,
-                            "en": null,
-                            "cz": null
-                          }
-                        },
-                        {
-                          "moduleType": 1,
-                          "key": "mog-fires-item-stat4",
-                          "name": "mog-fires-item-stat4",
-                          "isTranslated": true,
-                          "text": {
-                            "pl": null,
-                            "en": null,
-                            "cz": null
-                          }
                         }
                       ]
                     },
@@ -580,50 +448,6 @@
                             "en": null,
                             "cz": null
                           }
-                        },
-                        {
-                          "moduleType": 1,
-                          "key": "mog-fires-item-stat1",
-                          "name": "mog-fires-item-stat1",
-                          "isTranslated": true,
-                          "text": {
-                            "pl": "100",
-                            "en": null,
-                            "cz": null
-                          }
-                        },
-                        {
-                          "moduleType": 1,
-                          "key": "mog-fires-item-stat2",
-                          "name": "mog-fires-item-stat2",
-                          "isTranslated": true,
-                          "text": {
-                            "pl": "200",
-                            "en": null,
-                            "cz": null
-                          }
-                        },
-                        {
-                          "moduleType": 1,
-                          "key": "mog-fires-item-stat3",
-                          "name": "mog-fires-item-stat3",
-                          "isTranslated": true,
-                          "text": {
-                            "pl": "300",
-                            "en": null,
-                            "cz": null
-                          }
-                        },
-                        {
-                          "moduleType": 1,
-                          "key": "mog-fires-item-stat4",
-                          "name": "mog-fires-item-stat4",
-                          "isTranslated": true,
-                          "text": {
-                            "pl": "400",
-                            "en": null,
-                            "cz": null
-                          }
                         }
                       ]
                     },
@@ -681,50 +505,6 @@
                           "isTranslated": true,
                           "text": {
                             "pl": "<p>W 654 roku n.e. Medyna (obecnie w Arabii Saudyjskiej) doświadczyła katastrofalnego zdarzenia związanego z trzęsieniem ziemi oraz pożarem, kt&oacute;re spowodowały znaczne zniszczenia. W sz&oacute;stym miesiącu kalendarza muzułmańskiego (Jumada al-Akhira) miała miejsce erupcja wulkaniczna niedaleko miasta, kt&oacute;ra trwała około 52 dni i zagrażała okolicom Medyny. W czasie tego okresu pożary nawiedzały miasto, a historyczne źr&oacute;dła relacjonują wielki smutek pielgrzym&oacute;w i mieszkańc&oacute;w, kt&oacute;rzy modlili się przy grobowcu Proroka Mahometa, obawiając się dalszych zniszczeń.</p>\n",
-                            "en": null,
-                            "cz": null
-                          }
-                        },
-                        {
-                          "moduleType": 1,
-                          "key": "mog-fires-item-stat1",
-                          "name": "mog-fires-item-stat1",
-                          "isTranslated": true,
-                          "text": {
-                            "pl": "200",
-                            "en": null,
-                            "cz": null
-                          }
-                        },
-                        {
-                          "moduleType": 1,
-                          "key": "mog-fires-item-stat2",
-                          "name": "mog-fires-item-stat2",
-                          "isTranslated": true,
-                          "text": {
-                            "pl": "600",
-                            "en": null,
-                            "cz": null
-                          }
-                        },
-                        {
-                          "moduleType": 1,
-                          "key": "mog-fires-item-stat3",
-                          "name": "mog-fires-item-stat3",
-                          "isTranslated": true,
-                          "text": {
-                            "pl": "400",
-                            "en": null,
-                            "cz": null
-                          }
-                        },
-                        {
-                          "moduleType": 1,
-                          "key": "mog-fires-item-stat4",
-                          "name": "mog-fires-item-stat4",
-                          "isTranslated": true,
-                          "text": {
-                            "pl": "9",
                             "en": null,
                             "cz": null
                           }
@@ -820,50 +600,6 @@
                             "en": null,
                             "cz": null
                           }
-                        },
-                        {
-                          "moduleType": 1,
-                          "key": "mog-fires-item-stat1",
-                          "name": "mog-fires-item-stat1",
-                          "isTranslated": true,
-                          "text": {
-                            "pl": "12",
-                            "en": null,
-                            "cz": null
-                          }
-                        },
-                        {
-                          "moduleType": 1,
-                          "key": "mog-fires-item-stat2",
-                          "name": "mog-fires-item-stat2",
-                          "isTranslated": true,
-                          "text": {
-                            "pl": "124",
-                            "en": null,
-                            "cz": null
-                          }
-                        },
-                        {
-                          "moduleType": 1,
-                          "key": "mog-fires-item-stat3",
-                          "name": "mog-fires-item-stat3",
-                          "isTranslated": true,
-                          "text": {
-                            "pl": "600",
-                            "en": null,
-                            "cz": null
-                          }
-                        },
-                        {
-                          "moduleType": 1,
-                          "key": "mog-fires-item-stat4",
-                          "name": "mog-fires-item-stat4",
-                          "isTranslated": true,
-                          "text": {
-                            "pl": "10",
-                            "en": null,
-                            "cz": null
-                          }
                         }
                       ]
                     },
@@ -924,50 +660,6 @@
                             "en": null,
                             "cz": null
                           }
-                        },
-                        {
-                          "moduleType": 1,
-                          "key": "mog-fires-item-stat1",
-                          "name": "mog-fires-item-stat1",
-                          "isTranslated": true,
-                          "text": {
-                            "pl": "200",
-                            "en": null,
-                            "cz": null
-                          }
-                        },
-                        {
-                          "moduleType": 1,
-                          "key": "mog-fires-item-stat2",
-                          "name": "mog-fires-item-stat2",
-                          "isTranslated": true,
-                          "text": {
-                            "pl": "10",
-                            "en": null,
-                            "cz": null
-                          }
-                        },
-                        {
-                          "moduleType": 1,
-                          "key": "mog-fires-item-stat3",
-                          "name": "mog-fires-item-stat3",
-                          "isTranslated": true,
-                          "text": {
-                            "pl": "",
-                            "en": null,
-                            "cz": null
-                          }
-                        },
-                        {
-                          "moduleType": 1,
-                          "key": "mog-fires-item-stat4",
-                          "name": "mog-fires-item-stat4",
-                          "isTranslated": true,
-                          "text": {
-                            "pl": null,
-                            "en": null,
-                            "cz": null
-                          }
                         }
                       ]
                     },
@@ -1025,50 +717,6 @@
                           "isTranslated": true,
                           "text": {
                             "pl": "<p>Pierwszy z wielkich pożar&oacute;w przyszłego Tokio; miał miejsce w kr&oacute;tkim czasie po bitwie pod Sekigaharą i był jednym z wielu pożar&oacute;w, kt&oacute;re nawiedzały miasto Edo (dzisiejsze Tokio) w czasach Tokugawa. Miasto było w dużej mierze zbudowane z drewna i papieru, co sprzyjało szybkiemu rozprzestrzenianiu się ognia. Pożary w Edo, w tym ten z 1601 roku, były często katastrofalne, niszcząc znaczne części miasta, w tym wiele dom&oacute;w i ważnych budynk&oacute;w. Edo, będące w&oacute;wczas stolicą siogunatu Tokugawa, posiadało jeszcze stosunkowo młodą straż pożarną, kt&oacute;ra nie była w stanie skutecznie powstrzymać takich pożar&oacute;w. Pożar z 1601 roku przyczynił się do dalszych reform w zakresie profilaktyki przeciwpożarowej i odbudowy miasta.&nbsp;</p>\n",
-                            "en": null,
-                            "cz": null
-                          }
-                        },
-                        {
-                          "moduleType": 1,
-                          "key": "mog-fires-item-stat1",
-                          "name": "mog-fires-item-stat1",
-                          "isTranslated": true,
-                          "text": {
-                            "pl": "1000",
-                            "en": null,
-                            "cz": null
-                          }
-                        },
-                        {
-                          "moduleType": 1,
-                          "key": "mog-fires-item-stat2",
-                          "name": "mog-fires-item-stat2",
-                          "isTranslated": true,
-                          "text": {
-                            "pl": "300",
-                            "en": null,
-                            "cz": null
-                          }
-                        },
-                        {
-                          "moduleType": 1,
-                          "key": "mog-fires-item-stat3",
-                          "name": "mog-fires-item-stat3",
-                          "isTranslated": true,
-                          "text": {
-                            "pl": "200",
-                            "en": null,
-                            "cz": null
-                          }
-                        },
-                        {
-                          "moduleType": 1,
-                          "key": "mog-fires-item-stat4",
-                          "name": "mog-fires-item-stat4",
-                          "isTranslated": true,
-                          "text": {
-                            "pl": "600",
                             "en": null,
                             "cz": null
                           }
@@ -1164,50 +812,6 @@
                             "en": null,
                             "cz": null
                           }
-                        },
-                        {
-                          "moduleType": 1,
-                          "key": "mog-fires-item-stat1",
-                          "name": "mog-fires-item-stat1",
-                          "isTranslated": true,
-                          "text": {
-                            "pl": "100",
-                            "en": null,
-                            "cz": null
-                          }
-                        },
-                        {
-                          "moduleType": 1,
-                          "key": "mog-fires-item-stat2",
-                          "name": "mog-fires-item-stat2",
-                          "isTranslated": true,
-                          "text": {
-                            "pl": "800",
-                            "en": null,
-                            "cz": null
-                          }
-                        },
-                        {
-                          "moduleType": 1,
-                          "key": "mog-fires-item-stat3",
-                          "name": "mog-fires-item-stat3",
-                          "isTranslated": true,
-                          "text": {
-                            "pl": "400",
-                            "en": null,
-                            "cz": null
-                          }
-                        },
-                        {
-                          "moduleType": 1,
-                          "key": "mog-fires-item-stat4",
-                          "name": "mog-fires-item-stat4",
-                          "isTranslated": true,
-                          "text": {
-                            "pl": "3000",
-                            "en": null,
-                            "cz": null
-                          }
                         }
                       ]
                     }
@@ -1300,50 +904,6 @@
                             "en": null,
                             "cz": null
                           }
-                        },
-                        {
-                          "moduleType": 1,
-                          "key": "mog-fires-item-stat1",
-                          "name": "mog-fires-item-stat1",
-                          "isTranslated": true,
-                          "text": {
-                            "pl": "100",
-                            "en": null,
-                            "cz": null
-                          }
-                        },
-                        {
-                          "moduleType": 1,
-                          "key": "mog-fires-item-stat2",
-                          "name": "mog-fires-item-stat2",
-                          "isTranslated": true,
-                          "text": {
-                            "pl": "200",
-                            "en": null,
-                            "cz": null
-                          }
-                        },
-                        {
-                          "moduleType": 1,
-                          "key": "mog-fires-item-stat3",
-                          "name": "mog-fires-item-stat3",
-                          "isTranslated": true,
-                          "text": {
-                            "pl": "400",
-                            "en": null,
-                            "cz": null
-                          }
-                        },
-                        {
-                          "moduleType": 1,
-                          "key": "mog-fires-item-stat4",
-                          "name": "mog-fires-item-stat4",
-                          "isTranslated": true,
-                          "text": {
-                            "pl": "700",
-                            "en": null,
-                            "cz": null
-                          }
                         }
                       ]
                     }
@@ -1433,50 +993,6 @@
                           "isTranslated": true,
                           "text": {
                             "pl": "<p>Wybuchł 15 kwietnia 2019 roku i szybko objął dach oraz sygnaturkę świątyni. Ogień rozprzestrzenił się na wieżę i spowodował zawalenie się iglicy, będącej charakterystycznym elementem katedry. Mimo dużych zniszczeń dach oraz g&oacute;rne partie mur&oacute;w, kamienne sklepienie powstrzymało rozprzestrzenianie się ognia do wnętrza, co pozwoliło zachować fasadę, wieże i wiele cennych dzieł sztuki oraz relikwii. Straż pożarna walczyła z ogniem niemal całą noc, angażując około 400 strażak&oacute;w. W pożarze lekko ucierpiało kilku ratownik&oacute;w, ale nie zginęła żadna osoba. Dokładna przyczyna pożaru nie została jednoznacznie ustalona, jednak śledztwo wykluczyło podpalenie i terrorystyczny akt, wskazując na prawdopodobne zwarcie instalacji elektrycznej lub niezgaszony papieros. Pożar wywołał szeroką falę wsparcia finansowego na odbudowę, kt&oacute;ra trwa do dziś, a katedra planowana jest do ponownego otwarcia pod koniec 2024 roku. Pożar Notre-Dame był jednym z najważniejszych wydarzeń kulturalnych i architektonicznych ostatnich lat, uwidaczniając znaczenie ochrony dziedzictwa światowego.&nbsp;</p>\n",
-                            "en": null,
-                            "cz": null
-                          }
-                        },
-                        {
-                          "moduleType": 1,
-                          "key": "mog-fires-item-stat1",
-                          "name": "mog-fires-item-stat1",
-                          "isTranslated": true,
-                          "text": {
-                            "pl": null,
-                            "en": null,
-                            "cz": null
-                          }
-                        },
-                        {
-                          "moduleType": 1,
-                          "key": "mog-fires-item-stat2",
-                          "name": "mog-fires-item-stat2",
-                          "isTranslated": true,
-                          "text": {
-                            "pl": null,
-                            "en": null,
-                            "cz": null
-                          }
-                        },
-                        {
-                          "moduleType": 1,
-                          "key": "mog-fires-item-stat3",
-                          "name": "mog-fires-item-stat3",
-                          "isTranslated": true,
-                          "text": {
-                            "pl": null,
-                            "en": null,
-                            "cz": null
-                          }
-                        },
-                        {
-                          "moduleType": 1,
-                          "key": "mog-fires-item-stat4",
-                          "name": "mog-fires-item-stat4",
-                          "isTranslated": true,
-                          "text": {
-                            "pl": null,
                             "en": null,
                             "cz": null
                           }
@@ -1592,50 +1108,6 @@
                             "en": null,
                             "cz": null
                           }
-                        },
-                        {
-                          "moduleType": 1,
-                          "key": "mog-fires-item-stat1",
-                          "name": "mog-fires-item-stat1",
-                          "isTranslated": true,
-                          "text": {
-                            "pl": null,
-                            "en": null,
-                            "cz": null
-                          }
-                        },
-                        {
-                          "moduleType": 1,
-                          "key": "mog-fires-item-stat2",
-                          "name": "mog-fires-item-stat2",
-                          "isTranslated": true,
-                          "text": {
-                            "pl": null,
-                            "en": null,
-                            "cz": null
-                          }
-                        },
-                        {
-                          "moduleType": 1,
-                          "key": "mog-fires-item-stat3",
-                          "name": "mog-fires-item-stat3",
-                          "isTranslated": true,
-                          "text": {
-                            "pl": null,
-                            "en": null,
-                            "cz": null
-                          }
-                        },
-                        {
-                          "moduleType": 1,
-                          "key": "mog-fires-item-stat4",
-                          "name": "mog-fires-item-stat4",
-                          "isTranslated": true,
-                          "text": {
-                            "pl": null,
-                            "en": null,
-                            "cz": null
-                          }
                         }
                       ]
                     }
@@ -1722,50 +1194,6 @@
                           "moduleType": 2,
                           "key": "mog-fires-item-text",
                           "name": "mog-fires-item-text",
-                          "isTranslated": true,
-                          "text": {
-                            "pl": null,
-                            "en": null,
-                            "cz": null
-                          }
-                        },
-                        {
-                          "moduleType": 1,
-                          "key": "mog-fires-item-stat1",
-                          "name": "mog-fires-item-stat1",
-                          "isTranslated": true,
-                          "text": {
-                            "pl": null,
-                            "en": null,
-                            "cz": null
-                          }
-                        },
-                        {
-                          "moduleType": 1,
-                          "key": "mog-fires-item-stat2",
-                          "name": "mog-fires-item-stat2",
-                          "isTranslated": true,
-                          "text": {
-                            "pl": null,
-                            "en": null,
-                            "cz": null
-                          }
-                        },
-                        {
-                          "moduleType": 1,
-                          "key": "mog-fires-item-stat3",
-                          "name": "mog-fires-item-stat3",
-                          "isTranslated": true,
-                          "text": {
-                            "pl": null,
-                            "en": null,
-                            "cz": null
-                          }
-                        },
-                        {
-                          "moduleType": 1,
-                          "key": "mog-fires-item-stat4",
-                          "name": "mog-fires-item-stat4",
                           "isTranslated": true,
                           "text": {
                             "pl": null,
@@ -1864,50 +1292,6 @@
                             "en": null,
                             "cz": null
                           }
-                        },
-                        {
-                          "moduleType": 1,
-                          "key": "mog-fires-item-stat1",
-                          "name": "mog-fires-item-stat1",
-                          "isTranslated": true,
-                          "text": {
-                            "pl": null,
-                            "en": null,
-                            "cz": null
-                          }
-                        },
-                        {
-                          "moduleType": 1,
-                          "key": "mog-fires-item-stat2",
-                          "name": "mog-fires-item-stat2",
-                          "isTranslated": true,
-                          "text": {
-                            "pl": null,
-                            "en": null,
-                            "cz": null
-                          }
-                        },
-                        {
-                          "moduleType": 1,
-                          "key": "mog-fires-item-stat3",
-                          "name": "mog-fires-item-stat3",
-                          "isTranslated": true,
-                          "text": {
-                            "pl": null,
-                            "en": null,
-                            "cz": null
-                          }
-                        },
-                        {
-                          "moduleType": 1,
-                          "key": "mog-fires-item-stat4",
-                          "name": "mog-fires-item-stat4",
-                          "isTranslated": true,
-                          "text": {
-                            "pl": null,
-                            "en": null,
-                            "cz": null
-                          }
                         }
                       ]
                     }
@@ -1994,50 +1378,6 @@
                           "moduleType": 2,
                           "key": "mog-fires-item-text",
                           "name": "mog-fires-item-text",
-                          "isTranslated": true,
-                          "text": {
-                            "pl": null,
-                            "en": null,
-                            "cz": null
-                          }
-                        },
-                        {
-                          "moduleType": 1,
-                          "key": "mog-fires-item-stat1",
-                          "name": "mog-fires-item-stat1",
-                          "isTranslated": true,
-                          "text": {
-                            "pl": null,
-                            "en": null,
-                            "cz": null
-                          }
-                        },
-                        {
-                          "moduleType": 1,
-                          "key": "mog-fires-item-stat2",
-                          "name": "mog-fires-item-stat2",
-                          "isTranslated": true,
-                          "text": {
-                            "pl": null,
-                            "en": null,
-                            "cz": null
-                          }
-                        },
-                        {
-                          "moduleType": 1,
-                          "key": "mog-fires-item-stat3",
-                          "name": "mog-fires-item-stat3",
-                          "isTranslated": true,
-                          "text": {
-                            "pl": null,
-                            "en": null,
-                            "cz": null
-                          }
-                        },
-                        {
-                          "moduleType": 1,
-                          "key": "mog-fires-item-stat4",
-                          "name": "mog-fires-item-stat4",
                           "isTranslated": true,
                           "text": {
                             "pl": null,

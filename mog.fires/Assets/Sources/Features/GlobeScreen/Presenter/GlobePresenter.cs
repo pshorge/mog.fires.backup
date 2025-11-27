@@ -239,10 +239,6 @@ namespace Sources.Features.GlobeScreen.Presenter
                         Text = _localizationService.GetTranslation($"{itemPrefix}-mog-fires-item-text"),
                         MediaPath = ContentPathResolver.ResolveContentPath(
                             _localizationService.GetTranslation($"{itemPrefix}-mog-fires-item-media")),
-                        Stat1 = _localizationService.GetTranslation($"{itemPrefix}-mog-fires-item-stat1"),
-                        Stat2 = _localizationService.GetTranslation($"{itemPrefix}-mog-fires-item-stat2"),
-                        Stat3 = _localizationService.GetTranslation($"{itemPrefix}-mog-fires-item-stat3"),
-                        Stat4 = _localizationService.GetTranslation($"{itemPrefix}-mog-fires-item-stat4"),
                         
                         Latitude = lat,
                         Longitude = lon
