@@ -16,9 +16,11 @@
     
     /* --- Font Definitions --- */
     --font-def-geist-vf: url('/Assets/Resources/Fonts/Geist/GeistVF SDF.asset');
+    --font-def-geist-semibold: url('/Assets/Resources/Fonts/Geist/Geist-SemiBold SDF.asset');
     --font-def-geist-semibold-italic: url('/Assets/Resources/Fonts/Geist/Geist-SemiBoldItalic SDF.asset');
     --font-def-geist-extrabold-italic: url('/Assets/Resources/Fonts/Geist/Geist-ExtraBoldItalic SDF.asset');
     --font-def-geist-extrabold: url('/Assets/Resources/Fonts/Geist/Geist-ExtraBold SDF.asset');
+    --font-def-geist-black: url('/Assets/Resources/Fonts/Geist/Geist-Black SDF.asset');
     
     /* --- Font Sizes --- */
     --font-size-title: 32px;
@@ -28,8 +30,9 @@
 
     --font-size-timeline-title: 36px;
     --font-size-timeline-title--xl: 46px;
-    --font-size-popup-title: 75px;
-    --font-size-popup-subtitle: 55px;
+    --font-size-popup-title: 43px;
+    --font-size-popup-date: 46px;
+    --font-size-popup-body: 26px;
 
     /* --- Spacing --- */
     --spacing-neg-xs: -4px;
@@ -42,8 +45,7 @@
     --spacing-neg-4xl: -50px;
     --spacing-neg-5xl: -60px;
     --spacing-neg-6xl: -70px;
-
-
+    
     --spacing-xs: 4px;
     --spacing-s: 8px;
     --spacing-m: 16px;
@@ -54,4 +56,7 @@
     --spacing-4xl: 50px;
     --spacing-5xl: 60px;
     --spacing-6xl: 70px;
+    
+    --spacing-popup-header-bottom: 29px;
+    
 }
