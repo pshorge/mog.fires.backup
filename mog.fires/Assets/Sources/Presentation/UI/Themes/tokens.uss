@@ -7,6 +7,7 @@
     --color-background-secondary: black;
     --color-background-contrast: var(--color-yellow);
     
+    
     --color-text-primary: white;
     --color-text-secondary: black;
     --color-text-muted: rgb(103, 103, 103);
