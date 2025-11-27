@@ -45,16 +45,6 @@
     -unity-text-align: middle-right;
 }
 
-.right-popup__footer {
-    height: 120px;
-    width: 100%;
-    flex-direction: row;
-    color: var(--color-text-primary);
-    font-size: var(--font-size-title);
-    -unity-font-definition: var(--font-def-geist-extrabold);
-}
-
-
 .right-popup__separator {
     position: absolute;
     bottom: 0;
@@ -120,50 +110,4 @@
     font-size: var(--font-size-popup-subtitle);  
     -unity-font-definition: var(--font-def-geist-extrabold);
     -unity-text-align: upper-right;
-}
-
-
-.right-popup__footer_element
-{
-    flex-direction: row;
-    flex-grow: 1;
-    flex-shrink: 0;
-    align-self: center;
-    justify-content: center;
-}
-.right-popup__footer_element--first{
-    justify-content: flex-start;
-}
-
-.right-popup__footer_element--last{
-    justify-content: flex-end;
-}
-
-.stat-icon-1
-{
-    width: 80px;
-    height: 50px;
-    background-size: contain;
-    background-image: url("../Icons/stat-1.png");
-}
-.stat-icon-2
-{
-    width: 80px;
-    height: 50px;
-    background-size: contain;
-    background-image: url("../Icons/stat-2.png");
-}
-.stat-icon-3
-{
-    width: 80px;
-    height: 50px;
-    background-size: contain;
-    background-image: url("../Icons/stat-3.png");
-}
-.stat-icon-4
-{
-    width: 80px;
-    height: 50px;
-    background-size: contain;
-    background-image: url("../Icons/stat-4.png");
 }

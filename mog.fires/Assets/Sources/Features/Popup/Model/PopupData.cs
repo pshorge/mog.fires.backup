@@ -10,12 +10,8 @@ namespace Sources.Features.Popup.Model
         public string Region { get; set; }
         public string Text { get; set; }
         public string MediaPath { get; set; }
-        public string Stat1 { get; set; }
-        public string Stat2 { get; set; }
-        public string Stat3 { get; set; }
-        public string Stat4 { get; set; }
         
-        public float Latitude { get; set; }   // -90 to 90
-        public float Longitude { get; set; }  // -180 to 180
+        public float Latitude { get; set; } 
+        public float Longitude { get; set; }
     }
 }

@@ -15,10 +15,6 @@ namespace Sources.Features.GlobeScreen.Model
         public string Region { get; set; }
         public string Text { get; set; }
         public string MediaPath { get; set; }
-        public string Stat1 { get; set; }
-        public string Stat2 { get; set; }
-        public string Stat3 { get; set; }
-        public string Stat4 { get; set; }
 
         public PopupData ToPopupData()
         {
@@ -29,10 +25,6 @@ namespace Sources.Features.GlobeScreen.Model
                 Region = Region,
                 Text = Text,
                 MediaPath = MediaPath,
-                Stat1 = Stat1,
-                Stat2 = Stat2,
-                Stat3 = Stat3,
-                Stat4 = Stat4,
                 Latitude = Latitude,
                 Longitude = Longitude
             };
