@@ -64,7 +64,8 @@ namespace Sources.Features.MapScreen.Presenter
         {
             if (disposing)
             {
-                _localizationService.LanguageChanged -= OnLanguageChanged;
+                if(_localizationService is not null)
+                    _localizationService.LanguageChanged -= OnLanguageChanged;
             }
             base.Dispose(disposing);
         }
