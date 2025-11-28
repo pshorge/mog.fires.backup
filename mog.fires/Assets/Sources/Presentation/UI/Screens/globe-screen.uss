@@ -51,7 +51,7 @@
     position: absolute;
     width: 1580px;
     height: 300px;
-    left: 50px;
+    left: 90px;
     top: 122px;
     font-size: 112px;
     color: var(--color-text-primary);
