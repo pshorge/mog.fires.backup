@@ -24,18 +24,28 @@
     background-image: url("project://database/Assets/Models/Earth.renderTexture");
 }
 
+/*.globe-screen--crosshair {*/
+/*    position: absolute;*/
+/*    left: 50%;*/
+/*    top: 50%;*/
+/*    translate: -50% -50%;*/
+/*    width: 247px;*/
+/*    height: 247px;*/
+/*    background-size: contain !important;*/
+/*    background-position: center;*/
+/*    background-repeat: no-repeat;*/
+/*}*/
+
+
 .globe-screen--crosshair {
     position: absolute;
     left: 50%;
     top: 50%;
     translate: -50% -50%;
-    width: 247px;
-    height: 247px;
-    background-size: contain !important;
-    background-position: center;
-    background-repeat: no-repeat;
-    
+    width: 240px;
+    height: 240px;
 }
+
 
 .globe-screen__title {
     position: absolute;

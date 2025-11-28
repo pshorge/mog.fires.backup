@@ -2,6 +2,7 @@
 
     <Style src="../Components/timeline.uss" />
     <Style src="../Components/disambiguation-menu.uss"/>
+    <Style src="../Components/crosshair.uss"/>
     <Style src="globe-screen.uss" />
     
     <ui:Template src="../Panels/LeftPopup.uxml" name="LeftPopup"/>
@@ -19,11 +20,7 @@
             <ui:Instance template="RightPopup" name="globe-screen__right_popup" class="globe-screen__right_popup"/>
             <ui:VisualElement class="globe-earth" picking-mode="Ignore"/>
             <ui:VisualElement class="globe-screen__markers"/>
-            <cui:MediaBackground class="globe-screen--crosshair">
-                <Bindings>
-                    <ui:DataBinding property="source" data-source-path="CrosshairFilePath" binding-mode="ToTarget"/>
-                </Bindings>
-            </cui:MediaBackground>
+            <scui:CrosshairElement name="crosshair" class="globe-screen--crosshair" />
             <scui:DisambiguationMenu name="globe-screen__disambiguation_menu" />
             <ui:Label class="globe-screen__title">
                 <Bindings>

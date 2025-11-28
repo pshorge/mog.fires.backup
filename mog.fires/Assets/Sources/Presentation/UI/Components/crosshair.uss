@@ -1,0 +1,94 @@
+.crosshair {
+    position: absolute;
+    width: 240px;
+    height: 240px;
+    align-items: center;
+    justify-content: center;
+
+    --crosshair-color: #FF3333;
+}
+
+.contrast .crosshair {
+    --crosshair-color: var(--color-background-contrast);
+}
+
+/* --- VIGNETTE --- */
+.crosshair__vignette {
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    /* Background image set in C# */
+}
+
+/* --- WRAPPERS (Center Point) --- */
+.crosshair__wrapper {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 0;
+    height: 0;
+    align-items: center;
+    justify-content: center;
+    overflow: visible;
+}
+
+/* --- LINES --- */
+.crosshair__line--v,
+.crosshair__line--h {
+    position: absolute;
+    border-radius: 2px;
+    flex-shrink: 0;
+
+    /* IMPORTANT: Center lines relative to wrapper (0,0) point */
+    translate: -50% -50%;
+}
+
+.crosshair__line--v { width: 6px; height: 82px; }
+.crosshair__line--h { width: 82px; height: 6px; }
+
+/* --- DIAMONDS (Base) --- */
+.crosshair__diamond {
+    position: absolute;
+    rotate: 45deg;
+    transform-origin: center;
+    flex-shrink: 0;
+    background-color: transparent;
+
+    /* IMPORTANT: Center diamonds relative to wrapper */
+    translate: -50% -50%;
+}
+
+/* --- LAYERS (Shadow vs Main) --- */
+
+/* Shadow Layer */
+.crosshair__shadow {
+    background-color: rgba(255, 0, 0, 0.5); /* For lines */
+    border-color: rgba(255, 0, 0, 0.5);     /* For diamonds */
+
+    /* Drop Shadow Offset */
+    left: 1px;
+    top: 1px;
+}
+/* Override background for diamond shadows (borders only) */
+.crosshair__diamond.crosshair__shadow {
+    background-color: transparent;
+}
+
+/* Main Layer */
+.crosshair__main {
+    background-color: var(--crosshair-color); /* For lines */
+    border-color: var(--crosshair-color);     /* For diamonds */
+
+    /* FIX: Explicitly anchor Main layer to wrapper center */
+    left: 0;
+    top: 0;
+}
+.crosshair__diamond.crosshair__main {
+    background-color: transparent;
+}
+
+/* --- SIZES --- */
+.diamond--1 { width: 105px; height: 105px; border-width: 5px; }
+.diamond--2 { width: 120px; height: 120px; border-width: 3px; }
+.diamond--3 { width: 136px; height: 136px; border-width: 2px; }
+.diamond--4 { width: 156px; height: 156px; border-width: 1px; }
