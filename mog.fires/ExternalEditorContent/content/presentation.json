@@ -107,14 +107,14 @@
           "key": "screensaver-screen-title",
           "name": "screensaver-screen-title",
           "isTranslated": false,
-          "text": "DOTKNIJ ABY ROZPOCZĄĆ"
+          "text": "NACIŚNIJ DOWOLNY PRZYCISK"
         },
         {
           "moduleType": 1,
           "key": "screensaver-screen-text",
           "name": "screensaver-screen-text",
           "isTranslated": false,
-          "text": "TOUCH TO START"
+          "text": "PRESS ANY BUTTON"
         },
         {
           "moduleType": 1,
