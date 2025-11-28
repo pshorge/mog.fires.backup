@@ -55,31 +55,16 @@
 .control-panel {
     position: absolute;
     top: 0;
+    padding: 115px 130px 15px 130px;
     width: 100%;
-    height: 100px;
     flex-direction: row;
-    justify-content: space-between;
-}
-
-.control-panel__section {
-    margin: var(--spacing-2xl);
-    flex-direction: row;
-}
-
-.control-panel__section--left {
-    align-self: flex-end;
-    margin-left: var(--spacing-2xl);
-}
-
-.control-panel__section--right {
-    align-self: flex-start;
-    margin-right: var(--spacing-2xl);
+    justify-content: flex-end;
 }
 
 .control-panel__button {
     width: 58px;
     height: 58px;
-    margin: 0 var(--spacing-xl) 0 0;
+    margin: 0 var(--spacing-l) 0 0;
     border-radius: 0;
     border-width: 0;
     background-color: var(--color-control-button-bg);
@@ -92,62 +77,23 @@
 }
 
 /* Control Panel Button Modifiers */
-.control-panel__button--contrast {
-}
 
-.control-panel__button--language,
-.control-panel__button--resize {
+.control-panel__button--language {
     padding: 0;
     color: var(--color-text-primary);
+    font-size: var(--font-size-title);
     -unity-text-align: middle-center;
-    -unity-font-definition: var(--font-def-geist-extrabold);
+    -unity-font-definition: var(--font-def-geist-black);
     white-space: normal;
     overflow: hidden;
 }
 
-.control-panel__button--language {
-    font-size: var(--font-size-title);
+.control-panel__button--language-icon {
+    background-image: url("../Icons/lang.svg");
 }
-
-.control-panel__button--resize {
-    font-size: var(--font-size-title);
+.control-panel__button--globe-icon {
+    background-image: url("../Icons/globe-mode.png");
 }
-
-/* Control Panel Button Icons */
-.control-panel__button--home > .control-panel__button-icon {
-    margin: auto;
-    padding: 0;
-    width: 36px;
-    height: 31px;
-    background-image: url("../Icons/home-icon.png");
-}
-
-.control-panel__button--back > .control-panel__button-icon {
-    margin: auto;
-    padding: 0;
-    width: 30px;
-    height: 33px;
-    background-image: url("../Icons/back-icon.png");
-}
-
-.control-panel__button--contrast > .control-panel__button-icon {
-    margin: auto;
-    padding: 0;
-    width: 28px;
-    height: 28px;
-    background-image: url("../Icons/contrast-icon.png");
-}
-
-/* Contrast Mode Modifications */
-.contrast .control-panel__button {
-    color: var(--color-text-secondary);
-}
-
-.contrast .control-panel__button--language,
-.contrast .control-panel__button--resize {
-    color: var(--color-background-secondary);
-}
-
-.contrast .control-panel__button-icon {
-    -unity-background-image-tint-color: var(--color-background-secondary);
+.control-panel__button--map-icon {
+    background-image: url("../Icons/map-mode.png");
 }

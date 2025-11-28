@@ -22,21 +22,17 @@ namespace Sources.Presentation.Management
             {
                 case ViewType.None:
                 case ViewType.Screensaver:
-                    _controlPanelView.EnableLeftButtons(false);
-                    _controlPanelView.EnableRightButtons(false);
-                    _controlPanelView.EnableBackButton(false);
+                    _controlPanelView.EnableButtons(false);
                     break;
                 case ViewType.Globe:
                     _controlPanelView.SetDefault();
-                    _controlPanelView.EnableLeftButtons(false);
-                    _controlPanelView.EnableRightButtons(true);
-                    _controlPanelView.EnableBackButton(false);
+                    _controlPanelView.EnableButtons(true);
+                    _controlPanelView.EnableGlobeButton(true);
                     break;
                 case ViewType.Map:
                     _controlPanelView.SetDefault();
-                    _controlPanelView.EnableLeftButtons(false);
-                    _controlPanelView.EnableRightButtons(true);
-                    _controlPanelView.EnableBackButton(false);
+                    _controlPanelView.EnableButtons(true);
+                    _controlPanelView.EnableGlobeButton(false);
                     break;
                 default:
                     throw new NotSupportedException($"ViewType {viewType} is not supported");

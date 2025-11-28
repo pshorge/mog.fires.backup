@@ -50,9 +50,6 @@ namespace Sources
                 MediaBackground.Configure(resolver.Resolve<ITextureAssetService>());
             });
             
-            builder.Register<TextResizeService>(Lifetime.Singleton).AsSelf().AsImplementedInterfaces();
-            builder.Register<HighContrastService>(Lifetime.Singleton).AsSelf().AsImplementedInterfaces();
-            
             // MVP Presenters as singletons
             builder.Register<ScreensaverPresenter>(Lifetime.Singleton).AsSelf();
             builder.Register<GlobePresenter>(Lifetime.Singleton).AsSelf();

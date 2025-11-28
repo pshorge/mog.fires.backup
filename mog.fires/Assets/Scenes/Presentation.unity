@@ -206,8 +206,6 @@ GameObject:
   m_Component:
   - component: {fileID: 334645589}
   - component: {fileID: 334645591}
-  - component: {fileID: 334645592}
-  - component: {fileID: 334645593}
   m_Layer: 0
   m_Name: ControlButtons
   m_TagString: Untagged
@@ -243,30 +241,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _uiDocument: {fileID: 0}
---- !u!114 &334645592
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 334645588}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4bef4d62bd4b4019bc30b339c0321097, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &334645593
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 334645588}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f2ca40ab82ab4c749da74a8e32aab0eb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: wisla_interaktywne_sniezynki::Artigio.MVVMToolkit.Core.MVVM.Base.Decorators.Resizable
 --- !u!1 &1126370473
 GameObject:
   m_ObjectHideFlags: 0
@@ -345,8 +319,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1509619324}
   - component: {fileID: 1509619321}
-  - component: {fileID: 1509619323}
-  - component: {fileID: 1509619322}
   m_Layer: 0
   m_Name: MapScreen
   m_TagString: Untagged
@@ -367,30 +339,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: mog_fires::Sources.Features.MapScreen.View.MapView
   _uiDocument: {fileID: 0}
---- !u!114 &1509619322
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1509619320}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4bef4d62bd4b4019bc30b339c0321097, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: wisla_interaktywne_sniezynki::Artigio.MVVMToolkit.Core.MVVM.Base.Decorators.Contrastable
---- !u!114 &1509619323
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1509619320}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f2ca40ab82ab4c749da74a8e32aab0eb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: wisla_interaktywne_sniezynki::Artigio.MVVMToolkit.Core.MVVM.Base.Decorators.Resizable
 --- !u!4 &1509619324
 Transform:
   m_ObjectHideFlags: 0
@@ -461,8 +409,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1682491905}
   - component: {fileID: 1682491908}
-  - component: {fileID: 1682491910}
-  - component: {fileID: 1682491909}
   m_Layer: 0
   m_Name: GlobeScreen
   m_TagString: Untagged
@@ -503,30 +449,6 @@ MonoBehaviour:
   lonOffset: -100
   latOffset: 0
   invertLon: 0
---- !u!114 &1682491909
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1682491904}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4bef4d62bd4b4019bc30b339c0321097, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: wisla_interaktywne_sniezynki::Artigio.MVVMToolkit.Core.MVVM.Base.Decorators.Contrastable
---- !u!114 &1682491910
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1682491904}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f2ca40ab82ab4c749da74a8e32aab0eb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: wisla_interaktywne_sniezynki::Artigio.MVVMToolkit.Core.MVVM.Base.Decorators.Resizable
 --- !u!1001 &1749949736
 PrefabInstance:
   m_ObjectHideFlags: 0
