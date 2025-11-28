@@ -260,8 +260,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: mog_fires::Sources.Infrastructure.EarthController
   cameraPivot: {fileID: 2651032618358919647}
-  isRotationEnabled: 0
-  toggleMouseButton: 1
   yawSensitivity: 0.12
   pitchSensitivity: 0.1
   damping: 0.97
@@ -301,7 +299,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4407364681476807162}
-  m_LocalEulerAnglesHint: {x: -84.572, y: 0, z: -89.9}
+  m_LocalEulerAnglesHint: {x: -90, y: 0, z: -90}
 --- !u!33 &3953568506336592868
 MeshFilter:
   m_ObjectHideFlags: 0
