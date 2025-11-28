@@ -71,6 +71,10 @@
     flex-grow: 1;
     flex-shrink: 0;
     flex-direction: row;
+    
+    align-items: stretch;
+    min-height: 130px;
+    
     color: var(--color-text-primary);
     font-size: var(--font-size-popup-date);
     -unity-font-definition: var(--font-def-geist-black);
@@ -79,20 +83,21 @@
 .right-popup__header__content__separator
 {
     position: relative;
-    bottom: 0;
     width: 3px;
     flex-shrink: 0;
-    height: 200px;
     background-color: var(--color-background-primary);
-    align-self: flex-end;
 }
 .popup__header__content__title_left {
     position: relative;
     width: 45%;
-    height: 100%;
     padding-right: var(--spacing-m);
     -unity-text-align: lower-center;
     white-space: normal;
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding-bottom: 0;
 }
 .popup__header__content__title_right {
     position: relative;
@@ -101,9 +106,8 @@
     -unity-text-align: upper-right;
     padding: 0;
     margin: 0;
-    height: 100%;
+    display: flex;
     justify-content: flex-end;
-    white-space: normal;
 }
 
 .popup__header__content__place {
