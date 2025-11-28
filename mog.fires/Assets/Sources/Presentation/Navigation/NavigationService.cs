@@ -6,6 +6,7 @@ using Psh.MVPToolkit.Core.Application.Services;
 using Psh.MVPToolkit.Core.MVP.Base;
 using Psh.MVPToolkit.Core.MVP.Contracts;
 using Psh.MVPToolkit.Core.Navigation;
+using Psh.MVPToolkit.Core.Services.Localization;
 using Sources.Features.ControlButtons.View;
 using Sources.Features.ScreensaverScreen.View;
 using Sources.Presentation.Core.Types;
@@ -28,7 +29,8 @@ namespace Sources.Presentation.Navigation
         private ControlPanelManager _controlPanelManager;
 
         [Inject] private IInactivityService _inactivityService;
-
+        [Inject] private ILocalizationService _localizationService;
+        
         public event Action<ViewType> OnNavigated;
         public event Action<ViewType, ViewType> OnNavigating;
         public ViewType CurrentView => _context?.CurrentState?.ViewType ?? ViewType.None;
@@ -97,9 +99,7 @@ namespace Sources.Presentation.Navigation
 
         public void SetButtonsVisibility(bool isVisible)
         {
-            controlPanel.EnableLeftButtons(isVisible);
-            controlPanel.EnableRightButtons(isVisible);
-            controlPanel.EnableBackButton(isVisible);
+            controlPanel.EnableButtons(isVisible);
         }
 
         public void RefreshUI()
@@ -276,11 +276,14 @@ namespace Sources.Presentation.Navigation
             }
 
 #if UNITY_EDITOR
-            // Dev helpers w edytorze
+            // Dev helpers 
             if(Input.GetKeyUp(KeyCode.Alpha1))
                 NavigateTo(ViewType.Screensaver);
             if(Input.GetKeyUp(KeyCode.Return) || Input.GetKeyUp(KeyCode.Space) || Input.GetKeyUp(KeyCode.Alpha2))
                 NavigateForward();
+            if(Input.GetKeyUp(KeyCode.L))
+                _localizationService.ChangeLanguage();
+                
 #endif
         }
     }
