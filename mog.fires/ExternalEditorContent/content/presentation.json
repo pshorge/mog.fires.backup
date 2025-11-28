@@ -99,7 +99,7 @@
           "key": "screensaver-file",
           "name": "screensaver-file",
           "isTranslated": false,
-          "files": "bg_video.webm",
+          "files": "BG_vp8.webm",
           "##files": "BG4.jpg"
         },
         {
@@ -132,8 +132,8 @@
           "key": "globe-screen-bg",
           "name": "globe-screen-bg",
           "isTranslated": false,
-          "files": "BG4.jpg",
-          "#files": "bg_video.webm"
+          "files": "BG_vp8.webm",
+          "##files": "BG4.jpg"
         },
         {
           "moduleType": 4,
@@ -1008,7 +1008,8 @@
           "key": "map-screen-bg",
           "name": "map-screen-bg",
           "isTranslated": false,
-          "#files": "e37a155b-a7c1-4be9-766a-08de1d33b03d.webm",
+          "#files": "BG_vp8.webm",
+          "##files": "BG4.jpg",
           "files": "map-mode-test.jpg"
         },
         {
