@@ -1,11 +1,51 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:cui="Psh.MVPToolkit.Core.UI" xmlns:scui="Sources.Presentation.UI.Components" editor-extension-mode="False">
 
+    <Style src="../Components/timeline.uss" />
+    <Style src="../Components/disambiguation-menu.uss"/>
+    <Style src="../Components/crosshair.uss"/>
     <Style src="map-screen.uss" />
+    
+    <ui:Template src="../Panels/LeftPopup.uxml" name="LeftPopup"/>
+    <ui:Template src="../Panels/RightPopup.uxml" name="RightPopup"/>
     
     <cui:MediaBackground name="map-screen__bg" class="media-bg" autoplay="true" loop="true" mute="true"  video-extensions=".webm,.mp4,.mov">
         <Bindings>
             <ui:DataBinding property="source" data-source-path="BackgroundFilePath" binding-mode="ToTarget" />
         </Bindings>
+        
+        <ui:VisualElement class="map-screen__content">
+            
+            <ui:Instance template="LeftPopup" name="map-screen__left_popup" class="map-screen__left_popup"/>
+            <ui:Instance template="RightPopup" name="map-screen__right_popup" class="map-screen__right_popup"/>
+            <cui:MediaBackground name="map-screen__map" class="map-screen__map-content" scale-mode="Contain">
+                <Bindings>
+                    <ui:DataBinding property="source" data-source-path="MapFilePath" binding-mode="ToTarget" />
+                </Bindings>
+                <ui:VisualElement class="map-screen__markers"/>
+                <scui:CrosshairElement name="crosshair" class="map-screen--crosshair" />
+                <scui:DisambiguationMenu name="map-screen__disambiguation_menu" />
+            </cui:MediaBackground>
+           
+            <ui:Label class="map-screen__title">
+                <Bindings>
+                    <ui:DataBinding property="text" data-source-path="Title" binding-mode="ToTarget"/>
+                </Bindings>
+            </ui:Label>
+            <ui:Label class="map-screen__timeline-title">
+                <Bindings>
+                    <ui:DataBinding property="text" data-source-path="TimelineTitle" binding-mode="ToTarget"/>
+                </Bindings>
+            </ui:Label>
+            <scui:Timeline class="timeline map-screen__timeline">
+                <Bindings>
+                    <ui:DataBinding property="Items" data-source-path="TimelinePeriods" binding-mode="ToTarget" />
+                    <ui:DataBinding property="SelectedStart" data-source-path="SelectedStartIndex"  binding-mode="ToTarget" />
+                    <ui:DataBinding property="SelectedEnd"   data-source-path="SelectedEndIndex"    binding-mode="ToTarget" />
+                    <ui:DataBinding property="SelectionFull"  data-source-path="IsTimelineSelectionFull"  binding-mode="ToTarget" />
+                </Bindings>
+            </scui:Timeline>
+        </ui:VisualElement>
+        
     </cui:MediaBackground>
     
     

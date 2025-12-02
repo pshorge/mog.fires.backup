@@ -1,4 +1,5 @@
 using System;
+using Sources.Data.Models;
 using Sources.Features.GlobeScreen.Model;
 using UnityEngine.UIElements;
 
@@ -9,10 +10,10 @@ namespace Sources.Presentation.UI.Components
         private const string ClassName = "globe-marker";
         private const string HighlightClassName = "globe-marker--highlight";
         
-        public GlobePointData Data { get; private set; }
+        public PointData Data { get; private set; }
 
 
-        public GlobeMarkerElement(GlobePointData data)
+        public GlobeMarkerElement(PointData data)
         {
             Data = data;
             AddToClassList(ClassName);

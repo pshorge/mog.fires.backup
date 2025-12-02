@@ -1,5 +1,5 @@
 using System.Collections.Generic;
-using Sources.Features.GlobeScreen.Model;
+using Sources.Data.Models;
 using UnityEngine.UIElements;
 
 namespace Sources.Presentation.UI.Components
@@ -14,7 +14,7 @@ namespace Sources.Presentation.UI.Components
         private const string LabelClass = "disambiguation-item__label";
         private const string SubLabelClass = "disambiguation-item__sublabel";
 
-        private readonly List<GlobePointData> _currentData = new();
+        private readonly List<PointData> _currentData = new();
         private readonly List<VisualElement> _itemElements = new();
         private int _selectedIndex = -1;
 
@@ -26,7 +26,7 @@ namespace Sources.Presentation.UI.Components
             pickingMode = PickingMode.Ignore;
         }
 
-        public void Show(List<GlobePointData> items)
+        public void Show(List<PointData> items)
         {
             if (items == null || items.Count == 0)
             {
@@ -54,7 +54,7 @@ namespace Sources.Presentation.UI.Components
         public void SelectNext() => SetSelection(_selectedIndex + 1);
         public void SelectPrevious() => SetSelection(_selectedIndex - 1);
 
-        public GlobePointData GetSelectedItem()
+        public PointData GetSelectedItem()
         {
             if (_selectedIndex >= 0 && _selectedIndex < _currentData.Count)
                 return _currentData[_selectedIndex];

@@ -100,7 +100,7 @@
           "name": "screensaver-file",
           "isTranslated": false,
           "files": "BG_vp8.webm",
-          "##files": "BG4.jpg"
+          "#files": "BG4.jpg"
         },
         {
           "moduleType": 1,
@@ -133,14 +133,7 @@
           "name": "globe-screen-bg",
           "isTranslated": false,
           "files": "BG_vp8.webm",
-          "##files": "BG4.jpg"
-        },
-        {
-          "moduleType": 4,
-          "key": "globe-screen-crosshair",
-          "name": "globe-screen-crosshair",
-          "isTranslated": false,
-          "files": "crosshair.png"
+          "#files": "BG4.jpg"
         },
         {
           "moduleType": 1,
@@ -1004,13 +997,29 @@
           ]
         },
         {
+          "moduleType": 1,
+          "key": "map-screen-title",
+          "name": "map-screen-title",
+          "isTranslated": true,
+          "text": {
+            "pl": "Pożary na Górnym Śląsku",
+            "en": "Fires in Upper Silesia",
+            "cz": "Požáry v Horním Slezsku"
+          }
+        },
+        {
           "moduleType": 4,
           "key": "map-screen-bg",
           "name": "map-screen-bg",
           "isTranslated": false,
-          "#files": "BG_vp8.webm",
-          "##files": "BG4.jpg",
-          "files": "map-mode-test.jpg"
+          "files": "BG_vp8.webm"
+        },
+        {
+          "moduleType": 4,
+          "key": "map-screen-map",
+          "name": "map-screen-map",
+          "isTranslated": false,
+          "files": "map.png"
         },
         {
           "moduleType": 5,
@@ -1063,7 +1072,7 @@
                           "name": "mog-fires-item-place",
                           "isTranslated": true,
                           "text": {
-                            "pl": null,
+                            "pl": "Żywiec",
                             "en": null,
                             "cz": null
                           }
@@ -1073,7 +1082,7 @@
                           "key": "mog-fires-item-pos",
                           "name": "mog-fires-item-pos",
                           "isTranslated": false,
-                          "text": null
+                          "text": "50.263914177101356, 19.02583241401483"
                         },
                         {
                           "moduleType": 2,
@@ -1081,7 +1090,7 @@
                           "name": "mog-fires-item-date",
                           "isTranslated": true,
                           "text": {
-                            "pl": null,
+                            "pl": "1600",
                             "en": null,
                             "cz": null
                           }
@@ -1092,7 +1101,7 @@
                           "name": "mog-fires-item-region",
                           "isTranslated": true,
                           "text": {
-                            "pl": null,
+                            "pl": "Polska",
                             "en": null,
                             "cz": null
                           }
@@ -1103,7 +1112,7 @@
                           "name": "mog-fires-item-text",
                           "isTranslated": true,
                           "text": {
-                            "pl": null,
+                            "pl": "Jakiś tekst",
                             "en": null,
                             "cz": null
                           }
@@ -1155,7 +1164,7 @@
                           "name": "mog-fires-item-place",
                           "isTranslated": true,
                           "text": {
-                            "pl": null,
+                            "pl": "Katowice",
                             "en": null,
                             "cz": null
                           }
@@ -1165,7 +1174,7 @@
                           "key": "mog-fires-item-pos",
                           "name": "mog-fires-item-pos",
                           "isTranslated": false,
-                          "text": null
+                          "text": "50.263914177101356, 19.02583241401483"
                         },
                         {
                           "moduleType": 2,
@@ -1173,7 +1182,7 @@
                           "name": "mog-fires-item-date",
                           "isTranslated": true,
                           "text": {
-                            "pl": null,
+                            "pl": "1500-100-900",
                             "en": null,
                             "cz": null
                           }
@@ -1184,7 +1193,7 @@
                           "name": "mog-fires-item-region",
                           "isTranslated": true,
                           "text": {
-                            "pl": null,
+                            "pl": "Górny Śląsk",
                             "en": null,
                             "cz": null
                           }
@@ -1195,10 +1204,17 @@
                           "name": "mog-fires-item-text",
                           "isTranslated": true,
                           "text": {
-                            "pl": null,
+                            "pl": "Jakiś tam pożar 78",
                             "en": null,
                             "cz": null
                           }
+                        },
+                        {
+                          "moduleType": 1,
+                          "key": "mog-fires-item-media",
+                          "name": "mog-fires-item-media",
+                          "isTranslated": false,
+                          "files": "test-img.jpg"
                         }
                       ]
                     }
@@ -1247,7 +1263,7 @@
                           "name": "mog-fires-item-place",
                           "isTranslated": true,
                           "text": {
-                            "pl": null,
+                            "pl": "Trzebinia",
                             "en": null,
                             "cz": null
                           }
@@ -1257,7 +1273,7 @@
                           "key": "mog-fires-item-pos",
                           "name": "mog-fires-item-pos",
                           "isTranslated": false,
-                          "text": null
+                          "text": "50.177741513495036, 19.4356874201244"
                         },
                         {
                           "moduleType": 2,
@@ -1265,7 +1281,7 @@
                           "name": "mog-fires-item-date",
                           "isTranslated": true,
                           "text": {
-                            "pl": null,
+                            "pl": "1234",
                             "en": null,
                             "cz": null
                           }
@@ -1276,7 +1292,7 @@
                           "name": "mog-fires-item-region",
                           "isTranslated": true,
                           "text": {
-                            "pl": null,
+                            "pl": "Polska",
                             "en": null,
                             "cz": null
                           }
@@ -1287,7 +1303,67 @@
                           "name": "mog-fires-item-text",
                           "isTranslated": true,
                           "text": {
-                            "pl": null,
+                            "pl": "Zdarzenie 88",
+                            "en": null,
+                            "cz": null
+                          }
+                        }
+                      ]
+                    },
+                    {
+                      "moduleType": 0,
+                      "key": "mog-fires-item",
+                      "name": "mog.fires.item",
+                      "moduleId": "f6e6f215-c47a-4f24-b0a4-a2f6a0329983",
+                      "referenceId": null,
+                      "subModules": [
+                        {
+                          "moduleType": 1,
+                          "key": "mog-fires-item-place",
+                          "name": "mog-fires-item-place",
+                          "isTranslated": true,
+                          "text": {
+                            "pl": "Trzebinia 2",
+                            "en": null,
+                            "cz": null
+                          }
+                        },
+                        {
+                          "moduleType": 1,
+                          "key": "mog-fires-item-pos",
+                          "name": "mog-fires-item-pos",
+                          "isTranslated": false,
+                          "text": "50.177741513495036, 19.4356874201244"
+                        },
+                        {
+                          "moduleType": 2,
+                          "key": "mog-fires-item-date",
+                          "name": "mog-fires-item-date",
+                          "isTranslated": true,
+                          "text": {
+                            "pl": "1235",
+                            "en": null,
+                            "cz": null
+                          }
+                        },
+                        {
+                          "moduleType": 1,
+                          "key": "mog-fires-item-region",
+                          "name": "mog-fires-item-region",
+                          "isTranslated": true,
+                          "text": {
+                            "pl": "Polska",
+                            "en": null,
+                            "cz": null
+                          }
+                        },
+                        {
+                          "moduleType": 2,
+                          "key": "mog-fires-item-text",
+                          "name": "mog-fires-item-text",
+                          "isTranslated": true,
+                          "text": {
+                            "pl": "Zdarzenie 89",
                             "en": null,
                             "cz": null
                           }

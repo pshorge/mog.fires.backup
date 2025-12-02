@@ -4,6 +4,7 @@ using System.Linq;
 using Psh.MVPToolkit.Core.MVP.Base;
 using Psh.MVPToolkit.Core.Navigation;
 using Psh.MVPToolkit.Core.UI;
+using Sources.Data.Models;
 using Sources.Features.GlobeScreen.Model;
 using Sources.Features.GlobeScreen.Presenter;
 using Sources.Features.Popup.Presenter;
@@ -50,7 +51,7 @@ namespace Sources.Features.GlobeScreen.View
         
         [Header("Interaction")]
         [SerializeField] private float selectionThresholdPixels = 100;
-        [SerializeField] private float menuScrollThreshold = 2f;
+        [SerializeField] private float menuScrollThreshold = 20f;
         private float _menuScrollAccumulator = 0f;
         private List<GlobeMarkerElement> _currentCandidates = new();
         private InteractionState _state = InteractionState.Roaming;
@@ -178,7 +179,7 @@ namespace Sources.Features.GlobeScreen.View
             }
         }
         
-        private void TogglePopup(bool show, GlobePointData data = null)
+        private void TogglePopup(bool show, PointData data = null)
         {
             var enablePopup = show && data is not null;
             if (enablePopup) _popupPresenter.SetData(data.ToPopupData());

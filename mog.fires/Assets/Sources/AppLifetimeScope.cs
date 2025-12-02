@@ -39,6 +39,7 @@ namespace Sources
             // Instances
             builder.RegisterInstance(settings);
             builder.RegisterInstance<ILocalizationService>(localizationService);
+            
 
             var inactivityServiceSettings = new InactivityServiceSettings(settings.ScreensaverTimeoutSeconds);
             builder.RegisterInstance(inactivityServiceSettings);
@@ -64,7 +65,7 @@ namespace Sources
             builder.RegisterComponentInHierarchy<InactivityService>().AsSelf().AsImplementedInterfaces();
             builder.RegisterComponentInHierarchy<NavigationService>().AsSelf().AsImplementedInterfaces();
             builder.RegisterComponentInHierarchy<EarthController>();
-
+            builder.RegisterComponentInHierarchy<MapController>();
             
             // Control Panel Manager
             builder.Register<ControlPanelManager>(Lifetime.Singleton);

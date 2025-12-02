@@ -29,6 +29,8 @@ namespace Psh.MVPToolkit.Core.UI
             }
         }
 
+        [UxmlAttribute("scale-mode")] public BackgroundSizeType ScaleMode { get; set; } = BackgroundSizeType.Cover;
+
         [UxmlAttribute("autoplay")] public bool autoplay { get; set; } = true;
         [UxmlAttribute("loop")] public bool loop { get; set; } = true;
         [UxmlAttribute("mute")] public bool mute { get; set; } = true;
@@ -95,11 +97,13 @@ namespace Psh.MVPToolkit.Core.UI
         public MediaBackground()
         {
             pickingMode = PickingMode.Ignore; 
-            style.backgroundSize = new StyleBackgroundSize(new BackgroundSize(BackgroundSizeType.Cover));
-            RegisterCallback<AttachToPanelEvent>(_ => { if (!string.IsNullOrEmpty(_source)) OnSourceChanged(); });
+            style.backgroundSize = new StyleBackgroundSize(new BackgroundSize(ScaleMode));
+            RegisterCallback<AttachToPanelEvent>(OnAttach);
             RegisterCallback<DetachFromPanelEvent>(OnDetach);
             RegisterCallback<GeometryChangedEvent>(OnGeometryChanged);
         }
+        
+        
 
         private static string[] ParseExtensions(string csv)
         {
@@ -229,6 +233,13 @@ namespace Psh.MVPToolkit.Core.UI
             EnsureRenderTexture();
         }
 
+        private void OnAttach(AttachToPanelEvent evt)
+        {
+            style.backgroundSize = new StyleBackgroundSize(new BackgroundSize(ScaleMode));
+            if (!string.IsNullOrEmpty(_source)) 
+                OnSourceChanged(); 
+        } 
+        
         private void OnDetach(DetachFromPanelEvent evt)
         {
             CancelPendingLoads();

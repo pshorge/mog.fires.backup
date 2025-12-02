@@ -5,6 +5,7 @@ using Psh.MVPToolkit.Core.Infrastructure.FileSystem;
 using Psh.MVPToolkit.Core.MVP.Base;
 using Psh.MVPToolkit.Core.MVP.Contracts;
 using Psh.MVPToolkit.Core.Services.Localization;
+using Sources.Data.Models;
 using Sources.Features.GlobeScreen.Model;
 using Unity.Properties;
 using UnityEngine;
@@ -19,13 +20,12 @@ namespace Sources.Features.GlobeScreen.Presenter
     {
         private readonly ILocalizationService _localizationService;
         private GlobeData _data;
-        private List<GlobePointData> _allPoints = new();
+        private List<PointData> _allPoints = new();
 
 
         private static class ContentKeys
         {
             public const string BgKey = "globe-screen-bg";
-            public const string CrosshairKey = "globe-screen-crosshair";
             public const string TitleKey = "globe-screen-title";
             public const string TimelineTitleKey = "mog-fires-timeline-title";
             public const string TimelineAllKey = "mog-fires-timeline-all";
@@ -50,14 +50,6 @@ namespace Sources.Features.GlobeScreen.Presenter
         {
             get => _backgroundFilePath;
             private set { _backgroundFilePath = value; Notify(); }
-        }
-
-        private string _crosshairFilePath;
-        [CreateProperty]
-        public string CrosshairFilePath
-        {
-            get => _crosshairFilePath;
-            private set { _crosshairFilePath = value; Notify(); }
         }
 
         private string _timelineTitle;
@@ -113,9 +105,9 @@ namespace Sources.Features.GlobeScreen.Presenter
             private set { if (_isTimelineSelectionFull == value) return; _isTimelineSelectionFull = value; Notify(); }
         }
         
-        private List<GlobePointData> _visiblePoints = new();
+        private List<PointData> _visiblePoints = new();
         [CreateProperty]
-        public List<GlobePointData> VisiblePoints
+        public List<PointData> VisiblePoints
         {
             get => _visiblePoints;
             private set { _visiblePoints = value; Notify(); }
@@ -148,8 +140,6 @@ namespace Sources.Features.GlobeScreen.Presenter
                 TimelineTitle = _localizationService.GetTranslation(ContentKeys.TimelineTitleKey),
                 BackgroundFilePath = ContentPathResolver.ResolveContentPath(
                     _localizationService.GetTranslation(ContentKeys.BgKey)),
-                CrosshairFilePath = ContentPathResolver.ResolveContentPath(
-                    _localizationService.GetTranslation(ContentKeys.CrosshairKey)),
                 TimelinePeriods = FetchGlobeTimelineNames().ToList(),
                 SelectedStartIndex = _selectedStartIndex,
                 SelectedEndIndex = _selectedEndIndex
@@ -166,7 +156,6 @@ namespace Sources.Features.GlobeScreen.Presenter
             Title = _data.Title;
             TimelineTitle = _data.TimelineTitle;
             BackgroundFilePath = _data.BackgroundFilePath;
-            CrosshairFilePath = _data.CrosshairFilePath;
             TimelinePeriods = _data.TimelinePeriods;
             
             if (_data.SelectedStartIndex != _selectedStartIndex)
@@ -191,9 +180,9 @@ namespace Sources.Features.GlobeScreen.Presenter
             yield return _localizationService.GetTranslation(ContentKeys.TimelineAllKey);
         }
         
-        private List<GlobePointData> FetchAllGlobePoints()
+        private List<PointData> FetchAllGlobePoints()
         {
-            var points = new List<GlobePointData>();
+            var points = new List<PointData>();
             int groupIndex = 0;
 
             // Loop through Groups
@@ -229,7 +218,7 @@ namespace Sources.Features.GlobeScreen.Presenter
                     }
                     
                     
-                    var point = new GlobePointData
+                    var point = new PointData
                     {
                         Id = itemPrefix,
                         GroupIndex = groupIndex - 1, // 0-based for timeline logic
@@ -276,7 +265,7 @@ namespace Sources.Features.GlobeScreen.Presenter
         {
             if (_allPoints == null || TimelinePeriods == null || TimelinePeriods.Count == 0)
             {
-                VisiblePoints = new List<GlobePointData>();
+                VisiblePoints = new List<PointData>();
                 return;
             }
 
@@ -284,7 +273,7 @@ namespace Sources.Features.GlobeScreen.Presenter
             bool isLastElement = _selectedStartIndex >= TimelinePeriods.Count - 1;
 
             if (isLastElement)
-                VisiblePoints = new List<GlobePointData>(_allPoints);
+                VisiblePoints = new List<PointData>(_allPoints);
             else
                 VisiblePoints = _allPoints.Where(p => p.GroupIndex == _selectedStartIndex).ToList();
         }
