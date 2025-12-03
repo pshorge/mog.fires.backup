@@ -1,8 +1,6 @@
 ﻿using Psh.MVPToolkit.Core.Application.Services;
 using Psh.MVPToolkit.Core.Infrastructure.Caching;
 using Psh.MVPToolkit.Core.Infrastructure.FileSystem;
-using Psh.MVPToolkit.Core.Services.Accessibility.HighContrast;
-using Psh.MVPToolkit.Core.Services.Accessibility.TextResize;
 using Psh.MVPToolkit.Core.Services.Localization;
 using Sources.App;
 using Sources.Data.Models;
