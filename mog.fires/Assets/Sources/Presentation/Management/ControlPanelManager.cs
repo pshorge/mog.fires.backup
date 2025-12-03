@@ -26,12 +26,10 @@ namespace Sources.Presentation.Management
                     _controlPanelView.SetDefault();
                     break;
                 case ViewType.Globe:
-                    //_controlPanelView.SetDefault();
                     _controlPanelView.EnableButtons(true);
                     _controlPanelView.EnableGlobeButton(true);
                     break;
                 case ViewType.Map:
-                    //_controlPanelView.SetDefault();
                     _controlPanelView.EnableButtons(true);
                     _controlPanelView.EnableGlobeButton(false);
                     break;
