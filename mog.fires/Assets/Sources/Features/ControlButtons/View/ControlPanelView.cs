@@ -1,8 +1,11 @@
+using System;
 using Psh.MVPToolkit.Core.MVP.Base;
 using Psh.MVPToolkit.Core.Navigation;
 using Psh.MVPToolkit.Core.Services.Localization;
 using Sources.Data.Models;
 using Sources.Features.ControlButtons.Presenter;
+using Sources.Infrastructure.Input.Abstractions;
+using Sources.Infrastructure.Input.Actions;
 using Sources.Presentation.Core.Types;
 using UnityEngine.UIElements;
 using VContainer;
@@ -39,10 +42,14 @@ namespace Sources.Features.ControlButtons.View
         public override ViewType GetViewType() => ViewType.None;
         protected override string ContainerName => "control-panel";
 
+        private IDisposable _inputSubscription;
+
         [Inject]
-        public void Initialize(AppContent content)
+        public void Initialize(AppContent content, IUnifiedInputService inputService)
         {
             Presenter = content.ControlPanelPresenter;
+            _inputSubscription = inputService.Subscribe(InputActionType.ChangeLanguage, OnLanguageChanged
+            );
         }
         
         protected override void OnEnable()
@@ -56,6 +63,7 @@ namespace Sources.Features.ControlButtons.View
         protected override void OnDisable()
         {
             base.OnDisable();
+            _inputSubscription.Dispose();
             UnregisterEventHandlers();
             Container.dataSource = null;
         }

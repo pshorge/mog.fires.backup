@@ -32,8 +32,8 @@ namespace Sources.Infrastructure
         {
             if (_inputActive)
             {
-                float inputX = Input.GetAxis("Mouse X");
-                float inputY = Input.GetAxis("Mouse Y");
+                float inputX = UnityEngine.Input.GetAxis("Mouse X");
+                float inputY = UnityEngine.Input.GetAxis("Mouse Y");
                 
                 _targetPosition.x += inputX * sensitivity * Time.deltaTime;
                 _targetPosition.y -= inputY * sensitivity * Time.deltaTime;

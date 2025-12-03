@@ -281,8 +281,8 @@ namespace Sources.Presentation.Navigation
                 NavigateTo(ViewType.Screensaver);
             if(Input.GetKeyUp(KeyCode.Return) || Input.GetKeyUp(KeyCode.Space) || Input.GetKeyUp(KeyCode.Alpha2))
                 NavigateForward();
-            if(Input.GetKeyUp(KeyCode.L))
-                _localizationService.ChangeLanguage();
+            // if(Input.GetKeyUp(KeyCode.L))
+            //     _localizationService.ChangeLanguage();
                 
 #endif
         }
