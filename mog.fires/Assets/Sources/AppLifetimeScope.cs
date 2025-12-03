@@ -4,6 +4,7 @@ using Psh.MVPToolkit.Core.Infrastructure.FileSystem;
 using Psh.MVPToolkit.Core.Services.Accessibility.HighContrast;
 using Psh.MVPToolkit.Core.Services.Accessibility.TextResize;
 using Psh.MVPToolkit.Core.Services.Localization;
+using Sources.App;
 using Sources.Data.Models;
 using Sources.Data.Repositories;
 using Sources.Features.ControlButtons.Presenter;
@@ -50,6 +51,9 @@ namespace Sources
             {
                 MediaBackground.Configure(resolver.Resolve<ITextureAssetService>());
             });
+            
+            builder.Register<QuitOnEscapeHandler>(Lifetime.Singleton)
+                .AsImplementedInterfaces();
             
             // MVP Presenters as singletons
             builder.Register<ScreensaverPresenter>(Lifetime.Singleton).AsSelf();
