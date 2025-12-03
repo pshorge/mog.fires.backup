@@ -23,14 +23,15 @@ namespace Sources.Presentation.Management
                 case ViewType.None:
                 case ViewType.Screensaver:
                     _controlPanelView.EnableButtons(false);
+                    _controlPanelView.SetDefault();
                     break;
                 case ViewType.Globe:
-                    _controlPanelView.SetDefault();
+                    //_controlPanelView.SetDefault();
                     _controlPanelView.EnableButtons(true);
                     _controlPanelView.EnableGlobeButton(true);
                     break;
                 case ViewType.Map:
-                    _controlPanelView.SetDefault();
+                    //_controlPanelView.SetDefault();
                     _controlPanelView.EnableButtons(true);
                     _controlPanelView.EnableGlobeButton(false);
                     break;
