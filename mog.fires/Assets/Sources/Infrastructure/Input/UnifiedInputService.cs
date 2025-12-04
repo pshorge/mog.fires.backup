@@ -27,12 +27,11 @@ namespace Sources.Infrastructure.Input
             OnAction?.Invoke(action);
             
             // subscriptions per action
-            if (_subscriptions.TryGetValue(action, out var callbacks))
+            if (!_subscriptions.TryGetValue(action, out var callbacks)) return;
+            // copy list to avoid errors ( modifications while iterating)
+            foreach (var callback in callbacks.ToList())
             {
-                foreach (var callback in callbacks.ToList())
-                {
-                    callback?.Invoke();
-                }
+                callback?.Invoke();
             }
         }
         
@@ -43,7 +42,13 @@ namespace Sources.Infrastructure.Input
             
             _subscriptions[action].Add(callback);
             
-            return new Subscription(() => _subscriptions[action].Remove(callback));
+            return new Subscription(() => 
+            {
+                if (_subscriptions != null && _subscriptions.TryGetValue(action, out var list))
+                {
+                    list.Remove(callback);
+                }
+            });
         }
         
         public void SetSourceEnabled(string sourceName, bool enabled)

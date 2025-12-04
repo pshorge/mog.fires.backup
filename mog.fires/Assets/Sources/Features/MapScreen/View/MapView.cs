@@ -8,6 +8,8 @@ using Sources.Data.Models;
 using Sources.Features.MapScreen.Presenter;
 using Sources.Features.Popup.Presenter;
 using Sources.Infrastructure;
+using Sources.Infrastructure.Input.Abstractions;
+using Sources.Infrastructure.Input.Actions;
 using Sources.Presentation.Core.Types;
 using Sources.Presentation.UI.Components;
 using UnityEngine;
@@ -58,6 +60,8 @@ namespace Sources.Features.MapScreen.View
         [Inject] private PopupPresenter _popupPresenter;
         [Inject] private INavigationFlowController<ViewType> _navigationController;
         [Inject] private MapController _mapController; 
+        [Inject] private IUnifiedInputService _inputService;
+
 
         public override ViewType GetViewType() => ViewType.Map;
         protected override string ContainerName => "map-screen";
@@ -114,12 +118,14 @@ namespace Sources.Features.MapScreen.View
 
         private void RegisterEventHandlers()
         {
+            _inputService.OnAction += HandleInput;
             if (_timeline != null) _timeline.SelectionChanged += OnTimelineSelectionChanged;
             Presenter.propertyChanged += OnPresenterPropertyChanged;
         }
 
         private void UnregisterEventHandlers()
         {
+            _inputService.OnAction -= HandleInput;
             if (_timeline != null) _timeline.SelectionChanged -= OnTimelineSelectionChanged;
             Presenter.propertyChanged -= OnPresenterPropertyChanged;
             _map?.UnregisterCallback<GeometryChangedEvent>(OnMapGeometryChanged);
@@ -133,6 +139,69 @@ namespace Sources.Features.MapScreen.View
         private void OnMapGeometryChanged(GeometryChangedEvent evt)
         {
             UpdateMarkersPosition();
+        }
+        
+        private void HandleInput(InputActionType action)
+        {
+            if (!IsVisible) return;
+
+            switch (action)
+            {
+                case InputActionType.Select:
+                    OnActionSelect();
+                    break;
+                case InputActionType.Back:
+                    OnActionBack();
+                    break;
+            }
+        }
+
+        private void OnActionSelect()
+        {
+            switch (_state)
+            {
+                case InteractionState.Roaming:
+                {
+                    if(_currentCandidates.Count > 1)
+                    {
+                        SetState(InteractionState.Disambiguation);
+                    }
+                    else  if(_currentCandidates.Count == 1)
+                    {
+                        SetState(InteractionState.Details);
+                        TogglePopup(true, _currentCandidates[0].Data);
+                    }
+                    break;
+                }
+                case InteractionState.Disambiguation:
+                {
+                    var selected = _disambiguationMenu.GetSelectedItem();
+                    if (selected != null)
+                    {
+                        SetState(InteractionState.Details);
+                        TogglePopup(true, selected);
+                    }
+                    break;
+                }
+                case InteractionState.Details:
+                    SetState(InteractionState.Roaming);
+                    break;
+            }
+        }
+
+        private void OnActionBack()
+        {
+            switch (_state)
+            {
+                case InteractionState.Roaming:
+                    break;
+                case InteractionState.Details when _currentCandidates.Count > 1:
+                    SetState(InteractionState.Disambiguation);
+                    break;
+                case InteractionState.Disambiguation or InteractionState.Details :
+                    SetState(InteractionState.Roaming);
+                    break;
+            }
         }
         
         private void RebuildMarkers()
@@ -205,7 +274,7 @@ namespace Sources.Features.MapScreen.View
         private void SetState(InteractionState newState)
         {
             _state = newState;
-            //Debug.Log($"[MapView] State changed to: {newState}");
+            Debug.Log($"[MapView] State changed to: {newState}");
 
             switch (newState)
             {
@@ -287,23 +356,15 @@ namespace Sources.Features.MapScreen.View
                 case InteractionState.Roaming:
                     UpdateCandidateSelection();
                     HandleTimelineInput(); 
-                    HandleSelectionInput();
                     break;
                     
                 case InteractionState.Disambiguation:
-                    HandleDisambiguationInput();
-                    break;
-                    
-                case InteractionState.Details:
-                    HandleDetailsInput();
+                    HandleMouseScrollMenu();
                     break;
             }
             
-            if (Input.GetMouseButtonDown(2)) 
-                _navigationController.NavigateTo(ViewType.Globe);
         }
 
-        // --- Input Handlers ---
 
         private void UpdateCrosshairFromController()
         {
@@ -361,75 +422,35 @@ namespace Sources.Features.MapScreen.View
                 foreach (var c in _currentCandidates) c.SetHighlight(true);
             }
         }
+        
+        private void HandleTimelineInput()
+        {
+            var scrollDelta = Input.mouseScrollDelta.y;
+            if (Mathf.Abs(scrollDelta) < 0.1f) return;
+            
+            int dir = scrollDelta < 0 ? 1 : -1;
+            _timeline?.Nudge(dir * ScrollStep);
+        }
+        
+        private void HandleMouseScrollMenu()
+        {
+            var y = Input.GetAxis("Mouse Y");
+            _menuScrollAccumulator += y;
+            if (Mathf.Abs(_menuScrollAccumulator) > menuScrollThreshold)
+            {
+                var dir = _menuScrollAccumulator > 0 ? -1 : 1;
+                if (dir < 0) _disambiguationMenu.SelectPrevious();
+                else _disambiguationMenu.SelectNext();
+                _menuScrollAccumulator = 0f; 
+            }
+        }
 
         private void ClearHighlights()
         {
             foreach (var c in _currentCandidates) c.SetHighlight(false);
             _currentCandidates.Clear();
         }
-
-        private void HandleTimelineInput()
-        {
-            var scrollDelta = Input.mouseScrollDelta.y;
-            if (Mathf.Abs(scrollDelta) < 0.1f) return;
-            _timeline?.Nudge((scrollDelta < 0 ? 1 : -1) * ScrollStep);
-        }
         
-        private void HandleSelectionInput()
-        {
-            if (!Input.GetMouseButtonDown(0)) return;
-            var count = _currentCandidates.Count;
-            
-            switch (count)
-            {
-                case 0: return;
-                case 1:
-                    SetState(InteractionState.Details);
-                    TogglePopup(true, _currentCandidates[0].Data);
-                    break;
-                default:
-                    SetState(InteractionState.Disambiguation);
-                    break;
-            }
-        }
-        
-        private void HandleDisambiguationInput()
-        {
-            var y = Input.GetAxis("Mouse Y");
-            _menuScrollAccumulator += y;
-
-            if (Mathf.Abs(_menuScrollAccumulator) > menuScrollThreshold)
-            {
-                var dir = _menuScrollAccumulator > 0 ? -1 : 1;
-                if (dir < 0) _disambiguationMenu?.SelectPrevious();
-                else _disambiguationMenu?.SelectNext();
-                _menuScrollAccumulator = 0f; 
-            }
-
-            if (Input.GetMouseButtonDown(0))
-            {
-                var selectedData = _disambiguationMenu?.GetSelectedItem();
-                if (selectedData != null)
-                {
-                    SetState(InteractionState.Details);
-                    TogglePopup(true, selectedData);
-                }
-            }
-            
-            if (Input.GetMouseButtonDown(1))
-            {
-                SetState(InteractionState.Roaming);
-            }
-        }
-
-        private void HandleDetailsInput()
-        {
-            if (Input.GetMouseButtonDown(0) || Input.GetMouseButtonDown(1))
-            {
-                SetState(InteractionState.Roaming);
-                TogglePopup(false);
-            }
-        }
         
         private void OnTimelineSelectionChanged(int start, int end)
         {

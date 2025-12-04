@@ -80,23 +80,16 @@ namespace Sources
 
         private void ConfigureInput(IContainerBuilder builder)
         {
-            
+            //config
             builder.Register<InputMappingConfig>(Lifetime.Singleton);
-            builder.Register<KeyboardInputSource>(Lifetime.Singleton)
-                .AsImplementedInterfaces()
-                .AsSelf();
-            builder.Register<SerialPortInputSource>(Lifetime.Singleton)
-                .AsImplementedInterfaces()
-                .AsSelf();
             
-            builder.Register<UnifiedInputService>(Lifetime.Singleton)
-                .AsImplementedInterfaces()
-                .AsSelf();
+            // Sources
+            builder.Register<KeyboardInputSource>(Lifetime.Singleton).AsImplementedInterfaces().AsSelf();
+            builder.Register<MouseInputSource>(Lifetime.Singleton).AsImplementedInterfaces().AsSelf();
+            builder.Register<SerialPortInputSource>(Lifetime.Singleton).AsImplementedInterfaces().AsSelf();
             
-            builder.RegisterBuildCallback(resolver =>
-            {
-                // init serial port!
-            });
+            // Service
+            builder.Register<UnifiedInputService>(Lifetime.Singleton).AsImplementedInterfaces().AsSelf();
         }
     }
     

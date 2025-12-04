@@ -25,13 +25,23 @@ namespace Sources.Infrastructure.Input.Mappings
         [Header("Keyboard Mappings")]
         public List<KeyboardMapping> KeyboardMappings = new()
         {
-            new() { Key = KeyCode.L, Action = InputActionType.ChangeLanguage },
+            new KeyboardMapping { Key = KeyCode.L,         Action = InputActionType.ChangeLanguage },
+            new KeyboardMapping { Key = KeyCode.R,         Action = InputActionType.NavigateHome },
+            new KeyboardMapping { Key = KeyCode.Alpha1,    Action = InputActionType.Select },       
+            new KeyboardMapping { Key = KeyCode.Alpha2,    Action = InputActionType.Back },         
+            new KeyboardMapping { Key = KeyCode.M,         Action = InputActionType.SwitchMode },   
+            
+            new KeyboardMapping { Key = KeyCode.Space,     Action = InputActionType.NavigateForward },
+            new KeyboardMapping { Key = KeyCode.Backspace, Action = InputActionType.NavigateBack },
+            new KeyboardMapping { Key = KeyCode.Escape,    Action = InputActionType.QuitApp },
+            
+            
         };
         
         [Header("Serial Port Button Mappings")]
         public List<SerialButtonMapping> SerialMappings = new()
         {
-            new() { ButtonId = 1, Action = InputActionType.ChangeLanguage },
+            new SerialButtonMapping { ButtonId = 1, Action = InputActionType.ChangeLanguage },
         };
         
         public Dictionary<KeyCode, InputActionType> GetKeyboardDictionary()

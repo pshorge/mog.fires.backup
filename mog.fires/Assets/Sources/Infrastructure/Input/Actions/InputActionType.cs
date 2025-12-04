@@ -4,19 +4,23 @@ namespace Sources.Infrastructure.Input.Actions
     {
         None = 0,
         
-        // Navigation
+        // Global
+        ChangeLanguage,    // L
+        QuitApp,           // ESC
+        
+        // View Navigation
+        NavigateHome,      // R (Reset -> Screensaver)
+        NavigateForward,   // Space
+        NavigateBack,      // Backspace
+        SwitchMode,        // M / MMB (Globe <-> Map)
+        
+        // Interactions (Timeline, Menu, Popup)
+        Select,            // 1 / LMB
+        Back,              // 2 / RMB
+        
+        //Scroll ? 
+        /*
         NextItem,
-        PreviousItem,
-        Select,
-        Back,
-        
-        // Language
-        ChangeLanguage,
-        
-        // Map/Globe
-        
-        
-        // System
-        Quit
+        PreviousItem*/
     }
 }

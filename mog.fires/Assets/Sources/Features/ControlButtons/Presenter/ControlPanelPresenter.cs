@@ -68,7 +68,7 @@ namespace Sources.Features.ControlButtons.Presenter
         {
             if (disposing)
             {
-                _changeLanguageInputSubscription.Dispose();
+                _changeLanguageInputSubscription?.Dispose();
                 if(_localizationService is not null)
                     _localizationService.LanguageChanged -= OnLanguageChanged;
             }
