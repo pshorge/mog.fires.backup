@@ -31,10 +31,8 @@ namespace Sources.Infrastructure.Configuration
                     ConvertPropertyName = name => name, 
                     IgnoreMissingProperties = true 
                 };
-
-                
                 var config = Toml.ToModel<AppConfig>(content, options: options);
-                return config ?? CreateDefaultConfig();
+                return config;
             }
             catch (System.Exception e)
             {

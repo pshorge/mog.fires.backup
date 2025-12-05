@@ -21,6 +21,13 @@ namespace Sources.Infrastructure.Configuration
     {
         public List<KeyBindingConfig> Keyboard { get; set; } = new();
         public List<SerialBindingConfig> Serial { get; set; } = new();
+
+        // Serial Port Settings
+        public string PortName { get; set; } = "COM3";
+        public int BaudRate { get; set; } = 9600;
+        public bool SerialEnabled { get; set; } = true;
+        public float DebounceTimeSeconds { get; set; } = 0.2f;
+
         public float SelectionThresholdPixels { get; set; } = 100f;
         public float MenuScrollThreshold { get; set; } = 20f;
         public int ScrollStep { get; set; } = 1;
@@ -40,7 +47,7 @@ namespace Sources.Infrastructure.Configuration
     [Serializable]
     public class SerialBindingConfig
     {
-        public int ButtonId { get; set; }
+        public String Message { get; set; }
         public InputActionType Action { get; set; }
     }
 
@@ -96,13 +103,13 @@ namespace Sources.Infrastructure.Configuration
         {
             _config = config;
         }
-        
+
         public void Log()
         {
-            
+
             var sb = new StringBuilder();
             sb.AppendLine("========== APP CONFIG ==========");
-    
+
             // INPUT
             sb.AppendLine("\n--- INPUT ---");
             sb.AppendLine($"  SelectionThresholdPixels: {_config.Input.SelectionThresholdPixels}");
@@ -110,27 +117,27 @@ namespace Sources.Infrastructure.Configuration
             sb.AppendLine($"  ScrollStep: {_config.Input.ScrollStep}");
             sb.AppendLine($"  CursorSensitivity: {_config.Input.CursorSensitivity}");
             sb.AppendLine($"  CursorSmoothTime: {_config.Input.CursorSmoothTime}");
-    
+
             sb.AppendLine("  Keyboard Bindings:");
             foreach (var kb in _config.Input.Keyboard)
                 sb.AppendLine($"    [{kb.Key}] -> {kb.Action}");
-    
+
             sb.AppendLine("  Serial Bindings:");
             foreach (var sb2 in _config.Input.Serial)
-                sb.AppendLine($"    [Button {sb2.ButtonId}] -> {sb2.Action}");
-    
+                sb.AppendLine($"    [Button {sb2.Message}] -> {sb2.Action}");
+
             // GLOBE
             sb.AppendLine("\n--- GLOBE ---");
             sb.AppendLine($"  LonOffset: {_config.Globe.LonOffset}");
             sb.AppendLine($"  LatOffset: {_config.Globe.LatOffset}");
             sb.AppendLine($"  InvertLon: {_config.Globe.InvertLon}");
-    
+
             // MAP
             sb.AppendLine("\n--- MAP ---");
             sb.AppendLine($"  OriginalSize: {_config.Map.OriginalWidth} x {_config.Map.OriginalHeight}");
             sb.AppendLine($"  Ref1: Lat={_config.Map.Ref1.Lat}, Lon={_config.Map.Ref1.Lon}, X={_config.Map.Ref1.X}, Y={_config.Map.Ref1.Y}");
             sb.AppendLine($"  Ref2: Lat={_config.Map.Ref2.Lat}, Lon={_config.Map.Ref2.Lon}, X={_config.Map.Ref2.X}, Y={_config.Map.Ref2.Y}");
-    
+
             // CAMERA
             sb.AppendLine("\n--- CAMERA ---");
             sb.AppendLine($"  YawSensitivity: {_config.Camera.YawSensitivity}");
@@ -139,9 +146,9 @@ namespace Sources.Infrastructure.Configuration
             sb.AppendLine($"  InvertYaw: {_config.Camera.InvertYaw}");
             sb.AppendLine($"  InvertPitch: {_config.Camera.InvertPitch}");
             sb.AppendLine($"  PitchRange: [{_config.Camera.MinPitch}, {_config.Camera.MaxPitch}]");
-    
+
             sb.AppendLine("\n================================");
-    
+
             UnityEngine.Debug.Log(sb.ToString());
         }
     }

@@ -6,6 +6,15 @@ ScrollStep = 1
 CursorSensitivity = 1.5
 CursorSmoothTime = 0.1
 
+# Serial Port Hardware Settings
+#PortName = "COM3"   # Windows: COMx, Linux/Mac: /dev/tty...
+PortName = "/dev/ttyACM0"#"/dev/pts/3"
+BaudRate = 9600
+SerialEnabled = true
+DebounceTimeSeconds = 0.2
+
+
+
 [[Input.Keyboard]]
 Key = "L"
 Action = "ChangeLanguage"
@@ -39,7 +48,7 @@ Key = "Escape"
 Action = "QuitApp"
 
 [[Input.Serial]]
-ButtonId = 1
+Message = "1"
 Action = "ChangeLanguage"
 
 
