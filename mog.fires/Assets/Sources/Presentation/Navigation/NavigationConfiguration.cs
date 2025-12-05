@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Sources.Data.Models;
 using Sources.Presentation.Core.Types;
 
 namespace Sources.Presentation.Navigation
@@ -19,21 +20,33 @@ namespace Sources.Presentation.Navigation
             public Dictionary<string, object> Metadata { get; set; } = new();
         }
         
-        public NavigationConfiguration()
+        public NavigationConfiguration(bool screensaverEnabled)
         {
-            ConfigureFlow();
+            ConfigureFlow(screensaverEnabled);
         }
         
-        private void ConfigureFlow()
+        private void ConfigureFlow(bool screensaverEnabled)
         {
-            // Screensaver
-            AddNode(ViewType.Screensaver, next: ViewType.Globe, allowBack: false, transitionIn: TransitionType.TopDown);
+            if (screensaverEnabled)
+            {
+                // Screensaver
+                AddNode(ViewType.Screensaver, next: ViewType.Globe, allowBack: false, transitionIn: TransitionType.TopDown);
             
-            // Globe
-            AddNode(ViewType.Globe, next: ViewType.Map, previous: ViewType.Screensaver, allowBack: true);
+                // Globe
+                AddNode(ViewType.Globe, next: ViewType.Map, previous: ViewType.Screensaver, allowBack: true);
             
-            // Map
-            AddNode(ViewType.Map, previous: ViewType.Globe, allowBack: true);
+                // Map
+                AddNode(ViewType.Map, previous: ViewType.Globe, allowBack: true);
+            }
+            else
+            {
+                // Globe
+                AddNode(ViewType.Globe, next: ViewType.Map, allowBack: true);
+            
+                // Map
+                AddNode(ViewType.Map, previous: ViewType.Globe, allowBack: true);
+            }
+            
             
         }
         

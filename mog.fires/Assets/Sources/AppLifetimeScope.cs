@@ -16,6 +16,7 @@ using Sources.Infrastructure.Input;
 using Sources.Infrastructure.Input.Sources;
 using Sources.Presentation.Management;
 using Sources.Presentation.Navigation;
+using UnityEngine;
 using VContainer;
 using VContainer.Unity;
 using MediaBackground = Psh.MVPToolkit.Core.UI.MediaBackground;
@@ -41,7 +42,7 @@ namespace Sources
             // Instances
             builder.RegisterInstance(settings);
             builder.RegisterInstance<ILocalizationService>(localizationService);
-
+            
             AppConfig config = ConfigLoader.Load();
             builder.RegisterInstance(config);
 
