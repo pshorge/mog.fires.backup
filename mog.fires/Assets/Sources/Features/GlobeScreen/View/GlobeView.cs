@@ -2,13 +2,12 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Psh.MVPToolkit.Core.MVP.Base;
-using Psh.MVPToolkit.Core.Navigation;
 using Psh.MVPToolkit.Core.UI;
 using Sources.Data.Models;
-using Sources.Features.GlobeScreen.Model;
 using Sources.Features.GlobeScreen.Presenter;
 using Sources.Features.Popup.Presenter;
 using Sources.Infrastructure;
+using Sources.Infrastructure.Configuration;
 using Sources.Infrastructure.Input.Abstractions;
 using Sources.Infrastructure.Input.Actions;
 using Sources.Presentation.Core.Types;
@@ -45,34 +44,42 @@ namespace Sources.Features.GlobeScreen.View
         private bool _popupActive;
         private DisambiguationMenu _disambiguationMenu;
         
-        private const int ScrollStep = 1;
-
         // Active Markers
         private readonly List<GlobeMarkerElement> _activeMarkers = new();
         private const float EarthRadius = 4f;
         
-        [Header("Interaction")]
-        [SerializeField] private float selectionThresholdPixels = 100;
-        [SerializeField] private float menuScrollThreshold = 20f;
         private float _menuScrollAccumulator = 0f;
         private List<GlobeMarkerElement> _currentCandidates = new();
         private InteractionState _state = InteractionState.Roaming;
         
         // Dependencies
-        [Inject] protected override GlobePresenter Presenter { get; set; }
-        [Inject] private PopupPresenter _popupPresenter;
-        [Inject] private EarthController _earthController;
-        [Inject] private IUnifiedInputService _inputService;
+        protected override GlobePresenter Presenter { get; set; }
+        private PopupPresenter _popupPresenter;
+        private EarthController _earthController;
+        private IUnifiedInputService _inputService;
+        private GlobeConfig _globeConfig;
+        private InputConfig _inputConfig;
+
 
         // View configuration
         public override ViewType GetViewType() => ViewType.Globe;
         protected override string ContainerName => "globe-screen";
         
-        
-        [Header("Globe Calibration")]
-        [SerializeField] private float lonOffset = -100f; // Initial calibration value ( texture offset problem probably)
-        [SerializeField] private float latOffset;
-        [SerializeField] private bool invertLon; 
+        [Inject]
+        public void Construct(
+            AppConfig appConfig, 
+            GlobePresenter presenter, 
+            PopupPresenter popupPresenter, 
+            EarthController earthController,
+            IUnifiedInputService inputService)
+        {
+            _globeConfig = appConfig.Globe;
+            _inputConfig = appConfig.Input;
+            Presenter = presenter;
+            _popupPresenter = popupPresenter;
+            _earthController = earthController;
+            _inputService = inputService;
+        }
         
         protected override void OnEnable()
         {
@@ -276,7 +283,7 @@ namespace Sources.Features.GlobeScreen.View
 
                 var markerScreenPos = new Vector2(screenPos3D.x, screenPos3D.y);
                 var dist = Vector2.Distance(markerScreenPos, screenCenter);
-                if (dist <= selectionThresholdPixels) 
+                if (dist <= _inputConfig.SelectionThresholdPixels) 
                     newCandidates.Add(marker);
             }
             
@@ -377,10 +384,10 @@ namespace Sources.Features.GlobeScreen.View
         {
            
             // invert E <-> W
-            float fixedLon = invertLon ? -lon : lon;
-            fixedLon += lonOffset;
+            float fixedLon = _globeConfig.InvertLon ? -lon : lon;
+            fixedLon += _globeConfig.LonOffset;
     
-            float fixedLat = lat + latOffset;
+            float fixedLat = lat + _globeConfig.LatOffset;
 
             float latRad = fixedLat * Mathf.Deg2Rad;
             float lonRad = fixedLon * Mathf.Deg2Rad; 
@@ -446,14 +453,14 @@ namespace Sources.Features.GlobeScreen.View
             if (Mathf.Abs(scrollDelta) < 0.1f) return;
             
             int dir = scrollDelta < 0 ? 1 : -1;
-            _timeline?.Nudge(dir * ScrollStep);
+            _timeline?.Nudge(dir * _inputConfig.ScrollStep);
         }
         
         private void HandleMouseScrollMenu()
         {
             var y = Input.GetAxis("Mouse Y");
             _menuScrollAccumulator += y;
-            if (Mathf.Abs(_menuScrollAccumulator) > menuScrollThreshold)
+            if (Mathf.Abs(_menuScrollAccumulator) > _inputConfig.MenuScrollThreshold)
             {
                 var dir = _menuScrollAccumulator > 0 ? -1 : 1;
                 if (dir < 0) _disambiguationMenu.SelectPrevious();

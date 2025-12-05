@@ -8,6 +8,7 @@ using Sources.Data.Models;
 using Sources.Features.MapScreen.Presenter;
 using Sources.Features.Popup.Presenter;
 using Sources.Infrastructure;
+using Sources.Infrastructure.Configuration;
 using Sources.Infrastructure.Input.Abstractions;
 using Sources.Infrastructure.Input.Actions;
 using Sources.Presentation.Core.Types;
@@ -44,37 +45,39 @@ namespace Sources.Features.MapScreen.View
         private VisualElement _rightPopup;
         private DisambiguationMenu _disambiguationMenu;
         
-        private const int ScrollStep = 1;
         private readonly List<MapMarkerElement> _activeMarkers = new();
-
-        [Header("Interaction")]
-        [SerializeField] private float selectionThresholdPixels = 80f;
-        [SerializeField] private float menuScrollThreshold = 0.5f;
         
         private List<MapMarkerElement> _currentCandidates = new();
         private InteractionState _state = InteractionState.Roaming;
         private float _menuScrollAccumulator = 0f;
 
         // Dependencies
-        [Inject] protected override MapPresenter Presenter { get; set; }
-        [Inject] private PopupPresenter _popupPresenter;
-        [Inject] private INavigationFlowController<ViewType> _navigationController;
-        [Inject] private MapController _mapController; 
-        [Inject] private IUnifiedInputService _inputService;
-
+        protected override MapPresenter Presenter { get; set; }
+        private PopupPresenter _popupPresenter;
+        private MapController _mapController; 
+        private IUnifiedInputService _inputService;
+        private MapConfig _mapConfig;
+        private InputConfig _inputConfig;
 
         public override ViewType GetViewType() => ViewType.Map;
         protected override string ContainerName => "map-screen";
         
-        // Map Calibration (Reference Points)
-        private const double Ref1_Lat = 50.66211; private const double Ref1_Lon = 17.69515;
-        private const float  Ref1_X   = 320f;     private const float  Ref1_Y   = 263f;
-        private const double Ref2_Lat = 49.57325; private const double Ref2_Lon = 19.53078;
-        private const float  Ref2_X   = 1524f;    private const float  Ref2_Y   = 1353f;
         
-        // Original Image Dimensions (Reference Size)
-        private const float OriginalMapWidth = 1632f;
-        private const float OriginalMapHeight = 1621f;
+        [Inject]
+        public void Construct(
+            AppConfig appConfig, 
+            MapPresenter presenter, 
+            PopupPresenter popupPresenter, 
+            MapController mapController,
+            IUnifiedInputService inputService)
+        {
+            _mapConfig = appConfig.Map;
+            _inputConfig = appConfig.Input;
+            Presenter = presenter;
+            _popupPresenter = popupPresenter;
+            _mapController = mapController;
+            _inputService = inputService;
+        }
         
         protected override void OnEnable()
         {
@@ -235,8 +238,8 @@ namespace Sources.Features.MapScreen.View
             if (float.IsNaN(currentW) || currentW <= 1f) return;
 
             // Scale Factor: Current Size / Original Image Size
-            float scaleX = currentW / OriginalMapWidth;
-            float scaleY = currentH / OriginalMapHeight;
+            float scaleX = currentW / _mapConfig.OriginalWidth;
+            float scaleY = currentH / _mapConfig.OriginalHeight;
 
             foreach (var marker in _activeMarkers)
             {
@@ -260,13 +263,17 @@ namespace Sources.Features.MapScreen.View
             }
         }
         
-        private Vector2 LatLonToOriginalPixelPos(double targetLat, double targetLon)
+        private Vector2 LatLonToOriginalPixelPos(double lat, double lon)
         {
-            var scaleX = (Ref2_X - Ref1_X) / (Ref2_Lon - Ref1_Lon);
-            var scaleY = (Ref2_Y - Ref1_Y) / (Ref2_Lat - Ref1_Lat);
-            var diffLon = targetLon - Ref1_Lon;
-            var diffLat = targetLat - Ref1_Lat;
-            return new Vector2((float)(Ref1_X + (diffLon * scaleX)), (float)(Ref1_Y + (diffLat * scaleY)));
+            var r1 = _mapConfig.Ref1;
+            var r2 = _mapConfig.Ref2;
+
+            var scaleX = (r2.X - r1.X) / (r2.Lon - r1.Lon);
+            var scaleY = (r2.Y - r1.Y) / (r2.Lat - r1.Lat);
+            
+            return new Vector2(
+                (float)(r1.X + ((lon - r1.Lon) * scaleX)), 
+                (float)(r1.Y + ((lat - r1.Lat) * scaleY)));
         }
 
         // --- State Machine ---
@@ -389,7 +396,7 @@ namespace Sources.Features.MapScreen.View
                 Vector2 markerPos = new Vector2(marker.layout.x, marker.layout.y);
                 float dist = Vector2.Distance(crosshairPos, markerPos);
         
-                if (dist <= selectionThresholdPixels)
+                if (dist <= _inputConfig.SelectionThresholdPixels)
                 {
                     newCandidates.Add(marker);
                 }
@@ -429,14 +436,14 @@ namespace Sources.Features.MapScreen.View
             if (Mathf.Abs(scrollDelta) < 0.1f) return;
             
             int dir = scrollDelta < 0 ? 1 : -1;
-            _timeline?.Nudge(dir * ScrollStep);
+            _timeline?.Nudge(dir * _inputConfig.ScrollStep);
         }
         
         private void HandleMouseScrollMenu()
         {
             var y = Input.GetAxis("Mouse Y");
             _menuScrollAccumulator += y;
-            if (Mathf.Abs(_menuScrollAccumulator) > menuScrollThreshold)
+            if (Mathf.Abs(_menuScrollAccumulator) > _inputConfig.MenuScrollThreshold)
             {
                 var dir = _menuScrollAccumulator > 0 ? -1 : 1;
                 if (dir < 0) _disambiguationMenu.SelectPrevious();

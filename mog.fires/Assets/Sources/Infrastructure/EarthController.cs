@@ -1,4 +1,6 @@
+using Sources.Infrastructure.Configuration;
 using UnityEngine;
+using VContainer;
 
 namespace Sources.Infrastructure
 {
@@ -6,28 +8,36 @@ namespace Sources.Infrastructure
      {
         [SerializeField] private Transform cameraPivot;
 
-        [Header("Orbit Controls (Yaw & Pitch)")]
-        [SerializeField] private float yawSensitivity = 0.12f;
-        [SerializeField] private float pitchSensitivity = 0.1f;
-        [Range(0.0f, 0.99f)]
-        [SerializeField] private float damping = 0.97f;
+        private float _yawSensitivity = 0.12f;
+        private float _pitchSensitivity = 0.1f;
+        private float _damping = 0.97f;
 
-        [Header("Directions & Limits")]
-        [SerializeField] private bool invertYaw = false;
-        [SerializeField] private bool invertPitch = true;
-        [SerializeField] private float minPitch = -85f;
-        [SerializeField] private float maxPitch = 85f;
+        private bool _invertYaw = false;
+        private bool _invertPitch = true;
+        private float _minPitch = -85f;
+        private float _maxPitch = 85f;
 
-        private float currentYaw = 0f;
-        private float currentPitch = 0f;
-        private float yawVelocity = 0f;
-        private float pitchVelocity = 0f;
+        private float currentYaw;
+        private float currentPitch;
+        private float yawVelocity;
+        private float pitchVelocity;
         private Camera cam;
         
         public Camera Camera => cam;
         
-        private bool _inputActive = false;
+        private bool _inputActive;
 
+        [Inject]
+        private void Construct(AppConfig config)
+        {
+            _yawSensitivity = config.Camera.YawSensitivity;
+            _pitchSensitivity = config.Camera.PitchSensitivity;
+            _damping = Mathf.Clamp(config.Camera.Damping,0,0.99f);
+            _invertYaw = config.Camera.InvertYaw;
+            _invertPitch = config.Camera.InvertPitch;
+            _minPitch = config.Camera.MinPitch;
+            _maxPitch = config.Camera.MaxPitch;
+        }
         
         void Start()
         {
@@ -69,11 +79,11 @@ namespace Sources.Infrastructure
             float mouseX = UnityEngine.Input.GetAxis("Mouse X");
             float mouseY = UnityEngine.Input.GetAxis("Mouse Y");
 
-            int yawDirection = invertYaw ? -1 : 1;
-            int pitchDirection = invertPitch ? -1 : 1;
+            int yawDirection = _invertYaw ? -1 : 1;
+            int pitchDirection = _invertPitch ? -1 : 1;
 
-            yawVelocity += mouseX * yawSensitivity * yawDirection;
-            pitchVelocity += mouseY * pitchSensitivity * pitchDirection;
+            yawVelocity += mouseX * _yawSensitivity * yawDirection;
+            pitchVelocity += mouseY * _pitchSensitivity * pitchDirection;
             
             ApplyInertiaAndRotation();
         }
@@ -89,12 +99,12 @@ namespace Sources.Infrastructure
         
         private void ApplyInertiaAndRotation()
         {
-            yawVelocity *= damping;
-            pitchVelocity *= damping;
+            yawVelocity *= _damping;
+            pitchVelocity *= _damping;
 
             currentYaw += yawVelocity * Time.deltaTime * 100f;
             currentPitch += pitchVelocity * Time.deltaTime * 100f;
-            currentPitch = Mathf.Clamp(currentPitch, minPitch, maxPitch);
+            currentPitch = Mathf.Clamp(currentPitch, _minPitch, _maxPitch);
            
             Quaternion yawRotation = Quaternion.Euler(0f, currentYaw, 0f);
             Quaternion pitchRotation = Quaternion.Euler(currentPitch, 0f, 0f);
