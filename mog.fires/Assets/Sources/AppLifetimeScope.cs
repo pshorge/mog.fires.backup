@@ -1,5 +1,4 @@
-﻿using System.Linq;
-using Psh.MVPToolkit.Core.Application.Services;
+﻿using Psh.MVPToolkit.Core.Application.Services;
 using Psh.MVPToolkit.Core.Infrastructure.Caching;
 using Psh.MVPToolkit.Core.Infrastructure.FileSystem;
 using Psh.MVPToolkit.Core.Services.Localization;
