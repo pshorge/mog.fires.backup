@@ -6,7 +6,6 @@ using Psh.MVPToolkit.Core.Application.Services;
 using Psh.MVPToolkit.Core.MVP.Base;
 using Psh.MVPToolkit.Core.MVP.Contracts;
 using Psh.MVPToolkit.Core.Navigation;
-using Psh.MVPToolkit.Core.Services.Localization;
 using Sources.Data.Models;
 using Sources.Features.ControlButtons.View;
 using Sources.Features.ScreensaverScreen.View;
@@ -125,7 +124,7 @@ namespace Sources.Presentation.Navigation
         
         private void SubscribeToEvents(bool subscribe)
         {
-            if (_inactivityService == null) return;
+            if (_inactivityService == null || !_screensaverEnabled) return;
 
             if (subscribe)
             {
@@ -267,10 +266,17 @@ namespace Sources.Presentation.Navigation
             toView.Show();
 
             // Handle inactivity service
-            if (to.ViewType == ViewType.Screensaver)
-                _inactivityService?.StopMonitoring();
+            if (_screensaverEnabled)
+            {
+                if (to.ViewType == ViewType.Screensaver)
+                    _inactivityService?.StopMonitoring();
+                else
+                    _inactivityService?.StartMonitoring();
+            }
             else
-                _inactivityService?.StartMonitoring();
+            {
+                _inactivityService?.StopMonitoring();
+            }
         }
 
         private async UniTask ShowScreensaverWithTopDownTransition(ViewType fromViewType)
