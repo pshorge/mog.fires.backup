@@ -7,6 +7,7 @@ using Psh.MVPToolkit.Core.MVP.Base;
 using Psh.MVPToolkit.Core.MVP.Contracts;
 using Psh.MVPToolkit.Core.Navigation;
 using Psh.MVPToolkit.Core.Services.Localization;
+using Sources.Data.Models;
 using Sources.Features.ControlButtons.View;
 using Sources.Features.ScreensaverScreen.View;
 using Sources.Infrastructure.Input.Abstractions;
@@ -30,9 +31,11 @@ namespace Sources.Presentation.Navigation
         private readonly SemaphoreSlim _navigationSemaphore = new(1, 1);
         private ControlPanelManager _controlPanelManager;
 
-        [Inject] private IInactivityService _inactivityService;
-        [Inject] private ILocalizationService _localizationService;
-        [Inject] private IUnifiedInputService _inputService;
+        //Dependencies
+        private IInactivityService _inactivityService;
+        private IUnifiedInputService _inputService;
+        private bool _screensaverEnabled;
+        
         private readonly List<IDisposable> _inputSubscriptions = new();
         
         public event Action<ViewType> OnNavigated;
@@ -47,9 +50,20 @@ namespace Sources.Presentation.Navigation
             
             InitializeViews();
             _context = new NavigationContext<ViewType>();
-            _configuration = new NavigationConfiguration();
             _transitionExecutor = new DefaultViewTransitionExecutor();
             _controlPanelManager = new ControlPanelManager(controlPanel);
+        }
+        
+        [Inject]
+        public void Construct(
+            AppSettings settings, 
+            IUnifiedInputService inputService,
+            IInactivityService  inactivityService)
+        {
+            _screensaverEnabled = settings.ScreensaverEnabled;
+            _configuration = new NavigationConfiguration(settings.ScreensaverEnabled);
+            _inputService =  inputService;
+            _inactivityService = inactivityService;
         }
 
         private void Start()
@@ -178,6 +192,11 @@ namespace Sources.Presentation.Navigation
                 return;
             }
 
+            if (targetView == ViewType.Screensaver && !_screensaverEnabled)
+            {
+                targetView = ViewType.Globe;
+            }
+            
             if (CurrentView == targetView)
             {
                 Debug.Log($"Already at {targetView}, ignoring navigation request");

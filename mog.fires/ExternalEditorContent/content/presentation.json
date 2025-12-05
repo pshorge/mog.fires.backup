@@ -90,9 +90,15 @@
       "subModules": [
         {
           "moduleType": 13,
+          "key": "screensaver-enabled",
+          "name": "screensaver-enabled",
+          "value": true
+        },
+        {
+          "moduleType": 13,
           "key": "screensaver-timeout",
           "name": "screensaver-timeout",
-          "number": "120"
+          "number": 100
         },
         {
           "moduleType": 4,

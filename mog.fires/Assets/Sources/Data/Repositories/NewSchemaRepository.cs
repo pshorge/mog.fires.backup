@@ -4,6 +4,7 @@ using System.Globalization;
 using System.IO;
 using System.Linq;
 using Psh.MVPToolkit.Core.Content.NewSchema;
+using Psh.MVPToolkit.Core.Infrastructure.FileSystem;
 using Psh.MVPToolkit.Core.Services.Localization;
 using Sources.Data.Models;
 using UnityEngine;
@@ -60,10 +61,12 @@ namespace Sources.Data.Repositories
         {
             var settings = new AppSettings
             {
-                ScreensaverTimeoutSeconds = 200, 
-                ScreensaverFile = null
+                ScreensaverTimeoutSeconds = 200,
+                ScreensaverFile = null,
+                ScreensaverEnabled = false
             };
 
+            
             // timeout
             var timeoutStr = SelectByTag(registry, "screensaver-timeout", preferredTag);
             if (!string.IsNullOrWhiteSpace(timeoutStr))
@@ -72,11 +75,20 @@ namespace Sources.Data.Repositories
                     settings.ScreensaverTimeoutSeconds = t;
             }
 
-            // screensaver file (może być tłumaczony lub stały)
+            // screensaver file 
             var saver = SelectByTag(registry, "screensaver-file", preferredTag);
-            if (!string.IsNullOrWhiteSpace(saver))
+            if (!string.IsNullOrWhiteSpace(saver) && File.Exists(ContentPathResolver.ResolveContentPath(saver)))
+            {
                 settings.ScreensaverFile = saver;
-
+                //can be enabled
+                var enabledStr = SelectByTag(registry, "screensaver-enabled", preferredTag);
+                if (!string.IsNullOrWhiteSpace(enabledStr))
+                {
+                    if (bool.TryParse(enabledStr, out var enabled))
+                        settings.ScreensaverEnabled = enabled;
+                }
+            }
+            
             return settings;
         }
 
