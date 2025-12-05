@@ -13,6 +13,7 @@ using Sources.Features.ScreensaverScreen.Presenter;
 using Sources.Infrastructure;
 using Sources.Infrastructure.Configuration;
 using Sources.Infrastructure.Input;
+using Sources.Infrastructure.Input.Services;
 using Sources.Infrastructure.Input.Sources;
 using Sources.Presentation.Management;
 using Sources.Presentation.Navigation;
@@ -91,6 +92,8 @@ namespace Sources
             
             // Service
             builder.Register<UnifiedInputService>(Lifetime.Singleton).AsImplementedInterfaces().AsSelf();
+            builder.Register<SerialPortService>(Lifetime.Singleton).AsImplementedInterfaces().AsSelf();
+                
         }
     }
     
