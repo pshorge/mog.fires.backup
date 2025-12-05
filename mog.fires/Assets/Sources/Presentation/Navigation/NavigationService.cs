@@ -9,6 +9,8 @@ using Psh.MVPToolkit.Core.Navigation;
 using Psh.MVPToolkit.Core.Services.Localization;
 using Sources.Features.ControlButtons.View;
 using Sources.Features.ScreensaverScreen.View;
+using Sources.Infrastructure.Input.Abstractions;
+using Sources.Infrastructure.Input.Actions;
 using Sources.Presentation.Core.Types;
 using Sources.Presentation.Management;
 using UnityEngine;
@@ -30,6 +32,8 @@ namespace Sources.Presentation.Navigation
 
         [Inject] private IInactivityService _inactivityService;
         [Inject] private ILocalizationService _localizationService;
+        [Inject] private IUnifiedInputService _inputService;
+        private readonly List<IDisposable> _inputSubscriptions = new();
         
         public event Action<ViewType> OnNavigated;
         public event Action<ViewType, ViewType> OnNavigating;
@@ -51,12 +55,14 @@ namespace Sources.Presentation.Navigation
         private void Start()
         {
             SubscribeToEvents(true);
+            SubscribeToInput();
             NavigateTo(ViewType.Screensaver);
         }
 
         private void OnDisable()
         {
             SubscribeToEvents(false);
+            UnsubscribeInput();
         }
 
         private void InitializeViews()
@@ -69,6 +75,40 @@ namespace Sources.Presentation.Navigation
             }
         }
 
+        private void SubscribeToInput()
+        {
+            if (_inputService == null) return;
+
+            // R -> Screensaver
+            _inputSubscriptions.Add(_inputService.Subscribe(InputActionType.NavigateHome, () => NavigateTo(ViewType.Screensaver)));
+            
+            // Space -> Forward
+            _inputSubscriptions.Add(_inputService.Subscribe(InputActionType.NavigateForward, NavigateForward));
+            
+            // Backspace -> Back
+            _inputSubscriptions.Add(_inputService.Subscribe(InputActionType.NavigateBack, NavigateBack));
+
+            // M / SPM -> Switch Globe/Map
+            _inputSubscriptions.Add(_inputService.Subscribe(InputActionType.SwitchMode, () =>
+            {
+                switch (CurrentView)
+                {
+                    case ViewType.Globe:
+                        NavigateTo(ViewType.Map);
+                        break;
+                    case ViewType.Map:
+                        NavigateTo(ViewType.Globe);
+                        break;
+                }
+            }));
+        }
+
+        private void UnsubscribeInput()
+        {
+            foreach (var sub in _inputSubscriptions) sub.Dispose();
+            _inputSubscriptions.Clear();
+        }
+        
         private void SubscribeToEvents(bool subscribe)
         {
             if (_inactivityService == null) return;
@@ -274,17 +314,6 @@ namespace Sources.Presentation.Navigation
                 Cursor.lockState = CursorLockMode.Locked;
                 Cursor.visible = false;
             }
-
-#if UNITY_EDITOR
-            // Dev helpers 
-            if(Input.GetKeyUp(KeyCode.Alpha1))
-                NavigateTo(ViewType.Screensaver);
-            if(Input.GetKeyUp(KeyCode.Return) || Input.GetKeyUp(KeyCode.Space) || Input.GetKeyUp(KeyCode.Alpha2))
-                NavigateForward();
-            if(Input.GetKeyUp(KeyCode.L))
-                _localizationService.ChangeLanguage();
-                
-#endif
         }
     }
 }

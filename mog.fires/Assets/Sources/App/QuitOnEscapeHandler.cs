@@ -1,30 +1,35 @@
-using UnityEngine;
+using System;
+using Sources.Infrastructure.Input.Abstractions;
+using Sources.Infrastructure.Input.Actions;
 using VContainer.Unity;
 
 namespace Sources.App
 {
-    public class QuitOnEscapeHandler : IInitializable, ITickable
+    public class QuitOnEscapeHandler : IStartable, IDisposable
     {
-        public void Initialize()
+        private readonly IUnifiedInputService _inputService;
+        private IDisposable _subscription;
+
+        public QuitOnEscapeHandler(IUnifiedInputService inputService)
         {
-            Debug.Log("[QuitOnEscape] Registered – press ESC to quit");
+            _inputService = inputService;
         }
 
-        public void Tick()
+        public void Start()
         {
-            if (Input.GetKeyDown(KeyCode.Escape))
-            {
-                QuitGame();
-            }
+            _subscription = _inputService.Subscribe(InputActionType.QuitApp, QuitGame);
         }
 
         private void QuitGame()
         {
-#if UNITY_EDITOR
-            UnityEditor.EditorApplication.isPlaying = false;
-#else
-        Application.Quit();
+#if !UNITY_EDITOR
+            UnityEngine.Application.Quit();
 #endif
+        }
+
+        public void Dispose()
+        {
+            _subscription?.Dispose();
         }
     }
 }

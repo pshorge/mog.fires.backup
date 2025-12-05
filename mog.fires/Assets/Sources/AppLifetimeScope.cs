@@ -11,6 +11,9 @@ using Sources.Features.MapScreen.Presenter;
 using Sources.Features.Popup.Presenter;
 using Sources.Features.ScreensaverScreen.Presenter;
 using Sources.Infrastructure;
+using Sources.Infrastructure.Input;
+using Sources.Infrastructure.Input.Mappings;
+using Sources.Infrastructure.Input.Sources;
 using Sources.Presentation.Management;
 using Sources.Presentation.Navigation;
 using VContainer;
@@ -72,6 +75,21 @@ namespace Sources
             // Control Panel Manager
             builder.Register<ControlPanelManager>(Lifetime.Singleton);
             
+            ConfigureInput(builder);
+        }
+
+        private void ConfigureInput(IContainerBuilder builder)
+        {
+            //config
+            builder.Register<InputMappingConfig>(Lifetime.Singleton);
+            
+            // Sources
+            builder.Register<KeyboardInputSource>(Lifetime.Singleton).AsImplementedInterfaces().AsSelf();
+            builder.Register<MouseInputSource>(Lifetime.Singleton).AsImplementedInterfaces().AsSelf();
+            builder.Register<SerialPortInputSource>(Lifetime.Singleton).AsImplementedInterfaces().AsSelf();
+            
+            // Service
+            builder.Register<UnifiedInputService>(Lifetime.Singleton).AsImplementedInterfaces().AsSelf();
         }
     }
     

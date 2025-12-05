@@ -38,7 +38,7 @@ namespace Sources.Features.ControlButtons.View
         // View configuration
         public override ViewType GetViewType() => ViewType.None;
         protected override string ContainerName => "control-panel";
-
+        
         [Inject]
         public void Initialize(AppContent content)
         {

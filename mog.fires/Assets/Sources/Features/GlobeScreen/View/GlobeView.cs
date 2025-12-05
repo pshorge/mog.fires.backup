@@ -9,6 +9,8 @@ using Sources.Features.GlobeScreen.Model;
 using Sources.Features.GlobeScreen.Presenter;
 using Sources.Features.Popup.Presenter;
 using Sources.Infrastructure;
+using Sources.Infrastructure.Input.Abstractions;
+using Sources.Infrastructure.Input.Actions;
 using Sources.Presentation.Core.Types;
 using Sources.Presentation.UI.Components;
 using UnityEngine;
@@ -59,8 +61,8 @@ namespace Sources.Features.GlobeScreen.View
         // Dependencies
         [Inject] protected override GlobePresenter Presenter { get; set; }
         [Inject] private PopupPresenter _popupPresenter;
-        [Inject] private INavigationFlowController<ViewType> _navigationController;
         [Inject] private EarthController _earthController;
+        [Inject] private IUnifiedInputService _inputService;
 
         // View configuration
         public override ViewType GetViewType() => ViewType.Globe;
@@ -103,15 +105,17 @@ namespace Sources.Features.GlobeScreen.View
             _disambiguationMenu = Container.Q<DisambiguationMenu>(UI.GlobeScreenDisambiguationMenuName);
             _markersContainer = Container.Q<VisualElement>(className: UI.GlobeScreenMarkersClass);
         }
-
+        
         private void RegisterEventHandlers()
         {
+            _inputService.OnAction += HandleInput;
             _timeline.SelectionChanged += OnTimelineSelectionChanged;
             Presenter.propertyChanged += OnPresenterPropertyChanged;
         }
 
         private void UnregisterEventHandlers()
         {
+            _inputService.OnAction -= HandleInput;
             _timeline.SelectionChanged -= OnTimelineSelectionChanged;
             Presenter.propertyChanged -= OnPresenterPropertyChanged;
         }
@@ -121,6 +125,69 @@ namespace Sources.Features.GlobeScreen.View
             if (e.propertyName == nameof(Presenter.VisiblePoints))
             {
                 RebuildMarkers();
+            }
+        }
+        
+        private void HandleInput(InputActionType action)
+        {
+            if (!IsVisible) return;
+
+            switch (action)
+            {
+                case InputActionType.Select:
+                    OnActionSelect();
+                    break;
+                case InputActionType.Back:
+                    OnActionBack();
+                    break;
+            }
+        }
+
+        private void OnActionSelect()
+        {
+            switch (_state)
+            {
+                case InteractionState.Roaming:
+                {
+                    if(_currentCandidates.Count > 1)
+                    {
+                        SetState(InteractionState.Disambiguation);
+                    }
+                    else if(_currentCandidates.Count == 1)
+                    {
+                        SetState(InteractionState.Details);
+                        TogglePopup(true, _currentCandidates[0].Data);
+                    }
+                    break;
+                }
+                case InteractionState.Disambiguation:
+                {
+                    var selected = _disambiguationMenu.GetSelectedItem();
+                    if (selected != null)
+                    {
+                        SetState(InteractionState.Details);
+                        TogglePopup(true, selected);
+                    }
+                    break;
+                }
+                case InteractionState.Details:
+                    SetState(InteractionState.Roaming);
+                    break;
+            }
+        }
+
+        private void OnActionBack()
+        {
+            switch (_state)
+            {
+                case InteractionState.Roaming:
+                    break;
+                case InteractionState.Details when _currentCandidates.Count > 1:
+                    SetState(InteractionState.Disambiguation);
+                    break;
+                case InteractionState.Disambiguation or InteractionState.Details :
+                    SetState(InteractionState.Roaming);
+                    break;
             }
         }
 
@@ -358,7 +425,6 @@ namespace Sources.Features.GlobeScreen.View
         protected override void Update()
         {
             base.Update();
-            
             UpdateMarkersPosition();
             
             switch (_state)
@@ -366,21 +432,12 @@ namespace Sources.Features.GlobeScreen.View
                 case InteractionState.Roaming:
                     UpdateCandidateSelection();
                     HandleTimelineInput(); 
-                    HandleRoamingInput();
                     break;
                     
                 case InteractionState.Disambiguation:
-                    HandleDisambiguationInput();
-                    break;
-                    
-                case InteractionState.Details:
-                    HandleDetailsInput();
+                    HandleMouseScrollMenu();
                     break;
             }
-            
-            if (Input.GetMouseButtonDown(2)) 
-                _navigationController.NavigateTo(ViewType.Map);
-
         }
         
         private void HandleTimelineInput()
@@ -392,63 +449,17 @@ namespace Sources.Features.GlobeScreen.View
             _timeline?.Nudge(dir * ScrollStep);
         }
         
-        private void HandleRoamingInput()
+        private void HandleMouseScrollMenu()
         {
-            if (!Input.GetMouseButtonDown(0)) return;
-            var count = _currentCandidates.Count;
-            switch (count)
-            {
-                case 0:
-                    return;
-                case 1:
-                    SetState(InteractionState.Details);
-                    TogglePopup(true, _currentCandidates[0].Data);
-                    break;
-                default:
-                    SetState(InteractionState.Disambiguation);
-                    break;
-            }
-        }
-        
-        private void HandleDisambiguationInput()
-        {
-            
             var y = Input.GetAxis("Mouse Y");
             _menuScrollAccumulator += y;
-
             if (Mathf.Abs(_menuScrollAccumulator) > menuScrollThreshold)
             {
-                // Move up (Y > 0) -> Prev element
-                // Move down (Y < 0) -> Next element
                 var dir = _menuScrollAccumulator > 0 ? -1 : 1;
                 if (dir < 0) _disambiguationMenu.SelectPrevious();
                 else _disambiguationMenu.SelectNext();
-                
                 _menuScrollAccumulator = 0f; 
             }
-
-            // Accept
-            if (Input.GetMouseButtonDown(0))
-            {
-                var selected = _disambiguationMenu.GetSelectedItem();
-                if (selected is not null)
-                {
-                    SetState(InteractionState.Details);
-                    TogglePopup(true, selected);
-                }
-            }
-            
-            //  Cancel
-            if (Input.GetMouseButtonDown(1))
-            {
-                SetState(InteractionState.Roaming);
-            }
-        }
-
-        private void HandleDetailsInput()
-        {
-            if (!Input.GetMouseButtonDown(0) && !Input.GetMouseButtonDown(1)) return;
-            SetState(InteractionState.Roaming);
         }
     }
 }

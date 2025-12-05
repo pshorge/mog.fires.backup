@@ -66,8 +66,8 @@ namespace Sources.Infrastructure
                 return;
             }
             
-            float mouseX = Input.GetAxis("Mouse X");
-            float mouseY = Input.GetAxis("Mouse Y");
+            float mouseX = UnityEngine.Input.GetAxis("Mouse X");
+            float mouseY = UnityEngine.Input.GetAxis("Mouse Y");
 
             int yawDirection = invertYaw ? -1 : 1;
             int pitchDirection = invertPitch ? -1 : 1;
