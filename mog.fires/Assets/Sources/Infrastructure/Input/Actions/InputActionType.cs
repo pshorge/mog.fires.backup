@@ -18,9 +18,6 @@ namespace Sources.Infrastructure.Input.Actions
         Select,            // 1 / LMB
         Back,              // 2 / RMB
         
-        //Scroll ? 
-        /*
-        NextItem,
-        PreviousItem*/
+        
     }
 }
