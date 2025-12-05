@@ -1,0 +1,82 @@
+# --- INPUT SETTINGS ---
+[Input]
+SelectionThresholdPixels = 100.0
+MenuScrollThreshold = 20.0
+ScrollStep = 1
+CursorSensitivity = 1.5
+CursorSmoothTime = 0.1
+
+[[Input.Keyboard]]
+Key = "L"
+Action = "ChangeLanguage"
+
+[[Input.Keyboard]]
+Key = "R"
+Action = "NavigateHome"
+
+[[Input.Keyboard]]
+Key = "Space"
+Action = "NavigateForward"
+
+[[Input.Keyboard]]
+Key = "Backspace"
+Action = "NavigateBack"
+
+[[Input.Keyboard]]
+Key = "M"
+Action = "SwitchMode"
+
+[[Input.Keyboard]]
+Key = "Alpha1"
+Action = "Select"
+
+[[Input.Keyboard]]
+Key = "Alpha2"
+Action = "Back"
+
+[[Input.Keyboard]]
+Key = "Escape"
+Action = "QuitApp"
+
+[[Input.Serial]]
+ButtonId = 1
+Action = "ChangeLanguage"
+
+
+# --- GLOBE SETTINGS ---
+[Globe]
+LonOffset = -100.0
+LatOffset = 0.0
+InvertLon = false
+
+
+# --- MAP SETTINGS ---
+[Map]
+# Original Map Image Dimensions (Reference Size)
+OriginalWidth = 1632.0
+OriginalHeight = 1621.0
+
+
+# Reference Points : Image Pixels -> Coordinates
+[Map.Ref1]
+Lat = 50.66211
+Lon = 17.69515
+X = 320.0
+Y = 263.0
+
+[Map.Ref2]
+Lat = 49.57325
+Lon = 19.53078
+X = 1524.0
+Y = 1353.0
+
+
+# --- GLOBE CAMERA SETTINGS ---
+[Camera]
+YawSensitivity = 0.12
+PitchSensitivity = 0.1
+Damping = 0.97
+InvertYaw = false
+InvertPitch = true
+MinPitch = -85.0
+MaxPitch = 85.0

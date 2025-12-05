@@ -11,8 +11,8 @@ using Sources.Features.MapScreen.Presenter;
 using Sources.Features.Popup.Presenter;
 using Sources.Features.ScreensaverScreen.Presenter;
 using Sources.Infrastructure;
+using Sources.Infrastructure.Configuration;
 using Sources.Infrastructure.Input;
-using Sources.Infrastructure.Input.Mappings;
 using Sources.Infrastructure.Input.Sources;
 using Sources.Presentation.Management;
 using Sources.Presentation.Navigation;
@@ -41,7 +41,9 @@ namespace Sources
             // Instances
             builder.RegisterInstance(settings);
             builder.RegisterInstance<ILocalizationService>(localizationService);
-            
+
+            AppConfig config = ConfigLoader.Load();
+            builder.RegisterInstance(config);
 
             var inactivityServiceSettings = new InactivityServiceSettings(settings.ScreensaverTimeoutSeconds);
             builder.RegisterInstance(inactivityServiceSettings);
@@ -80,8 +82,6 @@ namespace Sources
 
         private void ConfigureInput(IContainerBuilder builder)
         {
-            //config
-            builder.Register<InputMappingConfig>(Lifetime.Singleton);
             
             // Sources
             builder.Register<KeyboardInputSource>(Lifetime.Singleton).AsImplementedInterfaces().AsSelf();

@@ -1,8 +1,9 @@
 using System;
 using System.Collections.Generic;
+using Sources.Infrastructure.Configuration;
 using Sources.Infrastructure.Input.Abstractions;
 using Sources.Infrastructure.Input.Actions;
-using Sources.Infrastructure.Input.Mappings;
+using VContainer.Unity;
 
 namespace Sources.Infrastructure.Input.Sources
 {
@@ -17,11 +18,14 @@ namespace Sources.Infrastructure.Input.Sources
         public string SourceName => "SerialPort";
         public bool IsEnabled { get; set; } = true;
         
-        private readonly Dictionary<int, InputActionType> _mappings;
+        private readonly Dictionary<int, InputActionType> _mappings = new();
         
-        public SerialPortInputSource(InputMappingConfig config)
+        public SerialPortInputSource(AppConfig config)
         {
-            _mappings = config.GetSerialDictionary();
+            foreach (var binding in config.Input.Serial)
+            {
+                _mappings[binding.ButtonId] = binding.Action;
+            }
         }
        
         public void OnButtonPressed(int buttonId)
